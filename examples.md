@@ -21,6 +21,9 @@ Want to share your own here? Send a pull request, or [share in the chatroom](htt
 - **Kitty**
   - A minimal [Product Hunt](http://www.producthunt.com) client. Makes use of the [HTML to JSON parsing](templates.md#html) feature. [[website](http://www.jasonette.com/kitty)]
   - JSON: [http://www.jasonbase.com/things/nRp](http://www.jasonbase.com/things/nRp)
+- **Weather**
+  - Takes the device location, makes a network request to [openweathermap.org API](http://www.openweathermap.org), and then displays the result on the screen. Also uses `camera` as background display.
+  - JSON: [http://www.jasonbase.com/things/1wn](http://www.jasonbase.com/things/1wn)
 - **Eliza**
   - Eliza chatbot app. Uses a simple node.js server as backend. If you want to install the backend on your own server, here's the [full source](https://github.com/Jasonette/eliza-example).
   - JSON: [http://fureliza.herokuapp.com](http://fureliza.herokuapp.com)
