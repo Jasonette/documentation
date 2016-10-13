@@ -713,13 +713,13 @@ Take a snapshot and share
 ---
 
 ##$href
-- An action version of [href](interaction.md#href). Works the same way, but just another way to invoke href.
+- An action version of [href](href.md). Works the same way, but just another way to invoke href.
 - Use this when a component doesn't support `href` attribute directly but supports an `action`.
 - Sometimes it's useful when you want to invoke `href` without displaying a disclosure indicator. (href comes with a disclosure indicator by default)
 
 ### ■ options
 
-It's the same set of attributes as [href](interaction.md#href) since it simply invokes the href when triggered.
+It's the same set of attributes as [href](href.md) since it simply invokes the href when triggered.
 
   - `url`
     - the url to transition to
@@ -1564,7 +1564,7 @@ Share sheet | SMS example
 
 ## $util.picker
 
-Opens a multiple choice picker menu, with each item linking to an [action](interaction.md#action) or an [href](interaction.md#href).
+Opens a multiple choice picker menu, with each item linking to an [action](actions.md) or an [href](href.md).
 
 <br>
 
