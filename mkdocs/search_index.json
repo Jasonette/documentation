@@ -2,7 +2,7 @@
     "docs": [
         {
             "location": "/", 
-            "text": "Prerequisites\n\n\nLearn JSON syntax\n\n\nThe only thing you need to know to build a Jasonette app is JSON. If you are not familiar with JSON syntax, check out the link above, takes 2 minutes.\n\n\n\n\nTutorial Screencast\n\n\nLearn the basics\n\n\nThis video walks you through the basics of Jasonette, such as how it works, how to get started, etc.\n\n\n\n\n\n\n\n\n\n\n\nLearn JASON syntax\n\n\nThis video teaches you how to actually write a JSON markup to build sophisticated interactive layouts.\n\n\n\n\n\n\n\n\n\n\n\nDocumentation\n\n\nAnatomy of a Jason view\n\n\nLearn the basic structure of a JASON view\n\nJust like HTML has basic tags such as body, div, span, li, etc, Jasonette has JSON based tags to describe the structure of a view.\n\n\n\n\nComponents\n\n\nLearn component syntax\n\nComponents are the most basic units of user interface, such as image, label, textarea, button, slider, etc. \n\n\n\n\nLayout\n\n\nLearn layouts\n\nIn many cases we combine multiple components to contstruct a unit. We use layouts to do this.\n\n\n\n\nLink multiple views\n\n\nLearn linking\n\nAbove three sections are all you need to know to display content in a view. But what if we want multiple views? We can link them using \nhref\n.\n\n\n\n\nActions\n\n\nLearn actions\n\nActions define a task or a sequence of tasks you wish to run, such as network request, audio play, camera access, geolocation, dispalying banners, etc.\n\n\n\n\nTemplates\n\n\nLearn templates\n\nYou can use templates to dynamically render data, such as remote network content, local data, and user input.\n\n\n\n\nExamples\n\n\nActual JSON examples you can try out with Jasonette:\n\n\nTry examples here\n\n\n\n\nTroubleshoot\n\n\nSomething not working?", 
+            "text": "Prerequisites\n\n\nLearn JSON syntax\n\n\nThe only thing you need to know to build a Jasonette app is JSON. If you are not familiar with JSON syntax, check out the link above, takes 2 minutes.\n\n\n\n\nTutorial Screencast\n\n\nLearn the basics\n\n\nThis video walks you through the basics of Jasonette, such as how it works, how to get started, etc.\n\n\n\n\n\n\n\n\n\n\n\nLearn JASON syntax\n\n\nThis video teaches you how to actually write a JSON markup to build sophisticated interactive layouts.\n\n\n\n\n\n\n\n\n\n\n\nDocumentation\n\n\nAnatomy of a Jason view\n\n\nLearn the basic structure of a JASON view\n\nJust like HTML has basic tags such as body, div, span, li, etc, Jasonette has JSON based tags to describe the structure of a view.\n\n\n\n\nComponents\n\n\nLearn component syntax\n\nComponents are the most basic units of user interface, such as image, label, textarea, button, slider, etc. \n\n\n\n\nLayout\n\n\nLearn layouts\n\nIn many cases we combine multiple components to contstruct a unit. We use layouts to do this.\n\n\n\n\nLink multiple views\n\n\nLearn linking\n\nAbove three sections are all you need to know to display content in a view. But what if we want multiple views? We can link them using \nhref\n.\n\n\n\n\nActions\n\n\nLearn actions\n\nActions define a task or a sequence of tasks you wish to run, such as network request, audio play, camera access, geolocation, dispalying banners, etc.\n\n\n\n\nTemplates\n\n\nLearn templates\n\nYou can use templates to dynamically render data, such as remote network content, local data, and user input.\n\n\n\n\nExamples\n\n\nActual JSON examples you can try out with Jasonette:\n\n\nTry examples here\n\n\n\n\nTroubleshoot\n\n\nSomething not working?\n\n\n\n\n\"No provisioning...\" error\n\n\n\n\n\n\n\n\nJust press \"Fix Issue\" and sign in with your Apple account\n\n\nIf that doesn't work, read this post\n\n\n\n\n\"Untrusted Enterprise Developer\"\n\n\nKeep getting \"Untrusted Enterprise Developer\" alert when you try to open the installed app?\n\n\n\n\n\n\n\n\n\n\n\n\n\nOr read the Apple Guideline below:\n\n\nGuidelines for installing custom enterprise apps on iOS", 
             "title": "\u25a0 Getting started"
         }, 
         {
@@ -69,6 +69,21 @@
             "location": "/#troubleshoot", 
             "text": "Something not working?", 
             "title": "Troubleshoot"
+        }, 
+        {
+            "location": "/#no-provisioning-error", 
+            "text": "", 
+            "title": "\"No provisioning...\" error"
+        }, 
+        {
+            "location": "/#just-press-fix-issue-and-sign-in-with-your-apple-account", 
+            "text": "If that doesn't work, read this post", 
+            "title": "Just press \"Fix Issue\" and sign in with your Apple account"
+        }, 
+        {
+            "location": "/#untrusted-enterprise-developer", 
+            "text": "Keep getting \"Untrusted Enterprise Developer\" alert when you try to open the installed app?       Or read the Apple Guideline below:  Guidelines for installing custom enterprise apps on iOS", 
+            "title": "\"Untrusted Enterprise Developer\""
         }, 
         {
             "location": "/examples/", 
@@ -2237,18 +2252,18 @@
         }, 
         {
             "location": "/faq/", 
-            "text": "I can run it on the simulator but can't run it on my phone!\n\n\nXCode asks me to sign", 
-            "title": "\u25a0 FAQ"
+            "text": "\"No provisioning...\" error\n\n\n\n\n\n\n\n\nJust press \"Fix Issue\" and sign in with your Apple account\n\n\nIf that doesn't work, read this post\n\n\n\n\n\"Untrusted Enterprise Developer\"\n\n\nKeep getting \"Untrusted Enterprise Developer\" alert when you try to open the installed app?\n\n\n\n\n\n\n\n\n\n\n\n\n\nOr read the Apple Guideline below:\n\n\nGuidelines for installing custom enterprise apps on iOS", 
+            "title": "\u25a0 Troubleshoot"
         }, 
         {
-            "location": "/faq/#i-can-run-it-on-the-simulator-but-cant-run-it-on-my-phone", 
-            "text": "", 
-            "title": "I can run it on the simulator but can't run it on my phone!"
+            "location": "/faq/#no-provisioning-error", 
+            "text": "Just press \"Fix Issue\" and sign in with your Apple account  If that doesn't work, read this post", 
+            "title": "\"No provisioning...\" error"
         }, 
         {
-            "location": "/faq/#xcode-asks-me-to-sign", 
-            "text": "", 
-            "title": "XCode asks me to sign"
+            "location": "/faq/#untrusted-enterprise-developer", 
+            "text": "Keep getting \"Untrusted Enterprise Developer\" alert when you try to open the installed app?       Or read the Apple Guideline below:  Guidelines for installing custom enterprise apps on iOS", 
+            "title": "\"Untrusted Enterprise Developer\""
         }
     ]
 }
