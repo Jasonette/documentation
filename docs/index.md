@@ -11,12 +11,17 @@ The only thing you need to know to build a Jasonette app is JSON. If you are not
 ### Learn the basics
 This video walks you through the basics of Jasonette, such as how it works, how to get started, etc.
 <br><br>
+<div class='video-container'>
 <iframe width="640" height="360" src="https://www.youtube.com/embed/hfevBAAfCMQ?rel=0" frameborder="0" allowfullscreen></iframe>
+</div>
+
 ---
 ### Learn JASON syntax
 This video teaches you how to actually write a JSON markup to build sophisticated interactive layouts.
 <br><br>
+<div class='video-container'>
 <iframe width="640" height="360" src="https://www.youtube.com/embed/S7yGejKIH6Q?rel=0" frameborder="0" allowfullscreen></iframe>
+</div>
 ---
 
 # Documentation

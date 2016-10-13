@@ -1,10 +1,10 @@
-#──── $jason ────
+#── $jason ──
 
 A Jason document always starts with `$jason` as its root node, and has two children: `head` and `body`, each of which has multiple children of its own.
 
 ---
 
-#──── head ────
+#── head ──
 
 The head contains a set of metadata that doesn't get displayed directly.  The title attribute is mandatory. Rest of the attributes are optional.
 
@@ -211,7 +211,7 @@ You can dynamically render any data using templates. Templates are registered un
 
 ---
 
-#──── body ────
+#── body ──
 
 Body contains everything that gets displayed on the screen. A body is made up of the following view elements.
 
