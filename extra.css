@@ -17,7 +17,9 @@ body {
   height: 100%;
 }
 pre{
+/*
   font-size: 12px !important;
+*/
   overflow: auto;
   border: 1px solid whitesmoke;
   border-radius: 2px;
@@ -126,8 +128,10 @@ h1,h2,h3,h4,h5,h6{
 margin:10px 0 !important;
 }
 p{
+/*
   font-size: 14px;
   line-height: 18px;
+*/
   margin-top: 7px;
   margin-bottom: 7px;
 }
@@ -137,8 +141,13 @@ p{
 ol{
   line-height: 20px !important;
 }
+/*
 code{
   font-size:12px !important;
+}
+*/
+code, .rst-content tt{
+  font-size: 100%;
 }
 h3, h4, h5, h6{
   color: #404040 !important;
