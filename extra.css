@@ -58,12 +58,14 @@ pre{
 .wy-menu-vertical span{
   color: white;
 }
+.wy-nav-content-wrap{
+  background: white;
+}
 .wy-menu-vertical li.current a{
   color: white;
   border:none !important;
 }
 .wy-nav-content{
-  max-width: 100%;
   background: white;
   overflow-wrap: break-word;
   word-wrap: break-word;
