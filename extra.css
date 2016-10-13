@@ -19,6 +19,9 @@ body {
 pre{
   font-size: 12px !important;
   overflow: auto;
+  border: 1px solid whitesmoke;
+  border-radius: 2px;
+  padding: 10px;
 }
 #rtd-search-form input[type=text]{
   border:none;
