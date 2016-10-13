@@ -873,7 +873,7 @@ In the example below, an <code>action</code> is attached to a <code>slider</code
 <p><code>$render</code> redraws an existing template you already downloaded, using dynamic data. <code>$reload</code> completely refreshes the current URL. Here's an example scenario:</p>
 <ol>
 <li>Jason view loads and fetches a JSON markup from the server (<code>main.json</code>)</li>
-<li><code>main.json</code> makes an API request to Twitter to fetch Tweets. (<code>https://api.twitter.com/1.1/statuses/user_timeline.json</code>)</li>
+<li><code>main.json</code> makes an API request to Twitter to fetch Tweets. (https://api.twitter.com/1.1/statuses/user_timeline.json)</li>
 <li>Then it renders the result using its <code>body</code> template, which is under <code>$jason.head.templates.body</code> in <code>main.json</code>.</li>
 <li>From this point on, calling <code>$render</code> simply takes the <code>$jason.head.templates.body</code> we have in memory, and renders whatever data we pass in.</li>
 <li>However calling <code>$reload</code> will make a full refresh, going back to step 1.</li>
@@ -1186,7 +1186,7 @@ Here's an example of signing into a website by making an HTML data_type <code>$n
 <h4 id="3-the-server-should-return-a-signed-url-for-s3">3. The server should return a signed url for S3.</h4>
 <blockquote>
 <p>The <code>sign_url</code> attribute is the URL to your server, and your server should generate a signed url and return the result in the following format:</p>
-<p><code>{ "$jason": "https://s3.amazonaws.com/...../...?AWSAccessKeyId=.....&amp;Expires=.....&amp;Signature=....."}</code></p>
+<p><strong>{ "$jason": "https://s3.amazonaws.com/...../...?AWSAccessKeyId=.....&amp;Expires=.....&amp;Signature=....."}</strong></p>
 <p><strong><a href="https://github.com/Jasonette/s3-upload-example">See the full server side code</a></strong> to learn how to generate signed urls.</p>
 </blockquote>
 <h4 id="4-the-client-then-uploads-the-content-passed-in-as-data-to-the-just-generated-signed-url-using-a-randomly-generated-filename">4. The client then uploads the content passed in as <code>data</code> to the just generated signed url, using a randomly generated filename.</h4>
@@ -1258,7 +1258,7 @@ Check out the full code on Github:</p>
 <p>When you return above response from your server, here's what will happen:</p>
 <ol>
 <li>Jasonette will automatically store the <code>$session</code> object for the URL.</li>
-<li>In this case, all subsequent <code>$network.request</code> actions to this domain will automatically attach <code>{"username": "ethan", "auth_token": "39fj3lsf9djfjs"}</code> to the request <strong>header</strong>, so that the server understands it's you.</li>
+<li>In this case, all subsequent <code>$network.request</code> actions to this domain will automatically attach <strong>{"username": "ethan", "auth_token": "39fj3lsf9djfjs"}</strong> to the request <strong>header</strong>, so that the server understands it's you.</li>
 <li>If you want each subsequent requests to attach session objects to their <code>body</code> parameters instead of <code>header</code>, simply return the <code>$session</code> object with <code>body</code> attribute instead.</li>
 </ol>
 <hr />

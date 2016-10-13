@@ -263,7 +263,7 @@
 <hr />
 <h4 id="step-2-implement-the-builder-method">Step 2. Implement the builder method</h4>
 <p>You only need to implement a single class method:</p>
-<p><code>+ (UIView*)build:(NSDictionary*)json withOptions:(NSDictionary*)options</code>.</p>
+<p><strong>+ (UIView<em>)build:(NSDictionary</em>)json withOptions:(NSDictionary*)options</strong>.</p>
 <p>Basically it's a builder method that takes a JSON snippet in NSDictionary format and creates a UIView subclass. It can be a UILabel, UIButton, or whatever, as long as it's a subclass of <code>UIView</code>.</p>
 <p>Customize it using the info passed in from the <code>json</code> parameter, and finally return the <code>UIView</code> once you're done.</p>
 <p>Here's what the most primitive version would look like:</p>
@@ -291,7 +291,7 @@
 <p>So how does this work behind the scenes? Whenever Jasonette encounters a component description, </p>
 <ol>
 <li>It looks at its <code>type</code> first. Here we see the <code>{"type": "map"}</code>, so it's a <code>map</code> component.</li>
-<li>Based on this, it looks for a class named <code>JasonMapComponent</code> (Remember the naming convention is <code>Jason(COMPONENT_NAME_WITH_FIRST_LETTER_CAPITALIZED)Component</code>)</li>
+<li>Based on this, it looks for a class named <code>JasonMapComponent</code> (Remember the naming convention is: <strong>Jason(COMPONENT_NAME_WITH_FIRST_LETTER_CAPITALIZED)Component</strong></li>
 <li>When it finds the component class, it runs its <code>build:withOptions:</code> method to finally build the component.</li>
 </ol>
 <p>Of course, this is a simplified version of how the actual <code>map</code> component works. In reality the <code>json</code> object would contain more information than just <code>{ "type": "map" }</code>. It may look something like this:</p>
@@ -347,12 +347,14 @@
 }
 @end
 </code></pre>
-<p>Here we implement <code>+ (void)mapView:(MKMapView *)mapView didUpdateUserLocation:(MKUserLocation *)userLocation</code> to handle MapKit events.</p>
+<p>Here we implement</p>
+<p><strong>+ (void)mapView:(MKMapView <em>)mapView didUpdateUserLocation:(MKUserLocation </em>)userLocation</strong></p>
+<p>to handle MapKit events.</p>
 <hr />
 <h4 id="c-take-advantage-of-the-built-in-stylize-method">C. Take advantage of the built-in stylize method</h4>
 <p>A lot of style attributes such as background, width, height, corner_radius, opacity, etc. are common across various types of components.</p>
 <p><code>JasonComponent</code> class has a built-in method that you can utilize to automatically apply these styles. It's called:</p>
-<p><code>+ (void) stylize: (NSDictionary *)json component: (UIView *)component</code>.</p>
+<p><strong>+ (void) stylize: (NSDictionary <em>)json component: (UIView </em>)component</strong>.</p>
 <p>Just by calling this method once, you can take advantage of all the following style attributes right out of the box!</p>
 <pre><code>{
   "type": "mycustomitem",
@@ -669,8 +671,8 @@ UINavigationController *nav = [[UINavigationController alloc] initWithRootViewCo
 <p>Here's how to transition from a Jasonette view to your custom non-Jasonette view:</p>
 <h3 id="option-a-using-storyboard">Option A. Using Storyboard</h3>
 <p>It works exactly the same as normal Jasonette transitions--simply attach an <code>href</code> and set its <code>view</code> attribute.</p>
-<p><strong>You need to name it like this:</strong></p>
-<p><code>[STORYBOARD NAME].[STORYBOARD IDENTIFIER FOR THE VIEWCONTROLLER]</code></p>
+<p>You need to name it like this:</p>
+<p><strong>[STORYBOARD NAME].[STORYBOARD IDENTIFIER FOR THE VIEWCONTROLLER]</strong></p>
 <p>For example, to transition to a viewcontroller which has a storyboard ID of <code>PaymentViewController</code> on a storyboard named <code>MainStoryboard.storyboard</code>, we do the following:</p>
 <pre><code>{
   "type": "label",
