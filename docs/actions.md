@@ -657,7 +657,7 @@ In this case we could pass `{"template": "empty_template"}` as an option, like t
 5. However calling `$reload` will make a full refresh, going back to step 1.
 
 ###Conclusion
-- In most cases, you call `$render` at the end of an [action call chain](https://github.com/Jasonette/documentation/blob/master/interaction.md#action), rendering the `$jason` return value from its preceding action.
+- In most cases, you call `$render` at the end of an action call chain, rendering the `$jason` return value from its preceding action.
 - Also, in most cases `$render` is used without specifying `template` or `data` options.
 	- Just don't forget to have a template under `$jason.head.templates.body`, since `$render` will automatically render that.
 - Also, remember that you can access the return value using `$jason` from the template.
