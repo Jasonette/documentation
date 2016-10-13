@@ -1,5 +1,5 @@
 site_name: Jasonette
-google_analytics: ['UA-54282166-8', 'jasonette.github.io/documentation']
+google_analytics: ['UA-54282166-8', 'auto']
 pages: 
 - ■ Getting started: index.md
 - ■ Examples: examples.md
