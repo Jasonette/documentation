@@ -1,0 +1,20 @@
+site_name: jasonette
+pages: 
+- ■ Getting started: index.md
+- ■ Examples: examples.md
+#- Reference: reference.md
+- ■ Reference:
+  - ★ View: document.md
+  - ★ Link: href.md
+  - ★ Actions: actions.md
+  - ★ Components: components.md
+#  - Interaction: interaction.md
+  - ★ Layout: layout.md
+  - ★ Templates: templates.md
+- ■ Convention: convention.md
+- ■ Extending Jasonette (advanced): advanced.md
+- ■ FAQ: faq.md
+theme: readthedocs
+#theme: simplex
+#theme: flatly
+repo_url: https://github.com/Jasonette/documentation
