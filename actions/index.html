@@ -1,0 +1,2912 @@
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  
+  
+  <title>★ Actions - jasonette</title>
+  
+
+  <link rel="shortcut icon" href="../img/favicon.ico">
+
+  
+  <link href='https://fonts.googleapis.com/css?family=Lato:400,700|Roboto+Slab:400,700|Inconsolata:400,700' rel='stylesheet' type='text/css'>
+
+  <link rel="stylesheet" href="../css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="../css/theme_extra.css" type="text/css" />
+  <link rel="stylesheet" href="../css/highlight.css">
+  <link href="../extra.css" rel="stylesheet">
+
+  
+  <script>
+    // Current page data
+    var mkdocs_page_name = "★ Actions";
+    var mkdocs_page_input_path = "actions.md";
+    var mkdocs_page_url = "/actions/";
+  </script>
+  
+  <script src="../js/jquery-2.1.1.min.js"></script>
+  <script src="../js/modernizr-2.8.3.min.js"></script>
+  <script type="text/javascript" src="../js/highlight.pack.js"></script>
+  <script src="../js/theme.js"></script> 
+
+  
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+  <div class="wy-grid-for-nav">
+
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side stickynav">
+      <div class="wy-side-nav-search">
+        <a href=".." class="icon icon-home"> jasonette</a>
+        <div role="search">
+  <form id ="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+  </form>
+</div>
+      </div>
+
+      <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+        <ul class="current">
+          
+            <li>
+    <li class="toctree-l1 ">
+        <a class="" href="..">■ Getting started</a>
+        
+    </li>
+<li>
+          
+            <li>
+    <li class="toctree-l1 ">
+        <a class="" href="../examples/">■ Examples</a>
+        
+    </li>
+<li>
+          
+            <li>
+    <ul class="subnav">
+    <li><span>■ Reference</span></li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../document/">★ View</a>
+        
+    </li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../href/">★ Link</a>
+        
+    </li>
+
+        
+            
+    <li class="toctree-l1 current">
+        <a class="current" href="./">★ Actions</a>
+        
+            <ul>
+            
+                <li class="toctree-l3"><a href="#how-do-actions-work">How do actions work?</a></li>
+                
+                    <li><a class="toctree-l4" href="#syntax">Syntax</a></li>
+                
+                    <li><a class="toctree-l4" href="#example">Example</a></li>
+                
+                    <li><a class="toctree-l4" href="#return-values">Return values</a></li>
+                
+                    <li><a class="toctree-l4" href="#where-to-use-actions">Where to use actions?</a></li>
+                
+            
+                <li class="toctree-l3"><a href="#declaring-actions">Declaring actions</a></li>
+                
+                    <li><a class="toctree-l4" href="#inline-action">Inline Action</a></li>
+                
+                    <li><a class="toctree-l4" href="#action-registry">Action Registry</a></li>
+                
+            
+                <li class="toctree-l3"><a href="#api">API</a></li>
+                
+                    <li><a class="toctree-l4" href="#view">──── VIEW ────</a></li>
+                
+                    <li><a class="toctree-l4" href="#reload">$reload</a></li>
+                
+                    <li><a class="toctree-l4" href="#render">$render</a></li>
+                
+                    <li><a class="toctree-l4" href="#snapshot">$snapshot</a></li>
+                
+                    <li><a class="toctree-l4" href="#href">$href</a></li>
+                
+                    <li><a class="toctree-l4" href="#close">$close</a></li>
+                
+                    <li><a class="toctree-l4" href="#back">$back</a></li>
+                
+                    <li><a class="toctree-l4" href="#network">── NETWORK ──</a></li>
+                
+                    <li><a class="toctree-l4" href="#networkrequest">$network.request</a></li>
+                
+                    <li><a class="toctree-l4" href="#networkupload">$network.upload</a></li>
+                
+                    <li><a class="toctree-l4" href="#networkauth">$network.auth</a></li>
+                
+                    <li><a class="toctree-l4" href="#networkunauth">$network.unauth</a></li>
+                
+                    <li><a class="toctree-l4" href="#variable">── VARIABLE ──</a></li>
+                
+                    <li><a class="toctree-l4" href="#set">$set</a></li>
+                
+                    <li><a class="toctree-l4" href="#get">$get</a></li>
+                
+                    <li><a class="toctree-l4" href="#cache">── CACHE ──</a></li>
+                
+                    <li><a class="toctree-l4" href="#cache-vs-local-variable">Cache vs. Local variable</a></li>
+                
+                    <li><a class="toctree-l4" href="#write">Write</a></li>
+                
+                    <li><a class="toctree-l4" href="#read">Read</a></li>
+                
+                    <li><a class="toctree-l4" href="#reset">Reset</a></li>
+                
+                    <li><a class="toctree-l4" href="#util">── UTIL ──</a></li>
+                
+                    <li><a class="toctree-l4" href="#utilbanner">$util.banner</a></li>
+                
+                    <li><a class="toctree-l4" href="#utiltoast">$util.toast</a></li>
+                
+                    <li><a class="toctree-l4" href="#utilalert">$util.alert</a></li>
+                
+                    <li><a class="toctree-l4" href="#utilshare">$util.share</a></li>
+                
+                    <li><a class="toctree-l4" href="#utilpicker">$util.picker</a></li>
+                
+                    <li><a class="toctree-l4" href="#utildatepicker">$util.datepicker</a></li>
+                
+                    <li><a class="toctree-l4" href="#utiladdressbook">$util.addressbook</a></li>
+                
+                    <li><a class="toctree-l4" href="#media">── MEDIA ──</a></li>
+                
+                    <li><a class="toctree-l4" href="#mediacamera">$media.camera</a></li>
+                
+                    <li><a class="toctree-l4" href="#mediapicker">$media.picker</a></li>
+                
+                    <li><a class="toctree-l4" href="#mediaplay">$media.play</a></li>
+                
+                    <li><a class="toctree-l4" href="#audio">── AUDIO ──</a></li>
+                
+                    <li><a class="toctree-l4" href="#audioplay">$audio.play</a></li>
+                
+                    <li><a class="toctree-l4" href="#audiopause">$audio.pause</a></li>
+                
+                    <li><a class="toctree-l4" href="#audiostop">$audio.stop</a></li>
+                
+                    <li><a class="toctree-l4" href="#audioseek">$audio.seek</a></li>
+                
+                    <li><a class="toctree-l4" href="#audioposition">$audio.position</a></li>
+                
+                    <li><a class="toctree-l4" href="#audioduration">$audio.duration</a></li>
+                
+                    <li><a class="toctree-l4" href="#audiorecord">$audio.record</a></li>
+                
+                    <li><a class="toctree-l4" href="#geo">── GEO ──</a></li>
+                
+                    <li><a class="toctree-l4" href="#geoget">$geo.get</a></li>
+                
+                    <li><a class="toctree-l4" href="#timer">── TIMER ──</a></li>
+                
+                    <li><a class="toctree-l4" href="#timerstart">$timer.start</a></li>
+                
+                    <li><a class="toctree-l4" href="#timerstop">$timer.stop</a></li>
+                
+                    <li><a class="toctree-l4" href="#conversion">── CONVERSION ──</a></li>
+                
+                    <li><a class="toctree-l4" href="#convertcsv">$convert.csv</a></li>
+                
+                    <li><a class="toctree-l4" href="#convertrss">$convert.rss</a></li>
+                
+            
+            </ul>
+        
+    </li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../components/">★ Components</a>
+        
+    </li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../layout/">★ Layout</a>
+        
+    </li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../templates/">★ Templates</a>
+        
+    </li>
+
+        
+    </ul>
+<li>
+          
+            <li>
+    <li class="toctree-l1 ">
+        <a class="" href="../convention/">■ Convention</a>
+        
+    </li>
+<li>
+          
+            <li>
+    <li class="toctree-l1 ">
+        <a class="" href="../advanced/">■ Extending Jasonette (advanced)</a>
+        
+    </li>
+<li>
+          
+            <li>
+    <li class="toctree-l1 ">
+        <a class="" href="../faq/">■ FAQ</a>
+        
+    </li>
+<li>
+          
+        </ul>
+      </div>
+      &nbsp;
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" role="navigation" aria-label="top navigation">
+        <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+        <a href="..">jasonette</a>
+      </nav>
+
+      
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="breadcrumbs navigation">
+  <ul class="wy-breadcrumbs">
+    <li><a href="..">Docs</a> &raquo;</li>
+    
+      
+        
+          <li>■ Reference &raquo;</li>
+        
+      
+    
+    <li>★ Actions</li>
+    <li class="wy-breadcrumbs-aside">
+      
+        
+          <a href="https://github.com/Jasonette/documentation" class="icon icon-github"> Edit on GitHub</a>
+        
+      
+    </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main">
+            <div class="section">
+              
+                <h1 id="how-do-actions-work">How do actions work?</h1>
+<p>Attach action attributes to UI elements and they will get called whenever a user touches them.</p>
+<h2 id="syntax">Syntax</h2>
+<p>Actions can take the following 5 attributes</p>
+<ul>
+<li><code>type</code>: Specify <a href="#api">action type</a>.</li>
+<li><code>options</code>: Arguments to be passed into the action (optional)</li>
+<li><code>success</code>: Another action to be called when the current action finishes. You can chain multiple actions to execute in sequence this way. (optional)</li>
+<li><code>error</code>: You can handle exceptions by attaching <code>error</code> to an action. (optional)</li>
+<li><code>trigger</code>: Or you can simply <a href="#triggerring-an-action-by-name">trigger an existing action by name</a></li>
+</ul>
+<h2 id="example">Example</h2>
+<h3 id="network-request-and-then-render">Network request and then render</h3>
+<p>Make a network request and <code>$render</code> its content when it succeeds.</p>
+<pre><code>{
+  "action": {
+    "type": "$network.request",
+    "options": {
+      "url": "https://jasonbase.com/things/jYJ.json"
+    },
+    "success": {
+      "type": "$render"
+    }
+  }
+}
+</code></pre>
+<h3 id="network-request-and-then-render-with-error-handling">Network request and then render, with error handling</h3>
+<p>Same as above, except display a banner when the request fails.</p>
+<pre><code>{
+  "action": {
+    "type": "$network.request",
+    "options": {
+      "url": "https://jasonbase.com/things/jYJ.json"
+    },
+    "success": {
+      "type": "$render"
+    },
+    "error": {
+      "type": "$util.banner",
+      "options": {
+        "title": "Error",
+        "description": "Something went wrong."
+      }
+    }
+  }
+}
+</code></pre>
+<h3 id="triggerring-an-action-by-name">Triggerring an action by name</h3>
+<p>First, you need to define the action inside <code>head.actions</code>. In this case we name it <code>refresh_view</code>:</p>
+<pre><code>{
+  "$jason": {
+    "head": {
+      "actions": {
+        "refresh_view": {
+          "type": "$network.request",
+          "options": {
+            "url": "https://jasonbase.com/things/jYJ.json"
+          },
+          "success": {
+            "type": "$render"
+          }
+        }
+      },
+  ...
+}
+</code></pre>
+<p>Second, to actually trigger it by name, just attach an action with a <code>trigger</code> attribute, like this:</p>
+<pre><code>{
+  "type": "label",
+  "text": "Refresh",
+  "action": {
+    "trigger": "refresh_view"
+  }
+}
+</code></pre>
+<h2 id="return-values">Return values</h2>
+<p>You can access an action's return value by using the variable <code>$jason</code> from the next action (either the <code>success</code> or the <code>error</code> action).</p>
+<p>For example, <code>$geo.get</code> action returns the geolocation of the current device in the following format:</p>
+<pre><code>{
+  "coords": "51.5032510,-0.1278950"
+}
+</code></pre>
+<p>Which means we can use this return value by accessing the <code>$jason</code> variable, using a <a href="../templates/">template</a> like this:</p>
+<pre><code>{
+  "type": "$geo.get",
+  "success": {
+    "type": "$util.banner",
+    "options": {
+      "title": "Your current coordinate",
+      "description": "{{$jason.coords}}"
+    }
+  }
+}
+</code></pre>
+<h2 id="where-to-use-actions">Where to use actions?</h2>
+<p>Actions can be used in various situations:</p>
+<ul>
+<li>Handling user interaction</li>
+<li>Handling another action's result</li>
+<li>Handling system events</li>
+</ul>
+<p>Let's go through each:</p>
+<h3 id="a-handling-user-interaction">A. Handling user interaction</h3>
+<h4 id="user-touches-an-item">■ User touches an item</h4>
+<p>Attach <code>action</code> attribute to <code>items</code>, <code>menu</code>, <code>layers</code>, etc. to react to touch. (Read API documentation to see if a component supports <code>action</code> attribute)</p>
+<p>In the example below, an <code>action</code> is attached to a <code>menu</code>, so it gets triggered when user touches it.</p>
+<pre><span style='color:silver;'>{
+  "head": {
+    ...
+  },
+  "body": {
+    "header": {
+      "menu": {
+        "text": "Press me",
+        <span style='color:black;'>"action": {
+          "type": "$util.alert",
+          "options": {
+            "title": "Good job!",
+            "description": "You know how to press a button!"
+          }
+        }</span>
+      }
+    },
+    ...
+  }
+}</span></pre>
+
+<h4 id="user-changes-a-form-input-value">■ User changes a form input value</h4>
+<p>There are some form input components such as <a href="../components/#slider">slider</a>, <a href="../document/#search">search</a>, etc. which trigger an action whenever its value changes. Just attach <code>action</code> attribute to handle that event.
+In the example below, an <code>action</code> is attached to a <code>slider</code>, so we can display a banner with the current value whenever user changes the value.</p>
+<pre><span style='color:silver;'>{
+  ...
+  {
+    "type": "slider",
+    "name": "gauge",
+    <span style='color:black;'>"action": {
+      "type": "$util.banner",
+      "options": {
+        "title": "Current value",
+        "description": "{{$get.gauge}}"
+      }
+    }</span>
+  }
+  ...
+}</span></pre>
+
+<h3 id="b-handling-another-actions-result">B. Handling another action's result</h3>
+<p>All actions can have a <code>success</code> and an <code>error</code> attribute.</p>
+<ul>
+<li><code>success</code> points to an action to be triggered after the current action finishes.</li>
+<li><code>error</code> points to an action to be triggered if something goes wrong with the current action.</li>
+</ul>
+<p>By using <code>success</code>, we can chain multiple actions.</p>
+<p>In the example below, a <code>$network.request</code> action gets called when a user touches the label, renders the result when it succeeds (<code>success</code>), and displays an error message when something goes wrong (<code>error</code>).</p>
+<pre><span style='color:silver;'>{
+  ...
+  {
+    "type": "label",
+    "text": "Touch me",
+    "action": {
+      <span style='color:blue;'>"type": "$network.request",
+      "options": {
+        "url": "https://www.jasonclient.org/items.json"
+      },</span>
+      <span style='color:#ff0000;'>"success": {
+        <span style='color:blue;'>"type": "$render"</span>
+      },
+      "error": {
+        <span style='color:blue;'>"type": "$util.banner",
+        "options": {
+          "title": "Error",
+          "description": "Uh oh, something went wrong."
+        }</span>
+      }</span>
+    }
+  }
+  ...
+}</span></pre>
+
+<h3 id="c-handling-system-events">C. Handling system events</h3>
+<p><a href="#system-events">System events</a> are events automatically triggered by the system, instead of through user input.</p>
+<p>You can attach any <code>action</code> to system events, such as <code>$load</code>, <code>$show</code>, <code>$foreground</code>, etc.</p>
+<p>Here's a brief example:</p>
+<pre><code>{
+  "$jason": {
+    "head": {
+      "actions": {
+        "$load": {
+          "type": "$network.request",
+          "options": {
+            "url": "https://jasonbase.com/things/jYJ.json"
+          },
+          "success": {
+            "type": "$render"
+          }
+        },
+        "$show": {
+          "type": "$reload"
+        },
+        "$foreground": {
+          "type": "$reload"
+        }
+      }
+    },
+    ...
+  }
+}
+</code></pre>
+<p><strong><a href="#system-events">Learn more about system events</a></strong></p>
+<hr />
+<h1 id="declaring-actions">Declaring actions</h1>
+<p>There are two ways you can call actions:</p>
+<p><strong><a href="#inline-action">1. Inline action</a></strong></p>
+<p>Attach <code>action</code> attributes directly to UI elements</p>
+<p><strong><a href="#action-registry">2. Action registry</a></strong></p>
+<p>Define actions inside <code>$jason.head.actions</code> and call them by name</p>
+<hr />
+<h2 id="inline-action">Inline Action</h2>
+<p>Inline actions are basically what we've been talking about so far. You directly attach an <code>action</code> to events, UI components, and another action. Here's an example:</p>
+<pre><code>{
+  ...
+  "type": "label",
+  "action": {
+    "type": "$util.banner",
+    "options": {
+      "title": "Hello",
+      "description": "World"
+    }
+  }
+  ...
+}
+</code></pre>
+<hr />
+<h2 id="action-registry">Action Registry</h2>
+<p>We can define an action once and refer to them whenever we need to, instead of writing one for every situation.</p>
+<h3 id="comparison-with-inline-actions">■   Comparison with inline actions</h3>
+<p>For example, here's an <code>inline action</code> example. We display multiple <code>items</code>, and each item has the same <code>action</code> attribute content.</p>
+<pre><span style='color:silver;'>{
+  "$jason": {
+    "head": {
+      ...
+    },
+    "body": {
+      "sections": [{
+        "items": [{
+          "type": "label",
+          "text": "This is row 1",
+          <span style='color:black'>"action": {
+            "type": "$network.request",
+            "options": {
+              "url": "https://jasonclient.org/submit",
+              "method": "POST"
+            },
+            "success": {
+              "type": "$render"
+            }
+          }</span>
+        }, {
+          "type": "label",
+          "text": "This is row 2",
+          <span style='color:black'>"action": {
+            "type": "$network.request",
+            "options": {
+              "url": "https://jasonclient.org/submit",
+              "method": "POST"
+            },
+            "success": {
+              "type": "$render"
+            }
+          }</span>
+        }, {
+          "type": "label",
+          "text": "This is row 3",
+          <span style='color:black'>"action": {
+            "type": "$network.request",
+            "options": {
+              "url": "https://jasonclient.org/submit",
+              "method": "POST"
+            },
+            "success": {
+              "type": "$render"
+            }
+          }</span>
+        }]
+      }]
+    }
+  }
+}</span></pre>
+
+<p>Below we have the same example, but using <code>$jason.head.actions</code> instead of re-defining the same action every time inline:</p>
+<pre><span style='color:silver;'>{
+  "$jason": {
+    "head": {
+      ...
+      "actions": {
+        <span style='color:black'>"submit_item": {
+          "type": "$network.request",
+          "options": {
+            "url": "https://jasonclient.org/submit",
+            "method": "POST"
+          },
+          "success": {
+            "type": "$render"
+          }
+        }</span>
+      }
+    },
+    "body": {
+      "sections": [{
+        "items": [{
+          "type": "label",
+          "text": "This is row 1",
+          <span style='color:black'>"action": {
+            "trigger": "submit_item"
+          }</span>
+        }, {
+          "type": "label",
+          "text": "This is row 2",
+          <span style='color:black'>"action": {
+            "trigger": "submit_item"
+          }</span>
+        }, {
+          "type": "label",
+          "text": "This is row 3",
+          <span style='color:black'>"action": {
+            "trigger": "submit_item"
+          }</span>
+        }]
+      }]
+    }
+  }
+}</span></pre>
+
+<h4 id="heres-whats-going-on">Here's what's going on:</h4>
+<ol>
+<li>Declare an action under <code>$jason.head.actions</code> (in this case we've named it <code>submit_item</code>).</li>
+<li>Then we <code>trigger</code> the action from anywhere using the name.</li>
+</ol>
+<hr />
+<h3 id="system-events">■   System events</h3>
+<p>Some actions are automatically triggered by the system when a certain event occurs. When you wish to take advantage of these, simply add them to <code>actions</code>. They are:</p>
+<hr />
+<h4 id="1-load">1. $load</h4>
+<p><code>$load</code> gets called once automatically when the view loads for the first time.</p>
+<p>Here's an example where we make a network request when the view loads, and then render the response using the template.</p>
+<pre><code>{
+  ...
+  "$load": {
+    "type": "$network.request",
+    "options": {
+    "url": "http://jasonclient.org/req.json"
+    },
+    "success": {
+    "type": "$render"
+    }
+  }
+  ...
+}
+</code></pre>
+<hr />
+<h4 id="2-show">2. $show</h4>
+<p><code>$show</code> gets called automatically whenever the view appears. For example when coming back from a modal view, coming back from its next view via back button, etc.</p>
+<p>Here's an example</p>
+<pre><code>{
+  ...
+  "$show": {
+    "type": "$reload"
+  },
+  ...
+}
+</code></pre>
+<hr />
+<h4 id="3-foreground">3. $foreground</h4>
+<p><code>$foreground</code> is called automatically whenever the app comes back from the background state.</p>
+<pre><code>{
+  ...
+  "$foreground": {
+    "type": "$reload"
+  },
+  ...
+}
+</code></pre>
+<hr />
+<h4 id="4-pull">4. $pull</h4>
+<p><code>$pull</code> gets called whenever user makes a pull to refresh action</p>
+<pre><code>{
+  ...
+  "$pull": {
+    "type": "$reload"
+  },
+  ...
+}
+</code></pre>
+<hr />
+<h1 id="api">API</h1>
+<h2 id="view">──── VIEW ────</h2>
+<p>actions related to drawing views</p>
+<hr />
+<h2 id="reload">$reload</h2>
+<p>Refreshes the view completely by re-fetching content from the current URL.</p>
+<pre><code>{
+  "items": [{
+    "type": "label",
+    "text": "Refresh",
+    "action": {
+      "type": "$reload"
+    }
+  }]
+}
+</code></pre>
+<h3 id="options">■ options</h3>
+<ul>
+<li>none</li>
+</ul>
+<h3 id="return-value">■ return value</h3>
+<ul>
+<li>none</li>
+</ul>
+<p>This will reload the page when a user taps on the <a href="../document/#items">item</a>.</p>
+<hr />
+<h2 id="render">$render</h2>
+<p>Renders a <a href="../templates/">template</a> with data</p>
+<h3 id="options_1">■ options</h3>
+<ul>
+<li><code>data</code>: Data to render. If not specified, it's the <code>$jason</code> value at the point <code>$render</code> was called.</li>
+<li><code>template</code>: <a href="../templates/">Template</a> name to render. If not specified, it will look for <code>$jason.head.templates.body</code></li>
+<li><code>type</code>: <code>"html"</code> | <code>"json"</code> (Default is <code>json</code>. See <a href="../templates/#html">html templating</a> to learn more about how to render an HTML string natively using Jason)</li>
+</ul>
+<h3 id="return-value_1">■ return value</h3>
+<ul>
+<li>none</li>
+</ul>
+<h3 id="example_1">■ example</h3>
+<h4 id="rendering-return-value-from-the-previous-action">Rendering return value from the previous action</h4>
+<p>By default <code>$render</code> renders the data returned from its previous action. </p>
+<pre><code>{
+  "type": "$network.request",
+  "options": {
+    "url": "https://jasonbase.com/things/gbe.json"
+  },
+  "success": {
+    "type": "$render"
+  }
+}
+</code></pre>
+<p>For example, let's say the network request returns the following result:</p>
+<pre><code>{
+    "name": "Mr. Fisherman",
+    "image": "http://i.giphy.com/OmK8lulOMQ9XO.gif",
+    "status": "Busy fishing on the iPhone"
+}
+</code></pre>
+<p>All Jasonette actions store their return values under <code>$jason</code> object when they return.</p>
+<p>So we can access above value using the <code>$jason</code> variable.</p>
+<p><br></p>
+<p>Here's how we would write the <code>body</code> template:</p>
+<pre><code>{
+  "$jason": {
+    "head": {
+      ...
+      "templates": {
+        "body": {
+          "sections": [{
+            "items": [{
+              "type": "image",
+              "url": "{{$jason.image}}"
+            }, {
+              "type": "label",
+              "text": "{{$jason.text}}"
+            }, {
+              "type": "label",
+              "text": "{{$jason.status}}"
+            }]
+          }]
+        }
+      ...
+  }
+}
+</code></pre>
+<h4 id="specifying-data-when-rendering">Specifying data when rendering</h4>
+<p>In most cases you will use the above method--rendering data passed in as a return value from the previous action. </p>
+<p>However, you can also use <code>$render</code> as standalone, by manually specifying its data, like this (You rarely need to use this method):</p>
+<pre><code>{
+  "type": "$render",
+  "options": {
+    "data": [{
+      "name": "Ethan",
+      "id": "1"
+    }, {
+      "name": "Jason",
+      "id": "2"
+    }, {
+      "name": "Jasonette",
+      "id": "3"
+    }]
+  }
+}
+</code></pre>
+<h4 id="rendering-the-body-template">Rendering the body template</h4>
+<p>In most cases you will use <code>$render</code> without manually specifying the template, because it will assume you're rendering the <code>body</code> template. For example, a typical <code>$render</code> looks like this:</p>
+<pre><code>{
+  "type": "$network.request",
+  "options": {
+    "url": "https://jasonclient.com/req.json"
+  },
+  "success": {
+    "type": "$render"
+  }
+}
+</code></pre>
+<p>If no <code>template</code> option is specified, <code>$render</code> will look for a <code>body</code> template inside <code>$jason.head.templates</code> and use that to render the data. For example, from the following JSON,</p>
+<pre><code>{
+  "$jason": {
+    "head": {
+      "templates": {
+        "body": {
+          "sections": [{
+            "items": {
+              "{{#each $jason}}": {
+                "type": "label",
+                "text": "{{text}}"
+              }
+            }
+          }]
+        }
+      ...
+  }
+}
+</code></pre>
+<p>When <code>$render</code> runs, it will take the JSON markup inside <code>$jason.head.templates.body</code>, render it using the data, onto the view.</p>
+<h4 id="manually-specifying-the-template-to-render">Manually specifying the template to render</h4>
+<p>But sometimes you can also specify the template name. For exmaple, we may want to render a template named <code>empty</code> instead of the default <code>body</code> template:</p>
+<pre><code>{
+  "$jason": {
+    "head": {
+      "templates": {
+        "body": {
+          ....
+        },
+        "empty_template": {
+          "sections": [{
+            "items": [{
+              "type": "label",
+              "text": "Empty view"
+            }]
+          }]
+        }
+      ...
+  }
+}
+</code></pre>
+<p>In this case we could pass <code>{"template": "empty_template"}</code> as an option, like this:</p>
+<pre><code>{
+  "type": "$network.request",
+  "options": {
+    "url": "https://jasonclient.com/req.json"
+  },
+  "success": {
+    "type": "$render"
+  },
+  "error": {
+    "type": "$render",
+    "options": {
+      "template": "empty_template"
+    }
+  }
+}
+</code></pre>
+<h3 id="how-is-render-different-from-reload">How is <code>$render</code> different from <code>$reload</code>?</h3>
+<p><code>$render</code> redraws an existing template you already downloaded, using dynamic data. <code>$reload</code> completely refreshes the current URL. Here's an example scenario:</p>
+<ol>
+<li>Jason view loads and fetches a JSON markup from the server (<code>main.json</code>)</li>
+<li><code>main.json</code> makes an API request to Twitter to fetch Tweets. (<code>https://api.twitter.com/1.1/statuses/user_timeline.json</code>)</li>
+<li>Then it renders the result using its <code>body</code> template, which is under <code>$jason.head.templates.body</code> in <code>main.json</code>.</li>
+<li>From this point on, calling <code>$render</code> simply takes the <code>$jason.head.templates.body</code> we have in memory, and renders whatever data we pass in.</li>
+<li>However calling <code>$reload</code> will make a full refresh, going back to step 1.</li>
+</ol>
+<h3 id="conclusion">Conclusion</h3>
+<ul>
+<li>In most cases, you call <code>$render</code> at the end of an action call chain, rendering the <code>$jason</code> return value from its preceding action.</li>
+<li>Also, in most cases <code>$render</code> is used without specifying <code>template</code> or <code>data</code> options.<ul>
+<li>Just don't forget to have a template under <code>$jason.head.templates.body</code>, since <code>$render</code> will automatically render that.</li>
+</ul>
+</li>
+<li>Also, remember that you can access the return value using <code>$jason</code> from the template.</li>
+</ul>
+<hr />
+<h2 id="snapshot">$snapshot</h2>
+<p>Takes a snapshot of the currently visible screen</p>
+<h3 id="options_2">■ options</h3>
+<ul>
+<li>none</li>
+</ul>
+<h3 id="return-value_2">■ return value</h3>
+<p>The return value is in this format:</p>
+<pre><code>{
+  "data": "....",
+  "data_uri": "....",
+  "content_type": "image/jpeg",
+}
+</code></pre>
+<ul>
+<li>Returns the snapshot as raw data under <code>data</code> attribute.</li>
+<li>Also returns <code>data_uri</code> attribute, which contains the <a href="https://en.wikipedia.org/wiki/Data_URI_scheme">data-uri</a></li>
+<li>You can utilize the <code>data</code> by passing it to another action using <a href="#b-handling-another-actions-result">success</a></li>
+<li>The <code>content_type</code> is <code>"image/jpeg"</code></li>
+</ul>
+<h3 id="example_2">■ example</h3>
+<p>Take a snapshot and share</p>
+<pre><code>{
+  "type": "$snapshot",
+  "success": {
+    "type": "$util.share",
+    "options": {
+      "items": [
+        {
+          "type": "image",
+          "data": "{{$jason.data}}"
+        }
+      ]
+    }
+  }
+}
+</code></pre>
+<table>
+<thead>
+<tr>
+<th>Share sheet</th>
+<th>SMS example</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><img alt="snapshot share sheet example" src="../images/util_share_sheet.jpeg" /></td>
+<td><img alt="snapshot sms example" src="../images/util_share_sms.jpeg" /></td>
+</tr>
+</tbody>
+</table>
+<hr />
+<h2 id="href">$href</h2>
+<ul>
+<li>An action version of <a href="../href/">href</a>. Works the same way, but just another way to invoke href.</li>
+<li>Use this when a component doesn't support <code>href</code> attribute directly but supports an <code>action</code>.</li>
+<li>Sometimes it's useful when you want to invoke <code>href</code> without displaying a disclosure indicator. (href comes with a disclosure indicator by default)</li>
+</ul>
+<h3 id="options_3">■ options</h3>
+<p>It's the same set of attributes as <a href="../href/">href</a> since it simply invokes the href when triggered.</p>
+<ul>
+<li><code>url</code><ul>
+<li>the url to transition to</li>
+</ul>
+</li>
+<li><code>view</code><ul>
+<li>can be <code>"web"</code> | <code>"app"</code> | <code>"jason"</code> (default)</li>
+</ul>
+</li>
+<li><code>transition</code><ul>
+<li>can be <code>"modal"</code> | <code>"fullscreen"</code> | <code>"push"</code> (default)</li>
+</ul>
+</li>
+</ul>
+<h3 id="return-value_3">■  return value</h3>
+<ul>
+<li>none</li>
+</ul>
+<h3 id="example_3">■ example</h3>
+<pre><code>{
+   "type": "label",
+   "text": "trigger href",
+   "action": {
+     "type": "$href",
+     "options": {
+       "url": "...",
+       "transition": "...",
+       "view": "..."
+     }
+   }
+}
+</code></pre>
+<p>is same as:</p>
+<pre><code>{
+   "type": "label",
+   "text": "trigger href",
+   "href": {
+     "url": "...",
+     "transition": "...",
+     "view": "..."
+   }
+}
+</code></pre>
+<p>The only difference is: in case of <a href="../document/#items">items</a> the second option displays a disclosure indicator since we're directly using <a href="../href/">href</a></p>
+<hr />
+<h2 id="close">$close</h2>
+<p>Close a modal (works when the currently view is a modal)</p>
+<h3 id="options_4">■ options</h3>
+<ul>
+<li>none</li>
+</ul>
+<h3 id="return-value_4">■ return value</h3>
+<ul>
+<li>none</li>
+</ul>
+<hr />
+<h2 id="back">$back</h2>
+<p>Transition one step back from the current view</p>
+<ul>
+<li>If the current view is a modal, it closes the current view</li>
+<li>Otherwise it slides back to the previous view</li>
+</ul>
+<h3 id="options_5">■ options</h3>
+<ul>
+<li>none</li>
+</ul>
+<h3 id="return-value_5">■ return value</h3>
+<ul>
+<li>none</li>
+</ul>
+<hr />
+<h2 id="network">── NETWORK ──</h2>
+<hr />
+<h2 id="networkrequest">$network.request</h2>
+<p>Make GET/POST/PUT/DELETE network requests</p>
+<h3 id="options_6">■ options</h3>
+<ul>
+<li><code>url</code>: The url to access.</li>
+<li><code>method</code>: <code>"get"</code> | <code>"post"</code> | <code>"put"</code> | <code>"delete"</code>.</li>
+<li><code>data</code>: Parameters to send along with the url (optional)</li>
+<li><code>headers</code>: Headers to attach to every request if any (optional)</li>
+<li><code>data_type</code>: Specifies how the fetched response will be processed. Can be <code>json</code>, <code>html</code>, <code>rss</code>, or <code>raw</code>. <code>json</code> assumes that the return value will be in JSON format, whereas <code>raw</code> expects a plain text. You can use <code>raw</code> type when fetching a plain text or CSV. <code>html</code> is for fetching HTML content and especially required when you need to utilize HTML requests associated with cookies/sessions. <code>rss</code> is used to fetch RSS. The default is <code>json</code>.</li>
+<li><code>content_type</code>: Specifies which format the parameters will be sent as. By default it's sent as a form object, but in case you specify <code>{"content_type": "json"}</code> the data will be submitted as a JSON string.</li>
+</ul>
+<h3 id="return-value_6">■ return value</h3>
+<ul>
+<li>Whatever the server returns</li>
+</ul>
+<h3 id="examples">■ examples</h3>
+<h4 id="example-1-simple-json-get-request">Example 1. Simple JSON GET request</h4>
+<p>Here's a simple example of GET request, fetching JSON. We don't need to specify <code>{"type": "get"}</code> here since the default type is <code>"get"</code></p>
+<pre><code>{
+    "type": "$network.request",
+    "options": {
+        "url": "http://plasticfm.herokuapp.com/things/3.json"
+    },
+    "success": {
+        "type": "$render"
+    }
+}
+</code></pre>
+<hr />
+<h4 id="example-2-more-complex-json-requests">Example 2. More complex JSON requests</h4>
+<p>This time we're going to make a POST request, with all the data and headers</p>
+<pre><code>{
+  "type": "$network.request",
+  "options": {
+    "url": "http://www.jasonbase.com/messages.json",
+    "method": "post",
+    "data": {
+      "user_id": "fI9",
+      "message": "Hello there"
+    },
+    "headers": {
+      "auth_token": "fnekfla98dls9sNFK0nf3"
+    }
+  },
+  "success": {
+    "type": "$render"
+  },
+  "error": {
+    "type": "$util.alert",
+    "options": {
+      "title": "Error",
+      "description": "Uh oh, something went wrong"
+    }
+  }
+}
+</code></pre>
+<hr />
+<h4 id="example-3-html-get-request">Example 3. HTML GET request</h4>
+<p>You can also make HTML type requests. Here's a request with <code>html</code> data_type.</p>
+<pre><code>{
+    "type": "$network.request",
+    "options": {
+        "url": "https://news.ycombinator.com/newest",
+        "dataType": "html"
+    },
+    "success": {
+        "type": "$render",
+        "options": {
+            "type": "html"
+        }
+    }
+}
+</code></pre>
+<p>It fetches the url as <code>html</code> type, and then renders it using the <code>html</code> type parser. See templates for more details on how to render HTML content in Jasonette.</p>
+<hr />
+<h4 id="example-4-html-post-request-with-cookies">Example 4. HTML POST request with cookies</h4>
+<p>Dealing with cookies is simple. All you need to do is make the request to create a session. Jason will automatically store the returned cookie, and then attach it to all subsequent requests.
+Here's an example of signing into a website by making an HTML data_type <code>$network.request</code> call:</p>
+<pre><code>{
+  "type": "$network.request",
+  "options": {
+    "url": "https://news.ycombinator.com/login",
+    "method": "post",
+    "data": {
+      "acct": "{{$get.username}}",
+      "pw": "{{$get.password}}"
+    },
+    "data_type": "html"
+  },
+  "success": {
+    "type": "$network.request",
+    "options": {
+      "url": "https://news.ycombinator.com/saved?id={{$get.username}}",
+      "data_type": "html"
+    },
+    "success": {
+      "type": "$render",
+      "options": {
+        "type": "html"
+      }
+    }
+  }
+}
+</code></pre>
+<ol>
+<li>It first signs into the site by making a <code>POST</code> request of <code>{"data_type": "html"}</code>. Then it stores the cookie returned from the server.</li>
+<li>Once the login succeeds, it makes a <code>GET</code> request of <code>{"data_type": "html"}</code> to an actual content API. The cookie from the previous step is automatically applied to the request.</li>
+</ol>
+<hr />
+<h2 id="networkupload">$network.upload</h2>
+<p>Upload data to cloud providers. Currently supports S3, but <a href="../advanced/">feel free to extend</a></p>
+<h3 id="options_7">■ options</h3>
+<ul>
+<li><code>type</code>: <code>"s3"</code> (Currently only supports s3)</li>
+<li><code>bucket</code>: s3 bucket name</li>
+<li><code>path</code>: the s3 path to upload the file</li>
+<li><code>sign_url</code>: To upload files to s3, you need to acquire a signed url from S3 first, and then upload it to that URL.</li>
+</ul>
+<h3 id="return-value_7">■ return value</h3>
+<ul>
+<li><code>file_name</code>: a randomly generated filename. When <code>$network.upload</code> is called, it automatically generates a random, hashed filename to ensure uniqueness, and then stores the file onto the cloud provider with that name.<ul>
+<li>We need this attribute to keep track of the data we've just uploaded. For example, we may want to store the filename somewhere so we can access this file later.</li>
+</ul>
+</li>
+</ul>
+<h3 id="example_4">■ example</h3>
+<p>This example takes a photo and uploads to S3.</p>
+<pre><code>{
+  "type": "$media.camera",
+  "options": {
+    "quality": "0.4"
+  },
+  "success": {
+    "type": "$network.upload",
+    "options": {
+      "type": "s3",
+      "bucket": "fm.ethan.jason",
+      "data": "{{$jason.data}}",
+      "path": "",
+      "sign_url": "https://imagejason.herokuapp.com/sign_url"
+    },
+    "success": {
+      "type": "$network.request",
+      "options": {
+        "url": "https://imagejason.herokuapp.com/post",
+        "method": "post",
+        "data": {
+          "bucket": "fm.ethan.jason",
+          "path": "/",
+          "filename": "{{$jason.filename}}"
+        }
+      },
+      "success": {
+        "type": "$reload"
+      }
+    }
+  }
+}
+</code></pre>
+<p>Here's what's going on above:</p>
+<h4 id="1-the-client-takes-a-photo-using-the-mediacamera-action-and-passes-the-raw-data-to-networkupload-as-jason">1. The client takes a photo using the <code>$media.camera</code> action and passes the raw data to <code>$network.upload</code> as <code>$jason</code>.</h4>
+<h4 id="2-the-networkupload-first-looks-at-optionssign_url-and-makes-a-request-to-get-the-signed-url">2. The <code>$network.upload</code> first looks at <code>options.sign_url</code> and makes a request to get the signed url.</h4>
+<h4 id="3-the-server-should-return-a-signed-url-for-s3">3. The server should return a signed url for S3.</h4>
+<blockquote>
+<p>The <code>sign_url</code> attribute is the URL to your server, and your server should generate a signed url and return the result in the following format:</p>
+<p><code>{ "$jason": "https://s3.amazonaws.com/...../...?AWSAccessKeyId=.....&amp;Expires=.....&amp;Signature=....."}</code></p>
+<p><strong><a href="https://github.com/Jasonette/s3-upload-example">See the full server side code</a></strong> to learn how to generate signed urls.</p>
+</blockquote>
+<h4 id="4-the-client-then-uploads-the-content-passed-in-as-data-to-the-just-generated-signed-url-using-a-randomly-generated-filename">4. The client then uploads the content passed in as <code>data</code> to the just generated signed url, using a randomly generated filename.</h4>
+<h4 id="5-once-the-upload-finishes-the-networkupload-returns-the-filename-generated-from-step-3">5. Once the upload finishes, the <code>$network.upload</code> returns the filename generated from step 3.</h4>
+<h4 id="6-then-it-stores-the-filename-to-our-server-by-making-a-post-networkrequest-to-httpsimagejasonherokuappcompost">6. Then it stores the filename to our server by making a POST <code>$network.request</code> to <code>https://imagejason.herokuapp.com/post</code></h4>
+<p><br><br>
+Check out the full code on Github:</p>
+<p><strong><a href="https://github.com/Jasonette/s3-upload-example">s3-upload-examle</a></strong></p>
+<hr />
+<h2 id="networkauth">$network.auth</h2>
+<ul>
+<li><code>$network.auth</code> takes care of <strong>token authentication</strong> to authenticate into any mobile API.</li>
+<li>For cookie based HTML authentication, see <a href="#example-4-html-post-request-with-cookies">Example 4 from <code>$network.request</code> above</a>.</li>
+</ul>
+<h3 id="options_8">■ options</h3>
+<ul>
+<li><code>url</code>: The url endpoint for signing in.</li>
+<li><code>method</code>: <code>"get"</code> | <code>"post"</code> | <code>"put"</code> | <code>"delete"</code>.</li>
+<li><code>data</code>: Parameters to send along with the url (optional)</li>
+<li><code>headers</code>: Headers to attach to every request if any (optional)</li>
+</ul>
+<h3 id="return-value_8">■ return value</h3>
+<ul>
+<li>whatever the server returns.</li>
+</ul>
+<h3 id="example_5">■ example</h3>
+<p>Here's an example:</p>
+<pre><code>{
+  "type": "$network.auth",
+  "options": {
+    "url": "https://wethan.herokuap.com/v3/sign_in.json",
+    "method": "post",
+    "headers": {
+      "email": "ethan.gliechtenstein@gmail.com",
+      "auth_token": "fnekfla98dls9sNFK0nf3"
+    }
+  },
+  "success": {
+    "type": "$reload"
+  },
+  "error": {
+    "type": "$util.alert",
+    "options": {
+      "title": "Error",
+      "description": "Uh oh, something went wrong"
+    }
+  }
+}
+</code></pre>
+<p>Similar to $network.request, except for a couple of things:</p>
+<p>Jasonette client expects the server to return a session object as a response to <code>$network.auth</code>, in the following format:</p>
+<pre><code>{
+  "$session": {
+    "headers": (SESSION TO APPEND TO EVERY REQUEST HEADER),
+    "body": (SESSION TO APPEND TO EVERY REQUEST BODY)
+  }
+}
+</code></pre>
+<p>Here's an actual example of what this server returns as a response to the POST request to <code>https://wethan.herokuap.com/v3/sign_in.json</code>:</p>
+<pre><code>{
+  "$session": {
+    "headers": {
+      "username": "ethan",
+      "auth_token": "39fj3lsf9djfjs"
+    }
+  }
+}
+</code></pre>
+<p>When you return above response from your server, here's what will happen:</p>
+<ol>
+<li>Jasonette will automatically store the <code>$session</code> object for the URL.</li>
+<li>In this case, all subsequent <code>$network.request</code> actions to this domain will automatically attach <code>{"username": "ethan", "auth_token": "39fj3lsf9djfjs"}</code> to the request <strong>header</strong>, so that the server understands it's you.</li>
+<li>If you want each subsequent requests to attach session objects to their <code>body</code> parameters instead of <code>header</code>, simply return the <code>$session</code> object with <code>body</code> attribute instead.</li>
+</ol>
+<hr />
+<h2 id="networkunauth">$network.unauth</h2>
+<p>This action lets you clear sessions for a specified domain. Can be used for both <a href="#networkauth">token authentication</a> and <a href="#example-4-html-post-request-with-cookies">web authentication via cookies</a></p>
+<ul>
+<li>For token authentication, it clears your <code>$session</code> object tied to the domain, created through <a href="#networkauth">$network.auth</a>.</li>
+<li>For web requests (html), it clears your cookie tied to the domain, created through <code>html</code> type <code>$network.request</code>, <a href="#example-4-html-post-request-with-cookies">as described here</a>.</li>
+</ul>
+<h3 id="options_9">■  options</h3>
+<ul>
+<li><code>url</code>: The url from which to sign out.</li>
+<li><code>domain</code>: The domain from which to sign out (used for APIs)</li>
+<li><code>data</code>: Parameters to send along with the url (optional)</li>
+<li><code>type</code>: <code>"html"</code> | <code>"json"</code> (Default is "json")</li>
+</ul>
+<h3 id="examples_1">■ examples</h3>
+<h4 id="example-1-signing-out-of-token-authentication">Example 1. Signing out of token authentication</h4>
+<p>No need to specify <code>type</code>, since it's <code>json</code> by default.</p>
+<pre><code>{
+    "type": "$network.unauth",
+    "options": {
+        "domain": "http://jasonclient.org"
+    },
+    "success": {
+        "type": "$reload"
+    }
+}
+</code></pre>
+<h3 id="return-value_9">■ return value</h3>
+<ul>
+<li>none</li>
+</ul>
+<h4 id="example-2-signing-out-of-a-website-by-clearing-cookies">Example 2. Signing out of a website by clearing cookies</h4>
+<p>Just set the <code>options.type</code> as <code>html</code>.</p>
+<pre><code>{
+    "type": "$network.unauth",
+    "options": {
+        "domain": "http://news.ycombinator.com",
+        "type": "html"
+    },
+    "success": {
+        "type": "$reload"
+    }
+}
+</code></pre>
+<hr />
+<h2 id="variable">── VARIABLE ──</h2>
+<p>Use $set and $get to set and get local variables.</p>
+<p>Local variables are valid only within the current view and only stays on the memory.</p>
+<hr />
+<h2 id="set">$set</h2>
+<p>Set local variables.</p>
+<h3 id="options_10">■ options</h3>
+<ul>
+<li>key:value pairs. The key is the variable name, and the value is the variable's value.</li>
+</ul>
+<h3 id="return-value_10">■ return value</h3>
+<ul>
+<li>none</li>
+</ul>
+<h3 id="example_6">■ example</h3>
+<p>In the following example, the <code>$set</code> action sets the value of the two local variables <code>firstname</code> and <code>lastname</code> as <code>ethan</code> and <code>gliechtenstein</code>, respectively.</p>
+<pre><code>{
+  "type": "$set",
+  "options": {
+    "firstname": "ethan",
+    "lastname": "gliechtenstein"
+  }
+}
+</code></pre>
+<p>This is how you set a variable. We are setting local variables <code>firstname</code> and <code>lastname</code> to <code>ethan</code> and <code>gliechtenstein</code> respectively.</p>
+<h3 id="do-something-after-setting-the-local-variable">do something after setting the local variable</h3>
+<p>If you're using a local variable in your body template and wish to update the view to reflect the updated local variable, you need to call <code>$render</code>. </p>
+<p>For example you can add a <code>success</code> attribute to above action to redraw the view after update, like this:</p>
+<pre><code>{
+  "type": "label",
+  "text": "{{$get.firstname}} {{$get.lastname}}",
+  "action": {
+    "type": "$set",
+    "options": {
+      "firstname": "ethan",
+      "lastname": "gliechtenstein"
+    },
+    "success": {
+      "type": "$render"
+    }
+  }
+}
+</code></pre>
+<h2 id="get">$get</h2>
+<p>You can access local variables by using a template expression <code>{{$get.VARIABLE_NAME}}</code></p>
+<ul>
+<li>Normally, the usage flow is:<ol>
+<li>Set a variable using <code>$set</code> action</li>
+<li>Use the variable from template through <code>{{$get.VARIABLE_NAME}}</code> expression.</li>
+</ol>
+</li>
+</ul>
+<h3 id="example_7">■ example</h3>
+<p>Once you set <code>firstname</code> and <code>lastname</code> like we did above, we can use them like this:</p>
+<pre><code>[
+  {
+    "type": "label",
+    "text": "{{$get.firstname}}"
+  },
+  {
+    "type": "label",
+    "text": "{{$get.lastname}}"
+  }
+]
+</code></pre>
+<p>Here's a full usage example using both <code>$set</code> action and <code>$get</code> expression.</p>
+<pre><code>{
+  "$jason": {
+    "head": {
+      "actions": {
+        "$load": {
+          "type": "$set",
+          "options": {
+            "bar": "#"
+          },
+          "success": {
+            "type": "$render"
+          }
+        },
+        "$pull": {
+          "type": "$set",
+          "options": {
+            "bar": "{{$get.bar+'#'}}"
+          },
+          "success": {
+            "type": "$render"
+          }
+        }
+      },
+      "templates": {
+        "body": {
+          "sections": [{
+            "items": [{
+              "type": "label",
+              "text": "{{$get.bar}}"
+            }]
+          }]
+        }
+      }
+    }
+  }
+}
+</code></pre>
+<h4 id="heres-whats-going-on_1">Here's what's going on:</h4>
+<ol>
+<li>When the view loads (<code>$load</code> system event), it sets the local variable <code>bar</code>'s value as "#", then renders the template with a label that displays the variable <code>bar</code> (<code>{{$get.bar}}</code>).</li>
+<li>When the user makes a pull to refresh gesture (<code>$pull</code> event), it appends another "#" to <code>bar</code> and then renders again.</li>
+</ol>
+<hr />
+<h2 id="cache">── CACHE ──</h2>
+<p>Cache lets you persist and retrieve content. Unlike local variables, it will stay even when you close the app and come back.</p>
+<hr />
+<h2 id="cache-vs-local-variable">Cache vs. Local variable</h2>
+<ul>
+<li>Cache and local variables are both sandboxed per view. Therefore anything you store to cache and local variable is stored just for that view.</li>
+<li>Local variables are only on memory so will go away when the view refreshs. But cache is stored persistently and stays until you overwrite or reset it.</li>
+</ul>
+<hr />
+<h2 id="write">Write</h2>
+<p><code>$cache.set</code> action is used to store to cache.</p>
+<h3 id="options_11">■  options</h3>
+<ul>
+<li>key:value pairs. The key is the cache variable name, and the value is the variable's value.</li>
+</ul>
+<h3 id="return-value_11">■ return value</h3>
+<p>returns the updated <code>$cache</code> object, which looks like this:</p>
+<pre><code>{
+  "items": [...]
+}
+</code></pre>
+<h3 id="examples_2">■ examples</h3>
+<h4 id="example-1-set-cache">Example 1. Set cache</h4>
+<p>In the following example, it first makes a <code>$network.request</code>, and then takes its return value <code>{{$jason}}</code> and stores it to cache using the <code>$cache.set</code> action.</p>
+<pre><code>{
+  "type": "$network.request",
+  "options": {
+    "url": "http://jasonclient.org/api/items.json"
+  },
+  "success": {
+    "type": "$cache.set",
+    "options": {
+      "items": "{{$jason}}"
+    }
+  }
+}
+</code></pre>
+<h4 id="example-2-set-cache-and-use-the-updated-value">Example 2. Set cache and use the updated value</h4>
+<p>Simply setting the cache doesn't update the view. Let's try to render the updated result.</p>
+<pre><code>{
+  "type": "$network.request",
+  "options": {
+    "url": "http://jasonclient.org/api/items.json"
+  },
+  "success": {
+    "type": "$cache.set",
+    "options": {
+      "items": "{{$jason}}"
+    },
+    "success": {
+      "type": "$util.alert",
+      "options": {
+        "title": "Items fetched",
+        "description": "{{$cache.items.length}}"
+      }
+    }
+  }
+}
+</code></pre>
+<hr />
+<h2 id="read">Read</h2>
+<p>Directly access <code>$cache</code> variable from a template expression, for example <code>{{$cache.items}}</code>.</p>
+<h3 id="example_8">■ example</h3>
+<p>For example, you could store a <code>tracking_keyword</code> value locally and automatically perform a search whenever the document loads.</p>
+<pre><code>{
+  "type": "$oauth.request",
+  "options": {
+    "url": SEARCH_URL,
+    "data": {
+      "search_query": "{{$cache.tracking_keyword}}"
+    }
+  }
+}
+</code></pre>
+<hr />
+<h2 id="reset">Reset</h2>
+<p>Use <code>$cache.reset</code> action to reset the cache associated with the current url.</p>
+<h3 id="options_12">■ options</h3>
+<ul>
+<li>none</li>
+</ul>
+<h3 id="return-value_12">■ return value</h3>
+<ul>
+<li>none</li>
+</ul>
+<h3 id="example_9">■ example</h3>
+<p>The following will wipe out all the cache values associated with the current view url.</p>
+<pre><code>{
+  "type": "$cache.reset"
+}
+</code></pre>
+<hr />
+<h2 id="util">── UTIL ──</h2>
+<p>Utility and widget methods</p>
+<hr />
+<h2 id="utilbanner">$util.banner</h2>
+<p>Displays a banner notification with title and description.</p>
+<p><img alt="$util.banner" src="../images/util_banner.jpeg" /></p>
+<h3 id="options_13">■ options</h3>
+<ul>
+<li><code>title</code></li>
+<li><code>description</code></li>
+<li><code>type</code>: <code>"error"</code> | <code>"success"</code> | <code>"info"</code> (default)</li>
+</ul>
+<h3 id="return-value_13">■  return value</h3>
+<ul>
+<li>none</li>
+</ul>
+<h3 id="example_10">■  example</h3>
+<pre><code>{
+    "type": "$util.banner",
+    "options": {
+        "title": "Hello World",
+        "description": "I'm a banner. I display a title and a description",
+        "type": "info"
+    }
+}
+</code></pre>
+<hr />
+<h2 id="utiltoast">$util.toast</h2>
+<p>Displays a toast notification with a simple text</p>
+<p><img alt="$util.toast" src="../images/util_toast.jpeg" /></p>
+<h3 id="options_14">■ options</h3>
+<ul>
+<li><code>text</code>: The text to display</li>
+<li><code>type</code>: <code>"error"</code> | <code>"info"</code> | <code>"warning"</code> | <code>"dark"</code> | <code>"default"</code> | <code>"success"</code> (default)</li>
+</ul>
+<h3 id="return-value_14">■ return value</h3>
+<ul>
+<li>none</li>
+</ul>
+<h3 id="example_11">■ example</h3>
+<pre><code>{
+    "type": "$util.toast",
+    "options": {
+        "text": "I'm a toast. I display a simple text.",
+        "type": "warning"
+    }
+}
+</code></pre>
+<hr />
+<h2 id="utilalert">$util.alert</h2>
+<ul>
+<li>Displays an alert.</li>
+<li>Alerts can also have form input fields users can fill in.</li>
+<li>When you use the form input, <code>$util.alert</code> returns the resulting key/value pairs wrapped with <code>$jason</code>.</li>
+</ul>
+<h3 id="types-of-alerts">Types of alerts</h3>
+<ul>
+<li><strong>Basic</strong> : You can just display a simple alert that has an <strong>ok</strong> and a <strong>cancel</strong> button.</li>
+<li><strong>Form</strong> : You can also add input fields to the alert and use it to receive user input.</li>
+</ul>
+<p><br></p>
+<table>
+<thead>
+<tr>
+<th>Basic Alert</th>
+<th>Form Alert</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><img alt="$util.alert" src="../images/util_alert_basic.jpeg" /></td>
+<td><img alt="$util.alert" src="../images/util_alert_form.jpeg" /></td>
+</tr>
+</tbody>
+</table>
+<h3 id="options_15">■ options</h3>
+<ul>
+<li><code>title</code>: title of the alert</li>
+<li><code>description</code>: description caption</li>
+<li><code>form</code> (optional): Array of input elements. Each input can have the following attributes:<ul>
+<li><code>name</code>: name of the field. Use this name to retrieve the value filled out by the user</li>
+<li><code>value</code>: set this attribute to preset the value inside the input field.</li>
+<li><code>placeholder</code>: placeholder text</li>
+<li><code>type</code> (optional) : <code>secure</code> to hide keystrokes with *</li>
+</ul>
+</li>
+</ul>
+<h3 id="return-value_15">■  return value</h3>
+<ul>
+<li>if the <code>form</code> attribute is used, returns the filled out <code>$jason</code> object</li>
+<li>if the <code>form</code> attribute is NOT used, no return value</li>
+</ul>
+<h3 id="examples_3">■ examples</h3>
+<h4 id="example-1-simple-notice-alert">Example 1. Simple notice alert</h4>
+<p>Just a simple alert with an OK and a Cancel button</p>
+<pre><code>{
+  "type": "$util.alert",
+  "options": {
+    "title": "Basic Alert",
+    "description": "I'm a basic alert. I simply display an alert that needs to be dismissed before moving forward"
+  },
+  "success": {
+    "type": "$render"
+  }
+}
+</code></pre>
+<h4 id="example-2-form-alert">Example 2. Form Alert</h4>
+<p>Here's an example of an alert that lets users fill out a form and return the value.</p>
+<pre><code>{
+  "type": "$util.alert",
+  "options": {
+    "title": "Demo alert with input",
+    "description": "Try entering values and press OK",
+    "form": [{
+      "name": "username",
+      "placeholder": "Enter username"
+    }, {
+      "name": "password",
+      "placeholder": "Enter password",
+      "secure": "true"
+    }]
+  }
+}
+</code></pre>
+<p>In this case, after the user fills out the form and presses "OK", the action will finish with a return value that takes the following form:</p>
+<pre><code>{
+  "$jason": {
+    "username": "ethan",
+    "password": "sdn3Uef2!"
+  }
+}
+</code></pre>
+<p>To use this return value, you can chain another action as a <code>success</code> callback and use the attributes, like this:</p>
+<pre><code>{
+  "type": "$util.alert",
+  "options": {
+    "title": "Sign in",
+    "description": "Please enter username and password",
+    "form": [{
+      "name": "username"
+    }, {
+      "type": "secure",
+      "name": "password"
+    }]
+  },
+  "success": {
+    "type": "$network.request",
+    "options": {
+      "url": "https://www.jasonclient.org/users/sign_in.json",
+      "method": "post",
+      "data": {
+        "username": "{{$jason.username}}",
+        "password": "{{$jason.password}}"
+      }
+    }
+  }
+}
+</code></pre>
+<hr />
+<h2 id="utilshare">$util.share</h2>
+<p>Share a text, image, video, or a combination of them.</p>
+<p><br></p>
+<table>
+<thead>
+<tr>
+<th>Share sheet</th>
+<th>SMS example</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><img alt="snapshot share sheet example" src="../images/util_share_sheet.jpeg" /></td>
+<td><img alt="snapshot sms example" src="../images/util_share_sms.jpeg" /></td>
+</tr>
+</tbody>
+</table>
+<h3 id="options_16">■ options</h3>
+<ul>
+<li><code>items</code> (array): Array of items to be shared. Each item can have the following attributes<ul>
+<li><code>type</code>: <code>"text"</code> | <code>"image"</code> | <code>"video"</code></li>
+<li><code>text</code>: text</li>
+<li><code>data</code>: raw data to be shared (only for <code>image</code> type)</li>
+<li><code>url</code>: image url (only for <code>image</code> type)</li>
+<li><code>file_url</code>: video url (only for <code>video</code> type)</li>
+</ul>
+</li>
+</ul>
+<h3 id="return-value_16">■ return value</h3>
+<ul>
+<li>none</li>
+</ul>
+<h3 id="examples_4">■ examples</h3>
+<h4 id="example-1-sharing-a-simple-text">Example 1. Sharing a simple text</h4>
+<pre><code>{
+  "type": "$util.share",
+  "options": {
+    "items": [{
+      "type": "text",
+      "text": "This is an automated message"
+    }]
+  }
+}
+</code></pre>
+<h4 id="example-2-sharing-an-image-captured-from-snapshot">Example 2. Sharing an image captured from <code>$snapshot</code></h4>
+<pre><code>{
+  "type": "$snapshot",
+  "success": {
+    "type": "$util.share",
+    "options": {
+      "items": [{
+        "type": "image",
+        "data": "{{$jason.data}}"
+      }]
+    }
+  }
+}
+</code></pre>
+<h4 id="example-3-sharing-a-video-captured-from-mediacamera">Example 3. Sharing a video captured from <code>$media.camera</code></h4>
+<pre><code>{
+  "type": "$media.camera",
+  "success": {
+    "type": "$util.share",
+    "options": {
+      "items": [{
+        "type": "video",
+        "file_url": "{{$jason.file_url}}"
+      }]
+    }
+  }
+}
+</code></pre>
+<h4 id="example-4-sharing-an-image-from-a-url-and-a-text">Example 4. Sharing an image from a URL, and a text</h4>
+<pre><code>{
+  "type": "$util.share",
+  "options": {
+    "items": [{
+      "type": "image",
+      "url": "https://vjs.zencdn.net/v/oceans.png"
+    },{
+      "type": "text",
+      "text": "This is a picture of ocean"
+    }]
+  }
+}
+</code></pre>
+<hr />
+<h2 id="utilpicker">$util.picker</h2>
+<p>Opens a multiple choice picker menu, with each item linking to an <a href="./">action</a> or an <a href="../href/">href</a>.</p>
+<p><br></p>
+<p><img alt="$util.picker" src="../images/util_picker.jpeg" /></p>
+<h3 id="options_17">■ options</h3>
+<ul>
+<li><code>items</code> (array): An array of items from which the user can choose. Each item can contain the following attributes:<ul>
+<li><code>text</code>: Text to display</li>
+<li><code>href</code>: <a href="../href/">href</a> to trigger when selected.</li>
+<li><code>action</code>: <a href="./">action</a> to call when selected.</li>
+</ul>
+</li>
+</ul>
+<h3 id="return-value_17">■ Return value</h3>
+<ul>
+<li>none</li>
+</ul>
+<h3 id="example_12">■ example</h3>
+<pre><code>{
+  "$jason": {
+    "head": {
+      ...
+    },
+    "body": {
+      "header": {
+        "menu": {
+          "text": "Menu",
+          "action": {
+            "type": "$util.picker",
+            "options": {
+              "items": [{
+                "text": "Trigger $util.banner",
+                "action": {
+                  "type": "$util.banner",
+                  "options": {
+                    "title": "Success",
+                    "description": "This is a banner"
+                  }
+                }
+              },{
+                "text": "Trigger $util.alert",
+                "action": {
+                  "type": "$util.alert",
+                  "options": {
+                    "title": "Alert",
+                    "description": "This is an alert triggered by $util.picker"
+                  }
+                }
+              },{
+                "text": "Trigger $audio.play",
+                "action": {
+                  "type": "$audio.play",
+                  "options": {
+                    "url": "https://s3.amazonaws.com/www.textcast.co/icons/yo.mp3"
+                  }
+                }
+              }]
+            }
+          }
+        }
+      ...
+}
+</code></pre>
+<hr />
+<h2 id="utildatepicker">$util.datepicker</h2>
+<p>Opens a date picker</p>
+<p><br></p>
+<p><img alt="$util.datepicker" src="../images/util_datepicker.jpeg" /></p>
+<h3 id="options_18">■  options</h3>
+<ul>
+<li>none</li>
+</ul>
+<h3 id="return-value_18">■  return value</h3>
+<p>When a user selects one of the dates it returns the selected date in in <a href="https://en.wikipedia.org/wiki/Unix_time">unix timestamp format</a> (in string) like this:</p>
+<pre><code>{
+  "value": "1471310358216"
+}
+</code></pre>
+<h3 id="example_13">■ example</h3>
+<pre><code>{
+  "$jason": {
+    "head": {
+    "title": "Datepicker Demo"
+    },
+    "body": {
+      "sections": [{
+        "items": [{
+          "type": "label",
+          "text": "Pick a date",
+          "action": {
+            "type": "$util.datepicker",
+            "options": {
+              "title": "Pick a date",
+              "description": "Just pick one"
+            },
+            "success": {
+              "type": "$util.alert",
+              "options": {
+                "title": "Selected date",
+                "description": "{{(new Date(parseInt(&lt;span style='color:#ff0000;'&gt;$jason&lt;/span&gt;) * 1000)).toString()}}"
+              }
+            }
+          }
+        }]
+      }]
+    }
+  }
+}
+</code></pre>
+<hr />
+<h2 id="utiladdressbook">$util.addressbook</h2>
+<p>Fetches the addressbook to populate them into $jason.</p>
+<h3 id="options_19">■  options</h3>
+<ul>
+<li>none</li>
+</ul>
+<h3 id="return-value_19">■  return value</h3>
+<p>Returns an array of contacts from the addressbook, like this:</p>
+<pre><code>[
+  {
+    "name": "John",
+    "phone": "9176568890",
+    "email": "john@jasonclient.org"
+  },
+  {
+    "name": "Mary",
+    "phone": "9172562890",
+    "email": "mary@jasonclient.org"
+  },
+  {
+    "name": "Ethan",
+    "phone": "2026468271",
+    "email": "ethan@jasonclient.org"
+  }
+]
+</code></pre>
+<h3 id="example_14">■ example</h3>
+<p>In this example, we access the addressbook when the view <code>$load</code>s, then <code>$render</code> the content using the given template.</p>
+<pre><code>{
+  "$jason": {
+    "head": {
+      "title": "Addressbook demo",
+      "actions": {
+        "$load": {
+          "type": "$util.addressbook",
+          "success": {
+            "type": "$render"
+          }
+        }
+      },
+      "templates": {
+        "body": {
+          "sections": [
+            {
+              "items": {
+                "{{#each $jason}}": {
+                  "type": "vertical",
+                  "style": {
+                    "padding": "5",
+                    "spacing": "5"
+                  },
+                  "components": [
+                    {
+                      "type": "label",
+                      "text": "{{name}}"
+                    },
+                    {
+                      "type": "label",
+                      "text": "{{JSON.stringify(phone)}}"
+                    },
+                    {
+                      "type": "label",
+                      "text": "{{JSON.stringify(email)}}"
+                    }
+                  ]
+                }
+              }
+            }
+          ]
+        }
+      }
+    }
+  }
+}
+</code></pre>
+<hr />
+<h2 id="media">── MEDIA ──</h2>
+<p>Anything related to photo/video/camera.</p>
+<hr />
+<h2 id="mediacamera">$media.camera</h2>
+<p>Capture a video or a photo using the device camera</p>
+<p><br></p>
+<p><img alt="$media.camera" src="../images/media_camera.jpeg" /></p>
+<h3 id="options_20">■  options</h3>
+<ul>
+<li><code>type</code>: <code>"photo"</code> | <code>"video"</code></li>
+<li><code>edit</code>: <code>"true"</code> (Don't include to remove the editing step)</li>
+<li><code>quality</code>: <code>"high"</code> | <code>"medium"</code> | <code>"low"</code> (Default is <code>"medium"</code>)</li>
+</ul>
+<h3 id="return-value_20">■ return value</h3>
+<p>Returns an object with multiple attributes which represent the video/photo</p>
+<ul>
+<li><code>file_url</code>: local file url (Used for videos)</li>
+<li><code>data_uri</code>: <a href="https://en.wikipedia.org/wiki/Data_URI_scheme">data-uri string</a></li>
+<li><code>data</code>: raw data (Used for photos)</li>
+<li><code>content_type</code>: <code>"image/png"</code> | <code>"image/jpeg"</code> | <code>"video/mp4"</code></li>
+</ul>
+<p>For example, here's an example return value:</p>
+<pre><code>{
+  "file_url": "...",
+  "data_uri": "data:image/png;base64,.....",
+  "data": "...",
+  "content_type": "image/png"
+}
+</code></pre>
+<p>Normally you will want to pass the <code>data</code> to another action such as <a href="#networkupload">$network.upload</a>.</p>
+<h3 id="example_15">■ example</h3>
+<p>In the following example, we take a photo using <code>$media.camera</code>, and then utilize the <code>data_url</code> from the return value to set the <code>background</code> image url. </p>
+<pre><code>{
+  "$jason": {
+    "head": {
+      "title": "Camera",
+      "description": "Tap to open up camera",
+      "actions": {
+        "$load": {
+          "type": "$media.camera",
+          "options": {
+            "edit": "true",
+            "type": "photo"
+          },
+          "success": {
+            "type": "$render"
+          }
+        }
+      },
+      "templates": {
+        "body": {
+          "style": {
+            "background": "{{$jason.data_url}}"
+          }
+        }
+      }
+    }
+  }
+}
+</code></pre>
+<hr />
+<h2 id="mediapicker">$media.picker</h2>
+<p>Opens the device camera roll.</p>
+<p><br></p>
+<p><img alt="media picker" src="../images/media_picker.png" /></p>
+<h3 id="options_21">■  options</h3>
+<ul>
+<li><code>type</code>: <code>"photo"</code> | <code>"video"</code></li>
+<li><code>edit</code>: <code>"true"</code> (Don't include to remove the editing step)</li>
+<li><code>quality</code>: <code>"high"</code> | <code>"medium"</code> | <code>"low"</code> (Default is <code>"medium"</code>)</li>
+</ul>
+<h3 id="return-value_21">■  return value</h3>
+<p>Same as <a href="#mediacamera">$media.camera</a></p>
+<h3 id="example_16">■  example</h3>
+<pre><code>{
+    "$jason": {
+        "head": {
+            "title": "Media picker",
+            "description": "Tap to select media"
+        },
+        "body": {
+            "sections": [{
+                "items": [{
+                    "type": "label",
+                    "text": "Select media",
+                    "action": {
+                        "type": "$media.picker",
+                        "options": {
+                            "edit": "true",
+                            "type": "video"
+                        },
+                        "success": {
+                            "type": "$util.alert",
+                            "options": {
+                                "title": "Selected {{$jason['content_type']}} at",
+                                "description": "{{$jason.file_url}}"
+                            }
+                        }
+                    }
+                }]
+            }]
+        }
+    }
+}
+</code></pre>
+<hr />
+<h2 id="mediaplay">$media.play</h2>
+<p>plays a video from remote url.</p>
+<p><br></p>
+<p><img alt="$media.play" src="../images/media_play.jpeg" /></p>
+<h3 id="options_22">■  options</h3>
+<ul>
+<li><code>url</code>: the video url to play</li>
+<li><code>muted</code>: <code>"true"</code> to mute the sound</li>
+</ul>
+<h3 id="return-value_22">■  return value</h3>
+<ul>
+<li>none</li>
+</ul>
+<h3 id="example_17">■  example</h3>
+<pre><code>{
+    "$jason": {
+        "head": {
+            "title": "Video",
+            "description": "Tap to play the video"
+        },
+        "body": {
+            "sections": [{
+                "items": [{
+                    "type": "image",
+                    "url": "https://vjs.zencdn.net/v/oceans.png",
+                    "action": {
+                        "type": "$media.play",
+                        "options": {
+                            "url": "https://vjs.zencdn.net/v/oceans.mp4"
+                        }
+                    }
+                }]
+            }]
+        }
+    }
+}
+</code></pre>
+<hr />
+<h2 id="audio">── AUDIO ──</h2>
+<p>Anything related to audio</p>
+<hr />
+<h2 id="audioplay">$audio.play</h2>
+<ul>
+<li>Play audio from remote url. </li>
+<li>Toggles between play and pause state if called multiple times.</li>
+</ul>
+<h3 id="options_23">■  options</h3>
+<ul>
+<li><code>url</code>:  A remote url to stream audio from.</li>
+<li><code>title</code>: Title to display on the lock screen while playing in background mode.</li>
+<li><code>author</code>: Author name to display on the lock screen while playing in background mode.</li>
+<li><code>album</code>: Album name to display on the lock screen while playing in background mode.</li>
+<li><code>image</code>: Image url to display on the lock screen while playing in background mode.</li>
+</ul>
+<h3 id="return-value_23">■  return value</h3>
+<ul>
+<li>none</li>
+</ul>
+<h3 id="example_18">■  example</h3>
+<pre><code>{
+  "$jason": {
+    "head": {
+      "title": "Play audio"
+    }, 
+    "body": {
+      "sections": [{
+        "items": [{
+          "type": "label",
+          "text": "Yo",
+          "action": {
+            "type": "$audio.play",
+            "options": {
+              "title": "Busdriver - Worlds to Run",
+              "author": "Song Exploder",
+              "image": "http://discover.pocketcasts.com/discover/images/400/fff9ba50-53e1-0131-8293-723c91aeae46.jpg",
+              "url": "http://www.podtrac.com/pts/redirect.mp3/traffic.libsyn.com/songexploder/SongExploder73-Busdriver.mp3"
+            }
+          }
+        }]
+      }]
+    }
+  }
+}
+</code></pre>
+<hr />
+<h2 id="audiopause">$audio.pause</h2>
+<p>Pauses an audio clip that's already playing from a remote url.</p>
+<h3 id="options_24">■  options</h3>
+<ul>
+<li>url: if specified, pauses ONLY this url. Otherwise, pauses all audios currently playing.</li>
+</ul>
+<h3 id="return-value_24">■  return value</h3>
+<ul>
+<li>none</li>
+</ul>
+<hr />
+<h2 id="audiostop">$audio.stop</h2>
+<p>Stops an audio clip that's already playing from a remote url.</p>
+<h3 id="options_25">■  options</h3>
+<ul>
+<li>url: if specified, stops ONLY this url. Otherwise, stops all audios currently playing.</li>
+</ul>
+<h3 id="return-value_25">■  return value</h3>
+<ul>
+<li>none</li>
+</ul>
+<hr />
+<h2 id="audioseek">$audio.seek</h2>
+<ul>
+<li>Seeks audio already playing from a remote url.</li>
+<li>The position value must be a value between <code>0</code> and <code>1</code> (in string)</li>
+</ul>
+<h3 id="options_26">■  options</h3>
+<ul>
+<li><code>url</code>: The audio url.</li>
+<li><code>position</code>: value between 0 and 1 (Must be in string format)</li>
+</ul>
+<h3 id="return-value_26">■  return value</h3>
+<ul>
+<li>none</li>
+</ul>
+<h3 id="example_19">■  example</h3>
+<p>Here's an example of seeking an audio clip to 30% position</p>
+<pre><code>{
+    "$jason": {
+        "head": {
+            "title": "Seek example"
+            "actions": {
+                "$load": {
+                    "type": "$audio.play",
+                    "options": {
+                        "url": "http://www.podtrac.com/pts/redirect.mp3/traffic.libsyn.com/songexploder/SongExploder73-Busdriver.mp3"
+                    }
+                }
+            }
+        },
+        "body": {
+            "layers": [{
+                "type": "label",
+                "text": "Go to 30% position",
+                "style": {
+                    "bottom": "50",
+                    "left": "50%-50",
+                    "width": "100"
+                },
+                "action": {
+                    "type": "$audio.seek",
+                    "options": {
+                        "url": "http://www.podtrac.com/pts/redirect.mp3/traffic.libsyn.com/songexploder/SongExploder73-Busdriver.mp3",
+                        "position": "0.3"
+                    }
+                }
+            }]
+        }
+    }
+}
+</code></pre>
+<hr />
+<h2 id="audioposition">$audio.position</h2>
+<p>Get the position of the specified audio clip</p>
+<h3 id="options_27">■  options</h3>
+<ul>
+<li><code>url</code>: The audio url</li>
+</ul>
+<h3 id="return-value_27">■  return value</h3>
+<p>Returns the position between 0 and 1 in the following format:</p>
+<pre><code>{
+  "value": "0.3"
+}
+</code></pre>
+<h3 id="example_20">■  example</h3>
+<p>The following example displays a toast with the current position when the user taps the label.</p>
+<pre><code>{
+  "$jason": {
+    ...
+    "body": {
+      "sections": [{
+        "items": [{
+          "type": "label",
+          "text": "How much did I listen so far?",
+          "action": {
+            "type": "$audio.position",
+            "options": {
+            "url": "http://www.podtrac.com/pts/redirect.mp3/traffic.libsyn.com/songexploder/SongExploder73-Busdriver.mp3"
+          },
+          "success": {
+            "type": "$util.toast",
+            "options": {
+              "text": "{{JSON.stringify($jason)}}"
+            }
+          }
+        }]
+      }]
+    }
+  }
+}
+</code></pre>
+<hr />
+<h2 id="audioduration">$audio.duration</h2>
+<p>Returns total duration of the specified audio clip</p>
+<h3 id="options_28">■  options</h3>
+<ul>
+<li><code>url</code>: The audio url</li>
+</ul>
+<h3 id="return-value_28">■  return value</h3>
+<p>Duration in seconds, in the following format:</p>
+<pre><code>{
+  "value": "300"
+}
+</code></pre>
+<h3 id="example_21">■  example</h3>
+<p>The following example displays a toast with the total duration of the track when the user taps the label.</p>
+<pre><code>{
+  "$jason": {
+    ...
+    "body": {
+      "sections": [{
+        "items": [{
+          "type": "label",
+          "text": "How long is this track?",
+          "action": {
+            "type": "$audio.duration",
+            "options": {
+              "url": "http://www.podtrac.com/pts/redirect.mp3/traffic.libsyn.com/songexploder/SongExploder73-Busdriver.mp3"
+            },
+            "success": {
+              "type": "$util.toast",
+              "options": {
+                "text": "{{JSON.stringify($jason)}}"
+            }
+          }
+        }]
+      }]
+    }
+  }
+}
+</code></pre>
+<hr />
+<h2 id="audiorecord">$audio.record</h2>
+<p>Record audio</p>
+<h3 id="options_29">■  options</h3>
+<ul>
+<li><code>color</code>: tint color when active</li>
+<li><code>color:disabled</code>: tint color when paused</li>
+<li><code>theme</code>: <code>light</code> to use light theme. Otherwise omit.</li>
+</ul>
+<h3 id="return-value_29">■  return value</h3>
+<ul>
+<li><code>url</code>: the local url in which the audio was stored</li>
+<li><code>content_type</code>: <code>"audio/m4a"</code> (it's always this format)</li>
+</ul>
+<p>Normally you will want to pass the result immediately to a <code>$network.upload</code> call in order to upload it to a cloud storage.</p>
+<h3 id="example_22">■ example</h3>
+<pre><code>{
+  "$jason": {
+    "head": {
+      "title": "Play audio"
+    }, 
+    "body": {
+      "sections": [{
+        "items": [{
+          "type": "label",
+          "text": "Record Now",
+          "action": {
+            "type": "$audio.record",
+            "success": {
+              "type": "$util.alert",
+              "options": {
+                "title": "Audio stored at",
+                "description": "{{$jason.url}}"
+              }
+            }
+          }
+        }]
+      }]
+    }
+  }
+}
+</code></pre>
+<hr />
+<h2 id="geo">── GEO ──</h2>
+<h2 id="geoget">$geo.get</h2>
+<p>Get user's geolocation</p>
+<h3 id="options_30">■  options</h3>
+<ul>
+<li>none</li>
+</ul>
+<h3 id="return-value_30">■  return value</h3>
+<p>a <code>coord</code> object that contains <code>(latitude),(longitude)</code> format string</p>
+<pre><code>{
+  "coord": "12.342,22.343"
+}
+</code></pre>
+<h3 id="example_23">■  example</h3>
+<p>Below example demonstrates various ways of utilizing <code>$geo.get</code> return values</p>
+<pre><code>{
+  "$jason": {
+    "head": {
+      "title": "Right Here",
+      "description": "Searching anything nearby, links to yelp, google streetview and foursquare"
+    },
+    "body": {
+      "sections": [
+        {
+          "items": [
+            {
+              "type": "label",
+              "text": "Street View",
+              "style": {
+                "size": "40",
+                "font": "HelveticaNeue-CondensedBold",
+                "color": "#000000"
+              },
+              "action": {
+                "type": "$geo.get",
+                "success": {
+                  "type": "$href",
+                  "options": {
+                    "url": "http://maps.google.com/maps?q=&amp;layer=c&amp;cbll={{$jason.coord}}&amp;cbp=11,0,0,0,0",
+                    "view": "App"
+                  }
+                }
+              }
+            },
+            {
+              "type": "label",
+              "text": "Yelp",
+              "style": {
+                "size": "40",
+                "font": "HelveticaNeue-CondensedBold",
+                "color": "#000000"
+              },
+              "action": {
+                "type": "$geo.get",
+                "success": {
+                  "type": "$href",
+                  "options": {
+                    "url": "http://www.yelp.com/search?find_desc=food&amp;cll={{$jason.coord}}&amp;ns=1",
+                    "view": "App"
+                  }
+                }
+              }
+            },
+            {
+              "type": "label",
+              "text": "Foursquare",
+              "style": {
+                "size": "40",
+                "font": "HelveticaNeue-CondensedBold",
+                "color": "#000000"
+              },
+              "action": {
+                "type": "$geo.get",
+                "success": {
+                  "type": "$href",
+                  "options": {
+                    "url": "https://foursquare.com/explore?ll={{$jason.coord}}&amp;mode=url&amp;q=Food",
+                    "view": "App"
+                  }
+                }
+              }
+            }
+          ]
+        }
+      ]
+    }
+  }
+}
+</code></pre>
+<hr />
+<h2 id="timer">── TIMER ──</h2>
+<h2 id="timerstart">$timer.start</h2>
+<p>Start a timer</p>
+<h3 id="options_31">■ options</h3>
+<ul>
+<li><code>interval</code>: timer interval in seconds</li>
+<li><code>name</code>: name of the timer (used later to stop it)</li>
+<li><code>repeats</code>: if set to <code>"true"</code>, it's a perpetually repeating timer. Otherwise the timer gets called only once.</li>
+<li><code>action</code>: the action to execute on every timer interval.</li>
+</ul>
+<h3 id="return-value_31">■  return value</h3>
+<ul>
+<li>none</li>
+</ul>
+<h3 id="example_24">■  example</h3>
+<pre><code>{
+  "$jason": {
+    "head": {
+      "actions": {
+        "$load": {
+          "type": "$timer.start",
+          "options": {
+            "interval": "1",
+            "name": "timer1",
+            "repeats": "true",
+            "action": {
+              "type": "$render"
+            }
+          }
+        }
+      },
+      "templates": {
+        ...
+      }
+    }
+  }
+}
+</code></pre>
+<hr />
+<h2 id="timerstop">$timer.stop</h2>
+<p>Stops a timer</p>
+<h3 id="options_32">■ options</h3>
+<ul>
+<li><code>name</code>: the name of the timer to stop. You need to have <a href="#timerstart">started a timer with a name</a> first. It will stop all running timers if the name is not specified.</li>
+</ul>
+<h3 id="return-value_32">■ return value</h3>
+<ul>
+<li>none</li>
+</ul>
+<h3 id="example_25">■ example</h3>
+<pre><code>{
+  "$jason": {
+    ...
+    "body": {
+      "sections": [{
+        "items": [{
+          "type": "label",
+          "text": "Stop the timer",
+          "action": {
+            "type": "$timer.stop",
+            "options": {
+              "name": "timer1"
+            }
+          }
+        }]
+      }]
+    }
+  }
+}
+</code></pre>
+<hr />
+<h2 id="conversion">── CONVERSION ──</h2>
+<p>Convert other data formats into JSON format</p>
+<hr />
+<h2 id="convertcsv">$convert.csv</h2>
+<p>Convert CSV to JSON</p>
+<h3 id="options_33">■ options</h3>
+<ul>
+<li><code>data</code>: CSV string</li>
+</ul>
+<h3 id="return-value_33">■ return value</h3>
+<ul>
+<li>returns the parsed JSON result.</li>
+<li><strong>Expected format:</strong> must have the first row populated with attribute names. (See below for an example)</li>
+</ul>
+<h3 id="example_26">■ example</h3>
+<p>Here's an example CSV string returned from a network request.</p>
+<pre><code>name, descrption, url, icon
+github, social coding, https://www.github.com, https://assets-cdn.github.com/images/modules/logos_page/GitHub-Mark.png
+facebook, Best place to build &amp; make an impact., https://www.facebook.com, https://www.facebook.com/images/fb_icon_325x325.png
+product hunt, Discover your next favorite thing, https://www.producthunt.com, https://pbs.twimg.com/profile_images/699572900643213312/RC2oRewL.jpg
+</code></pre>
+<p>Notice how the first line is entirely made up of attribute names, and the rest rows are the actual data.</p>
+<p>We will try to parse this CSV into JSON by using the following code:</p>
+<pre><code>{
+  "$jason": {
+    "head": {
+      "actions": {
+        "$load": {
+          "type": "$network.request",
+          "options": {
+            "url": "http://hastebin.com/raw/xiceheroku",
+            "data_type": "raw"
+          },
+          "success": {
+            "type": "$convert.csv",
+            "options": {
+              "data": "{{$jason}}"
+            },
+            "success": {
+              "type": "$render"
+            }
+          }
+        }
+      }
+    }
+  }
+}
+</code></pre>
+<p>The end result:</p>
+<pre><code>[
+  {
+    "name": "github",
+    "description": "social coding",
+    "url": "https://www.github.com",
+    "icon": "https://assets-cdn.github.com/images/modules/logos_page/GitHub-Mark.png"
+  },
+  {
+    "name": "facebook",
+    "description": "Best place to build &amp; make an impact.",
+    "url": "https://www.facebook.com",
+    "icon": "https://www.facebook.com/images/fb_icon_325x325.png"
+  },
+  {
+    "name": "product hunt",
+    "description": "Discover your next favorite thing",
+    "url": "https://www.producthunt.com",
+    "icon": "https://pbs.twimg.com/profile_images/699572900643213312/RC2oRewL.jpg"
+  }
+]
+</code></pre>
+<hr />
+<h2 id="convertrss">$convert.rss</h2>
+<p>Convert RSS to JSON. Built on top of <a href="https://github.com/danmactough/node-feedparser">node-feedparser library</a></p>
+<h3 id="options_34">■ options</h3>
+<ul>
+<li><code>data</code>: RSS string</li>
+</ul>
+<h3 id="return-value_34">■ return value</h3>
+<p>returns the parsed JSON result in the following format (<a href="https://github.com/danmactough/node-feedparser#what-is-the-parsed-output-produced-by-feedparser">You can learn more about the spec here</a>):</p>
+<h3 id="example_27">■ example</h3>
+<p>Here's an example where it makes a network request to <a href="http://feeds.gawker.com/lifehacker/full">http://feeds.gawker.com/lifehacker/full</a> with <code>data_type</code> of <code>rss</code>, converts it to JSON using <code>$convert.rss</code>, and then renders it.</p>
+<pre><code>{
+  "actions": {
+    "$load": {
+      "type": "$network.request",
+      "options": {
+        "url": "http://feeds.gawker.com/lifehacker/full",
+        "data_type": "rss"
+      },
+      "success": {
+        "type": "$convert.rss",
+        "options": {
+          "data": "{{$jason}}"
+        },
+        "success": {
+          "type": "$render"
+        }
+      }
+    }
+  }
+}
+</code></pre>
+<p>The converted result right before <code>$render</code> will look something like this:</p>
+<pre><code>{
+  "$jason": [
+    {
+      "author": "Alan Henry",
+      "rss:pubdate": {
+        "@": {},
+        "#": "Thu, 9 Jun 2016 00:00:00 GMT"
+      },
+      "source": {},
+      "guid": "1780470292",
+      "link": "http://feeds.gawker.com/~r/lifehacker/full/~3/kcJMaJ6Ad7I/the-edge-of-the-world-desktop-1780470292",
+      "title": "The Edge of the World Desktop",
+      "summary": "&amp;lt;p class=\"first-text\"&amp;gt;This OS X desktop is simple, elegant, and combines a few simple widgets with a gorgeous wallpaper to great effect. If you like what you see, here’s how you can set it up, customize your own menubar, and give your Mac the same look. &amp;lt;/p&amp;gt;",
+      "image": {},
+      "rss:category": [
+        {
+          "@": {
+            "domain": ""
+          },
+          "#": "featured desktop"
+        },
+        {
+          "@": {
+            "domain": ""
+          },
+          "#": "desktops"
+        },
+        {
+          "@": {
+            "domain": ""
+          },
+          "#": "wallpapers"
+        },
+        {
+          "@": {
+            "domain": ""
+          },
+          "#": "customization"
+        },
+        {
+          "@": {
+            "domain": ""
+          },
+          "#": "personalization"
+        },
+        {
+          "@": {
+            "domain": ""
+          },
+          "#": "hud"
+        },
+        {
+          "@": {
+            "domain": ""
+          },
+          "#": "rainmeter"
+        },
+        {
+          "@": {
+            "domain": ""
+          },
+          "#": "themes"
+        },
+        {
+          "@": {
+            "domain": ""
+          },
+          "#": "skins"
+        },
+        {
+          "@": {
+            "domain": ""
+          },
+          "#": "windows"
+        },
+        {
+          "@": {
+            "domain": ""
+          },
+          "#": "os x"
+        },
+        {
+          "@": {
+            "domain": ""
+          },
+          "#": "mac"
+        },
+        {
+          "@": {
+            "domain": ""
+          },
+          "#": "linux"
+        }
+      ],
+      "rss:link": {
+        "@": {},
+        "#": "http://feeds.gawker.com/~r/lifehacker/full/~3/kcJMaJ6Ad7I/the-edge-of-the-world-desktop-1780470292"
+      },
+      "feedburner:origlink": {
+        "@": {},
+        "#": "http://lifehacker.com/the-edge-of-the-world-desktop-1780470292"
+      },
+      "enclosures": [],
+      "origlink": "http://lifehacker.com/the-edge-of-the-world-desktop-1780470292",
+      "pubDate": "2016-06-09T00:00:00.000Z",
+      "pubdate": "2016-06-09T00:00:00.000Z",
+      "rss:guid": {
+        "@": {
+          "ispermalink": "false"
+        },
+        "#": "1780470292"
+      },
+      "date": "2016-06-09T00:00:00.000Z",
+      "rss:title": {
+        "@": {},
+        "#": "The Edge of the World Desktop"
+      },
+      "meta": {
+        "#ns": [
+          {
+            "xmlns:itunes": "http://www.itunes.com/dtds/podcast-1.0.dtd"
+          },
+          {
+            "xmlns:dc": "http://purl.org/dc/elements/1.1/"
+          },
+          {
+            "xmlns:taxo": "http://purl.org/rss/1.0/modules/taxonomy/"
+          },
+          {
+            "xmlns:rdf": "http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+          },
+          {
+            "xmlns:atom": "http://www.w3.org/2005/Atom"
+          },
+          {
+            "xmlns:wfw": "http://wellformedweb.org/CommentAPI/"
+          },
+          {
+            "xmlns:feedburner": "http://rssnamespace.org/feedburner/ext/1.0"
+          },
+          {
+            "xmlns:atom10": "http://www.w3.org/2005/Atom"
+          },
+          {
+            "xmlns:atom10": "http://www.w3.org/2005/Atom"
+          }
+        ],
+        "#version": "2.0",
+        "categories": [],
+        "language": "en",
+        "link": "http://lifehacker.com",
+        "title": "Lifehacker",
+        "rss:link": {
+          "@": {},
+          "#": "http://lifehacker.com"
+        },
+        "cloud": {
+          "type": "hub",
+          "href": "http://pubsubhubbub.appspot.com/"
+        },
+        "image": {},
+        "xmlurl": "http://www.lifehacker.com/index.xml",
+        "feedburner:info": {
+          "@": {
+            "uri": "lifehacker/full"
+          }
+        },
+        "feedburner:browserfriendly": {
+          "@": {},
+          "#": "This is an XML content feed. It is intended to be viewed in a newsreader or syndicated to another site."
+        },
+        "#xml": {
+          "version": "1.0",
+          "encoding": "UTF-8"
+        },
+        "@": [
+          {
+            "xmlns:itunes": "http://www.itunes.com/dtds/podcast-1.0.dtd"
+          },
+          {
+            "xmlns:dc": "http://purl.org/dc/elements/1.1/"
+          },
+          {
+            "xmlns:taxo": "http://purl.org/rss/1.0/modules/taxonomy/"
+          },
+          {
+            "xmlns:rdf": "http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+          },
+          {
+            "xmlns:atom": "http://www.w3.org/2005/Atom"
+          },
+          {
+            "xmlns:wfw": "http://wellformedweb.org/CommentAPI/"
+          },
+          {
+            "xmlns:feedburner": "http://rssnamespace.org/feedburner/ext/1.0"
+          }
+        ],
+        "pubDate": null,
+        "pubdate": null,
+        "rss:language": {
+          "@": {},
+          "#": "en"
+        },
+        "date": null,
+        "generator": null,
+        "rss:title": {
+          "@": {},
+          "#": "Lifehacker"
+        },
+        "xmlUrl": "http://www.lifehacker.com/index.xml",
+        "favicon": null,
+        "rss:@": {},
+        "atom10:link": [
+          {
+            "@": {
+              "rel": "hub",
+              "xmlns:atom10": "http://www.w3.org/2005/Atom",
+              "href": "http://pubsubhubbub.appspot.com/"
+            }
+          },
+          {
+            "@": {
+              "href": "http://www.lifehacker.com/index.xml",
+              "rel": "self",
+              "xmlns:atom10": "http://www.w3.org/2005/Atom",
+              "type": "application/rss+xml"
+            }
+          }
+        ],
+        "rss:description": {
+          "@": {},
+          "#": "Tips and downloads for getting things done"
+        },
+        "copyright": null,
+        "#type": "rss",
+        "author": null,
+        "description": "Tips and downloads for getting things done"
+      },
+      "dc:creator": {
+        "@": {},
+        "#": "Alan Henry"
+      },
+      "rss:@": {},
+      "rss:description": {
+        "@": {},
+        "#": "&amp;lt;p class=\"first-text\"&amp;gt;This OS X desktop is simple, elegant, and combines a few simple widgets with a gorgeous wallpaper to great effect. If you like what you see, here’s how you can set it up, customize your own menubar, and give your Mac the same look.&amp;lt;/p&amp;gt;"
+      },
+      "comments": null,
+      "categories": [
+        "featured desktop",
+        "desktops",
+        "wallpapers",
+        "customization",
+        "personalization",
+        "hud",
+        "rainmeter",
+        "themes",
+        "skins",
+        "windows",
+        "os x",
+        "mac",
+        "linux"
+      ],
+      "description": "&amp;lt;p class=\"first-text\"&amp;gt;This OS X desktop is simple, elegant, and combines a few simple widgets with a gorgeous wallpaper to great effect. If you like what you see, here’s how you can set it up, customize your own menubar, and give your Mac the same look.&amp;lt;/p&amp;gt;"
+    },
+    {
+      ...
+    }
+  ]
+}
+</code></pre>
+<p><strong><a href="http://www.jasonbase.com/things/2dL/edit">Check out the full JSON for the RSS reader example</a></strong></p>
+              
+            </div>
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="../components/" class="btn btn-neutral float-right" title="★ Components">Next <span class="icon icon-circle-arrow-right"></span></a>
+      
+      
+        <a href="../href/" class="btn btn-neutral" title="★ Link"><span class="icon icon-circle-arrow-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <!-- Copyright etc -->
+    
+  </div>
+
+  Built with <a href="http://www.mkdocs.org">MkDocs</a> using a <a href="https://github.com/snide/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>.
+</footer>
+	  
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+
+<div class="rst-versions" role="note" style="cursor: pointer">
+    <span class="rst-current-version" data-toggle="rst-current-version">
+      
+          <a href="https://github.com/Jasonette/documentation" class="icon icon-github" style="float: left; color: #fcfcfc"> GitHub</a>
+      
+      
+        <span><a href="../href/" style="color: #fcfcfc;">&laquo; Previous</a></span>
+      
+      
+        <span style="margin-left: 15px"><a href="../components/" style="color: #fcfcfc">Next &raquo;</a></span>
+      
+    </span>
+</div>
+
+</body>
+</html>

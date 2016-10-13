@@ -1,0 +1,788 @@
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  
+  
+  <title>■ Extending Jasonette (advanced) - jasonette</title>
+  
+
+  <link rel="shortcut icon" href="../img/favicon.ico">
+
+  
+  <link href='https://fonts.googleapis.com/css?family=Lato:400,700|Roboto+Slab:400,700|Inconsolata:400,700' rel='stylesheet' type='text/css'>
+
+  <link rel="stylesheet" href="../css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="../css/theme_extra.css" type="text/css" />
+  <link rel="stylesheet" href="../css/highlight.css">
+  <link href="../extra.css" rel="stylesheet">
+
+  
+  <script>
+    // Current page data
+    var mkdocs_page_name = "■ Extending Jasonette (advanced)";
+    var mkdocs_page_input_path = "advanced.md";
+    var mkdocs_page_url = "/advanced/";
+  </script>
+  
+  <script src="../js/jquery-2.1.1.min.js"></script>
+  <script src="../js/modernizr-2.8.3.min.js"></script>
+  <script type="text/javascript" src="../js/highlight.pack.js"></script>
+  <script src="../js/theme.js"></script> 
+
+  
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+  <div class="wy-grid-for-nav">
+
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side stickynav">
+      <div class="wy-side-nav-search">
+        <a href=".." class="icon icon-home"> jasonette</a>
+        <div role="search">
+  <form id ="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+  </form>
+</div>
+      </div>
+
+      <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+        <ul class="current">
+          
+            <li>
+    <li class="toctree-l1 ">
+        <a class="" href="..">■ Getting started</a>
+        
+    </li>
+<li>
+          
+            <li>
+    <li class="toctree-l1 ">
+        <a class="" href="../examples/">■ Examples</a>
+        
+    </li>
+<li>
+          
+            <li>
+    <ul class="subnav">
+    <li><span>■ Reference</span></li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../document/">★ View</a>
+        
+    </li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../href/">★ Link</a>
+        
+    </li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../actions/">★ Actions</a>
+        
+    </li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../components/">★ Components</a>
+        
+    </li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../layout/">★ Layout</a>
+        
+    </li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../templates/">★ Templates</a>
+        
+    </li>
+
+        
+    </ul>
+<li>
+          
+            <li>
+    <li class="toctree-l1 ">
+        <a class="" href="../convention/">■ Convention</a>
+        
+    </li>
+<li>
+          
+            <li>
+    <li class="toctree-l1 current">
+        <a class="current" href="./">■ Extending Jasonette (advanced)</a>
+        
+            <ul>
+            
+                <li class="toctree-l3"><a href="#what-is-this-page-about">What is this page about?</a></li>
+                
+            
+                <li class="toctree-l3"><a href="#extension-vs-integration">Extension vs. Integration</a></li>
+                
+            
+                <li class="toctree-l3"><a href="#extension">★  Extension</a></li>
+                
+                    <li><a class="toctree-l4" href="#1-extend-ui-components">1. Extend UI Components</a></li>
+                
+                    <li><a class="toctree-l4" href="#2-extend-actions">2. Extend Actions</a></li>
+                
+            
+                <li class="toctree-l3"><a href="#integration">★  Integration</a></li>
+                
+                    <li><a class="toctree-l4" href="#how-it-works">How it works</a></li>
+                
+                    <li><a class="toctree-l4" href="#1-non-jasonette-jasonette">1. Non-Jasonette =&gt; Jasonette</a></li>
+                
+                    <li><a class="toctree-l4" href="#2-jasonette-non-jasonette">2. Jasonette =&gt; Non-Jasonette</a></li>
+                
+            
+            </ul>
+        
+    </li>
+<li>
+          
+            <li>
+    <li class="toctree-l1 ">
+        <a class="" href="../faq/">■ FAQ</a>
+        
+    </li>
+<li>
+          
+        </ul>
+      </div>
+      &nbsp;
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" role="navigation" aria-label="top navigation">
+        <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+        <a href="..">jasonette</a>
+      </nav>
+
+      
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="breadcrumbs navigation">
+  <ul class="wy-breadcrumbs">
+    <li><a href="..">Docs</a> &raquo;</li>
+    
+      
+    
+    <li>■ Extending Jasonette (advanced)</li>
+    <li class="wy-breadcrumbs-aside">
+      
+        
+          <a href="https://github.com/Jasonette/documentation" class="icon icon-github"> Edit on GitHub</a>
+        
+      
+    </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main">
+            <div class="section">
+              
+                <h1 id="what-is-this-page-about">What is this page about?</h1>
+<p>You can probably build any app you can imagine with Jasonette alone.</p>
+<p>However sometimes you may want to:</p>
+<ul>
+<li><strong>Extend Jasonette engine itself:</strong> Want a JSON powered MapKit? Want a JSON powered video livestream view? Want a JSON powered ApplePay? Just write an extension! (No, really, please someone write an extension.)</li>
+<li><strong>Integrate Jasonette with existing code:</strong> Already have your own app code? Plug in Jasonette to your existing app with just a few lines!</li>
+</ul>
+<hr />
+<h1 id="extension-vs-integration">Extension vs. Integration</h1>
+<p>Both extending and integrating involve writing native iOS code. But here's the difference:</p>
+<ul>
+<li>
+<p><strong>Extending Jasonette</strong> means you're extending Jasonette itself. This means:</p>
+<ul>
+<li>All your custom modules will be JSON powered, just like the rest of Jasonette.</li>
+<li>You will need to follow a simple convention when writing the extension. </li>
+<li>You can share it with the community when you're done. If it's useful enough it may even be integrated into the main codebase.</li>
+</ul>
+</li>
+<li>
+<p><strong>Integrating with Jasonette</strong> means you already have existing code and are using Jasonette only partially. This means:</p>
+<ul>
+<li>You can start using Jasonette in your existing app instanly, without re-writing anything. Just a few lines of code necessary.</li>
+<li>You will be able to take advantage of all of Jasonette's power whenever you use the Jasonette view.</li>
+<li>The only drawback is you can't control your own non-Jasonette code with JSON (obviously)</li>
+</ul>
+</li>
+</ul>
+<p><strong>Extending Jasonette is the recommended way in most cases,</strong> since it requires very little additional effort, but automatically comes with the power to control your own custom native modules via JSON.</p>
+<hr />
+<h1 id="extension">★  Extension</h1>
+<p>Let's jump into writing extensions! There are two things you can extend: <a href="../components/">Components</a> and <a href="../actions/">Actions</a></p>
+<h2 id="1-extend-ui-components">1. Extend UI Components</h2>
+<p>Jasonette comes with various <a href="../components/">UI components</a> right out of the box, but you can easily build your own native component if you need to. Just follow the instructions below to write your component class, and you will instantly be able to summon your component within the <a href="../layout/">Jasonette layout system</a> simply by describing in JSON.</p>
+<h3 id="11-how-to-write-a-ui-component-class">1.1. How to write a UI Component class</h3>
+<p>All you need to do is write a class with a single builder method that returns a <code>UIView</code> subclass. Here's how:</p>
+<hr />
+<h4 id="step-1-create-a-jasoncomponent-subclass">Step 1. Create a <code>JasonComponent</code> subclass</h4>
+<p>The example below demonstrates how to create a <code>map</code> component.</p>
+<p><strong>Just remember the following rules:</strong></p>
+<ol>
+<li>Create a class that inherits from <code>JasonComponent.h</code>.</li>
+<li>The class name should follow this convention: <code>Jason(COMPONENT_NAME)Component</code></li>
+<li>Only the first character of the COMPONENT_NAME should be capitalized</li>
+</ol>
+<p>So, to create a <code>map</code> component:</p>
+<ol>
+<li>we create a subclass of <code>JasonComponent</code></li>
+<li>And name it <code>JasonMapComponent</code> (Notice the capitalization).</li>
+<li>We also import <code>MapKit</code> since we will need to acces the iOS MapKit API.</li>
+</ol>
+<p>Here's the result:</p>
+<pre><code>// JasonMapComponent.h
+#import "JasonComponent.h"
+#import &lt;MapKit/MapKit.h&gt;
+@interface JasonMapComponent : JasonComponent &lt;MKMapViewDelegate&gt;
+@end
+</code></pre>
+<hr />
+<h4 id="step-2-implement-the-builder-method">Step 2. Implement the builder method</h4>
+<p>You only need to implement a single class method:</p>
+<p><code>+ (UIView*)build:(NSDictionary*)json withOptions:(NSDictionary*)options</code>.</p>
+<p>Basically it's a builder method that takes a JSON snippet in NSDictionary format and creates a UIView subclass. It can be a UILabel, UIButton, or whatever, as long as it's a subclass of <code>UIView</code>.</p>
+<p>Customize it using the info passed in from the <code>json</code> parameter, and finally return the <code>UIView</code> once you're done.</p>
+<p>Here's what the most primitive version would look like:</p>
+<pre><code>// JasonMapComponent.m
+@implementation JasonMapComponent
++ (UIView *)build:(NSDictionary *)json withOptions:(NSDictionary *)options{
+  MKMapView *mapView = [[MKMapView alloc] init];
+  return mapView;
+}
+@end
+</code></pre>
+<p>This works since <code>MKMapView</code> is a subclass of <code>UIView</code>.</p>
+<hr />
+<h4 id="step-3-and-thats-it">Step 3. And that's it!</h4>
+<p>This is seriously all we need to do! Our map component is now 100% powered by JSON, just like rest of the <a href="../components/">Jasonette components</a>.</p>
+<p>Here's an example of how we would summon our <code>map</code> component.</p>
+<pre><code>{
+  "type": "vertical",
+  "components": [
+    { "type": "label", "text": "This is a map" },
+    { "type": "map" }
+  ]
+}
+</code></pre>
+<p>So how does this work behind the scenes? Whenever Jasonette encounters a component description, </p>
+<ol>
+<li>It looks at its <code>type</code> first. Here we see the <code>{"type": "map"}</code>, so it's a <code>map</code> component.</li>
+<li>Based on this, it looks for a class named <code>JasonMapComponent</code> (Remember the naming convention is <code>Jason(COMPONENT_NAME_WITH_FIRST_LETTER_CAPITALIZED)Component</code>)</li>
+<li>When it finds the component class, it runs its <code>build:withOptions:</code> method to finally build the component.</li>
+</ol>
+<p>Of course, this is a simplified version of how the actual <code>map</code> component works. In reality the <code>json</code> object would contain more information than just <code>{ "type": "map" }</code>. It may look something like this:</p>
+<pre><code>{
+  "type": "map",
+  "region": {
+    "coord": "40.7409395,-74.0083886",
+    "width": "50"
+  }
+}
+</code></pre>
+<p>All you need to do is take this, parse it, and customize the <code>mapView</code> object before returning, like the comment below.</p>
+<pre><code>// JasonMapComponent.m
+@implementation JasonMapComponent
++ (UIView *)build:(NSDictionary *)json withOptions:(NSDictionary *)options{
+  MKMapView *mapView = [[MKMapView alloc] init];
+  /*
+    Do some customization with the 'json' argument here.
+  */
+  return mapView;
+}
+@end
+</code></pre>
+<hr />
+<h3 id="12-tips-on-writing-component-classes">1.2. Tips on writing component classes</h3>
+<hr />
+<h4 id="a-keep-it-stateless-and-self-contained">A. Keep it stateless and self contained</h4>
+<p>These component builder classes and methods are stateless by design. That's why the <code>build:withOptions:</code> method is <strong>a class method</strong> that simply takes a <code>NSDictionary</code> as input and returns a <code>UIView</code> as output.</p>
+<hr />
+<h4 id="b-use-class-methods">B. Use class methods</h4>
+<p>Like mentioned above, Jasonette requires that all the component methods are implemented as class methods.</p>
+<p>You may ask "But there's a delegate method I'm trying to use for handling events, and it's an instance method only. How do I deal with this?".</p>
+<p>Well, in objective-c, classes are also objects, so you can in fact call them the same way you call an instance method.</p>
+<p><strong>Just switch out the instance method with its class method version</strong> (use <code>+</code> instead of <code>-</code> at the beginning of the method definition), like below:</p>
+<pre><code>// JasonMapComponent.m
+@implementation JasonMapComponent
++ (UIView *)build:(NSDictionary *)json withOptions:(NSDictionary *)options{
+  MKMapView *mapView = [[MKMapView alloc] init];
+
+  /*
+    Do some customization with the 'json' argument here
+  */
+
+  mapView.delegate = self;
+
+  return mapView;
+}
+
++ (void)mapView:(MKMapView *)mapView didUpdateUserLocation:(MKUserLocation *)userLocation{
+  /*
+    Handle the event
+  */
+}
+@end
+</code></pre>
+<p>Here we implement <code>+ (void)mapView:(MKMapView *)mapView didUpdateUserLocation:(MKUserLocation *)userLocation</code> to handle MapKit events.</p>
+<hr />
+<h4 id="c-take-advantage-of-the-built-in-stylize-method">C. Take advantage of the built-in stylize method</h4>
+<p>A lot of style attributes such as background, width, height, corner_radius, opacity, etc. are common across various types of components.</p>
+<p><code>JasonComponent</code> class has a built-in method that you can utilize to automatically apply these styles. It's called:</p>
+<p><code>+ (void) stylize: (NSDictionary *)json component: (UIView *)component</code>.</p>
+<p>Just by calling this method once, you can take advantage of all the following style attributes right out of the box!</p>
+<pre><code>{
+  "type": "mycustomitem",
+  "style": {
+    "width": "...",
+    "height": "...",
+    "opacity": "...",
+    "background": "...",
+    "color": "...",
+    "corner_radius": "..."
+  }
+}
+</code></pre>
+<p>Here's an example code that creates a UIView, runs it through the built-in <code>stylize</code>, and then applies additional custom styles.</p>
+<pre><code>+ (UIView *)build:(NSDictionary *)json withOptions:(NSDictionary *)options{
+  // Build some component here
+  UIView *component = [[UIView alloc] init];
+
+  /*
+  customize the component here
+  */
+
+  // run it through the default stylize method
+  [self stylize: json component: component];
+
+  // Add your own custom styling logic here, on top of the default styling above
+  if(style[@"rotate"] {
+    // some custom styling logic ....
+  }
+
+  return component;
+}
+</code></pre>
+<p>You don't even need to include an additional file, since the <code>stylize</code> method comes for free just by subclassing <code>JasonAction</code></p>
+<hr />
+<h2 id="2-extend-actions">2. Extend Actions</h2>
+<p>Just like components, you can easily write your own native <a href="../actions/">action</a> modules and call them using 100% JSON syntax.</p>
+<p>One thing to keep in mind: <strong>Action classes contain a collection of related action methods</strong>, which is why most actions are namepaced as <code>$(GROUPNAME).(METHODNAME)</code> when you call it. </p>
+<p>For example <code>JasonNetworkAction</code> class--an action class that deals with network requests--contains multiple methods: <code>request</code>, <code>upload</code>, <code>auth</code>, <code>unauth</code>. Each method can be invoked by Jasonette using <code>$network.request</code>, <code>$network.auth</code>, <code>$network.upload</code>, and <code>$network.unauth</code> actions.</p>
+<hr />
+<h3 id="21-how-to-write-an-action">2.1. How to write an Action</h3>
+<p>Let's try writing an action class (<code>$util</code>) and one of its methods which displays a banner (<code>$util.banner</code>).</p>
+<p>We woulid like to parse this JSON markup:</p>
+<pre><code>{
+  "type": "$util.banner",
+  "options": {
+    "title": "Hello",
+    "description": "Hello world!"
+  }
+}
+</code></pre>
+<p>to display a notification banner that looks like this:</p>
+<p>[IMAGE]</p>
+<hr />
+<h4 id="step-1-create-an-action-class">Step 1. Create an Action Class</h4>
+<p><strong>Three rules for writing your action class:</strong></p>
+<ol>
+<li>Create a class that inherits from <code>JasonAction.h</code>.</li>
+<li>The class name should follow the following convention: <code>Jason(GROUP_NAME)Action</code></li>
+<li>Only the first character of the GROUP_NAME should be capitalized</li>
+</ol>
+<p>To create a class that responds to <code>$util.banner</code>, we first need a class for the <code>util</code> group. Following the rule, we need to create a <code>JasonUtilAction</code>, which inherits from <code>JasonAction</code>:</p>
+<pre><code>//  JasonUtilAction.h
+#import "JasonAction.h"
+@interface JasonUtilAction : JasonAction
+@end
+
+//  JasonUtilAction.m
+#import "JasonUtilAction.h"
+@implementation JasonUtilAction
+@end
+</code></pre>
+<hr />
+<h4 id="step-2-write-an-action-method">Step 2. Write an Action Method</h4>
+<p><strong>Three rules for naming an action method:</strong></p>
+<ol>
+<li>It should be an <strong>instance method</strong>.</li>
+<li>Its return value should be <code>void</code>.</li>
+<li>Whatever you name your method will respond to an action call <code>$[GROUP_NAME].[METHOD_NAME]</code>.</li>
+</ol>
+<p>For example, to handle <code>$util.banner</code> action we need to implement an <strong>instance method</strong>, and its name should be <code>banner</code>, like this:</p>
+<pre><code>//  JasonUtilAction.h
+#import "JasonAction.h"
+@interface JasonUtilAction : JasonAction
+@end
+
+//  JasonUtilAction.m
+#import "JasonUtilAction.h"
+@implementation JasonUtilAction
+- (void)banner{
+    dispatch_async(dispatch_get_main_queue(), ^{
+        [[TWMessageBarManager sharedInstance] showMessageWithTitle: @"Banner Title"
+                                                       description: @"Here goes banner description"
+                                                              type: TWMessageBarMessageTypeInfo];
+    });
+    [[Jason client] success];
+}
+@end
+</code></pre>
+<p>This will display a banner when the following action is triggered</p>
+<pre><code>{
+  "type": "$util.banner"
+}
+</code></pre>
+<p>Notice the <code>[[Jason client] success]</code> line. This is how your action signals that its job is over. More on this later.</p>
+<hr />
+<h4 id="step-3-pass-arguments-to-the-action">Step 3. Pass arguments to the action</h4>
+<p>In the previous example we hardcoded the title and description for the banner. But a component that displays the same text all the time is not cool. Instead we want to pass some arguments and have them customize how the action is run. For example, we want the <code>$util.banner</code> action to take an <code>options</code> attribute and build a custom banner, like this:</p>
+<pre><code>{
+  "type": "$util.banner",
+  "options": {
+    "title": "Yo",
+    "description": "Dawg"
+  }
+}
+</code></pre>
+<p>To access the <code>options</code> attribute of an action, simply use <code>self.options</code> inside the method, like this:</p>
+<pre><code>//  JasonUtilAction.h
+#import "JasonAction.h"
+@interface JasonUtilAction : JasonAction
+@end
+
+//  JasonUtilAction.m
+#import "JasonUtilAction.h"
+@implementation JasonUtilAction
+- (void)banner{
+
+    // Extract title and description out of self.options!
+    NSString *title = self.options[@"title"];
+    NSString *description = self.options[@"description"];
+
+    // Use the custom title and description instead of hardcoding!
+    dispatch_async(dispatch_get_main_queue(), ^{
+        [[TWMessageBarManager sharedInstance] showMessageWithTitle: title
+                                                       description: description
+                                                              type: TWMessageBarMessageTypeInfo];
+    });
+    [[Jason client] success];
+}
+@end
+</code></pre>
+<p>You don't need to define <code>self.options</code> anywhere because you get it for free just by subclassing <code>JasonAction</code>.</p>
+<hr />
+<h4 id="step-4-end-the-action">Step 4. End the action</h4>
+<p><strong>You MUST explicitly signal the end of each action when implementing an action method</strong>.</p>
+<p>This is because we can't assume that all actions end when they reach the last line. <strong>Some actions trigger asynchronous background tasks, and we need to wait until that task is over.</strong> </p>
+<p><strong>To signal the end of an action we call:</strong> </p>
+<p><code>[[Jason client] success];</code></p>
+<p>This command will:</p>
+<ol>
+<li>Finish the current action</li>
+<li>See if the current action has a <code>success</code> attribute, and if it does, proceed to call that action.</li>
+</ol>
+<p>Here's an example where we make a network request, and then display a success banner when it succeeds:</p>
+<pre><code>{
+  "type": "$network.request",
+  "options": {
+    "url": "https://imagejason.herokuapp.com",
+    "method": "post"
+  },
+  "success": {
+    "type": "$util.banner",
+    "options": {
+      "title": "Success!",
+      "description": "Successfully posted!"
+    }
+  }
+}
+</code></pre>
+<p>The implementation for <code>$network.request</code> may look something like this:</p>
+<pre><code>//  JasonNetworkAction.m
+#import "JasonNetworkAction.h"
+@implementation JasonNetworkAction
+...
+- (void)request{
+  AFHTTPSessionManager *manager = [AFHTTPSessionManager manager];
+  ... 
+  dispatch_async(dispatch_get_global_queue( DISPATCH_QUEUE_PRIORITY_DEFAULT, 0), ^(void){
+    [manager POST:url parameters:parameters progress:^(NSProgress * _Nonnull downloadProgress) {
+    } success:^(NSURLSessionDataTask * _Nonnull task, id  _Nullable responseObject) {
+      dispatch_async(dispatch_get_main_queue(), ^{
+        [[Jason client] success];
+      });
+    } failure:^(NSURLSessionDataTask * _Nullable task, NSError * _Nonnull error) {
+    }];
+  });
+}
+... 
+@end
+</code></pre>
+<p>Notice how we call the <code>[[Jason client] success]</code> line <strong>inside the "success" block, instead of the last line of the method</strong>. This is because the network request task runs asynchronously and the action shouldn't end until it reaches inside the <code>success</code> block.</p>
+<hr />
+<h4 id="step-5-handle-exceptions">Step 5. Handle exceptions</h4>
+<p>We can end an action with <code>[[Jason client] success]</code> when everything goes as expected. But what if something goes wrong? We still need to end the action but also run an exception handling logic, instead of going on to the next action.</p>
+<p>For example, the <code>$network.request</code> may fail because there's no Internet connection. To handle these exceptions, Jason actions have another attribute called <code>error</code>, as demonstrated below:</p>
+<pre><code>{
+  "type": "$network.request",
+  "options": {
+    "url": "https://imagejason.herokuapp.com",
+    "method": "post"
+  },
+  "success": {
+    "type": "$util.banner",
+    "options": {
+      "title": "Success!",
+      "description": "Successfully fetched!"
+    }
+  },
+  "error": {
+    "type": "$util.banner",
+    "options": {
+      "title": "ERROR!!!!",
+      "description": "Uh oh, something went wrong!"
+    }
+  }
+}
+</code></pre>
+<p><strong>To signal that the action has ended with an error when we implement action methods, we call:</strong></p>
+<p><code>[[Jason client] error];</code>.</p>
+<p>Let's take the previous code and add that line:</p>
+<pre><code>//  JasonNetworkAction.m
+#import "JasonNetworkAction.h"
+@implementation JasonNetworkAction
+...
+- (void)request{
+  AFHTTPSessionManager *manager = [AFHTTPSessionManager manager];
+  ... 
+  dispatch_async(dispatch_get_global_queue( DISPATCH_QUEUE_PRIORITY_DEFAULT, 0), ^(void){
+    [manager POST:url parameters:parameters progress:^(NSProgress * _Nonnull downloadProgress) {
+    } success:^(NSURLSessionDataTask * _Nonnull task, id  _Nullable responseObject) {
+      dispatch_async(dispatch_get_main_queue(), ^{
+        [[Jason client] success];
+      });
+    } failure:^(NSURLSessionDataTask * _Nullable task, NSError * _Nonnull error) {
+      dispatch_async(dispatch_get_main_queue(), ^{
+        [[Jason client] error];
+      });
+    }];
+  });
+}
+... 
+@end
+</code></pre>
+<p>The code is mostly same as the previous one, except we've added the <code>[[Jason client] error];</code> inside the <code>failure</code> block of the task.</p>
+<hr />
+<h4 id="step-6-set-the-return-value">Step 6. Set the return value</h4>
+<p>In many cases we want to run an action, take its output, and pass it to another action. </p>
+<p>Here, we run a <code>$geo.get</code> action, and then display its return value as an alert using <code>$util.alert</code>.</p>
+<pre><code>{
+  "type": "$geo.get",
+  "success": {
+    "type": "$util.banner",
+    "options": {
+      "title": "Current Location",
+      "description": "{{$jason.coord}}"
+    }
+  }
+}
+</code></pre>
+<p>Notice how we use a variable called <code>$jason</code>. This is how return values work in Jasonette--if an action has a return value, it passes it along to the next action as a variable named <code>$jason</code>.</p>
+<p><strong>To end an action with a return value, we call:</strong></p>
+<p><code>[[Jason client] success: response]</code></p>
+<p>To support the JSON markup above, the <code>$geo.get</code> action implementation should look like this:</p>
+<pre><code>// JasonGeoAction.m
+#import "JasonGeoAction.h"
+@implementation JasonGeoAction
+- (void)get{
+
+  /*
+     Implement some location sensor logic that populates the 'currentLocation' variable
+  */
+
+  NSString *coord = [NSString stringWithFormat:@"%g,%g", currentLocation.coordinate.latitude, currentLocation.coordinate.longitude];
+  [[Jason client] success: @{@"coord": coord}];
+}
+@end
+</code></pre>
+<p>Here we end <code>$geo.get</code> with an object <code>@{@"coord": coord}</code>. As mentioned above, this object will be accessible as <code>$jason</code> in the next action. This is how the <code>$util.banner</code> action can dynamically build itself using the<code>$jason.coord</code> value.</p>
+<hr />
+<h1 id="integration">★  Integration</h1>
+<p>Jasonette by default covers most of what you need to build any app you can imagine. Also you can even extend its <strong>actions</strong> and <strong>components</strong>, like we discussed above. </p>
+<p>However if you already have an existing code and just want to integrate with Jasonette here and there, that's cool too! You don't have to throw away all your existing code and re-write everything just to take advantage of Jasonette!</p>
+<h2 id="how-it-works">How it works</h2>
+<p>Basically, <code>JasonViewController</code> is a self contained class whose only requirement is that you set its <code>url</code> before presenting it. This means you can integrate Jasonette just like using any other view controllers in your project.</p>
+<hr />
+<h3 id="remember-obviously-you-will-need-to-either-copy-all-your-existing-project-files-into-jasonette-project-or-jasonette-files-into-your-own-project-before-you-do-this">★ REMEMBER - Obviously, you will need to either copy all your existing project files into Jasonette project, or Jasonette files into your own project, before you do this.</h3>
+<hr />
+<h2 id="1-non-jasonette-jasonette">1. Non-Jasonette =&gt; Jasonette</h2>
+<p>Here's how you can open a <code>JasonViewController</code> from your own viewcontroller—it's same as opening any other viewcontrollers.</p>
+<h3 id="a-first-include-jasonviewcontrollerh-in-your-viewcontroller">A. First, include JasonViewController.h in your viewcontroller</h3>
+<pre><code>#import "JasonViewController.h"
+</code></pre>
+<h3 id="b-open-with-push-transition">B. Open with push transition:</h3>
+<p>To open the <code>JasonViewController</code> with a push transition, do this:</p>
+<pre><code>JasonViewController *vc = [[JasonViewController alloc] init];
+vc.url = @"https://jasonbase.com/things/jYJ.json";
+[self.navigationViewController pushViewController:vc animated:YES];
+</code></pre>
+<h3 id="c-open-with-modal-transition">C. Open with modal transition:</h3>
+<p>To open <code>JasonViewController</code> as a modal, do this:</p>
+<pre><code>JasonViewController *vc = [[JasonViewController alloc] init];
+vc.url = @"https://jasonbase.com/things/jYJ.json";
+UINavigationController *nav = [[UINavigationController alloc] initWithRootViewController:vc];
+[self.navigationController presentViewController:nav animated:YES completion:nil];
+</code></pre>
+<p>And that's it for Non-Jasonette =&gt; Jasonette view transition! Nothing special, just a regular viewcontroller.</p>
+<hr />
+<h2 id="2-jasonette-non-jasonette">2. Jasonette =&gt; Non-Jasonette</h2>
+<p>This one's a bit different, since we are transitioning from a <code>JasonViewController</code> to your custom viewcontroller. </p>
+<hr />
+<h3 id="remember-everything-that-happens-on-the-jasonette-side-is-json-powered">★ REMEMBER - Everything that happens on the Jasonette side is JSON powered.</h3>
+<p>Which means we need to handle the transition using JSON.</p>
+<hr />
+<p>Here's how to transition from a Jasonette view to your custom non-Jasonette view:</p>
+<h3 id="option-a-using-storyboard">Option A. Using Storyboard</h3>
+<p>It works exactly the same as normal Jasonette transitions--simply attach an <code>href</code> and set its <code>view</code> attribute.</p>
+<p><strong>You need to name it like this:</strong></p>
+<p><code>[STORYBOARD NAME].[STORYBOARD IDENTIFIER FOR THE VIEWCONTROLLER]</code></p>
+<p>For example, to transition to a viewcontroller which has a storyboard ID of <code>PaymentViewController</code> on a storyboard named <code>MainStoryboard.storyboard</code>, we do the following:</p>
+<pre><code>{
+  "type": "label",
+  "text": "Make a payment",
+  "href": {
+    "view": "MainStoryboard.PaymentViewController"
+  }
+}
+</code></pre>
+<h3 id="option-b-not-using-storyboard">Option B. Not using Storyboard</h3>
+<p>If you don't use storyboard, you can simply enter the viewcontroller's class name. For example, to transition to a <code>PaymentViewController</code> class,</p>
+<pre><code>{
+  "type": "label",
+  "text": "Make a payment",
+  "href": {
+    "view": "PaymentViewController"
+  }
+}
+</code></pre>
+<hr />
+<h3 id="passing-arguments-to-your-viewcontroller">Passing arguments to your viewcontroller</h3>
+<p>Let's say we now want to pass some arguments to the <code>PaymentViewController</code>. Here's how we can achieve this:</p>
+<p><br><br></p>
+<h4 id="step-1-add-an-nsdictionary-property-called-jason-to-your-custom-viewcontroller">Step 1. Add an <code>NSDictionary</code> property called <code>jason</code> to your custom viewcontroller</h4>
+<p>For example if we wanted our <code>PaymentViewController</code> to support this feature, we will need to add an <code>NSDictionary *jason</code> property to the class, like this:</p>
+<pre><code>// PaymentViewController.h
+#import &lt;UIKit/UIKit.h&gt;
+@interface PaymentViewController : UIViewController  
+  ....
+  @property (nonatomic, strong) NSDictionary *jason
+  ....
+@end
+</code></pre>
+<hr />
+<h4 id="step-2-pass-the-options-attribute-inside-href">Step 2. Pass the <code>options</code> attribute inside <code>href</code>.</h4>
+<p>And we're all set! We can now start passing arguments to the <code>PaymentViewController</code> using the JSON syntax! Here's an example:</p>
+<pre><code>{
+  "type": "label",
+  "text": "Make a payment",
+  "href": {
+    "view": "MainStoryboard.PaymentViewController",
+    "options": {
+      "product_id": "3kzf9ela",
+      "user_id": "3kzf9ela"
+    }
+  }
+}
+</code></pre>
+<hr />
+<h4 id="step-3-use-the-jason-property-in-your-viewcontroller">Step 3. Use the <code>jason</code> property in your viewcontroller</h4>
+<p>Now that our <code>PaymentViewController</code> is receiving the <code>options</code> object as <code>jason</code>, we just need to make use of it in the implementation. Example:</p>
+<pre><code>// PaymentViewController.m
+#import "PaymentViewController.h"
+@implementation PaymentViewController
+  ....
+  - (void)viewDidLoad {
+    [super viewDidLoad];
+    NSString *product_id = self.jason[@"product_id"];
+    NSString *user_id = self.jason[@"user_id"];
+
+    /*
+      Use product_id and user_id for your custom logic!
+    */
+  }
+  ....
+@end
+</code></pre>
+              
+            </div>
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="../faq/" class="btn btn-neutral float-right" title="■ FAQ">Next <span class="icon icon-circle-arrow-right"></span></a>
+      
+      
+        <a href="../convention/" class="btn btn-neutral" title="■ Convention"><span class="icon icon-circle-arrow-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <!-- Copyright etc -->
+    
+  </div>
+
+  Built with <a href="http://www.mkdocs.org">MkDocs</a> using a <a href="https://github.com/snide/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>.
+</footer>
+	  
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+
+<div class="rst-versions" role="note" style="cursor: pointer">
+    <span class="rst-current-version" data-toggle="rst-current-version">
+      
+          <a href="https://github.com/Jasonette/documentation" class="icon icon-github" style="float: left; color: #fcfcfc"> GitHub</a>
+      
+      
+        <span><a href="../convention/" style="color: #fcfcfc;">&laquo; Previous</a></span>
+      
+      
+        <span style="margin-left: 15px"><a href="../faq/" style="color: #fcfcfc">Next &raquo;</a></span>
+      
+    </span>
+</div>
+
+</body>
+</html>

@@ -1,0 +1,1033 @@
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  
+  
+  <title>★ Templates - jasonette</title>
+  
+
+  <link rel="shortcut icon" href="../img/favicon.ico">
+
+  
+  <link href='https://fonts.googleapis.com/css?family=Lato:400,700|Roboto+Slab:400,700|Inconsolata:400,700' rel='stylesheet' type='text/css'>
+
+  <link rel="stylesheet" href="../css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="../css/theme_extra.css" type="text/css" />
+  <link rel="stylesheet" href="../css/highlight.css">
+  <link href="../extra.css" rel="stylesheet">
+
+  
+  <script>
+    // Current page data
+    var mkdocs_page_name = "★ Templates";
+    var mkdocs_page_input_path = "templates.md";
+    var mkdocs_page_url = "/templates/";
+  </script>
+  
+  <script src="../js/jquery-2.1.1.min.js"></script>
+  <script src="../js/modernizr-2.8.3.min.js"></script>
+  <script type="text/javascript" src="../js/highlight.pack.js"></script>
+  <script src="../js/theme.js"></script> 
+
+  
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+  <div class="wy-grid-for-nav">
+
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side stickynav">
+      <div class="wy-side-nav-search">
+        <a href=".." class="icon icon-home"> jasonette</a>
+        <div role="search">
+  <form id ="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+  </form>
+</div>
+      </div>
+
+      <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+        <ul class="current">
+          
+            <li>
+    <li class="toctree-l1 ">
+        <a class="" href="..">■ Getting started</a>
+        
+    </li>
+<li>
+          
+            <li>
+    <li class="toctree-l1 ">
+        <a class="" href="../examples/">■ Examples</a>
+        
+    </li>
+<li>
+          
+            <li>
+    <ul class="subnav">
+    <li><span>■ Reference</span></li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../document/">★ View</a>
+        
+    </li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../href/">★ Link</a>
+        
+    </li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../actions/">★ Actions</a>
+        
+    </li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../components/">★ Components</a>
+        
+    </li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../layout/">★ Layout</a>
+        
+    </li>
+
+        
+            
+    <li class="toctree-l1 current">
+        <a class="current" href="./">★ Templates</a>
+        
+            <ul>
+            
+                <li class="toctree-l3"><a href="#what-is-a-template">■ What is a template?</a></li>
+                
+                    <li><a class="toctree-l4" href="#valid-expressions">valid expressions</a></li>
+                
+                    <li><a class="toctree-l4" href="#example">example</a></li>
+                
+            
+                <li class="toctree-l3"><a href="#syntax">■ Syntax</a></li>
+                
+                    <li><a class="toctree-l4" href="#json">JSON</a></li>
+                
+                    <li><a class="toctree-l4" href="#non-json">Non-JSON</a></li>
+                
+            
+                <li class="toctree-l3"><a href="#when-to-use-templates">■ When to use templates</a></li>
+                
+                    <li><a class="toctree-l4" href="#1-separate-data-from-view">1. Separate data from view</a></li>
+                
+                    <li><a class="toctree-l4" href="#2-local-user-input">2. Local user input</a></li>
+                
+                    <li><a class="toctree-l4" href="#3-device-api-generated-data">3. Device API generated data</a></li>
+                
+                    <li><a class="toctree-l4" href="#4-reduce-redundancy">4. Reduce redundancy</a></li>
+                
+            
+                <li class="toctree-l3"><a href="#what-can-be-rendered">■ What can be rendered</a></li>
+                
+                    <li><a class="toctree-l4" href="#1-inline-data">1. Inline data</a></li>
+                
+                    <li><a class="toctree-l4" href="#2-return-value-of-an-action">2. Return value of an action</a></li>
+                
+                    <li><a class="toctree-l4" href="#3-manually-specify-data">3. Manually specify data</a></li>
+                
+            
+            </ul>
+        
+    </li>
+
+        
+    </ul>
+<li>
+          
+            <li>
+    <li class="toctree-l1 ">
+        <a class="" href="../convention/">■ Convention</a>
+        
+    </li>
+<li>
+          
+            <li>
+    <li class="toctree-l1 ">
+        <a class="" href="../advanced/">■ Extending Jasonette (advanced)</a>
+        
+    </li>
+<li>
+          
+            <li>
+    <li class="toctree-l1 ">
+        <a class="" href="../faq/">■ FAQ</a>
+        
+    </li>
+<li>
+          
+        </ul>
+      </div>
+      &nbsp;
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" role="navigation" aria-label="top navigation">
+        <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+        <a href="..">jasonette</a>
+      </nav>
+
+      
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="breadcrumbs navigation">
+  <ul class="wy-breadcrumbs">
+    <li><a href="..">Docs</a> &raquo;</li>
+    
+      
+        
+          <li>■ Reference &raquo;</li>
+        
+      
+    
+    <li>★ Templates</li>
+    <li class="wy-breadcrumbs-aside">
+      
+        
+          <a href="https://github.com/Jasonette/documentation" class="icon icon-github"> Edit on GitHub</a>
+        
+      
+    </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main">
+            <div class="section">
+              
+                <h1 id="what-is-a-template">■ What is a template?</h1>
+<p>Sometimes we may want to dynamically generate the JSON from the client side instead of directly using a JSON returned from the server.</p>
+<p>It may be for rendering a local user input, it may be for rendering a result from a 3rd party API. There are several cases where templating makes sense. <a href="">Learn more here</a></p>
+<p>To achieve this we use templates.</p>
+<ol>
+<li>Templates have slots (<code>{{ }}</code>) to be filled in.</li>
+<li>All expressions inside <code>{{ }}</code> are evaluated with the data in memory and substituted in.</li>
+<li>Templates handle not only evaluation but also support <strong>looping (<code>#each</code>) and conditionals (<code>#if/#elseif/#else</code>)</strong>. </li>
+<li>Templates are always declared under <code>$jason.head.templates</code>.</li>
+<li>Most of the times we just use the <code>body</code> template (<code>$jason.head.templates.body</code>).</li>
+</ol>
+<hr />
+<h2 id="valid-expressions">valid expressions</h2>
+<p>Jasonette template engine takes advantage of the native javascript engine. This means:</p>
+<h3 id="1-any-expression-that-evaluates-to-a-value">1. Any expression that evaluates to a value.</h3>
+<pre><code>{
+  "items": [
+    {
+      "type": "image",
+      "url": "{{$jason.image}}"
+    },
+    {
+      "type": "label",
+      "text": "{{$jason.username}}"
+    }
+  ]
+}
+</code></pre>
+<h3 id="2-any-javascript-expression">2. Any javascript expression.</h3>
+<p>Jasonette implements the native javascript engine to evaluate expressions. So you can use any javascript expression inside <code>{{ }}</code>.</p>
+<pre><code>{
+  "items": [
+    {
+      "type": "label",
+      "url": "Full JSON string"
+    },
+    {
+      "type": "label",
+      "text": "{{JSON.stringify($jason)}}"
+    }
+  ]
+}
+</code></pre>
+<h3 id="3-a-full-fledged-javascript-function">3. A full fledged javascript function.</h3>
+<p>If it involves multiple instructions, you can even write a full fledged function inside the template expression.</p>
+<p>Just make sure to end with a <code>return</code> statement.</p>
+<pre><code>{
+  "items": [
+    {
+      "type": "label",
+      "url": "Reversed Fullname"
+    },
+    {
+      "type": "label",
+      "text": "{{var sorted_posts = $jason.posts.sort(function(a,b){ return new Date(b.created_at) - new Date(a.created_at); }); return sorted_posts[0];}}"
+    }
+  ]
+}
+</code></pre>
+<h2 id="example">example</h2>
+<p>Here's an example where we use the <code>$geo.get</code> action to get the current location, and render it dynamically using the template.</p>
+<pre><code>{
+  "$jason": {
+    "head": {
+      "title": "Display location",
+      "actions": {
+        "type": "$geo.get",
+        "success": {
+          "type": "$render"
+        }
+      },
+      "templates": {
+        "body": {
+          "sections": [{
+            "items": [
+              {
+                "type": "label",
+                "text": "Latitude: &lt;span style='color:#ff0000;'&gt;{{ $jason.coords.split(',')[0] }}&lt;/span&gt;"
+              },
+              {
+                "type": "label",
+                "text": "Longitude: &lt;span style='color:#ff0000;'&gt;{{ $jason.coords.split(',')[1] }}&lt;/span&gt;"
+              }           
+            ]
+          }]
+        }
+      }
+    }
+  }
+}
+</code></pre>
+<p>In above JSON markup, the <code>$jason.body</code> part is missing, because we will dynamically generate it via <code>$render</code>.</p>
+<p>The <code>$render</code> action will render the data with the template, and insert it into where <code>$jason.body</code> should be. The result would be:</p>
+<pre><code>{
+  "$jason": {
+    "head": {
+      "title": "Display location",
+      "actions": {
+        "type": "$geo.get",
+        "success": {
+          "type": "$render"
+        }
+      },
+      "templates": {
+        "body": {
+          "sections": [{
+            "items": [
+              {
+                "type": "label",
+                "text": "Latitude: &lt;span style='color:#ff0000;'&gt;{{ $jason.coords.split(',')[0] }}&lt;/span&gt;"
+              },
+              {
+                "type": "label",
+                "text": "Longitude: &lt;span style='color:#ff0000;'&gt;{{ $jason.coords.split(',')[1] }}&lt;/span&gt;"
+              }           
+            ]
+          }]
+        }
+      }
+    },
+    "body": {
+      "sections": [{
+        "items": [
+          {
+            "type": "label",
+            "text": "Latitude: 12.1234"
+          },
+          {
+            "type": "label",
+            "text": "Longitude: 23.2345"
+          }           
+        ]
+      }]
+    }
+  }
+}
+</code></pre>
+<p>Notice how we now have the <code>$jason.body</code> filled out.</p>
+<hr />
+<h1 id="syntax">■ Syntax</h1>
+<h2 id="json">JSON</h2>
+<p>Let's take a look at how JSON templating works:</p>
+<hr />
+<h3 id="1-loop-each">1. Loop (#each)</h3>
+<p>To demonstrate looping, let's look at an example. We have a static JSON that looks like this:</p>
+<pre><code>{
+  "body": {
+    "sections": [{
+      "items": [
+        {
+          "type": "label",
+          "text": "Homer"
+        },
+        {
+          "type": "label",
+          "text": "Marge"
+        },
+        {
+          "type": "label",
+          "text": "Lisa"
+        },
+        {
+          "type": "label",
+          "text": "Bart"
+        },
+        {
+          "type": "label",
+          "text": "Maggie"
+        }
+      ]
+    }]
+  }
+}
+</code></pre>
+<p>IF you look at each item, the only part that's custom is the name ("Homer", "Marge", "Lisa", "Bart", "Maggie"). We want to shorten this so that we don't have to rewrite <code>"type": "label"</code> for every item.</p>
+<p>First, we need to declare a data attribute (<a href="#1-inline-data">Learn more about <code>head.data</code></a>):</p>
+<pre><code>{
+  "$jason": {
+    "head": {
+      "data": {
+        "members": [
+          { "name": "Homer" },
+          { "name": "Marge" },
+          { "name": "Lisa" },
+          { "name": "Bart" },
+          { "name": "Maggie" }
+        ]
+      }
+    }
+  }
+}
+</code></pre>
+<p>Then we will declare a <code>body</code> template that will iterate through this <code>members</code> array and turn each into renderable item.</p>
+<pre><code>{
+  "$jason": {
+    "head": {
+      "data": {
+        "members": [
+          { "name": "Homer" },
+          { "name": "Marge" },
+          { "name": "Lisa" },
+          { "name": "Bart" },
+          { "name": "Maggie" }
+        ]
+      },
+      "templates": {
+        "body": {
+          "sections": [{
+            "items": {
+              "{{#each members}}": {
+                "type": "label",
+                "text": "{{name}}"
+              }
+          }]
+        }
+      }
+    }
+  }
+}
+</code></pre>
+<p>The <code>#each</code> keyword will iterate through the expression that comes after it (<code>members</code>) and generate a JSON array from the result, ending up with the final JSON markup we saw at the beginning.</p>
+<hr />
+<h3 id="2-conditional-ifelseifelse">2. Conditional (#if/#elseif/#else)</h3>
+<p>Conditionals are used to conditionally render their children only when the expression evaluates to <code>true</code>.</p>
+<p>Conditionals take the form of an <code>array</code>.</p>
+<ol>
+<li>The parser walks through the array sequentially</li>
+<li>Executes each conditional expression</li>
+<li>And Renders the child JSON of the first conditional expression that evaluates to <code>true</code></li>
+</ol>
+<h4 id="syntax_1">syntax</h4>
+<p>Conditionals take the following format.</p>
+<pre><code>[
+  {
+    "{{#if (EXPRESSION A)}}": (JSON)
+  },
+  {
+    "{{#elseif (EXPRESSION B)}}": (JSON)
+  }
+  {
+    "{{#else (EXPRESSION C)}}": (JSON)
+  }
+]
+</code></pre>
+<p>The template will walk through the items in the array sequentially until it encounters an conditional expression that's true. Then it will only render its child JSON.</p>
+<h4 id="note">Note</h4>
+<ul>
+<li><code>#elseif</code> and <code>#else</code> are optional.</li>
+<li>if no conditional expression evaluates to <code>true</code>, nothing gets rendered.</li>
+</ul>
+<h4 id="example_1">Example</h4>
+<p>Let's say we are are trying to render the following return value (<code>$jason</code>):</p>
+<pre><code>{
+  "data": {
+    "name": "Homer"
+  }
+}
+</code></pre>
+<p>What happens when we run above data through the following template? </p>
+<pre><code>{
+    "type": "label",
+    "text": [
+        {
+            "{{#if $jason.data.name=='Bart'}}": "Ay Caramba!"
+        },
+        {
+            "{{#elseif $jason.data.name=='Homer'}}": "Donuts..."
+        }
+    ]
+}
+</code></pre>
+<p>It will render the following result:</p>
+<pre><code>{
+  "type": "label",
+  "text": "Donuts..."
+}
+</code></pre>
+<h3 id="3-this">3. "this"</h3>
+<p><code>this</code> is a javascript keyword used to refer to the current context. Let's look at what that means:</p>
+<p>For example we want to generate this JSON using <code>#each</code>:</p>
+<pre><code>[
+  {
+    "type": "label",
+    "text": "Homer"
+  },
+  {
+    "type": "label",
+    "text": "Marge"
+  },
+  {
+    "type": "label",
+    "text": "Lisa"
+  },
+  {
+    "type": "label",
+    "text": "Bart"
+  },
+  {
+    "type": "label",
+    "text": "Maggie"
+  }
+]
+</code></pre>
+<p>If our data looks like this:</p>
+<pre><code>{
+  "members": [{"name": "Homer"}, {"name": "Marge"}, {"name": "Lisa"}, {"name": "Bart"}, {"name": "Maggie"}]
+}
+</code></pre>
+<p>We can write the following template:</p>
+<pre><code>{
+  "{{#each members}}": {
+    "type": "label",
+    "text": "{{name}}"
+  }
+}
+</code></pre>
+<p>But what if it looked like this:</p>
+<pre><code>{
+  "members": ["Homer", "Marge", "Lisa", "Bart", "Maggie"]
+}
+</code></pre>
+<p>Now we're lost. Since each individual element in the <code>members</code> array is just a string instead of an object, <strong>we need some way to refer to the object itself</strong>.</p>
+<p>This is where <code>this</code> comes in. To handle this situation we can write the following template:</p>
+<pre><code>{
+  "{{#each members}}": {
+    "type": "label",
+    "text": "{{this}}"
+  }
+}
+</code></pre>
+<h2 id="non-json">Non-JSON</h2>
+<p>Let's take a look at how non-JSON (CSV, RSS, HTML) templating works:</p>
+<h3 id="csv">CSV</h3>
+<p>When you have a raw CSV content, you can parse it into JSON format before feeding it into a template.</p>
+<p>To do this, use <a href="../actions/#convertcsv">$convert.csv</a></p>
+<p><strong><a href="http://www.jasonbase.com/things/B1m/edit">Here's a functional example</a></strong></p>
+<hr />
+<h3 id="rss">RSS</h3>
+<p>When you have an RSS content, you can parse it into JSON format before feeding it into a template.</p>
+<p>To do this, use <a href="../actions/#convertrss">$convert.rss</a></p>
+<p><strong><a href="http://www.jasonbase.com/things/2dL/edit">Here's a functional example</a></strong></p>
+<hr />
+<h3 id="html">HTML</h3>
+<p>Unlike other formats like CSV and RSS, Jasonette implements a separate HTML template engine, so we don't need to parse HTML into JSON.</p>
+<p>Instead, we convert HTML DOM elements into JSON, using the built-in <strong>HTML to JSON parser</strong>, which is built on top of <a href="https://github.com/cheeriojs/cheerio">Cheerio library</a>, which has similar syntax to <a href="#http://www.jquery.com">jQuery</a></p>
+<h4 id="how-to-use">How to use</h4>
+<h5 id="step-1-make-a-networkrequest">Step 1. Make a <code>$network.request</code></h5>
+<p>It starts with an HTML content. You can fetch HTML content by making <code>$network.request</code> calls with <code>data_type</code> of <code>html</code>, like this:</p>
+<pre><code>{
+  "$jason": {
+    "head": {
+      "actions": {
+        "type": "$network.request",
+        "options": {
+          "url": "http://www.techmeme.com/river",
+          "data_type": "html"
+        }
+      }
+    }
+  }
+}
+</code></pre>
+<h5 id="step-2-render-as-html">Step 2. <code>$render</code> as html</h5>
+<p>In order to render it using the html parser, you need to call <code>$render</code> with <code>data_type</code> of <code>html</code>:</p>
+<pre><code>{
+  "$jason": {
+    "head": {
+      "actions": {
+        "type": "$network.request",
+        "options": {
+          "url": "http://www.techmeme.com/river",
+          "data_type": "html"
+        },
+        "success": {
+          "type": "$render",
+          "options": {
+            "type": "html"
+          }
+        }
+      }
+    }
+  }
+}
+</code></pre>
+<h5 id="step-3-use-jquery-syntax-to-parse-and-render">Step 3. Use jQuery syntax to parse and render</h5>
+<p>The HTML template engine automatically sets the <code>&lt;body&gt;</code> element as <code>$jason</code>.</p>
+<p>From there we can use the <a href="http://www.jquery.com">jQuery</a> syntax to parse and render content:</p>
+<pre><code>{
+  "$jason": {
+    "head": {
+      "actions": {
+        "type": "$network.request",
+        "options": {
+          "url": "http://www.techmeme.com/river",
+          "data_type": "html"
+        },
+        "success": {
+          "type": "$render",
+          "options": {
+            "type": "html"
+          }
+        }
+      },
+      "templates": {
+        "body": {
+          "sections": [
+            {
+              "items": {
+                "{{#each $jason.find('tr.ritem')}}": {
+                  "type": "vertical",
+                  "components": [
+                    {
+                      "type": "label",
+                      "text": "{{$(this).find('td &gt; a').text()}}"
+                    },
+                    {
+                      "type": "label",
+                      "text": "{{$(this).find('cite').text()}}"
+                    },
+                    {
+                      "type": "label",
+                      "text": "{{$(this).find('td').first().text() + '  ' + $(this).closest('table').prev().text()}}"
+                    }
+                  ],
+                  "href": {
+                    "view": "web",
+                    "url": "{{$(this).find('td &gt; a').attr('href')}}"
+                  }
+                }
+              }
+            }
+          ]
+        }
+      }
+    }
+  }
+}
+</code></pre>
+<p><strong><a href="http://www.jasonbase.com/things/5yp/edit">Here's a functional example</a></strong></p>
+<hr />
+<h1 id="when-to-use-templates">■ When to use templates</h1>
+<p>Normally you can just return a static JSON document from the server and Jason would do its job to render it. However sometimes you may want to dynamically render the view.</p>
+<p>Here are some cases where using a template makes sense:</p>
+<ol>
+<li>Make a separate network request for data, then render the response</li>
+<li>Dynamically render local data</li>
+<li>Dynamically render data generated from device sensors</li>
+<li>Separate data from template for less redundancy</li>
+</ol>
+<p>Let's take a look at each:</p>
+<hr />
+<h3 id="1-separate-data-from-view">1. Separate data from view</h3>
+<p>Make a separate network request for data, then render the response
+For example here's a JSON markup that renders a list of labels:</p>
+<pre><code>{
+  "$jason": {
+    "head": {
+      ...
+    },
+    "body": {
+      "sections": [{
+        "items": [{
+          "type": "label",
+          "text": "This is row 1"
+        }, {
+          "type": "label",
+          "text": "This is row 2"
+        }, {
+          "type": "label",
+          "text": "This is row 3"
+        }, {
+          "type": "label",
+          "text": "This is row 4"
+        }, {
+          "type": "label",
+          "text": "This is row 5"
+        }, {
+          "type": "label",
+          "text": "This is row 6"
+        }, {
+          "type": "label",
+          "text": "This is row 7"
+        }, {
+          "type": "label",
+          "text": "This is row 8"
+        }]
+      }]
+    }
+  }
+}
+</code></pre>
+<p>As you can see, the <code>"type": "label"</code> part is repeated for each item.</p>
+<p>Instead of this static JSON, we can use a template/data approach:</p>
+<ol>
+<li>Return a <code>body template</code>.</li>
+<li>Make a separate network request on <code>$load</code> just to fetch the data.</li>
+<li>Render the fetched data using the body template.</li>
+</ol>
+<p>Here's what it looks like:</p>
+<pre><code>{
+  "$jason": {
+    "head": {
+      ...
+      "actions": {
+        "$load": {
+          "type": "$network.request",
+          "options": {
+            "url": "https://jasonclient.org/rownames.json"
+          },
+          "success": {
+            "type": "$render"
+          }
+        }
+      },
+      "templates": {
+        "body": {
+          "sections": [{
+            "items": {
+              "{{#each $jason.result}}": {
+                "type": "label",
+                "text": "This is row {{row_name}}"
+              }
+            }
+          }]
+        }
+      }
+    }
+  }
+}
+</code></pre>
+<ol>
+<li>
+<p>Notice there's no <code>body</code> under <code>$jason</code> here (<code>$jason.body</code>). It's because we're going to dynamically generate the body using the body template inside <code>templates</code> (<code>$jason.head.templates.body</code>).</p>
+</li>
+<li>
+<p>Also notice the <a href="../actions/#1-load"><code>actions</code> attribute contains a $load attribute</a>, so this will be triggered as soon as the view loads.</p>
+</li>
+</ol>
+<p>So putting all these together, here's what's going on:</p>
+<ol>
+<li>The Jason app loads the JSON shown above, from our server.</li>
+<li>There's no <code>body</code> attribute so nothing is rendered on the screen by default. However, notice there's a <code>body</code> attribute under <code>templates</code>. This is the template that will be rendered as the <code>body</code> later.</li>
+<li>Immediately after the view loads, the <code>$load</code> action gets automatically triggered by the system.</li>
+<li>
+<p><code>$load</code> makes a <code>$network.request</code> call with the url specified. We will need to return the following data from the API:</p>
+<p>{
+    "result": [{
+      "row_name": "1"
+    }, {
+      "row_name": "2"
+    }, {
+      "row_name": "3"
+    }, {
+      "row_name": "4"
+    }, {
+      "row_name": "5"
+    }, {
+      "row_name": "6"
+    }, {
+      "row_name": "7"
+    }, {
+      "row_name": "8"
+    }]
+  }</p>
+</li>
+<li>
+<p>Once <code>$network.request</code> succeeds, its <code>success</code> action gets executed next. In this case it's <code>$render</code>.</p>
+</li>
+<li><code>$render</code> draws the view <a href="../actions/#render">using the <code>body</code> template and the data from the network request</a>.</li>
+<li>
+<p>The result is the same as the <a href="#1-separate-data-from-view">original static JSON</a></p>
+</li>
+<li>
+<p><strong>Network request to a 3rd party API:</strong> Let's say we want to build a Twitter client. What we want to do is:</p>
+</li>
+<li>
+<p>Fetch the data by making a network request to Twitter API.</p>
+</li>
+<li>
+<p>Render the data using our own template.</p>
+</li>
+<li>
+<p><strong>Instant plug and play:</strong> Most web development frameworks nowadays come with JSON API right out of the box. This means you can simply write a template and render your own existing API.</p>
+</li>
+</ol>
+<h3 id="2-local-user-input">2. Local user input</h3>
+<p>Dynamically render local data:</p>
+<p>You can render templates using any type of data, which includes <strong>local variables</strong> you can set using form components such as:</p>
+<ul>
+<li>textfield</li>
+<li>textarea</li>
+<li><a href="../document/#search">search</a></li>
+<li>etc.</li>
+</ul>
+<p><strong>Example:</strong> Below, we render the label using a local variable named <code>message</code>, which is automatically set whenever the <code>textfield</code> value changes. <strong>Note that there is no top level <code>body</code> element after <code>head</code>.</strong> Instead we have a <code>body</code> template, which will be rendered into body whenever we call the <code>$render</code> action. </p>
+<pre><code>{
+  "$jason": {
+    "head": {
+      ...
+      "actions": {
+        "$load": {
+          "type": "$render"
+        },
+        "$pull": {
+          "type": "$render"
+        }
+      },
+      "templates": {
+        "body": {
+          ...
+          "items": [
+            {
+              "type": "textfield",
+              "name": "message"
+            },
+            {
+              "type": "label"
+              "text": {{$get.message}}"
+            }
+          ]
+          ...
+        }
+      }
+    }
+  }
+}
+</code></pre>
+<h3 id="3-device-api-generated-data">3. Device API generated data</h3>
+<p>Dynamically render data generated from device APIs</p>
+<ul>
+<li>geolocation</li>
+<li>addressbook</li>
+<li>camera</li>
+<li>timer</li>
+<li>etc.</li>
+</ul>
+<p><strong>Example:</strong> Below, we access the geolocation device sensor and render its result. Since our server has no knowledge of the device sensor data, templates are the only way to go in this case.</p>
+<pre><code>{
+  "$jason": {
+    "head": {
+      ...
+      "actions": {
+        "$load": {
+          "type": "$geo.get",
+          "success": {
+            "type": "$render"
+          }
+        }
+      },
+      "templates": {
+        "body": {
+          ...
+          "items": [
+            {
+              "type": "label"
+              "text": {{$jason.coord}}"
+            }
+          ]
+          ...
+        }
+      }
+    }
+  }
+}
+</code></pre>
+<h3 id="4-reduce-redundancy">4. Reduce redundancy</h3>
+<p>Separate data from template for less redundancy</p>
+<p>Sometimes you simply want to separate view from model to avoid lots of code redundancy. See the below <a href="#1-inline-data">data</a> section for details.</p>
+<hr />
+<h1 id="what-can-be-rendered">■ What can be rendered</h1>
+<h2 id="1-inline-data">1. Inline data</h2>
+<p>The <code>head.data</code> attribute is used to automatically fill in the <code>body</code> template if one exists.</p>
+<p>When a view loads,</p>
+<ol>
+<li>Jasonette looks at <code>$jason.head.data</code> and <code>$jason.head.templates.body</code>.</li>
+<li>If both exist, it dynamically generates the view using the data and the template, and inserts it into <code>$jason.body</code>.</li>
+</ol>
+<p>Here's a Jason markup <strong>without</strong> a template/data. As you can see, the label items mostly repeat, except for the <code>text</code> attribute.</p>
+<pre><code>{
+  ...
+  "body": {
+    "sections": [
+      "items": [
+        {
+          "type": "label",
+          "text": "Ethan",
+          "style": {
+            "color": "#000000",
+            "size": "14",
+            "font": "HelveticaNeue-Bold",
+            "padding": "10",
+            "background": "rgba(0,0,0,0.5)",
+            "width": "300",
+            "height": "100"
+          }
+        }
+        ...
+        {
+          "type": "label",
+          "text": "John",
+          "style": {
+            "color": "#000000",
+            "size": "14",
+            "font": "HelveticaNeue-Bold",
+            "padding": "10",
+            "background": "rgba(0,0,0,0.5)",
+            "width": "300",
+            "height": "100"
+          }
+        }
+        {
+          "type": "label",
+          "text": "Samantha",
+          "style": {
+            "color": "#000000",
+            "size": "14",
+            "font": "HelveticaNeue-Bold",
+            "padding": "10",
+            "background": "rgba(0,0,0,0.5)",
+            "width": "300",
+            "height": "100"
+          }
+        }
+      ]
+    ]
+  }
+}
+</code></pre>
+<p>Using template/data, we can reduce it down to:</p>
+<pre><code>{
+  "head": {
+    "data": {
+      "names": ["Ethan", ..., "John", "Samantha"]
+    },
+    "templates": {
+      "body": {
+        "sections": [{
+          "items": {
+            "{{#each names}}": {
+              "type": "label",
+              "text": "Ethan",
+              "style": {
+                "color": "#000000",
+                "size": "14",
+                "font": "HelveticaNeue-Bold",
+                "padding": "10",
+                "background": "rgba(0,0,0,0.5)",
+                "width": "300",
+                "height": "100"
+              }
+            }
+          }]
+        }
+      }
+    }
+  }
+}
+</code></pre>
+<h2 id="2-return-value-of-an-action">2. Return value of an action</h2>
+<p>But templates really shine when you use it to render dynamic data, produced by running some action on the device.</p>
+<p>This is essential, since your server has no knowledge of what it should render if the data to render is a result of user interaction.</p>
+<p><a href="../actions/#rendering-return-value-from-the-previous-action">See here</a> for details.</p>
+<h2 id="3-manually-specify-data">3. Manually specify data</h2>
+<p>This is rarely needed, but sometimes we need a way to manually specify data for the <code>$render</code> action.</p>
+<p><a href="../actions/#specifying-data-when-rendering">See here</a> for details.</p>
+              
+            </div>
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="../convention/" class="btn btn-neutral float-right" title="■ Convention">Next <span class="icon icon-circle-arrow-right"></span></a>
+      
+      
+        <a href="../layout/" class="btn btn-neutral" title="★ Layout"><span class="icon icon-circle-arrow-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <!-- Copyright etc -->
+    
+  </div>
+
+  Built with <a href="http://www.mkdocs.org">MkDocs</a> using a <a href="https://github.com/snide/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>.
+</footer>
+	  
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+
+<div class="rst-versions" role="note" style="cursor: pointer">
+    <span class="rst-current-version" data-toggle="rst-current-version">
+      
+          <a href="https://github.com/Jasonette/documentation" class="icon icon-github" style="float: left; color: #fcfcfc"> GitHub</a>
+      
+      
+        <span><a href="../layout/" style="color: #fcfcfc;">&laquo; Previous</a></span>
+      
+      
+        <span style="margin-left: 15px"><a href="../convention/" style="color: #fcfcfc">Next &raquo;</a></span>
+      
+    </span>
+</div>
+
+</body>
+</html>

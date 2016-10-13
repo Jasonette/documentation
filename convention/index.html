@@ -1,0 +1,318 @@
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  
+  
+  <title>■ Convention - jasonette</title>
+  
+
+  <link rel="shortcut icon" href="../img/favicon.ico">
+
+  
+  <link href='https://fonts.googleapis.com/css?family=Lato:400,700|Roboto+Slab:400,700|Inconsolata:400,700' rel='stylesheet' type='text/css'>
+
+  <link rel="stylesheet" href="../css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="../css/theme_extra.css" type="text/css" />
+  <link rel="stylesheet" href="../css/highlight.css">
+  <link href="../extra.css" rel="stylesheet">
+
+  
+  <script>
+    // Current page data
+    var mkdocs_page_name = "■ Convention";
+    var mkdocs_page_input_path = "convention.md";
+    var mkdocs_page_url = "/convention/";
+  </script>
+  
+  <script src="../js/jquery-2.1.1.min.js"></script>
+  <script src="../js/modernizr-2.8.3.min.js"></script>
+  <script type="text/javascript" src="../js/highlight.pack.js"></script>
+  <script src="../js/theme.js"></script> 
+
+  
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+  <div class="wy-grid-for-nav">
+
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side stickynav">
+      <div class="wy-side-nav-search">
+        <a href=".." class="icon icon-home"> jasonette</a>
+        <div role="search">
+  <form id ="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+  </form>
+</div>
+      </div>
+
+      <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+        <ul class="current">
+          
+            <li>
+    <li class="toctree-l1 ">
+        <a class="" href="..">■ Getting started</a>
+        
+    </li>
+<li>
+          
+            <li>
+    <li class="toctree-l1 ">
+        <a class="" href="../examples/">■ Examples</a>
+        
+    </li>
+<li>
+          
+            <li>
+    <ul class="subnav">
+    <li><span>■ Reference</span></li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../document/">★ View</a>
+        
+    </li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../href/">★ Link</a>
+        
+    </li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../actions/">★ Actions</a>
+        
+    </li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../components/">★ Components</a>
+        
+    </li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../layout/">★ Layout</a>
+        
+    </li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../templates/">★ Templates</a>
+        
+    </li>
+
+        
+    </ul>
+<li>
+          
+            <li>
+    <li class="toctree-l1 current">
+        <a class="current" href="./">■ Convention</a>
+        
+            <ul>
+            
+                <li class="toctree-l3"><a href="#rules">Rules</a></li>
+                
+                    <li><a class="toctree-l4" href="#everything-is-string">■  Everything is string</a></li>
+                
+                    <li><a class="toctree-l4" href="#all-keywords-are-lowercased">■  All keywords are lowercased</a></li>
+                
+            
+                <li class="toctree-l3"><a href="#values">Values</a></li>
+                
+                    <li><a class="toctree-l4" href="#color">■ color</a></li>
+                
+                    <li><a class="toctree-l4" href="#dimension">■ dimension</a></li>
+                
+            
+            </ul>
+        
+    </li>
+<li>
+          
+            <li>
+    <li class="toctree-l1 ">
+        <a class="" href="../advanced/">■ Extending Jasonette (advanced)</a>
+        
+    </li>
+<li>
+          
+            <li>
+    <li class="toctree-l1 ">
+        <a class="" href="../faq/">■ FAQ</a>
+        
+    </li>
+<li>
+          
+        </ul>
+      </div>
+      &nbsp;
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" role="navigation" aria-label="top navigation">
+        <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+        <a href="..">jasonette</a>
+      </nav>
+
+      
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="breadcrumbs navigation">
+  <ul class="wy-breadcrumbs">
+    <li><a href="..">Docs</a> &raquo;</li>
+    
+      
+    
+    <li>■ Convention</li>
+    <li class="wy-breadcrumbs-aside">
+      
+        
+          <a href="https://github.com/Jasonette/documentation" class="icon icon-github"> Edit on GitHub</a>
+        
+      
+    </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main">
+            <div class="section">
+              
+                <p>Jasonette is built around various conventions in order to make things simpler.</p>
+<hr />
+<h1 id="rules">Rules</h1>
+<h2 id="everything-is-string">■  Everything is string</h2>
+<p>The JSON we use in Jasonette is completely string based. All values are string. Sometimes this may look inconvenient, but <strong>assuming everything is a string</strong> provides lots of convenience when JSON parsing is concerned.</p>
+<h2 id="all-keywords-are-lowercased">■  All keywords are lowercased</h2>
+<p>All reserved keywords on Jasonette (component name, action name, etc.) are lowercased. </p>
+<hr />
+<h1 id="values">Values</h1>
+<h2 id="color">■ color</h2>
+<h3 id="rgb">rgb</h3>
+<p>We can use rgb code.</p>
+<pre><code>{
+  "body": {
+    "style": {
+      "background": "rgb(244,244,244)"
+    }
+  }
+}
+</code></pre>
+<h3 id="rgba">rgba</h3>
+<p>We can use rgba code. r,g,b parts are same as rgb, but the last value is the opacity.</p>
+<pre><code>{
+  "body": {
+    "style": {
+      "background": "rgba(255,255,255,0.3)"
+    }
+  }
+}
+</code></pre>
+<h3 id="hex-code">hex code</h3>
+<p>We can also use hex code</p>
+<pre><code>{
+  "body": {
+    "style": {
+      "background": "#ff0000"
+    }
+  }
+}
+</code></pre>
+<hr />
+<h2 id="dimension">■ dimension</h2>
+<p>All numbers are pixels unless otherwise specified.</p>
+<h3 id="1-pixels">1. Pixels</h3>
+<p>Unless otherwise specified it's all pixels. Below we create a label with 300pixel width.</p>
+<pre><code>{
+  "type": "label",
+  "text": "hi",
+  "style": {
+    "width": "300"
+  }
+}
+</code></pre>
+<h3 id="2-percentage">2. Percentage</h3>
+<p>We can use the <code>%</code> sign. When we do so, it sets the dimension based on the current orientation.</p>
+<pre><code>{
+  "type": "label",
+  "text": "hi",
+  "style": {
+    "width": "100%"
+  }
+}
+</code></pre>
+<h3 id="3-pixels-and-percentage">3. Pixels and Percentage</h3>
+<p>We can also use a combination of percentage and pixels.</p>
+<p>In the following example we create a label that's 80 pixels smaller horizontally than the full device width:</p>
+<pre><code>{
+  "type": "label",
+  "text": "hi",
+  "style": {
+    "width": "100%-80"
+  }
+}
+</code></pre>
+              
+            </div>
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="../advanced/" class="btn btn-neutral float-right" title="■ Extending Jasonette (advanced)">Next <span class="icon icon-circle-arrow-right"></span></a>
+      
+      
+        <a href="../templates/" class="btn btn-neutral" title="★ Templates"><span class="icon icon-circle-arrow-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <!-- Copyright etc -->
+    
+  </div>
+
+  Built with <a href="http://www.mkdocs.org">MkDocs</a> using a <a href="https://github.com/snide/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>.
+</footer>
+	  
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+
+<div class="rst-versions" role="note" style="cursor: pointer">
+    <span class="rst-current-version" data-toggle="rst-current-version">
+      
+          <a href="https://github.com/Jasonette/documentation" class="icon icon-github" style="float: left; color: #fcfcfc"> GitHub</a>
+      
+      
+        <span><a href="../templates/" style="color: #fcfcfc;">&laquo; Previous</a></span>
+      
+      
+        <span style="margin-left: 15px"><a href="../advanced/" style="color: #fcfcfc">Next &raquo;</a></span>
+      
+    </span>
+</div>
+
+</body>
+</html>

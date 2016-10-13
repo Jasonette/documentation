@@ -1,0 +1,129 @@
+body {
+  background: white;
+}
+pre{
+  font-size: 12px !important;
+}
+#rtd-search-form input[type=text]{
+  border:none;
+  border-radius:0;
+}
+.bs-sidebar{
+  border:none;
+  border-radius: 0;
+}
+.wy-nav-content ol, .wy-nav-content ul{
+  margin-bottom: 0 !important;
+}
+.wy-side-nav-search{
+  background: #8bb92d;
+}
+.wy-menu-vertical li.current{
+  background: #8bb92d;
+}
+.wy-menu-vertical li a{
+  color: white !important;
+}
+.wy-menu-vertical li.current a.current{
+  color: #8bb92d !important;
+  background:white;
+}
+.wy-menu-vertical span{
+  color: white;
+}
+.wy-menu-vertical li.current a{
+  color: white;
+  border:none !important;
+}
+.wy-nav-content{
+  max-width: 100%;
+  background: white;
+}
+.wy-nav-content strong a{
+  text-decoration: underline;
+  color:#8bb92d;
+  font-size: 20px;
+  line-height: 30px;
+  font-weight: normal;
+}
+.wy-nav-content footer{
+  display: none;
+}
+.wy-nav-content{
+  padding-bottom: 100%;
+}
+.rst-versions .rst-current-version{
+  background: #8bb92d;
+}
+.rst-versions{
+  border-top: none;
+}
+.wy-nav-side {
+  background: #8bb92d;
+}
+.wy-menu-vertical .subnav > li.toctree-l1 > a{
+  padding: 0.4045em 2.5em !important;
+}
+.wy-menu-vertical li.toctree-l3 a{
+  padding: 0.4045em 3.5em !important;
+}
+.wy-menu-vertical a.toctree-l4{
+  padding: 0.4045em 4.5em !important;
+}
+.wy-menu-vertical li.current a:hover{
+  background: #343131;
+}
+h1{
+  color: #8bb92d;
+  font-size: 40px;
+  font-family: "Helvetica Neue", helvetica;
+}
+h2{
+  font-size: 30px;
+}
+h3{
+  font-size: 22px;
+}
+h4{
+  font-size: 14px;
+}
+h1,h2,h3,h4,h5,h6{
+margin:10px 0 !important;
+}
+p{
+  font-size: 14px;
+  line-height: 18px;
+  margin-top: 7px;
+  margin-bottom: 7px;
+}
+.rst-content p img {
+  max-width: 400px;
+}
+ol{
+  line-height: 20px !important;
+}
+code{
+  font-size:12px !important;
+}
+h3, h4, h5, h6{
+  color: #404040 !important;
+  font-weight: bold !important;
+}
+.navbar{
+  background: #8bb92d;
+}
+.navbar.navbar-default .navbar-nav>li>a{
+  color: white;
+}
+.navbar.navbar-default .navbar-nav>li.active>a{
+  color: #ef6013;
+}
+body>.container a{
+  color: #ef6013 !important;
+}
+a.navbar-brand{
+  color: white !important;
+}
+ul.nav li:not(.main){
+  margin-left: 20px;
+}

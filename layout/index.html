@@ -1,0 +1,592 @@
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  
+  
+  <title>★ Layout - jasonette</title>
+  
+
+  <link rel="shortcut icon" href="../img/favicon.ico">
+
+  
+  <link href='https://fonts.googleapis.com/css?family=Lato:400,700|Roboto+Slab:400,700|Inconsolata:400,700' rel='stylesheet' type='text/css'>
+
+  <link rel="stylesheet" href="../css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="../css/theme_extra.css" type="text/css" />
+  <link rel="stylesheet" href="../css/highlight.css">
+  <link href="../extra.css" rel="stylesheet">
+
+  
+  <script>
+    // Current page data
+    var mkdocs_page_name = "★ Layout";
+    var mkdocs_page_input_path = "layout.md";
+    var mkdocs_page_url = "/layout/";
+  </script>
+  
+  <script src="../js/jquery-2.1.1.min.js"></script>
+  <script src="../js/modernizr-2.8.3.min.js"></script>
+  <script type="text/javascript" src="../js/highlight.pack.js"></script>
+  <script src="../js/theme.js"></script> 
+
+  
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+  <div class="wy-grid-for-nav">
+
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side stickynav">
+      <div class="wy-side-nav-search">
+        <a href=".." class="icon icon-home"> jasonette</a>
+        <div role="search">
+  <form id ="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+  </form>
+</div>
+      </div>
+
+      <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+        <ul class="current">
+          
+            <li>
+    <li class="toctree-l1 ">
+        <a class="" href="..">■ Getting started</a>
+        
+    </li>
+<li>
+          
+            <li>
+    <li class="toctree-l1 ">
+        <a class="" href="../examples/">■ Examples</a>
+        
+    </li>
+<li>
+          
+            <li>
+    <ul class="subnav">
+    <li><span>■ Reference</span></li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../document/">★ View</a>
+        
+    </li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../href/">★ Link</a>
+        
+    </li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../actions/">★ Actions</a>
+        
+    </li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../components/">★ Components</a>
+        
+    </li>
+
+        
+            
+    <li class="toctree-l1 current">
+        <a class="current" href="./">★ Layout</a>
+        
+            <ul>
+            
+                <li class="toctree-l3"><a href="#types-of-layout">Types of layout</a></li>
+                
+                    <li><a class="toctree-l4" href="#vertical">vertical</a></li>
+                
+                    <li><a class="toctree-l4" href="#horizontal">horizontal</a></li>
+                
+                    <li><a class="toctree-l4" href="#nested-layout">Nested layout</a></li>
+                
+            
+                <li class="toctree-l3"><a href="#styling-a-layout">Styling a layout</a></li>
+                
+                    <li><a class="toctree-l4" href="#syntax">syntax</a></li>
+                
+                    <li><a class="toctree-l4" href="#examples">examples</a></li>
+                
+            
+            </ul>
+        
+    </li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../templates/">★ Templates</a>
+        
+    </li>
+
+        
+    </ul>
+<li>
+          
+            <li>
+    <li class="toctree-l1 ">
+        <a class="" href="../convention/">■ Convention</a>
+        
+    </li>
+<li>
+          
+            <li>
+    <li class="toctree-l1 ">
+        <a class="" href="../advanced/">■ Extending Jasonette (advanced)</a>
+        
+    </li>
+<li>
+          
+            <li>
+    <li class="toctree-l1 ">
+        <a class="" href="../faq/">■ FAQ</a>
+        
+    </li>
+<li>
+          
+        </ul>
+      </div>
+      &nbsp;
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" role="navigation" aria-label="top navigation">
+        <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+        <a href="..">jasonette</a>
+      </nav>
+
+      
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="breadcrumbs navigation">
+  <ul class="wy-breadcrumbs">
+    <li><a href="..">Docs</a> &raquo;</li>
+    
+      
+        
+          <li>■ Reference &raquo;</li>
+        
+      
+    
+    <li>★ Layout</li>
+    <li class="wy-breadcrumbs-aside">
+      
+        
+          <a href="https://github.com/Jasonette/documentation" class="icon icon-github"> Edit on GitHub</a>
+        
+      
+    </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main">
+            <div class="section">
+              
+                <h1 id="types-of-layout">Types of layout</h1>
+<p>You can construct all kinds of sophisticated UIs for <a href="../document/#items">section items/headers</a> by laying out multiple <a href="../components/">components</a> vertically, horizontally, or through combination of the two.</p>
+<ul>
+<li><a href="#vertical">vertical</a></li>
+<li><a href="#horizontal">horizontal</a></li>
+<li><a href="#nested-layout">nested</a></li>
+</ul>
+<hr />
+<h2 id="vertical">vertical</h2>
+<p>In a vertical layout, the item's components flow vertically, from top to bottom.</p>
+<h3 id="example">Example</h3>
+<pre><code>{
+  "$jason": {
+    "head": {
+      "title": "vertical layout demo"
+    },
+    "body": {
+      "sections": [{
+        "items": [
+          {
+            "type": "vertical",
+            "components": [{
+              "type": "label",
+              "text": "John Doe"
+            }, {
+              "type": "label",
+              "text": "33"
+            }, {
+              "type": "label",
+              "text": "A normal guy with a normal name"
+            }]
+          }
+        ]
+      }]
+    }
+  }
+}
+</code></pre>
+<p>Above JSON will render into the following view:</p>
+<p><img alt="vertical layout example" src="../images/vertical_layout.png" /></p>
+<hr />
+<h2 id="horizontal">horizontal</h2>
+<p>In a horizontal layout, the item's components flow horizontally, from left to right.</p>
+<h3 id="example_1">Example</h3>
+<pre><code>{
+  "$jason": {
+    "head": {
+      "title": "horizontal layout demo"
+    },
+    "body": {
+      "sections": [{
+        "items": [{
+          "type": "horizontal",
+          "components": [{
+            "type": "image",
+            "url": "https://pbs.twimg.com/profile_images/557061751150112768/eMwi4Xz2.jpeg",
+            "style": {
+              "width": "80"
+            }
+          }, {
+            "type": "label",
+            "text": "Ethan",
+            "style": { "font": "HelveticaNeue-Bold" }
+          }]
+        }]
+      }]
+    }
+  }
+}
+</code></pre>
+<p>Above JSON will render into the following view:</p>
+<p><img alt="horizontal layout example" src="../images/horizontal_layout.png" /></p>
+<hr />
+<h2 id="nested-layout">Nested layout</h2>
+<p>A layout can also contain another layout as one of its components. This way you can create any type of sophisticated layout you want by nesting one layout inside another.</p>
+<p>Here's an example:</p>
+<pre><code>{
+  "$jason": {
+    "head": {
+      "title": "nested layout demo"
+    },
+    "body": {
+      "sections": [{
+        "items": [{
+          "type": "horizontal",
+          "components": [{
+            "type": "image",
+            "url": "https://pbs.twimg.com/profile_images/557061751150112768/eMwi4Xz2.jpeg",
+            "style": {
+              "width": "80"
+            }
+          }, {
+            "type": "vertical",
+            "components": [{
+              "type": "label",
+              "text": "Ethan",
+              "style": { "font": "HelveticaNeue-Bold" }
+            }, {
+              "type": "label",
+              "text": "Gliechtenstein"
+            }]
+          }]
+        }]
+      }]
+    }
+  }
+}
+</code></pre>
+<p>Above JSON will render into the following view:</p>
+<p><img alt="nested layout example" src="../images/nested_layout.png" /></p>
+<hr />
+<h1 id="styling-a-layout">Styling a layout</h1>
+<h2 id="syntax">syntax</h2>
+<h3 id="padding">■  padding</h3>
+<p>the space surrounding the layout itself, in pixels.</p>
+<p>If not specified, the default value is <code>10</code>.</p>
+<h3 id="spacing">■  spacing</h3>
+<p>the space among each immediate children components, in pexels.</p>
+<h3 id="background">■  background</h3>
+<p>background color code (Example: <code>{"background": "#ff0000"}</code>, <code>{"background": "rgba(0,0,0,0.4)"}</code>)</p>
+<h3 id="z_index">■  z_index</h3>
+<p>specifies the stack order of the layout, defining whether the layout is displayed on top of another or below. Default is 0. (Example: <code>{"z_index": "-1"}</code></p>
+<h3 id="align">■  align</h3>
+<p>How the children components will be aligned perpendicular to the layout's direction.</p>
+<ul>
+<li>
+<p>For vertical layout</p>
+<ul>
+<li><code>left</code>: align left</li>
+<li><code>center</code>: align center horizontally</li>
+<li><code>right</code>: align right</li>
+</ul>
+</li>
+<li>
+<p>For horizontal layout</p>
+<ul>
+<li><code>top</code>: align top</li>
+<li><code>center</code>: align center</li>
+<li><code>bottom</code>: align bottom</li>
+<li><code>fill</code>: stretch all children vertically to fit the layout height equally</li>
+</ul>
+</li>
+</ul>
+<h3 id="opacity">■ opacity</h3>
+<p>opacity (between "0" and "1")</p>
+<h2 id="examples">examples</h2>
+<h3 id="example-1-vertical-layout-with-center-align">Example 1. Vertical layout with center align</h3>
+<p>In case of vertical layout, it describes how the children components should be aligned horizontally.</p>
+<p>Below, we see that the vertical layout has <code>"align": "center"</code> style.</p>
+<pre><code>{
+  "$jason": {
+    "head": {
+      "title": "center aligned vertical layout"
+    },
+    "body": {
+      "sections": [{
+        "items": [{
+          "type": "vertical",
+          "style": {
+            "align": "center"
+          },
+          "components": [
+            {
+              "type": "image",
+              "url": "https://pbs.twimg.com/profile_images/557061751150112768/eMwi4Xz2.jpeg",
+              "style": {
+                "width": "100"
+              }
+            },
+            {
+              "type": "label",
+              "style": {
+                "color": "#000000",
+                "background": "#ff0000"
+              },
+              "text": "John Doe"
+            },
+            {
+              "type": "button",
+              "text": "Follow",
+              "style": {
+                "color": "#ff0000",
+                "background": "#000000"
+              }
+            }
+          ]
+        }]
+      }]
+    }
+  }
+}
+</code></pre>
+<p>This would render into the following view:</p>
+<p><img alt="center aligned vertical layout" src="../images/center_aligned_vertical.png" /></p>
+<h4 id="notice-how-all-components-image-label-and-button-are-center-aligned">Notice how all components--image, label, and button--are center aligned.</h4>
+<hr />
+<h3 id="example-2-horizontal-align-with-bottom-align">Example 2. Horizontal align with bottom align</h3>
+<p>In case of horizontal layout, <code>align</code> describes how the children components should be aligned vertically.</p>
+<pre><code>{
+  "$jason": {
+    "head": {
+      "title": "bottom aligned horizontal layout"
+    },
+    "body": {
+      "sections": [{
+        "items": [{
+          "type": "horizontal",
+          "style": {
+            "align": "bottom"
+          },
+          "components": [
+            {
+              "type": "image",
+              "url": "https://pbs.twimg.com/profile_images/557061751150112768/eMwi4Xz2.jpeg",
+              "style": {
+                "width": "100"
+              }
+            },
+            {
+              "type": "label",
+              "style": {
+                "background": "#000000",
+                "color": "#ff0000"
+              },
+              "text": "John Doe"
+            },
+            {
+              "type": "button",
+              "style": {
+                "background": "#ff0000",
+                "color": "#000000"
+              },
+              "text": "Follow"
+            }
+          ]
+        }]
+      }]
+    }
+  }
+}
+</code></pre>
+<p>Above JSON will render into:</p>
+<p><img alt="bottom aligned horizontal layout" src="../images/bottom_aligned_horizontal.png" /></p>
+<h4 id="notice-how-all-components-image-label-and-button-are-bottom-aligned">Notice how all components--image, label, and button--are bottom aligned.</h4>
+<hr />
+<h3 id="example-3-padding-and-spacing">Example 3. Padding and Spacing</h3>
+<pre><code>{
+  "$jason": {
+    "head": {
+      "title": "Padding and spacing demonstration",
+      "styles": {
+        "label_class": {
+          "background": "#ff0000",
+          "padding": "10",
+          "color": "#ffffff"
+        }
+      }
+    },
+    "body": {
+      "style": {
+        "background": "#00ff00",
+        "border": "#000000"
+      },
+      "sections": [{
+        "items": [
+          {
+            "type": "vertical",
+            "components": [{
+              "type": "label",
+              "class": "label_class",
+              "text": "First row"
+            }, {
+              "type": "label",
+              "class": "label_class",
+              "text": "Second row"
+            }, {
+              "type": "label",
+              "class": "label_class",
+              "text": "Third row"
+            }]
+          },
+          {
+            "type": "vertical",
+            "style": {
+              "padding": "50"
+            },
+            "components": [{
+              "type": "label",
+              "class": "label_class",
+              "text": "First row"
+            }, {
+              "type": "label",
+              "class": "label_class",
+              "text": "Second row"
+            }, {
+              "type": "label",
+              "class": "label_class",
+              "text": "Third row"
+            }]
+          },
+          {
+            "type": "vertical",
+            "style": {
+              "padding": "50",
+              "spacing": "10"
+            },
+            "components": [{
+              "type": "label",
+              "class": "label_class",
+              "text": "First row"
+            }, {
+              "type": "label",
+              "class": "label_class",
+              "text": "Second row"
+            }, {
+              "type": "label",
+              "class": "label_class",
+              "text": "Third row"
+            }]
+          }
+        ]
+      }]
+    }
+  }
+}
+</code></pre>
+<p>Above JSON turns into the following view:</p>
+<p><br></p>
+<p><img alt="padding and spacing demonstration" src="../images/layout_padding_spacing.png" /></p>
+<hr />
+<h4 id="heres-whats-going-on">★ Here's what's going on:</h4>
+<p><br></p>
+<h5 id="1-the-first-row-has-no-padding-and-no-spacing-values">1. The first row has <strong>NO padding</strong> and <strong>NO spacing</strong> values.</h5>
+<p>As mentioned above, if no padding is specified, the default is <code>10</code>.</p>
+<p>That's why we see the small gap between the red label and the edges.</p>
+<p><br></p>
+<h5 id="2-the-second-row-has-a-padding-of-50">2. The second row has a padding of <code>50</code>.</h5>
+<p>That's why we see a larger gap (<code>50</code> pixels)</p>
+<p><br></p>
+<h5 id="3-the-third-row-has-the-same-padding-as-2-but-also-a-spacing-of-10">3. The third row has the same padding as #2, but also a <code>spacing</code> of <code>10</code>.</h5>
+<p>The <code>spacing</code> attribute defines the space in pixels among child components. That's why we now see <code>10</code> pixels in between the red labels.
+<br></p>
+              
+            </div>
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="../templates/" class="btn btn-neutral float-right" title="★ Templates">Next <span class="icon icon-circle-arrow-right"></span></a>
+      
+      
+        <a href="../components/" class="btn btn-neutral" title="★ Components"><span class="icon icon-circle-arrow-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <!-- Copyright etc -->
+    
+  </div>
+
+  Built with <a href="http://www.mkdocs.org">MkDocs</a> using a <a href="https://github.com/snide/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>.
+</footer>
+	  
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+
+<div class="rst-versions" role="note" style="cursor: pointer">
+    <span class="rst-current-version" data-toggle="rst-current-version">
+      
+          <a href="https://github.com/Jasonette/documentation" class="icon icon-github" style="float: left; color: #fcfcfc"> GitHub</a>
+      
+      
+        <span><a href="../components/" style="color: #fcfcfc;">&laquo; Previous</a></span>
+      
+      
+        <span style="margin-left: 15px"><a href="../templates/" style="color: #fcfcfc">Next &raquo;</a></span>
+      
+    </span>
+</div>
+
+</body>
+</html>

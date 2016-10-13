@@ -1,0 +1,662 @@
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  
+  
+  <title>★ Components - jasonette</title>
+  
+
+  <link rel="shortcut icon" href="../img/favicon.ico">
+
+  
+  <link href='https://fonts.googleapis.com/css?family=Lato:400,700|Roboto+Slab:400,700|Inconsolata:400,700' rel='stylesheet' type='text/css'>
+
+  <link rel="stylesheet" href="../css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="../css/theme_extra.css" type="text/css" />
+  <link rel="stylesheet" href="../css/highlight.css">
+  <link href="../extra.css" rel="stylesheet">
+
+  
+  <script>
+    // Current page data
+    var mkdocs_page_name = "★ Components";
+    var mkdocs_page_input_path = "components.md";
+    var mkdocs_page_url = "/components/";
+  </script>
+  
+  <script src="../js/jquery-2.1.1.min.js"></script>
+  <script src="../js/modernizr-2.8.3.min.js"></script>
+  <script type="text/javascript" src="../js/highlight.pack.js"></script>
+  <script src="../js/theme.js"></script> 
+
+  
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+  <div class="wy-grid-for-nav">
+
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side stickynav">
+      <div class="wy-side-nav-search">
+        <a href=".." class="icon icon-home"> jasonette</a>
+        <div role="search">
+  <form id ="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+  </form>
+</div>
+      </div>
+
+      <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+        <ul class="current">
+          
+            <li>
+    <li class="toctree-l1 ">
+        <a class="" href="..">■ Getting started</a>
+        
+    </li>
+<li>
+          
+            <li>
+    <li class="toctree-l1 ">
+        <a class="" href="../examples/">■ Examples</a>
+        
+    </li>
+<li>
+          
+            <li>
+    <ul class="subnav">
+    <li><span>■ Reference</span></li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../document/">★ View</a>
+        
+    </li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../href/">★ Link</a>
+        
+    </li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../actions/">★ Actions</a>
+        
+    </li>
+
+        
+            
+    <li class="toctree-l1 current">
+        <a class="current" href="./">★ Components</a>
+        
+            <ul>
+            
+                <li class="toctree-l3"><a href="#types-of-components">Types of Components</a></li>
+                
+                    <li><a class="toctree-l4" href="#label">■ label</a></li>
+                
+                    <li><a class="toctree-l4" href="#image">■ image</a></li>
+                
+                    <li><a class="toctree-l4" href="#button">■  button</a></li>
+                
+                    <li><a class="toctree-l4" href="#textfield">■ textfield</a></li>
+                
+                    <li><a class="toctree-l4" href="#textarea">■ textarea</a></li>
+                
+                    <li><a class="toctree-l4" href="#slider">■ slider</a></li>
+                
+                    <li><a class="toctree-l4" href="#html">■  html</a></li>
+                
+                    <li><a class="toctree-l4" href="#space">■  space</a></li>
+                
+            
+            </ul>
+        
+    </li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../layout/">★ Layout</a>
+        
+    </li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../templates/">★ Templates</a>
+        
+    </li>
+
+        
+    </ul>
+<li>
+          
+            <li>
+    <li class="toctree-l1 ">
+        <a class="" href="../convention/">■ Convention</a>
+        
+    </li>
+<li>
+          
+            <li>
+    <li class="toctree-l1 ">
+        <a class="" href="../advanced/">■ Extending Jasonette (advanced)</a>
+        
+    </li>
+<li>
+          
+            <li>
+    <li class="toctree-l1 ">
+        <a class="" href="../faq/">■ FAQ</a>
+        
+    </li>
+<li>
+          
+        </ul>
+      </div>
+      &nbsp;
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" role="navigation" aria-label="top navigation">
+        <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+        <a href="..">jasonette</a>
+      </nav>
+
+      
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="breadcrumbs navigation">
+  <ul class="wy-breadcrumbs">
+    <li><a href="..">Docs</a> &raquo;</li>
+    
+      
+        
+          <li>■ Reference &raquo;</li>
+        
+      
+    
+    <li>★ Components</li>
+    <li class="wy-breadcrumbs-aside">
+      
+        
+          <a href="https://github.com/Jasonette/documentation" class="icon icon-github"> Edit on GitHub</a>
+        
+      
+    </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main">
+            <div class="section">
+              
+                <h1 id="types-of-components">Types of Components</h1>
+<p>Components are user interface elements that can be used in different places, such as <a href="../document/#user-content-body-sections-items">items</a>, and <a href="../document/#user-content-body-layers">layers</a>.</p>
+<ul>
+<li><a href="#label">label</a></li>
+<li><a href="#image">image</a></li>
+<li><a href="#button">button</a></li>
+<li><a href="#textfield">textfield</a></li>
+<li><a href="#textarea">textarea</a></li>
+<li><a href="#slider">slider</a></li>
+<li><a href="#html">html</a></li>
+<li><a href="#space">space</a></li>
+<li>Don't see what you want? <a href="../advanced/#extension">You can add more!</a></li>
+</ul>
+<hr />
+<h2 id="label">■ label</h2>
+<p>Static uneditable text element.</p>
+<p><img alt="label component" src="../images/components_label.jpeg" /></p>
+<h3 id="syntax">syntax</h3>
+<ul>
+<li><code>type</code>: <code>"label"</code></li>
+<li><code>text</code>: The text to display</li>
+<li><code>style</code>:<ul>
+<li><code>font</code>: <a href="http://iosfonts.com">text font name</a></li>
+<li><code>size</code>: text size</li>
+<li><code>color</code>: text color in color code</li>
+<li><code>padding</code>: padding in pixels</li>
+<li><code>background</code>: background color of the label in color code</li>
+<li><code>corner_radius</code>: corner radius for the label</li>
+</ul>
+</li>
+</ul>
+<h3 id="example">example</h3>
+<pre><code>{
+  "type": "label",
+  "text": "Hello world",
+  "style": {
+    "font": "Avenir",
+    "size": "30",
+    "color": "rgb(200,0,0)",
+    "padding": "10"
+  }
+}
+</code></pre>
+<hr />
+<h2 id="image">■ image</h2>
+<p>Image loaded from either remote url or data-url</p>
+<p><img alt="image component" src="../images/components_image.jpeg" /></p>
+<h3 id="syntax_1">syntax</h3>
+<ul>
+<li><code>type</code>: <code>"image"</code></li>
+<li><code>url</code>: image url</li>
+<li><code>style</code><ul>
+<li><code>corner_radius</code>: corner radius. use this to make the image rounded</li>
+<li><code>width</code></li>
+<li><code>height</code></li>
+<li><code>color</code>: To set the tint color (only for icons)</li>
+</ul>
+</li>
+</ul>
+<h3 id="example_1">example</h3>
+<pre><code>{
+  "type": "image",
+  "url": "http://i.imgur.com/KUJPgGV.png",
+  "style": {
+    "width": "50",
+    "height": "50",
+    "corner_radius": "25"
+  }
+}
+</code></pre>
+<hr />
+<h2 id="button">■  button</h2>
+<p>A basic component that reponds to user tap.</p>
+<p><img alt="button component" src="../images/components_button.jpeg" /></p>
+<p><br></p>
+<h3 id="syntax_2">syntax</h3>
+<ul>
+<li><code>type</code>: <code>"button"</code></li>
+<li><code>text</code>: button text</li>
+<li><code>style</code><ul>
+<li><code>width</code></li>
+<li><code>height</code></li>
+<li><code>color</code>: text color</li>
+<li><code>background</code>: background color</li>
+<li><code>color</code>: To set the tint color (only for icons)</li>
+<li><code>corner_radius</code>: corner radius for the button</li>
+</ul>
+</li>
+</ul>
+<h3 id="example_2">Example</h3>
+<pre><code>{
+  "type": "button",
+  "text": "http://i.imgur.com/KUJPgGV.png",
+  "style": {
+    "width": "50",
+    "height": "50",
+    "background": "#00ff00",
+    "color": "#ffffff",
+    "font": "HelveticaNeue",
+    "size": "12",
+    "corner_radius": "25"
+  }
+}
+</code></pre>
+<hr />
+<h2 id="textfield">■ textfield</h2>
+<p>Single line input field</p>
+<p><br></p>
+<p><img alt="textfield component" src="../images/components_textfield.jpeg" /></p>
+<p>textfields are seamlessly integrated with <a href="../actions/#local-variable">local variables</a></p>
+<h3 id="syntax_3">syntax</h3>
+<ul>
+<li><code>name</code>: name of the local variable to set.</li>
+<li><code>value</code>: in case you wish to prefill the field.</li>
+<li><code>placeholder</code>: Placeholder text for when there's no content filled in.</li>
+<li><code>style</code>: style the textfield<ul>
+<li><code>background</code></li>
+<li><code>align</code></li>
+<li><code>autocorrect</code>: set to <code>"true"</code> to enable autocorrect</li>
+<li><code>autocapitalize</code>: set to <code>"true"</code> to enable autocapitalize</li>
+<li><code>spellcheck</code>: set to <code>"true"</code> to enable spellcheck</li>
+<li><code>size</code>: text size</li>
+<li><code>font</code>: text font</li>
+<li><code>color</code>: text color</li>
+<li><code>placeholder_color</code>: placeholder text color</li>
+<li><code>secure:</code> hide character input if set to <code>"true"</code></li>
+</ul>
+</li>
+</ul>
+<h3 id="examples">examples</h3>
+<h4 id="example-1-password-input">Example 1: password input</h4>
+<pre><code>{
+  "type": "textfield",
+  "name": "password",
+  "value": "dhenf93f!",
+  "placeholder": "Enter password",
+  "style": {
+    "placeholder_color": "#cecece",
+    "font": "HelveticaNeue",
+    "align": "center",
+    "width": "200",
+    "height": "60",
+    "secure": "true",
+    "size": "12"
+  }
+}
+</code></pre>
+<h4 id="example-2-autocorrectautocaptiazliespellcheck-input">Example 2: autocorrect/autocaptiazlie/spellcheck input</h4>
+<pre><code>{
+  "type": "textfield",
+  "name": "status",
+  "placeholder": "Status update",
+  "style": {
+    "placeholder_color": "#cecece",
+    "font": "HelveticaNeue",
+    "align": "center",
+    "width": "200",
+    "height": "60",
+    "autocorrect": "true",
+    "autocapitalize": "true",
+    "spellcheck": "true",
+    "size": "12"
+  }
+}
+</code></pre>
+<hr />
+<h2 id="textarea">■ textarea</h2>
+<p>Multiline input field</p>
+<p><img alt="textarea component" src="../images/components_textarea.jpeg" /></p>
+<ul>
+<li><code>name</code>: name of the local variable to set.</li>
+<li><code>value</code>: in case you wish to prefill the field.</li>
+<li><code>placeholder</code>: Placeholder text for when there's no content filled in.</li>
+<li><code>style</code>: style the textfield<ul>
+<li><code>background</code></li>
+<li><code>align</code>: <code>"left"</code> | <code>"center"</code> | <code>"right"</code> (default is <code>"left"</code>)</li>
+<li><code>autocorrect</code>: set to <code>"true"</code> to enable autocorrect</li>
+<li><code>autocapitalize</code>: set to <code>"true"</code> to enable autocapitalize</li>
+<li><code>spellcheck</code>: set to <code>"true"</code> to enable spellcheck</li>
+<li><code>size</code>: text size</li>
+<li><code>font</code>: text font</li>
+<li><code>color</code>: text color</li>
+<li><code>placeholder_color</code>: placeholder text color</li>
+</ul>
+</li>
+</ul>
+<h3 id="example_3">example</h3>
+<p>Below, we've named the textarea <code>status</code>, and then refer to its value from <code>submit</code> action through the template expression <code>{{$get.status}}</code></p>
+<pre><span style='color:silver;'>{
+  "$jason": {
+    "head": {
+      "actions": {
+        ...
+        <span style='color:#ff0000'>"submit"</span><span style='color:black'>: {
+          "type": "$network.request",
+          "options": {
+            "url": "https://stts.jasonclient.org/status.json",
+            "method": "post",
+            "data": {
+              "content": <span style='color:#ff0000;'>"{{$get.status}}"</span>
+            }
+          },
+          "success": {
+            "type": "$reload"
+          }
+        }</span>
+        ...
+      }
+    },
+    "body": {
+      ...
+      <span style='color:black'>{
+        "type": "textarea",
+        <span style='color:#ff0000;'>"name": "status",</span>
+        "placeholder": "Status update",
+        "value": "Eating lunch..",
+        "style": {
+          "background": "rgba(0,0,0,0)",
+          "placeholder_color": "#cecece",
+          "font": "HelveticaNeue",
+          "align": "center",
+          "width": "100%",
+          "height": "300",
+          "autocorrect": "true",
+          "autocapitalize": "true",
+          "spellcheck": "true",
+          "size": "12"
+        }
+      }</span>
+      ...
+    }
+  }
+}</span></pre>
+
+<hr />
+<h2 id="slider">■ slider</h2>
+<p>Horizontal slider input</p>
+<p><img alt="slider component" src="../images/components_slider.jpeg" /></p>
+<h3 id="syntax_4">syntax</h3>
+<ul>
+<li><code>name</code>: name of the local variable to set.</li>
+<li><code>value</code>: value between 0 and 1 (in string) to preset the slider with. For example <code>"0.3"</code></li>
+<li><code>action</code>: <a href="../actions/">action</a> to execute after user completes the sliding gesture.</li>
+<li><code>style</code><ul>
+<li><code>width</code></li>
+<li><code>height</code></li>
+<li><code>color</code></li>
+</ul>
+</li>
+</ul>
+<h3 id="example_4">example</h3>
+<p>Below, we set the slider's name <code>gauge</code> and triggers the <code>notice</code> action, which accesses its value whenever the user ends the sliding action.</p>
+<pre><span style='color:silver;'>{
+  "$jason": {
+    "head": {
+      ...
+      <span style='color:black;'>"notice": {
+        "type": "$util.alert",
+        "options": {
+          "title": "Volume changed",
+          <span style='color:#ff0000;'>"description": "{{parseFloat($get.gauge)*100}}%"</span>
+        }
+      }</span>
+      ...
+    },
+    "body": {
+      ...
+      <span style='color:black;'>{
+        "type": "slider",
+        <span style='color:#ff0000;'>"name": "gauge",</span>
+        "action": {
+          "trigger": "notice"
+        }
+      }</span>
+      ...
+    }
+  }
+}</span></pre>
+
+<hr />
+<h2 id="html">■  html</h2>
+<p>Simple HTML content display. Normally it's more flexible to parse html content using <a href="../templates/#html">HTML template</a></p>
+<h3 id="syntax_5">syntax</h3>
+<ul>
+<li><code>text</code>: the HTML string</li>
+<li><code>css</code>: CSS string to apply to the HTML. See below example.</li>
+</ul>
+<p>You can also display html content, and even style them using CSS. However this is recommended only when you can get the content in HTML format. Normally it's recommended to receive content in JSON format and render them using rest of the components.</p>
+<h3 id="example_5">example</h3>
+<p><pre><span style='color:silver;'>{
+  "$jason": {
+    "head": {
+      "title": "RSS Reader",
+      "description": "RSS Parsing example",
+      "actions": {
+        "$load": {
+          "trigger": "reload"
+        },
+        "reload": {
+          "type": "$network.request",
+          "options": {
+            "url": "http://feeds.gawker.com/lifehacker/full",
+            "dataType": "rss"
+          },
+          "success": {
+            "type": "$convert.rss",
+            "options": {
+              "data": "{{$jason}}"
+            },
+            "success": {
+              "type": "$render"
+            }
+          }
+        }
+      },
+      "templates": {
+        "body": {
+          "nav": {
+            "style": {
+              "background": "rgb(246, 246, 239)",
+              "theme": "light",
+              "color": "#000000"
+            }
+          },
+          "style": {
+            "background": "rgb(246, 246, 239)",
+            "color": "#000000",
+            "border": "0"
+          },
+          "sections": {
+            "{{#each $jason}}": {
+              "items": [
+                <span style='color:black;'>{
+                  "type": "html",
+                  "css": "body{font-family: Courier; font-size: 18px;} img{max-width: 100%; border-bottom: 30px solid white !important;}",
+                  "text": "<body>{{summary.replace(/width[ ]<em>=[ ]</em>\"[^\"]<em>\"/gi, '').replace(/height[ ]</em>=[ ]<em>\"[^\"]</em>\"/gi, '')}}</body>"
+                }</span>
+              ]
+            }
+          }
+        }
+      }
+    }
+  }
+}</span></pre></p>
+<hr />
+<h2 id="space">■  space</h2>
+<p>An empty space component mostly used for layout purposes.</p>
+<p><img alt="space component" src="../images/components_space.jpeg" /></p>
+<h3 id="syntax_6">syntax</h3>
+<ul>
+<li><code>style</code><ul>
+<li><code>background</code>: background color (transparent if not specified)</li>
+<li><code>width</code>: only specify if you want a horizontally fixed size space</li>
+<li><code>height</code>: only specify if you want a vertically fixed size space</li>
+</ul>
+</li>
+</ul>
+<h3 id="example-1-flexible-size-space">Example 1. Flexible size space</h3>
+<p>If you don't specify the style, the space component will contract or expand flexibly depending on its surrounding sibling components.</p>
+<p>This is useful for when you wish to make special alignments, such as alinging one component to the left, and the other to the right in a horizontal layout.</p>
+<pre><span style='color:silver;'>{
+  "type": "horizontal",
+  "components": [
+    <span style='color:black;'>{
+      "type": "image",
+      "url": "https://jasonclient.org/img/john.png",
+      "style": {
+        "width": "50"
+      }
+    }, 
+    <span style='color:#ff0000;'>{
+      "type": "space"
+    },</span>
+    {
+      "type": "button",
+      "text": "Follow"
+      "style": {
+        "width": "100",
+        "height": "50"
+      }
+    }</span>
+  ]
+}</span></pre>
+
+<h3 id="example-2-fixed-size-space">Example 2. Fixed size space</h3>
+<p>You can also set the size of a space component.</p>
+<pre><span style='color:silver;'>{
+  "type": "vertical",
+  "components": [
+    <span style='color:black;'>{
+      "type": "image",
+      "url": "https://jasonclient.org/img/john.png",
+      "style": {
+        "width": "50"
+      }
+    }, 
+    <span style='color:#ff0000;'>{
+      "type": "space",
+      "style": {
+        "height": "50"
+      }
+    },</span>
+    {
+      "type": "label",
+      "text": "The names 'John Doe' or 'John Roe' for men, 'Jane Doe' or 'Jane Roe' for women, or 'Johnnie Doe' and 'Janie Doe' for children, or just 'Doe' non-gender-specifically are used as placeholder names for a party whose true identity is unknown or must be withheld in a legal action, case, or discussion."
+    }</span>
+  ]
+}</span></pre>
+              
+            </div>
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="../layout/" class="btn btn-neutral float-right" title="★ Layout">Next <span class="icon icon-circle-arrow-right"></span></a>
+      
+      
+        <a href="../actions/" class="btn btn-neutral" title="★ Actions"><span class="icon icon-circle-arrow-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <!-- Copyright etc -->
+    
+  </div>
+
+  Built with <a href="http://www.mkdocs.org">MkDocs</a> using a <a href="https://github.com/snide/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>.
+</footer>
+	  
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+
+<div class="rst-versions" role="note" style="cursor: pointer">
+    <span class="rst-current-version" data-toggle="rst-current-version">
+      
+          <a href="https://github.com/Jasonette/documentation" class="icon icon-github" style="float: left; color: #fcfcfc"> GitHub</a>
+      
+      
+        <span><a href="../actions/" style="color: #fcfcfc;">&laquo; Previous</a></span>
+      
+      
+        <span style="margin-left: 15px"><a href="../layout/" style="color: #fcfcfc">Next &raquo;</a></span>
+      
+    </span>
+</div>
+
+</body>
+</html>
