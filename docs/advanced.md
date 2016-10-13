@@ -68,7 +68,7 @@ Here's the result:
 
 You only need to implement a single class method:
 
-`+ (UIView*)build:(NSDictionary*)json withOptions:(NSDictionary*)options`.
+**+ (UIView*)build:(NSDictionary*)json withOptions:(NSDictionary*)options**.
 
 Basically it's a builder method that takes a JSON snippet in NSDictionary format and creates a UIView subclass. It can be a UILabel, UIButton, or whatever, as long as it's a subclass of `UIView`.
 
@@ -105,7 +105,7 @@ Here's an example of how we would summon our `map` component.
 So how does this work behind the scenes? Whenever Jasonette encounters a component description, 
 
 1. It looks at its `type` first. Here we see the `{"type": "map"}`, so it's a `map` component.
-2. Based on this, it looks for a class named `JasonMapComponent` (Remember the naming convention is `Jason(COMPONENT_NAME_WITH_FIRST_LETTER_CAPITALIZED)Component`)
+2. Based on this, it looks for a class named `JasonMapComponent` (Remember the naming convention is: **Jason(COMPONENT_NAME_WITH_FIRST_LETTER_CAPITALIZED)Component**
 3. When it finds the component class, it runs its `build:withOptions:` method to finally build the component.
 
 Of course, this is a simplified version of how the actual `map` component works. In reality the `json` object would contain more information than just `{ "type": "map" }`. It may look something like this:
@@ -172,7 +172,11 @@ Well, in objective-c, classes are also objects, so you can in fact call them the
     }
     @end
 
-Here we implement `+ (void)mapView:(MKMapView *)mapView didUpdateUserLocation:(MKUserLocation *)userLocation` to handle MapKit events.
+Here we implement
+
+**+ (void)mapView:(MKMapView *)mapView didUpdateUserLocation:(MKUserLocation *)userLocation**
+
+to handle MapKit events.
 
 ---
 
@@ -182,7 +186,7 @@ A lot of style attributes such as background, width, height, corner_radius, opac
 
 `JasonComponent` class has a built-in method that you can utilize to automatically apply these styles. It's called:
 
-`+ (void) stylize: (NSDictionary *)json component: (UIView *)component`.
+**+ (void) stylize: (NSDictionary *)json component: (UIView *)component**.
 
 Just by calling this method once, you can take advantage of all the following style attributes right out of the box!
 
@@ -581,9 +585,9 @@ Here's how to transition from a Jasonette view to your custom non-Jasonette view
 
 It works exactly the same as normal Jasonette transitions--simply attach an `href` and set its `view` attribute.
 
-**You need to name it like this:**
+You need to name it like this:
 
- `[STORYBOARD NAME].[STORYBOARD IDENTIFIER FOR THE VIEWCONTROLLER]`
+**[STORYBOARD NAME].[STORYBOARD IDENTIFIER FOR THE VIEWCONTROLLER]**
 
 For example, to transition to a viewcontroller which has a storyboard ID of `PaymentViewController` on a storyboard named `MainStoryboard.storyboard`, we do the following:
 

@@ -651,7 +651,7 @@ In this case we could pass `{"template": "empty_template"}` as an option, like t
 `$render` redraws an existing template you already downloaded, using dynamic data. `$reload` completely refreshes the current URL. Here's an example scenario:
 
 1. Jason view loads and fetches a JSON markup from the server (`main.json`)
-2. `main.json` makes an API request to Twitter to fetch Tweets. (`https://api.twitter.com/1.1/statuses/user_timeline.json`)
+2. `main.json` makes an API request to Twitter to fetch Tweets. (https://api.twitter.com/1.1/statuses/user_timeline.json)
 3. Then it renders the result using its `body` template, which is under `$jason.head.templates.body` in `main.json`.
 4. From this point on, calling `$render` simply takes the `$jason.head.templates.body` we have in memory, and renders whatever data we pass in.
 5. However calling `$reload` will make a full refresh, going back to step 1.
@@ -968,7 +968,7 @@ Here's what's going on above:
 
 >The `sign_url` attribute is the URL to your server, and your server should generate a signed url and return the result in the following format:
 
->    `{ "$jason": "https://s3.amazonaws.com/...../...?AWSAccessKeyId=.....&Expires=.....&Signature=....."}`
+>    **{ "$jason": "https://s3.amazonaws.com/...../...?AWSAccessKeyId=.....&Expires=.....&Signature=....."}**
 >
 >**[See the full server side code](https://github.com/Jasonette/s3-upload-example)** to learn how to generate signed urls.
 ####4. The client then uploads the content passed in as `data` to the just generated signed url, using a randomly generated filename.
@@ -1045,7 +1045,7 @@ Here's an actual example of what this server returns as a response to the POST r
 When you return above response from your server, here's what will happen:
 
 1. Jasonette will automatically store the `$session` object for the URL.
-2. In this case, all subsequent `$network.request` actions to this domain will automatically attach `{"username": "ethan", "auth_token": "39fj3lsf9djfjs"}` to the request **header**, so that the server understands it's you.
+2. In this case, all subsequent `$network.request` actions to this domain will automatically attach **{"username": "ethan", "auth_token": "39fj3lsf9djfjs"}** to the request **header**, so that the server understands it's you.
 3. If you want each subsequent requests to attach session objects to their `body` parameters instead of `header`, simply return the `$session` object with `body` attribute instead.
 
 ---

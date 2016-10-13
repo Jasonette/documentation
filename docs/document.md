@@ -445,14 +445,18 @@ A view can contain multiple sections.
 
 And each section can be either:
 
-  1. vertically scrolling (default): Just a normal list view that scrolls
-  2. horizontally scrolling: scrolls from left to right
+###1. vertically scrolling (default)
+Just a normal list view that scrolls
 
-<br>
+![vertical section](images/vertical_section.gif)
 
-| Vertically scrolling section           | Horizontally scrolling section             |
-| ---------------------------------------- | ---------------------------------------- |
-| ![vertical section](images/vertical_section.gif) | ![horizontal section](images/horizontal_section.gif) |
+---
+
+###2. horizontally scrolling
+scrolls from left to right
+
+![horizontal section](images/horizontal_section.gif)
+
 
 ###What's going on above:
 

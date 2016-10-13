@@ -22,6 +22,7 @@ pre{
   border: 1px solid whitesmoke;
   border-radius: 2px;
   padding: 10px;
+  word-wrap: break-word;
 }
 #rtd-search-form input[type=text]{
   border:none;
@@ -64,6 +65,12 @@ pre{
 .wy-nav-content{
   max-width: 100%;
   background: white;
+  overflow-wrap: break-word;
+  word-wrap: break-word;
+  word-break: break-word;
+}
+.wy-nav-content strong{
+  color:#8bb92d;
 }
 .wy-nav-content strong a{
   text-decoration: underline;
