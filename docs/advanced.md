@@ -18,7 +18,7 @@ Both extending and integrating involve writing native iOS code. But here's the d
     - You can share it with the community when you're done. If it's useful enough it may even be integrated into the main codebase.
 
   - **Integrating with Jasonette** means you already have existing code and are using Jasonette only partially. This means:
-    - You can start using Jasonette in your existing app instanly, without re-writing anything. Just a few lines of code necessary.
+    - You can start using Jasonette in your existing app instantly, without re-writing anything. Just a few lines of code necessary.
     - You will be able to take advantage of all of Jasonette's power whenever you use the Jasonette view.
     - The only drawback is you can't control your own non-Jasonette code with JSON (obviously)
 
@@ -52,7 +52,7 @@ So, to create a `map` component:
 
 1. we create a subclass of `JasonComponent`
 2. And name it `JasonMapComponent` (Notice the capitalization).
-3. We also import `MapKit` since we will need to acces the iOS MapKit API.
+3. We also import `MapKit` since we will need to access the iOS MapKit API.
 
 Here's the result:
 
