@@ -224,7 +224,7 @@ Here's an example code that creates a UIView, runs it through the built-in `styl
       return component;
     }
 
-You don't even need to include an additional file, since the `stylize` method comes for free just by subclassing `JasonAction`
+You don't even need to include an additional file, since the `stylize` method comes for free just by subclassing `JasonComponent`
 
 ---
 
