@@ -144,9 +144,11 @@
                 
                     <li><a class="toctree-l4" href="#networkupload">$network.upload</a></li>
                 
-                    <li><a class="toctree-l4" href="#networkauth">$network.auth</a></li>
+                    <li><a class="toctree-l4" href="#session">── SESSION ──</a></li>
                 
-                    <li><a class="toctree-l4" href="#networkunauth">$network.unauth</a></li>
+                    <li><a class="toctree-l4" href="#sessionset">$session.set</a></li>
+                
+                    <li><a class="toctree-l4" href="#sessionreset">$session.reset</a></li>
                 
                     <li><a class="toctree-l4" href="#variable">── VARIABLE ──</a></li>
                 
@@ -1038,7 +1040,7 @@ In the example below, an <code>action</code> is attached to a <code>slider</code
 <li><code>url</code>: The url to access.</li>
 <li><code>method</code>: <code>"get"</code> | <code>"post"</code> | <code>"put"</code> | <code>"delete"</code>.</li>
 <li><code>data</code>: Parameters to send along with the url (optional)</li>
-<li><code>headers</code>: Headers to attach to every request if any (optional)</li>
+<li><code>header</code>: Headers to attach to every request if any (optional)</li>
 <li><code>data_type</code>: Specifies how the fetched response will be processed. Can be <code>json</code>, <code>html</code>, <code>rss</code>, or <code>raw</code>. <code>json</code> assumes that the return value will be in JSON format, whereas <code>raw</code> expects a plain text. You can use <code>raw</code> type when fetching a plain text or CSV. <code>html</code> is for fetching HTML content and especially required when you need to utilize HTML requests associated with cookies/sessions. <code>rss</code> is used to fetch RSS. The default is <code>json</code>.</li>
 <li><code>content_type</code>: Specifies which format the parameters will be sent as. By default it's sent as a form object, but in case you specify <code>{"content_type": "json"}</code> the data will be submitted as a JSON string.</li>
 </ul>
@@ -1061,7 +1063,7 @@ In the example below, an <code>action</code> is attached to a <code>slider</code
 </code></pre>
 <hr />
 <h4 id="example-2-more-complex-json-requests">Example 2. More complex JSON requests</h4>
-<p>This time we're going to make a POST request, with all the data and headers</p>
+<p>This time we're going to make a POST request, with all the data and header</p>
 <pre><code>{
   "type": "$network.request",
   "options": {
@@ -1071,7 +1073,7 @@ In the example below, an <code>action</code> is attached to a <code>slider</code
       "user_id": "fI9",
       "message": "Hello there"
     },
-    "headers": {
+    "header": {
       "auth_token": "fnekfla98dls9sNFK0nf3"
     }
   },
@@ -1206,76 +1208,93 @@ Here's an example of signing into a website by making an HTML data_type <code>$n
 Check out the full code on Github:</p>
 <p><strong><a href="https://github.com/Jasonette/s3-upload-example">s3-upload-examle</a></strong></p>
 <hr />
-<h2 id="networkauth">$network.auth</h2>
+<h2 id="session">── SESSION ──</h2>
+<hr />
+<h2 id="sessionset">$session.set</h2>
 <ul>
-<li><code>$network.auth</code> takes care of <strong>token authentication</strong> to authenticate into any mobile API.</li>
+<li><code>$session.set</code> takes care of <strong>token authentication</strong> to authenticate into any mobile API.</li>
+<li>You need to call <code>$session.set</code> <strong>after</strong> a <code>$network.request</code> action to an authentication endpoint, which returns an authentication token.</li>
 <li>For cookie based HTML authentication, see <a href="#example-4-html-post-request-with-cookies">Example 4 from <code>$network.request</code> above</a>.</li>
 </ul>
 <h3 id="options_8">■ options</h3>
 <ul>
-<li><code>url</code>: The url endpoint for signing in.</li>
-<li><code>method</code>: <code>"get"</code> | <code>"post"</code> | <code>"put"</code> | <code>"delete"</code>.</li>
-<li><code>data</code>: Parameters to send along with the url (optional)</li>
-<li><code>headers</code>: Headers to attach to every request if any (optional)</li>
+<li><code>domain</code>: the domain to set the session for (example: "jasonbase.com")</li>
+<li><code>header</code>: headers to attach to every future <code>$network.request</code> to the specified domain.</li>
+<li><code>body</code>: body parameters to attach to every future <code>$network.request</code> to the specified domain.</li>
 </ul>
 <h3 id="return-value_8">■ return value</h3>
 <ul>
-<li>whatever the server returns.</li>
+<li>none</li>
 </ul>
 <h3 id="example_5">■ example</h3>
 <p>Here's an example:</p>
-<pre><code>{
-  "type": "$network.auth",
+<pre><code>"action": {
+  "type": "$network.request",
   "options": {
-    "url": "https://wethan.herokuap.com/v3/sign_in.json",
+    "url": "https://sessionjason.herokuapp.com/users/sign_in.json",
     "method": "post",
-    "headers": {
-      "email": "ethan.gliechtenstein@gmail.com",
-      "auth_token": "fnekfla98dls9sNFK0nf3"
+    "data": {
+      "user[email]": "{{$get.email}}",
+      "user[password]": "{{$get.password}}"
     }
   },
   "success": {
-    "type": "$reload"
+    "type": "$session.set",
+    "options": {
+      "domain": "sessionjason.herokuapp.com",
+      "header": {
+        "X-User-Email": "{{$jason.email}}",
+        "X-User-Token": "{{$jason.authentication_token}}"
+      }
+    },
+    "success": {
+      "type": "$href",
+      "options": {
+        "url": "https://sessionjason.herokuapp.com/posts.json",
+        "transition": "replace"
+      }
+    }
   },
   "error": {
-    "type": "$util.alert",
+    "type": "$util.banner",
     "options": {
-      "title": "Error",
-      "description": "Uh oh, something went wrong"
+      "title": "Enter credentials",
+      "description": "Please enter both email and password"
     }
   }
 }
 </code></pre>
-<p>Similar to $network.request, except for a couple of things:</p>
-<p>Jasonette client expects the server to return a session object as a response to <code>$network.auth</code>, in the following format:</p>
+<p>Let's walk through each step.</p>
+<p>The first action is <code>$network.request</code>. It makes a POST request to <strong>https://sessionjason.herokuapp.com/users/sign_in.json</strong>, to which the server returns the following JSON as a response:</p>
 <pre><code>{
-  "$session": {
-    "headers": (SESSION TO APPEND TO EVERY REQUEST HEADER),
-    "body": (SESSION TO APPEND TO EVERY REQUEST BODY)
+  "id":2,
+  "email":"ethan@ethan.fm",
+  "created_at":"2016-10-14T22:55:00.664Z",
+  "updated_at":"2016-10-15T05:22:41.730Z",
+  "authentication_token":"fnekz4hf7ghw95m6ks0rf01j"
+}
+</code></pre>
+<p>Next, we proceed to the next action, which is <code>$session.set</code>. Here we use the return value from the <code>$network.request</code> and set the header.</p>
+<p><br></p>
+<p>This stores the <code>header</code> object for the specified <code>domain</code> (session.herokuapp.com), and this stored header will be attached to all future <code>$network.request</code> to this domain. The header to be stored will look like this:</p>
+<pre><code>{
+  "header": {
+    "X-User-Email": "ethan@ethan.fm",
+    "X-User-Token": "fnekz4hf7ghw95m6ks0rf01j"
   }
 }
 </code></pre>
-<p>Here's an actual example of what this server returns as a response to the POST request to <code>https://wethan.herokuap.com/v3/sign_in.json</code>:</p>
-<pre><code>{
-  "$session": {
-    "headers": {
-      "username": "ethan",
-      "auth_token": "39fj3lsf9djfjs"
-    }
-  }
-}
-</code></pre>
-<p>When you return above response from your server, here's what will happen:</p>
-<ol>
-<li>Jasonette will automatically store the <code>$session</code> object for the URL.</li>
-<li>In this case, all subsequent <code>$network.request</code> actions to this domain will automatically attach <strong>{"username": "ethan", "auth_token": "39fj3lsf9djfjs"}</strong> to the request <strong>header</strong>, so that the server understands it's you.</li>
-<li>If you want each subsequent requests to attach session objects to their <code>body</code> parameters instead of <code>header</code>, simply return the <code>$session</code> object with <code>body</code> attribute instead.</li>
-</ol>
+<p><br></p>
+<p>After the <code>$session.set</code>, it goes to the next action <code>$href</code>. This transitions to <strong>https://sessionjason.herokuapp.com/posts.json</strong>.</p>
+<p><br></p>
+<p>This time, the network request will automatically attach the stored header to the request.</p>
+<p><br></p>
+<p>The server will recognize the authentication token and respond with the actual <code>posts.json</code>.</p>
 <hr />
-<h2 id="networkunauth">$network.unauth</h2>
-<p>This action lets you clear sessions for a specified domain. Can be used for both <a href="#networkauth">token authentication</a> and <a href="#example-4-html-post-request-with-cookies">web authentication via cookies</a></p>
+<h2 id="sessionreset">$session.reset</h2>
+<p>This action lets you clear sessions for a specified domain. Can be used for both <a href="#sessionset">token authentication</a> and <a href="#example-4-html-post-request-with-cookies">web authentication via cookies</a></p>
 <ul>
-<li>For token authentication, it clears your <code>$session</code> object tied to the domain, created through <a href="#networkauth">$network.auth</a>.</li>
+<li>For token authentication, it clears your headers and body parameters objects tied to the domain, created through <a href="#sessionset">$session.set</a>.</li>
 <li>For web requests (html), it clears your cookie tied to the domain, created through <code>html</code> type <code>$network.request</code>, <a href="#example-4-html-post-request-with-cookies">as described here</a>.</li>
 </ul>
 <h3 id="options_9">■  options</h3>
@@ -1289,9 +1308,9 @@ Check out the full code on Github:</p>
 <h4 id="example-1-signing-out-of-token-authentication">Example 1. Signing out of token authentication</h4>
 <p>No need to specify <code>type</code>, since it's <code>json</code> by default.</p>
 <pre><code>{
-    "type": "$network.unauth",
+    "type": "$session.reset",
     "options": {
-        "domain": "http://jasonclient.org"
+    "domain": "sessionjason.herokuapp.com"
     },
     "success": {
         "type": "$reload"
@@ -1305,7 +1324,7 @@ Check out the full code on Github:</p>
 <h4 id="example-2-signing-out-of-a-website-by-clearing-cookies">Example 2. Signing out of a website by clearing cookies</h4>
 <p>Just set the <code>options.type</code> as <code>html</code>.</p>
 <pre><code>{
-    "type": "$network.unauth",
+    "type": "$session.reset",
     "options": {
         "domain": "http://news.ycombinator.com",
         "type": "html"
