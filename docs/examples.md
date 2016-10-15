@@ -64,3 +64,15 @@ Simply take one of the JSON urls below, add to Jasonette and play. You can learn
 
 ---
 
+# ★ Microblog with user accounts
+  - Simple microblog app to post messages, complete with user login. If you want to install the backend on your own server, here's the [full source and an instruction on how to build one from scratch](https://github.com/gliechtenstein/jason.token.authentication.rails).
+  - JSON: [http://sessionjason.herokuapp.com](http://sessionjason.herokuapp.com)
+
+<br>
+
+signed out  |  signed in
+------------|-----------------------
+![signed out](images/signed_out.png) | ![signed in](images/signed_in.png)
+
+---
+
