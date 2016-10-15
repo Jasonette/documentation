@@ -982,79 +982,107 @@ Check out the full code on Github:
 
 ---
 
-##$network.auth
-- `$network.auth` takes care of **token authentication** to authenticate into any mobile API.
+##── SESSION ──
+
+---
+
+##$session.set
+- `$session.set` takes care of **token authentication** to authenticate into any mobile API.
+- You need to call `$session.set` **after** a `$network.request` action to an authentication endpoint, which returns an authentication token.
 - For cookie based HTML authentication, see [Example 4 from `$network.request` above](#example-4-html-post-request-with-cookies).
 
 ### ■ options
-- `url`: The url endpoint for signing in.
-- `method`: `"get"` | `"post"` | `"put"` | `"delete"`.
-- `data`: Parameters to send along with the url (optional)
-- `headers`: Headers to attach to every request if any (optional)
+- `domain`: the domain to set the session for (example: "jasonbase.com")
+- `header`: headers to attach to every future `$network.request` to the specified domain.
+- `body`: body parameters to attach to every future `$network.request` to the specified domain.
 
 ### ■ return value
-- whatever the server returns.
+- none
 
 ### ■ example
 Here's an example:
 
-    {
-      "type": "$network.auth",
+    "action": {
+      "type": "$network.request",
       "options": {
-        "url": "https://wethan.herokuap.com/v3/sign_in.json",
+        "url": "https://sessionjason.herokuapp.com/users/sign_in.json",
         "method": "post",
-        "headers": {
-          "email": "ethan.gliechtenstein@gmail.com",
-          "auth_token": "fnekfla98dls9sNFK0nf3"
+        "data": {
+          "user[email]": "{{$get.email}}",
+          "user[password]": "{{$get.password}}"
         }
       },
       "success": {
-        "type": "$reload"
+        "type": "$session.set",
+        "options": {
+          "domain": "sessionjason.herokuapp.com",
+          "header": {
+            "X-User-Email": "{{$jason.email}}",
+            "X-User-Token": "{{$jason.authentication_token}}"
+          }
+        },
+        "success": {
+          "type": "$href",
+          "options": {
+            "url": "https://sessionjason.herokuapp.com/posts.json",
+            "transition": "replace"
+          }
+        }
       },
       "error": {
-        "type": "$util.alert",
+        "type": "$util.banner",
         "options": {
-          "title": "Error",
-          "description": "Uh oh, something went wrong"
+          "title": "Enter credentials",
+          "description": "Please enter both email and password"
         }
       }
     }
 
-Similar to $network.request, except for a couple of things:
+Let's walk through each step.
 
-Jasonette client expects the server to return a session object as a response to `$network.auth`, in the following format:
+The first action is `$network.request`. It makes a POST request to **https://sessionjason.herokuapp.com/users/sign_in.json**, to which the server returns the following JSON as a response:
 
     {
-      "$session": {
-        "headers": (SESSION TO APPEND TO EVERY REQUEST HEADER),
-        "body": (SESSION TO APPEND TO EVERY REQUEST BODY)
+      "id":2,
+      "email":"ethan@ethan.fm",
+      "created_at":"2016-10-14T22:55:00.664Z",
+      "updated_at":"2016-10-15T05:22:41.730Z",
+      "authentication_token":"fnekz4hf7ghw95m6ks0rf01j"
+    }
+
+Next, we proceed to the next action, which is `$session.set`. Here we use the return value from the `$network.request` and set the header.
+
+<br>
+
+This stores the `header` object for the specified `domain` (session.herokuapp.com), and this stored header will be attached to all future `$network.request` to this domain. The header to be stored will look like this:
+
+    {
+      "header": {
+        "X-User-Email": "ethan@ethan.fm",
+        "X-User-Token": "fnekz4hf7ghw95m6ks0rf01j"
       }
     }
 
-Here's an actual example of what this server returns as a response to the POST request to `https://wethan.herokuap.com/v3/sign_in.json`:
+<br>
 
-    {
-      "$session": {
-        "headers": {
-          "username": "ethan",
-          "auth_token": "39fj3lsf9djfjs"
-        }
-      }
-    }
+After the `$session.set`, it goes to the next action `$href`. This transitions to **https://sessionjason.herokuapp.com/posts.json**.
 
-When you return above response from your server, here's what will happen:
+<br>
 
-1. Jasonette will automatically store the `$session` object for the URL.
-2. In this case, all subsequent `$network.request` actions to this domain will automatically attach **{"username": "ethan", "auth_token": "39fj3lsf9djfjs"}** to the request **header**, so that the server understands it's you.
-3. If you want each subsequent requests to attach session objects to their `body` parameters instead of `header`, simply return the `$session` object with `body` attribute instead.
+This time, the network request will automatically attach the stored header to the request.
+
+<br>
+
+The server will recognize the authentication token and respond with the actual `posts.json`.
+
 
 ---
 
 
-##$network.unauth
-This action lets you clear sessions for a specified domain. Can be used for both [token authentication](#networkauth) and [web authentication via cookies](#example-4-html-post-request-with-cookies)
+##$session.reset
+This action lets you clear sessions for a specified domain. Can be used for both [token authentication](#sessionset) and [web authentication via cookies](#example-4-html-post-request-with-cookies)
 
-- For token authentication, it clears your `$session` object tied to the domain, created through [$network.auth](#networkauth).
+- For token authentication, it clears your headers and body parameters objects tied to the domain, created through [$session.set](#sessionset).
 - For web requests (html), it clears your cookie tied to the domain, created through `html` type `$network.request`, [as described here](#example-4-html-post-request-with-cookies).
 
 ### ■  options
@@ -1068,9 +1096,9 @@ This action lets you clear sessions for a specified domain. Can be used for both
 No need to specify `type`, since it's `json` by default.
 
     {
-    	"type": "$network.unauth",
+    	"type": "$session.reset",
     	"options": {
-    		"domain": "http://jasonclient.org"
+        "domain": "sessionjason.herokuapp.com"
     	},
     	"success": {
     		"type": "$reload"
@@ -1085,7 +1113,7 @@ No need to specify `type`, since it's `json` by default.
 Just set the `options.type` as `html`.
 
     {
-    	"type": "$network.unauth",
+    	"type": "$session.reset",
     	"options": {
     		"domain": "http://news.ycombinator.com",
     		"type": "html"
