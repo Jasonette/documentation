@@ -986,6 +986,12 @@ Check out the full code on Github:
 
 ---
 
+Check out a functional demo app with backend server, with user accounts
+
+**[session-example](https://github.com/gliechtenstein/jason.token.authentication.rails)**
+
+---
+
 ##$session.set
 - `$session.set` takes care of **token authentication** to authenticate into any mobile API.
 - You need to call `$session.set` **after** a `$network.request` action to an authentication endpoint, which returns an authentication token.
@@ -1124,6 +1130,13 @@ Just set the `options.type` as `html`.
     }
 
 ---
+
+Check out a functional demo app with backend server, with user accounts
+
+**[session-example](https://github.com/gliechtenstein/jason.token.authentication.rails)**
+
+---
+
 
 ##── VARIABLE ──
 Use $set and $get to set and get local variables.
