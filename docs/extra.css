@@ -4,6 +4,9 @@ body {
 .btn{
   background: #8bb92d;
 }
+.__slackin{
+  z-index: 100000000000;
+}
 .video-container {
   position: relative;
   padding-bottom: 56.25%;

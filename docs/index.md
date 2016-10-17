@@ -1,14 +1,19 @@
 # First Things First
 
-Hello there! Before we get started, let's get these two things out of the way:
+Hello there! Before we get started, let's get these out of the way:
 
-**1. [Download XCode](https://itunes.apple.com/us/app/xcode/id497799835?mt=12)**
+**[1. Download XCode](https://itunes.apple.com/us/app/xcode/id497799835?mt=12)**
 
 You need XCode to build and run Jasonette on your phone.
 
-**2. [Learn JSON syntax](http://www.w3schools.com/js/js_json_syntax.asp)**
+**[2. Learn JSON](http://www.w3schools.com/js/js_json_syntax.asp)**
 
-The only thing you need to know is JSON. Don't know JSON? Just check out the link above, takes 2 minutes.
+Don't know JSON? Just check out the link above, takes 2 minutes.
+
+**[3. Join the community](https://jasonette.herokuapp.com)**
+
+<script async defer src="https://jasonette.herokuapp.com/slackin.js?large"></script>
+Come ask questions and share tips with other Jasonette users
 
 ---
 
@@ -28,12 +33,12 @@ Ready? Let's get your first Jasonette app on your phone, in 20 seconds!
 ---
 
 ##Step 1. DOWNLOAD
-Download Jasonette and unzip.
+[Download Jasonette](https://github.com/gliechtenstein/Jasonette/archive/master.zip) and unzip.
 ![download jasonette](images/download.png)
 
 ---
 
-##Step 2. INIT
+##Step 2. SETUP
 Initialize by running the `Jasonette` command.
 ![init](images/init.png)
 
@@ -149,3 +154,9 @@ Or read the Apple Guideline below:
 
 
 ---
+
+## Need more help?
+
+**[Ask in chatroom](https://jasonette.herokuapp.com)**
+
+Join our Slack chatroom for questions and support.
