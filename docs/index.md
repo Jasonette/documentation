@@ -1,10 +1,68 @@
-# Prerequisites
+# First Things First
 
-**[Learn JSON syntax](http://www.w3schools.com/js/js_json_syntax.asp)**
+Hello there! Before we get started, let's get these two things out of the way:
 
-The only thing you need to know to build a Jasonette app is JSON. If you are not familiar with JSON syntax, check out the link above, takes 2 minutes.
+**1. [Download XCode](https://itunes.apple.com/us/app/xcode/id497799835?mt=12)**
+
+You need XCode to build and run Jasonette on your phone.
+
+**2. [Learn JSON syntax](http://www.w3schools.com/js/js_json_syntax.asp)**
+
+The only thing you need to know is JSON. Don't know JSON? Just check out the link above, takes 2 minutes.
 
 ---
+
+# Download
+
+<a href='https://github.com/gliechtenstein/Jasonette/archive/master.zip' class='btn'><i class='fa fa-download'></i> Download Jasonette</a>
+
+<br>
+
+Jasonette itself is an app. Download it from above and so you can build with XCode.
+
+---
+
+# Quick Start
+Ready? Let's get your first Jasonette app on your phone, in 20 seconds!
+
+---
+
+##Step 1. DOWNLOAD
+Download Jasonette and unzip.
+![download jasonette](images/download.png)
+
+---
+
+##Step 2. INIT
+Initialize by running the `Jasonette` command.
+![init](images/init.png)
+
+This command automatically generates icons and sets the title and the url.
+
+---
+
+##Step 3. PLAY
+Connect your phone and click play on XCode. Done!
+
+![play](http://i.giphy.com/l3vRnkTqLc0Tr1esU.gif)
+
+---
+
+## ★ Did it work?
+
+<br>
+
+  - ###YES?
+    - Congratulations! You're ready to transform this into your OWN app! Go on to the next section.
+
+<br>
+
+  - ###NO?
+    - **[Check troubleshoot section](#troubleshoot)**
+
+
+---
+
 
 # Tutorial Screencast
 
@@ -58,9 +116,6 @@ Actual JSON examples you can try out with Jasonette:
 ---
 # Troubleshoot
 
-Something not working?
-
----
 
 ## "No provisioning..." error
 
