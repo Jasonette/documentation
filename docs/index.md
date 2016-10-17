@@ -23,7 +23,7 @@ Come ask questions and share tips with other Jasonette users
 
 <br>
 
-Jasonette itself is an app. Download it from above and so you can build with XCode.
+Jasonette itself is an app. Download it from above so you can build with XCode.
 
 ---
 
@@ -158,5 +158,7 @@ Or read the Apple Guideline below:
 ## Need more help?
 
 **[Ask in chatroom](https://jasonette.herokuapp.com)**
+
+<script async defer src="https://jasonette.herokuapp.com/slackin.js?large"></script>
 
 Join our Slack chatroom for questions and support.
