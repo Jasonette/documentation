@@ -2,12 +2,12 @@
     "docs": [
         {
             "location": "/", 
-            "text": "First Things First\n\n\nHello there! Before we get started, let's get these two things out of the way:\n\n\n1. \nDownload XCode\n\n\nYou need XCode to build and run Jasonette on your phone.\n\n\n2. \nLearn JSON syntax\n\n\nThe only thing you need to know is JSON. Don't know JSON? Just check out the link above, takes 2 minutes.\n\n\n\n\nDownload\n\n\n Download Jasonette\n\n\n\n\nJasonette itself is an app. Download it from above and so you can build with XCode.\n\n\n\n\nQuick Start\n\n\nReady? Let's get your first Jasonette app on your phone, in 20 seconds!\n\n\n\n\nStep 1. DOWNLOAD\n\n\nDownload Jasonette and unzip.\n\n\n\n\n\nStep 2. INIT\n\n\nInitialize by running the \nJasonette\n command.\n\n\n\nThis command automatically generates icons and sets the title and the url.\n\n\n\n\nStep 3. PLAY\n\n\nConnect your phone and click play on XCode. Done!\n\n\n\n\n\n\n\u2605 Did it work?\n\n\n\n\n\n\n\n\nYES?\n\n\n\n\nCongratulations! You're ready to transform this into your OWN app! Go on to the next section.\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nNO?\n\n\n\n\nCheck troubleshoot section\n\n\n\n\n\n\n\n\n\n\nTutorial Screencast\n\n\nLearn the basics\n\n\nThis video walks you through the basics of Jasonette, such as how it works, how to get started, etc.\n\n\n\n\n\n\n\n\n\n\n\nLearn JASON syntax\n\n\nThis video teaches you how to actually write a JSON markup to build sophisticated interactive layouts.\n\n\n\n\n\n\n\n\n\n\n\nDocumentation\n\n\nAnatomy of a Jason view\n\n\nLearn the basic structure of a JASON view\n\nJust like HTML has basic tags such as body, div, span, li, etc, Jasonette has JSON based tags to describe the structure of a view.\n\n\n\n\nComponents\n\n\nLearn component syntax\n\nComponents are the most basic units of user interface, such as image, label, textarea, button, slider, etc. \n\n\n\n\nLayout\n\n\nLearn layouts\n\nIn many cases we combine multiple components to contstruct a unit. We use layouts to do this.\n\n\n\n\nLink multiple views\n\n\nLearn linking\n\nAbove three sections are all you need to know to display content in a view. But what if we want multiple views? We can link them using \nhref\n.\n\n\n\n\nActions\n\n\nLearn actions\n\nActions define a task or a sequence of tasks you wish to run, such as network request, audio play, camera access, geolocation, dispalying banners, etc.\n\n\n\n\nTemplates\n\n\nLearn templates\n\nYou can use templates to dynamically render data, such as remote network content, local data, and user input.\n\n\n\n\nExamples\n\n\nActual JSON examples you can try out with Jasonette:\n\n\nTry examples here\n\n\n\n\nTroubleshoot\n\n\n\"No provisioning...\" error\n\n\n\n\n\n\n\n\nJust press \"Fix Issue\" and sign in with your Apple account\n\n\nIf that doesn't work, read this post\n\n\n\n\n\"Untrusted Enterprise Developer\"\n\n\nKeep getting \"Untrusted Enterprise Developer\" alert when you try to open the installed app?\n\n\n\n\n\n\n\n\n\n\n\n\n\nOr read the Apple Guideline below:\n\n\nGuidelines for installing custom enterprise apps on iOS", 
+            "text": "First Things First\n\n\nHello there! Before we get started, let's get these out of the way:\n\n\n1. Download XCode\n\n\nYou need XCode to build and run Jasonette on your phone.\n\n\n2. Learn JSON\n\n\nDon't know JSON? Just check out the link above, takes 2 minutes.\n\n\n3. Join the community\n\n\n\n\n\nCome ask questions and share tips with other Jasonette users\n\n\n\n\nDownload\n\n\n Download Jasonette\n\n\n\n\nJasonette itself is an app. Download it from above and so you can build with XCode.\n\n\n\n\nQuick Start\n\n\nReady? Let's get your first Jasonette app on your phone, in 20 seconds!\n\n\n\n\nStep 1. DOWNLOAD\n\n\nDownload Jasonette\n and unzip.\n\n\n\n\n\nStep 2. SETUP\n\n\nInitialize by running the \nJasonette\n command.\n\n\n\nThis command automatically generates icons and sets the title and the url.\n\n\n\n\nStep 3. PLAY\n\n\nConnect your phone and click play on XCode. Done!\n\n\n\n\n\n\n\u2605 Did it work?\n\n\n\n\n\n\n\n\nYES?\n\n\n\n\nCongratulations! You're ready to transform this into your OWN app! Go on to the next section.\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nNO?\n\n\n\n\nCheck troubleshoot section\n\n\n\n\n\n\n\n\n\n\nTutorial Screencast\n\n\nLearn the basics\n\n\nThis video walks you through the basics of Jasonette, such as how it works, how to get started, etc.\n\n\n\n\n\n\n\n\n\n\n\nLearn JASON syntax\n\n\nThis video teaches you how to actually write a JSON markup to build sophisticated interactive layouts.\n\n\n\n\n\n\n\n\n\n\n\nDocumentation\n\n\nAnatomy of a Jason view\n\n\nLearn the basic structure of a JASON view\n\nJust like HTML has basic tags such as body, div, span, li, etc, Jasonette has JSON based tags to describe the structure of a view.\n\n\n\n\nComponents\n\n\nLearn component syntax\n\nComponents are the most basic units of user interface, such as image, label, textarea, button, slider, etc. \n\n\n\n\nLayout\n\n\nLearn layouts\n\nIn many cases we combine multiple components to contstruct a unit. We use layouts to do this.\n\n\n\n\nLink multiple views\n\n\nLearn linking\n\nAbove three sections are all you need to know to display content in a view. But what if we want multiple views? We can link them using \nhref\n.\n\n\n\n\nActions\n\n\nLearn actions\n\nActions define a task or a sequence of tasks you wish to run, such as network request, audio play, camera access, geolocation, dispalying banners, etc.\n\n\n\n\nTemplates\n\n\nLearn templates\n\nYou can use templates to dynamically render data, such as remote network content, local data, and user input.\n\n\n\n\nExamples\n\n\nActual JSON examples you can try out with Jasonette:\n\n\nTry examples here\n\n\n\n\nTroubleshoot\n\n\n\"No provisioning...\" error\n\n\n\n\n\n\n\n\nJust press \"Fix Issue\" and sign in with your Apple account\n\n\nIf that doesn't work, read this post\n\n\n\n\n\"Untrusted Enterprise Developer\"\n\n\nKeep getting \"Untrusted Enterprise Developer\" alert when you try to open the installed app?\n\n\n\n\n\n\n\n\n\n\n\n\n\nOr read the Apple Guideline below:\n\n\nGuidelines for installing custom enterprise apps on iOS\n\n\n\n\nNeed more help?\n\n\nAsk in chatroom\n\n\nJoin our Slack chatroom for questions and support.", 
             "title": "\u25a0 Getting started"
         }, 
         {
             "location": "/#first-things-first", 
-            "text": "Hello there! Before we get started, let's get these two things out of the way:  1.  Download XCode  You need XCode to build and run Jasonette on your phone.  2.  Learn JSON syntax  The only thing you need to know is JSON. Don't know JSON? Just check out the link above, takes 2 minutes.", 
+            "text": "Hello there! Before we get started, let's get these out of the way:  1. Download XCode  You need XCode to build and run Jasonette on your phone.  2. Learn JSON  Don't know JSON? Just check out the link above, takes 2 minutes.  3. Join the community   Come ask questions and share tips with other Jasonette users", 
             "title": "First Things First"
         }, 
         {
@@ -22,13 +22,13 @@
         }, 
         {
             "location": "/#step-1-download", 
-            "text": "Download Jasonette and unzip.", 
+            "text": "Download Jasonette  and unzip.", 
             "title": "Step 1. DOWNLOAD"
         }, 
         {
-            "location": "/#step-2-init", 
+            "location": "/#step-2-setup", 
             "text": "Initialize by running the  Jasonette  command.  This command automatically generates icons and sets the title and the url.", 
-            "title": "Step 2. INIT"
+            "title": "Step 2. SETUP"
         }, 
         {
             "location": "/#step-3-play", 
@@ -124,6 +124,11 @@
             "location": "/#untrusted-enterprise-developer", 
             "text": "Keep getting \"Untrusted Enterprise Developer\" alert when you try to open the installed app?       Or read the Apple Guideline below:  Guidelines for installing custom enterprise apps on iOS", 
             "title": "\"Untrusted Enterprise Developer\""
+        }, 
+        {
+            "location": "/#need-more-help", 
+            "text": "Ask in chatroom  Join our Slack chatroom for questions and support.", 
+            "title": "Need more help?"
         }, 
         {
             "location": "/examples/", 
