@@ -308,6 +308,7 @@ Search component. Calls an `action` you define when user submits a query.
   - `action`
   - `style`
     - `background`: background color
+    - `color`: tint color (for placeholder, text & icon)
 
 ### example
 
