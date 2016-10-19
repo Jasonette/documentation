@@ -90,7 +90,7 @@ This video teaches you how to actually write a JSON markup to build sophisticate
 # Documentation
 
 ###Anatomy of a Jason view
-**[Learn the basic structure of a JASON view](../document)**<br>
+**[Learn the basic structure of a JASON view](document.md)**<br>
 Just like HTML has basic tags such as body, div, span, li, etc, Jasonette has JSON based tags to describe the structure of a view.
 ---
 ###Components
@@ -116,7 +116,7 @@ You can use templates to dynamically render data, such as remote network content
 # Examples
 Actual JSON examples you can try out with Jasonette:
 
-[Try examples here](examples.md)
+**[Try examples here](examples.md)**
 
 ---
 # Troubleshoot
