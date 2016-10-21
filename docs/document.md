@@ -435,12 +435,12 @@ Style the entire header bar.
 
 The main region, used to display scrollable content.
 
-**Here's the attributes each section can have:**
+**Here are the attributes each section can have:**
 
-- `type`: optional. set to `horizontal` to make it scroll horizontally. Otherwise it's just a regular, vertically scrolling section.
-- `header`: a single item. optional. (doesn't respond to user interaction. display purpose)
-- `items`: array of items (responds to user interaction)
-  - Each item can be either a [layout](layout.md) or a [component](component.md)
+  - `type`: optional. set to `horizontal` to make it scroll horizontally. Otherwise it's just a regular, vertically scrolling section.
+  - `header`: a single item. optional. (doesn't respond to user interaction. display purpose)
+  - `items`: array of items (responds to user interaction)
+    - Each item can be either a [layout](layout.md) or a [component](component.md)
 
 In most cases one section is enough, if you're displaying just a single collection of similar items.
 
