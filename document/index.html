@@ -651,12 +651,14 @@
 <hr />
 <h1 id="bodysections">body.sections</h1>
 <p>The main region, used to display scrollable content.</p>
-<p><strong>Here's the attributes each section can have:</strong></p>
+<p><strong>Here are the attributes each section can have:</strong></p>
 <ul>
 <li><code>type</code>: optional. set to <code>horizontal</code> to make it scroll horizontally. Otherwise it's just a regular, vertically scrolling section.</li>
 <li><code>header</code>: a single item. optional. (doesn't respond to user interaction. display purpose)</li>
-<li><code>items</code>: array of items (responds to user interaction)</li>
+<li><code>items</code>: array of items (responds to user interaction)<ul>
 <li>Each item can be either a <a href="../layout/">layout</a> or a <a href="component.md">component</a></li>
+</ul>
+</li>
 </ul>
 <p>In most cases one section is enough, if you're displaying just a single collection of similar items.</p>
 <p>Use multiple sections if you need to display different types of collections.</p>
