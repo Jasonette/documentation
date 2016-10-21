@@ -451,23 +451,22 @@ Map component
 
 ### syntax
 
-  - `type`: `"map"`
-  - `region` 
-    - `coord`: Coordinate string in `LATITUDE,LONGITUDE` format, around which the map should be centered. (example: `"40.7146598,-73.9418602"`)
-    - `width`: The width in meters in terms of how wide the map region should be
-    - `height`: The height in meters in terms of how wide the map region should be
-  - `pins`: Array of pin objects. Each pin contains the following attributes:
-    - `coord`: Coordinate string in `LATITUDE,LONGITUDE` format. (example: `"40.7146598,-73.9418602"`)
-    - `title`
-    - `description`
-    - `style`
-
-      `selected`: display the annotation by default even when not tapped.
+• `type`: `"map"`
+• `region` 
+  - `coord`: Coordinate string in `LATITUDE,LONGITUDE` format, around which the map should be centered. (example: `"40.7146598,-73.9418602"`)
+  - `width`: The width in meters in terms of how wide the map region should be
+  - `height`: The height in meters in terms of how wide the map region should be
+• `pins`: Array of pin objects. Each pin contains the following attributes:
+  - `coord`: Coordinate string in `LATITUDE,LONGITUDE` format. (example: `"40.7146598,-73.9418602"`)
+  - `title`
+  - `description`
   - `style`
-    - `type`: `"satellite"` | `"hybrid"` | `"hybrid_flyover"` | `"satellite_flyover"`
-    - `width`: width of the component to display
-    - `height`: height of the component to display
-    - `corner_radius`: corner radius of the component
+    - `selected`: display the annotation by default even when not tapped.
+• `style`
+  - `type`: `"satellite"` | `"hybrid"` | `"hybrid_flyover"` | `"satellite_flyover"`
+  - `width`: width of the component to display
+  - `height`: height of the component to display
+  - `corner_radius`: corner radius of the component
 
 ### Example
 
