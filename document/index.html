@@ -710,13 +710,11 @@ Let's go into more details:</p>
 </code></pre>
 <h3 id="2-horizontally-scrolling-section">2. Horizontally scrolling section</h3>
 <p>This type of section lets you scroll from left to right.</p>
-<p>To create a horizontal section, add <code>"horizontal": "true"</code> under the section's <code>style</code> attribute.</p>
+<p>To create a horizontal section, set the section's <code>type</code> as <code>horizontal</code>.</p>
 <pre><code>{
   ...
   "sections": [{
-    "style": {
-      "horizontal": "true"
-    },
+    "type": "horizontal",
     "items": [{
       "type": "label",
       "text": "Item 1"
