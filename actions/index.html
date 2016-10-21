@@ -2365,7 +2365,7 @@ Check out the full code on Github:</p>
 <p>Get user's geolocation</p>
 <h3 id="options_30">■  options</h3>
 <ul>
-<li>none</li>
+<li><code>distance</code>: accuracy distance in meters. By default it's 5000meters. The lower you go the more accurate it will be, but the longer it will take to retrieve the location.</li>
 </ul>
 <h3 id="return-value_30">■  return value</h3>
 <p>a <code>coord</code> object that contains <code>(latitude),(longitude)</code> format string</p>
@@ -2395,6 +2395,9 @@ Check out the full code on Github:</p>
               },
               "action": {
                 "type": "$geo.get",
+                "options": {
+                  "distance": "1000"
+                },
                 "success": {
                   "type": "$href",
                   "options": {
