@@ -453,7 +453,7 @@ Map component
 
 • `type`: `"map"`
 
-• `region` 
+• `region`: Describes the region this map component will draw. 
   - `coord`: Coordinate string in `LATITUDE,LONGITUDE` format, around which the map should be centered. (example: `"40.7146598,-73.9418602"`)
   - `width`: The width in meters in terms of how wide the map region should be
   - `height`: The height in meters in terms of how wide the map region should be
@@ -465,7 +465,7 @@ Map component
   - `style`
     - `selected`: display the annotation by default even when not tapped.
 
-• `style`
+• `style`: Styling of the component itself
   - `type`: `"satellite"` | `"hybrid"` | `"hybrid_flyover"` | `"satellite_flyover"`
   - `width`: width of the component to display
   - `height`: height of the component to display
