@@ -461,7 +461,8 @@ Map component
     - `title`
     - `description`
     - `style`
-      - `selected`: display the annotation by default even when not tapped.
+
+      `selected`: display the annotation by default even when not tapped.
   - `style`
     - `type`: `"satellite"` | `"hybrid"` | `"hybrid_flyover"` | `"satellite_flyover"`
     - `width`: width of the component to display
