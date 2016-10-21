@@ -505,14 +505,12 @@ This is the default
 
 This type of section lets you scroll from left to right.
 
-To create a horizontal section, add `"horizontal": "true"` under the section's `style` attribute.
+To create a horizontal section, set the section's `type` as `horizontal`.
 
     {
       ...
       "sections": [{
-        "style": {
-          "horizontal": "true"
-        },
+        "type": "horizontal",
         "items": [{
           "type": "label",
           "text": "Item 1"
