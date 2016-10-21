@@ -129,6 +129,8 @@
                 
                     <li><a class="toctree-l4" href="#space">■  space</a></li>
                 
+                    <li><a class="toctree-l4" href="#map">■  map</a></li>
+                
             
             </ul>
         
@@ -622,6 +624,57 @@
     }</span>
   ]
 }</span></pre>
+
+<h2 id="map">■  map</h2>
+<p>Map component</p>
+<p><img alt="map component" src="../images/components_map.png" /></p>
+<h3 id="syntax_7">syntax</h3>
+<ul>
+<li><code>type</code>: <code>"map"</code></li>
+<li><code>region</code> <ul>
+<li><code>coord</code>: Coordinate string in <code>LATITUDE,LONGITUDE</code> format, around which the map should be centered. (example: <code>"40.7146598,-73.9418602"</code>)</li>
+<li><code>width</code>: The width in meters in terms of how wide the map region should be</li>
+<li><code>height</code>: The height in meters in terms of how wide the map region should be</li>
+</ul>
+</li>
+<li><code>pins</code>: Array of pin objects. Each pin contains the following attributes:<ul>
+<li><code>coord</code>: Coordinate string in <code>LATITUDE,LONGITUDE</code> format. (example: <code>"40.7146598,-73.9418602"</code>)</li>
+<li><code>title</code></li>
+<li><code>description</code></li>
+<li><code>style</code></li>
+<li><code>selected</code>: display the annotation by default even when not tapped.</li>
+</ul>
+</li>
+<li><code>style</code><ul>
+<li><code>type</code>: <code>"satellite"</code> | <code>"hybrid"</code> | <code>"hybrid_flyover"</code> | <code>"satellite_flyover"</code></li>
+<li><code>width</code>: width of the component to display</li>
+<li><code>height</code>: height of the component to display</li>
+<li><code>corner_radius</code>: corner radius of the component</li>
+</ul>
+</li>
+</ul>
+<h3 id="example_6">Example</h3>
+<pre><code>{
+  "type": "map",
+  "region": {
+    "coord": "40.7197614,-73.9909211",
+    "width": "100",
+    "height": "100"
+  },
+  "pins": [{
+    "title": "This is a pin",
+    "description": "It really is.",
+    "coord": "40.7197614,-73.9909211",
+    "style": {
+      "selected": "true"
+    }
+  }],
+  "style": {
+    "width": "100%",
+    "height": "300"
+  }
+}
+</code></pre>
               
             </div>
           </div>
