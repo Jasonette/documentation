@@ -2233,7 +2233,7 @@ Normally you will want to pass the result immediately to a `$network.upload` cal
 Get user's geolocation
 
 ### ■  options
-- none
+- `distance`: accuracy distance in meters. By default it's 5000meters. The lower you go the more accurate it will be, but the longer it will take to retrieve the location.
 
 ### ■  return value
 a `coord` object that contains `(latitude),(longitude)` format string
@@ -2265,6 +2265,9 @@ Below example demonstrates various ways of utilizing `$geo.get` return values
                   },
                   "action": {
                     "type": "$geo.get",
+                    "options": {
+                      "distance": "1000"
+                    },
                     "success": {
                       "type": "$href",
                       "options": {
