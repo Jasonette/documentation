@@ -630,30 +630,22 @@
 <p>Map component</p>
 <p><img alt="map component" src="../images/components_map.png" /></p>
 <h3 id="syntax_7">syntax</h3>
-<ul>
-<li><code>type</code>: <code>"map"</code></li>
-<li><code>region</code> <ul>
-<li><code>coord</code>: Coordinate string in <code>LATITUDE,LONGITUDE</code> format, around which the map should be centered. (example: <code>"40.7146598,-73.9418602"</code>)</li>
-<li><code>width</code>: The width in meters in terms of how wide the map region should be</li>
-<li><code>height</code>: The height in meters in terms of how wide the map region should be</li>
-</ul>
-</li>
-<li>
-<p><code>pins</code>: Array of pin objects. Each pin contains the following attributes:</p>
-<ul>
-<li><code>coord</code>: Coordinate string in <code>LATITUDE,LONGITUDE</code> format. (example: <code>"40.7146598,-73.9418602"</code>)</li>
-<li><code>title</code></li>
-<li><code>description</code></li>
-<li><code>style</code></li>
-</ul>
-<p><code>selected</code>: display the annotation by default even when not tapped.
+<p>• <code>type</code>: <code>"map"</code></p>
+<p>• <code>region</code>: Describes the region this map component will draw. 
+  - <code>coord</code>: Coordinate string in <code>LATITUDE,LONGITUDE</code> format, around which the map should be centered. (example: <code>"40.7146598,-73.9418602"</code>)
+  - <code>width</code>: The width in meters in terms of how wide the map region should be
+  - <code>height</code>: The height in meters in terms of how wide the map region should be</p>
+<p>• <code>pins</code>: Array of pin objects. Each pin contains the following attributes:
+  - <code>coord</code>: Coordinate string in <code>LATITUDE,LONGITUDE</code> format. (example: <code>"40.7146598,-73.9418602"</code>)
+  - <code>title</code>
+  - <code>description</code>
   - <code>style</code>
-- <code>type</code>: <code>"satellite"</code> | <code>"hybrid"</code> | <code>"hybrid_flyover"</code> | <code>"satellite_flyover"</code>
-- <code>width</code>: width of the component to display
-- <code>height</code>: height of the component to display
-- <code>corner_radius</code>: corner radius of the component</p>
-</li>
-</ul>
+    - <code>selected</code>: display the annotation by default even when not tapped.</p>
+<p>• <code>style</code>: Styling of the component itself
+  - <code>type</code>: <code>"satellite"</code> | <code>"hybrid"</code> | <code>"hybrid_flyover"</code> | <code>"satellite_flyover"</code>
+  - <code>width</code>: width of the component to display
+  - <code>height</code>: height of the component to display
+  - <code>corner_radius</code>: corner radius of the component</p>
 <h3 id="example_6">Example</h3>
 <pre><code>{
   "type": "map",
