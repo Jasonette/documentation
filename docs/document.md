@@ -435,13 +435,20 @@ Style the entire header bar.
 
 The main region, used to display scrollable content.
 
-- Each section is made up of a `header` (optional) and `items`.
-- In most cases one section is enough, if you're displaying just a single collection of similar items.
-- Use multiple sections if you need to display different types of collections.
+**Here's the attributes each section can have:**
+
+- `type`: optional. set to `horizontal` to make it scroll horizontally. Otherwise it's just a regular, vertically scrolling section.
+- `header`: a single item. optional. (doesn't respond to user interaction. display purpose)
+- `items`: array of items (responds to user interaction)
+  - Each item can be either a [layout](layout.md) or a [component](component.md)
+
+In most cases one section is enough, if you're displaying just a single collection of similar items.
+
+Use multiple sections if you need to display different types of collections.
 
 <br>
 
-##■  style
+##■  type
 A view can contain multiple sections.
 
 And each section can be either:
@@ -454,7 +461,7 @@ Just a normal list view that scrolls
 ---
 
 ###2. horizontally scrolling
-scrolls from left to right
+scrolls from left to right (`"type": "horizontal"`)
 
 ![horizontal section](images/horizontal_section.gif)
 
