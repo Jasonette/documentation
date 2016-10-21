@@ -444,7 +444,7 @@ The main region, used to display scrollable content.
 
 In most cases one section is enough, if you're displaying just a single collection of similar items.
 
-Use multiple sections if you need to display different types of collections.
+Use multiple sections if you need to display different types of collections, for example one vertical section and one horizontal section.
 
 <br>
 
