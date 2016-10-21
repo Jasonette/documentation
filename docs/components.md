@@ -9,6 +9,7 @@ Components are user interface elements that can be used in different places, suc
 - [slider](#slider)
 - [html](#html)
 - [space](#space)
+- [map](#map)
 - Don't see what you want? [You can add more!](advanced.md#extension)
 
 ---
