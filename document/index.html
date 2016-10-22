@@ -497,7 +497,13 @@
 <p><code>body.header</code> describes the top header bar and its components.</p>
 <hr />
 <h2 id="title">■ title</h2>
-<p>Set this to change the title on the header bar.</p>
+<p>There are two ways to set the title of the header bar:</p>
+<ol>
+<li>Basic: Simple text</li>
+<li>Advanced: Can be a text or an image</li>
+</ol>
+<h3 id="basic-title">Basic title</h3>
+<p>Simplly set the string to change the title on the header bar.</p>
 <pre><code>{
   "$jason": {
     "head": {
@@ -514,6 +520,42 @@
 </code></pre>
 <p>The result:</p>
 <p><img alt="header title" src="../images/header_title.jpeg" /></p>
+<h3 id="advanced-title">Advanced title</h3>
+<p>You can describe the title in more detail using a <code>title</code> object instead of just a simple string. Here's the syntax:</p>
+<ul>
+<li><code>type</code>: <code>"label"</code> or <code>"image"</code></li>
+<li><code>text</code>: In case it's a <code>label</code> type, set the text. Same as using the basic title described above.</li>
+<li><code>url</code>: In case it's an image, set the image url.</li>
+<li><code>style</code>: In case it's an image we can set the <code>width</code> and the <code>height</code><ul>
+<li><code>width</code>: set the width of the image</li>
+<li><code>height</code>: set the height of the image</li>
+</ul>
+</li>
+</ul>
+<p>Here's an example</p>
+<pre><code>{
+  "$jason": {
+    "head": {
+      ...
+    },
+    "body": {
+      "header": {
+        "title": {
+          "type": "image",
+          "style": {
+            "width": "94",
+            "height": "27"
+          },
+          "url": "https://raw.githubusercontent.com/Jasonette/Instagram/master/images/logo.png"
+        }
+      },
+      ...
+    }
+  }
+}
+</code></pre>
+<p>The result (See the header title image):</p>
+<p><img alt="instagram logo" src="../images/instagram.png" /></p>
 <hr />
 <h2 id="search">■  search</h2>
 <p>Search component. Calls an <code>action</code> you define when user submits a query.</p>
@@ -1091,47 +1133,68 @@ Let's go into more details:</p>
 <p><img alt="footer tabs" src="../images/footer_tabs.jpeg" /></p>
 <hr />
 <h3 id="attributes_8">attributes</h3>
+<h4 id="items-an-array-of-tab-bar-items-each-item-can-have-the-following-attributes">• <code>items</code>: an array of tab bar items. Each item can have the following attributes:</h4>
 <ul>
-<li><code>items</code>: an array of tab bar items. Each item can have the following attributes:<ul>
 <li><code>text</code>: tab item text</li>
 <li><code>image</code>: tab item icon</li>
+<li><code>style</code>: tab icon style<ul>
+<li><code>width</code>: icon width</li>
+<li><code>height</code>: icon height</li>
+</ul>
+</li>
 <li><code>badge</code>: badge text</li>
 </ul>
-</li>
-<li><code>style</code>: overall style for the tab bar<ul>
-<li><code>color</code>: selected color</li>
-<li><code>color:disabled</code>: deselected color</li>
-<li><code>background</code>: background color</li>
-</ul>
-</li>
+<h4 id="style-overall-style-for-the-tab-bar">• <code>style</code>: overall style for the tab bar</h4>
+<ul>
+<li><code>color</code>: selected item color</li>
+<li><code>color:disabled</code>: deselected item color</li>
+<li><code>background</code>: background color of the entire tab bar</li>
 </ul>
 <h3 id="example_7">example</h3>
 <pre><code>{
   "footer": {
     "tabs": {
-      "items": [
-        {
-          "image": "https://s3-us-west-2.amazonaws.com/www.jasonclient.org/topsecret%402x.png",
-          "text": "Top Secret",
-          "url": "http://www.jasonbase.com/things/ppY.json"
-        },
-        {
-          "image": "https://s3-us-west-2.amazonaws.com/fm.ethan.jason/info%402x.png",
-          "text": "Info",
-          "badge": "2",
-          "url": "http://www.jasonbase.com/things/ppY.json"
-        },
-        {
-          "image": "https://s3-us-west-2.amazonaws.com/fm.ethan.jason/apps%402x.png",
-          "text": "Collection",
-          "url": "http://www.jasonbase.com/things/ppY.json"
-        }
-      ],
       "style": {
-        "color": "#ff0000",
+        "background": "rgba(255,255,255,0.8)",
         "color:disabled": "#cecece",
-        "background": "#ffffff"
-      }
+        "color": "#009efa"
+      },
+      "items": [{
+        "image": "https://raw.githubusercontent.com/Jasonette/Twitter/master/images/home.png",
+        "text": "Home",
+        "style": {
+          "height": "21"
+        },
+        "url": "https://raw.githubusercontent.com/Jasonette/Twitter/master/home.json"
+      }, {
+        "image": "https://raw.githubusercontent.com/Jasonette/Twitter/master/images/notifications.png",
+        "text": "Notifications",
+        "style": {
+          "height": "21"
+        },
+        "url": "https://raw.githubusercontent.com/Jasonette/Twitter/master/notifications.json"
+      }, {
+        "image": "https://raw.githubusercontent.com/Jasonette/Twitter/master/images/moments.png",
+        "text": "Moments",
+        "style": {
+          "height": "21"
+        },
+        "url": "https://raw.githubusercontent.com/Jasonette/Twitter/master/moments.json"
+      }, {
+        "image": "https://raw.githubusercontent.com/Jasonette/Twitter/master/images/messages.png",
+        "text": "Messages",
+        "style": {
+          "height": "21"
+        },
+        "url": "https://raw.githubusercontent.com/Jasonette/Twitter/master/messages.json"
+      }, {
+        "image": "https://raw.githubusercontent.com/Jasonette/Twitter/master/images/me.png",
+        "text": "Me",
+        "style": {
+          "height": "21"
+        },
+        "url": "https://raw.githubusercontent.com/Jasonette/Twitter/master/me.json"
+      }]
     }
   }
 }
