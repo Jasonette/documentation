@@ -132,7 +132,7 @@
         }, 
         {
             "location": "/examples/", 
-            "text": "How to try these examples\n\n\nSimply take one of the JSON urls below, add to Jasonette and play. You can learn more on how to use Jasonette \nhere\n.\n\n\n\n\n\u2605 Components Demo\n\n\n\n\nA showcase of various UI components and actions. Try this first if you haven't yet.\n\n\nJSON: \nhttp://www.jasonbase.com/things/xXQ\n\n\n\n\n\n\n\n\n\n\n\u2605 CatchAll!\n\n\n\n\nTake a photo and add Pokemon stickers to pretend you captured'em all. Makes use of \nlayers\n that can be dragged, resized, rotated, or fixed. [\nwebsite\n]\n\n\nJSON: \nhttp://www.jasonbase.com/things/EGD\n\n\n\n\n\n\n\n\n\n\n\u2605 Kitty\n\n\n\n\nA minimal \nProduct Hunt\n client. Makes use of the \nHTML to JSON parsing\n feature. [\nwebsite\n]\n\n\nJSON: \nhttp://www.jasonbase.com/things/nRp\n\n\n\n\n\n\n\n\n\n\n\u2605 Weather\n\n\n\n\nTakes the device location, makes a network request to \nopenweathermap.org API\n, and then displays the result on the screen. Also uses \ncamera\n as background display.\n\n\nJSON: \nhttp://www.jasonbase.com/things/1wn\n\n\n\n\n\n\n\n\n\n\n\u2605 Eliza\n\n\n\n\nEliza chatbot app. Uses a simple node.js server as backend. If you want to install the backend on your own server, here's the \nfull source\n.\n\n\nJSON: \nhttp://fureliza.herokuapp.com\n\n\n\n\n\n\n\n\n\n\n\u2605 Photo upload example\n\n\n\n\nSimple app to upload photos to S3. Uses a simple node.js server as backend. If you want to install the backend on your own server, here's the \nfull source\n.\n\n\nJSON: \nhttp://imagejason.herokuapp.com\n\n\n\n\n\n\n\n\n\n\n\u2605 Microblog with user accounts\n\n\n\n\nSimple microblog app to post messages, complete with user login. If you want to install the backend on your own server, here's the \nfull source and an instruction on how to build one from scratch\n.\n\n\nJSON: \nhttp://sessionjason.herokuapp.com\n\n\n\n\n\n\n\n\n\n\n\n\nsigned out\n\n\nsigned in", 
+            "text": "How to try these examples\n\n\nSimply take one of the JSON urls below, add to Jasonette and play. You can learn more on how to use Jasonette \nhere\n.\n\n\n\n\n\u2605 Jasonpedia\n\n\n\n\nA tutorial demo of every Jasonette UI component and action. Try this first if you haven't yet.\n\n\nJSON: \nhttps://github.com/Jasonette/Jasonpedia\n\n\n\n\n\n\n\n\n\n\n\u2605 Instagram UI\n\n\n\n\nAn Instagram UI, completely written in JSON.\n\n\nJSON: \nhttps://github.com/Jasonette/Instagram\n\n\n\n\n\n\n\n\n\n\n\u2605 Twitter UI\n\n\n\n\nA Twitter UI, completely written in JSON.\n\n\nJSON: \nhttps://github.com/Jasonette/Twitter\n\n\n\n\n\n\n\n\n\n\n\u2605 CatchAll!\n\n\n\n\nTake a photo and add Pokemon stickers to pretend you captured'em all. Makes use of \nlayers\n that can be dragged, resized, rotated, or fixed. [\nwebsite\n]\n\n\nJSON: \nhttp://www.jasonbase.com/things/EGD\n\n\n\n\n\n\n\n\n\n\n\u2605 Kitty\n\n\n\n\nA minimal \nProduct Hunt\n client. Makes use of the \nHTML to JSON parsing\n feature. [\nwebsite\n]\n\n\nJSON: \nhttp://www.jasonbase.com/things/nRp\n\n\n\n\n\n\n\n\n\n\n\u2605 Weather\n\n\n\n\nTakes the device location, makes a network request to \nopenweathermap.org API\n, and then displays the result on the screen. Also uses \ncamera\n as background display.\n\n\nJSON: \nhttp://www.jasonbase.com/things/1wn\n\n\n\n\n\n\n\n\n\n\n\u2605 Eliza\n\n\n\n\nEliza chatbot app. Uses a simple node.js server as backend. If you want to install the backend on your own server, here's the \nfull source\n.\n\n\nJSON: \nhttp://fureliza.herokuapp.com\n\n\n\n\n\n\n\n\n\n\n\u2605 Photo upload example\n\n\n\n\nSimple app to upload photos to S3. Uses a simple node.js server as backend. If you want to install the backend on your own server, here's the \nfull source\n.\n\n\nJSON: \nhttp://imagejason.herokuapp.com\n\n\n\n\n\n\n\n\n\n\n\u2605 Microblog with user accounts\n\n\n\n\nSimple microblog app to post messages, complete with user login. If you want to install the backend on your own server, here's the \nfull source and an instruction on how to build one from scratch\n.\n\n\nJSON: \nhttp://sessionjason.herokuapp.com\n\n\n\n\n\n\n\n\n\n\n\n\nsigned out\n\n\nsigned in", 
             "title": "\u25a0 Examples"
         }, 
         {
@@ -141,9 +141,19 @@
             "title": "How to try these examples"
         }, 
         {
-            "location": "/examples/#components-demo", 
-            "text": "A showcase of various UI components and actions. Try this first if you haven't yet.  JSON:  http://www.jasonbase.com/things/xXQ", 
-            "title": "\u2605 Components Demo"
+            "location": "/examples/#jasonpedia", 
+            "text": "A tutorial demo of every Jasonette UI component and action. Try this first if you haven't yet.  JSON:  https://github.com/Jasonette/Jasonpedia", 
+            "title": "\u2605 Jasonpedia"
+        }, 
+        {
+            "location": "/examples/#instagram-ui", 
+            "text": "An Instagram UI, completely written in JSON.  JSON:  https://github.com/Jasonette/Instagram", 
+            "title": "\u2605 Instagram UI"
+        }, 
+        {
+            "location": "/examples/#twitter-ui", 
+            "text": "A Twitter UI, completely written in JSON.  JSON:  https://github.com/Jasonette/Twitter", 
+            "title": "\u2605 Twitter UI"
         }, 
         {
             "location": "/examples/#catchall", 
