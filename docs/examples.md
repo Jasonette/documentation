@@ -4,13 +4,33 @@ Simply take one of the JSON urls below, add to Jasonette and play. You can learn
 
 ---
 
-# ★ Components Demo
-  - A showcase of various UI components and actions. Try this first if you haven't yet.
-  - JSON: [http://www.jasonbase.com/things/xXQ](http://www.jasonbase.com/things/xXQ)
+# ★ Jasonpedia
+  - A tutorial demo of every Jasonette UI component and action. Try this first if you haven't yet.
+  - JSON: [https://github.com/Jasonette/Jasonpedia](https://github.com/Jasonette/Jasonpedia)
 
 <br>
 
-  ![components demo](images/menu.gif)
+  ![components demo](images/jasonpedia.png)
+
+---
+
+# ★ Instagram UI
+  - An Instagram UI, completely written in JSON.
+  - JSON: [https://github.com/Jasonette/Instagram](https://github.com/Jasonette/Instagram)
+
+<br>
+
+  ![components demo](images/instagram.gif)
+
+---
+
+# ★ Twitter UI
+  - A Twitter UI, completely written in JSON.
+  - JSON: [https://github.com/Jasonette/Twitter](https://github.com/Jasonette/Twitter)
+
+<br>
+
+  ![components demo](images/twitter.gif)
 
 ---
 
