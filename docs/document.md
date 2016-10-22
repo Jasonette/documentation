@@ -274,7 +274,14 @@ You can also drag/resize/rotate layers depending on how you define them.
 ---
 
 ##■ title
-Set this to change the title on the header bar.
+There are two ways to set the title of the header bar:
+
+1. Basic: Simple text
+2. Advanced: Can be a text or an image
+
+###Basic title
+
+Simplly set the string to change the title on the header bar.
 
     {
       "$jason": {
@@ -293,6 +300,44 @@ Set this to change the title on the header bar.
 The result:
 
 ![header title](images/header_title.jpeg)
+
+###Advanced title
+
+You can describe the title in more detail using a `title` object instead of just a simple string. Here's the syntax:
+
+  - `type`: `"label"` or `"image"`
+  - `text`: In case it's a `label` type, set the text. Same as using the basic title described above.
+  - `url`: In case it's an image, set the image url.
+  - `style`: In case it's an image we can set the `width` and the `height`
+    - `width`: set the width of the image
+    - `height`: set the height of the image
+
+Here's an example
+
+    {
+      "$jason": {
+        "head": {
+          ...
+        },
+        "body": {
+          "header": {
+            "title": {
+              "type": "image",
+              "style": {
+                "width": "94",
+                "height": "27"
+              },
+              "url": "https://raw.githubusercontent.com/Jasonette/Instagram/master/images/logo.png"
+            }
+          },
+          ...
+        }
+      }
+    }
+
+The result (See the header title image):
+
+![instagram logo](images/instagram.png)
 
 ---
 
@@ -899,46 +944,70 @@ Bottom tab bar
 
 ###attributes
 
-  - `items`: an array of tab bar items. Each item can have the following attributes:
-    - `text`: tab item text
-    - `image`: tab item icon
-    - `badge`: badge text
-  - `style`: overall style for the tab bar
-    - `color`: selected color
-    - `color:disabled`: deselected color
-    - `background`: background color
+####• `items`: an array of tab bar items. Each item can have the following attributes:
+
+  - `text`: tab item text
+  - `image`: tab item icon
+  - `style`: tab icon style
+    - `width`: icon width
+    - `height`: icon height
+  - `badge`: badge text
+####• `style`: overall style for the tab bar
+
+  - `color`: selected item color
+  - `color:disabled`: deselected item color
+  - `background`: background color of the entire tab bar
 
 ###example
 
     {
       "footer": {
         "tabs": {
-          "items": [
-            {
-              "image": "https://s3-us-west-2.amazonaws.com/www.jasonclient.org/topsecret%402x.png",
-              "text": "Top Secret",
-              "url": "http://www.jasonbase.com/things/ppY.json"
-            },
-            {
-              "image": "https://s3-us-west-2.amazonaws.com/fm.ethan.jason/info%402x.png",
-              "text": "Info",
-              "badge": "2",
-              "url": "http://www.jasonbase.com/things/ppY.json"
-            },
-            {
-              "image": "https://s3-us-west-2.amazonaws.com/fm.ethan.jason/apps%402x.png",
-              "text": "Collection",
-              "url": "http://www.jasonbase.com/things/ppY.json"
-            }
-          ],
           "style": {
-            "color": "#ff0000",
+            "background": "rgba(255,255,255,0.8)",
             "color:disabled": "#cecece",
-            "background": "#ffffff"
-          }
+            "color": "#009efa"
+          },
+          "items": [{
+            "image": "https://raw.githubusercontent.com/Jasonette/Twitter/master/images/home.png",
+            "text": "Home",
+            "style": {
+              "height": "21"
+            },
+            "url": "https://raw.githubusercontent.com/Jasonette/Twitter/master/home.json"
+          }, {
+            "image": "https://raw.githubusercontent.com/Jasonette/Twitter/master/images/notifications.png",
+            "text": "Notifications",
+            "style": {
+              "height": "21"
+            },
+            "url": "https://raw.githubusercontent.com/Jasonette/Twitter/master/notifications.json"
+          }, {
+            "image": "https://raw.githubusercontent.com/Jasonette/Twitter/master/images/moments.png",
+            "text": "Moments",
+            "style": {
+              "height": "21"
+            },
+            "url": "https://raw.githubusercontent.com/Jasonette/Twitter/master/moments.json"
+          }, {
+            "image": "https://raw.githubusercontent.com/Jasonette/Twitter/master/images/messages.png",
+            "text": "Messages",
+            "style": {
+              "height": "21"
+            },
+            "url": "https://raw.githubusercontent.com/Jasonette/Twitter/master/messages.json"
+          }, {
+            "image": "https://raw.githubusercontent.com/Jasonette/Twitter/master/images/me.png",
+            "text": "Me",
+            "style": {
+              "height": "21"
+            },
+            "url": "https://raw.githubusercontent.com/Jasonette/Twitter/master/me.json"
+          }]
         }
       }
     }
+
 
 #body.style
 Styling the body
