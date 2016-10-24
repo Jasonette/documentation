@@ -161,11 +161,11 @@ Describes how the children components should be distributed in relation to one a
 Normally you don't need to use this property, but this comes in handy when you just want child components to automatically stretch to each have the same size.
 
   - For vertical layout
-    - `"fill"`: The child componenets stretch to fill the layout (default)
+    - `"fill"`: The child components stretch to fill the layout (default)
     - `"equalsize"`: The child components have the same size. Use this if you didn't specify height for any of them but want them to just expand to fill the layout each with the same height.
 
   - For horizontal layout
-    - `"fill"`: The child componenets stretch to fill the layout (default)
+    - `"fill"`: The child components stretch to fill the layout (default)
     - `"equalsize"`: The child components have the same size. Use this if you didn't specify width for any of them but want them to just expand to fill the layout each with the same width.
 
 ##examples
