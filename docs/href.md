@@ -134,7 +134,6 @@ The way the next view gets presented
 - `"push"`: The next view slides in from the right side. (default)
 - `"modal"`: The next view opens up as a modal.
 - `"replace"`: Replaces the current view with the content, instead of creating a separate view
-- `"fullscreen"`: Similar to push, but hides everything inside `footer`
 <br><br>
 
   push transition | modal transition

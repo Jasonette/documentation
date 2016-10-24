@@ -52,7 +52,7 @@ Same as above, except display a banner when the request fails.
       }
     }
 
-### Triggerring an action by name
+### Triggering an action by name
 
 First, you need to define the action inside `head.actions`. In this case we name it `refresh_view`:
 
@@ -608,7 +608,7 @@ When `$render` runs, it will take the JSON markup inside `$jason.head.templates.
 
 ####Manually specifying the template to render
 
-But sometimes you can also specify the template name. For exmaple, we may want to render a template named `empty` instead of the default `body` template:
+But sometimes you can also specify the template name. For example, we may want to render a template named `empty` instead of the default `body` template:
 
     {
       "$jason": {

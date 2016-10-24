@@ -4,7 +4,7 @@ Jasonette is built around various conventions in order to make things simpler.
 
 # Rules
 
-## ■  Everything is string
+## ■  Everything is a string
 The JSON we use in Jasonette is completely string based. All values are string. Sometimes this may look inconvenient, but **assuming everything is a string** provides lots of convenience when JSON parsing is concerned.
 
 ## ■  All keywords are lowercased
@@ -56,7 +56,7 @@ We can also use hex code
 All numbers are pixels unless otherwise specified.
 
 ###1. Pixels
-Unless otherwise specified it's all pixels. Below we create a label with 300pixel width.
+Below we create a label with 300pixel width.
 
     {
       "type": "label",

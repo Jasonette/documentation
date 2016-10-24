@@ -20,7 +20,7 @@ Both extending and integrating involve writing native iOS code. But here's the d
   - **Integrating with Jasonette** means you already have existing code and are using Jasonette only partially. This means:
     - You can start using Jasonette in your existing app instantly, without re-writing anything. Just a few lines of code necessary.
     - You will be able to take advantage of all of Jasonette's power whenever you use the Jasonette view.
-    - The only drawback is you can't control your own non-Jasonette code with JSON (obviously)
+    - The only drawback is you can't control your own non-Jasonette code with JSON
 
 **Extending Jasonette is the recommended way in most cases,** since it requires very little additional effort, but automatically comes with the power to control your own custom native modules via JSON.
 
@@ -526,7 +526,7 @@ Here we end `$geo.get` with an object `@{@"coord": coord}`. As mentioned above, 
 
 Jasonette by default covers most of what you need to build any app you can imagine. Also you can even extend its **actions** and **components**, like we discussed above. 
 
-However if you already have an existing code and just want to integrate with Jasonette here and there, that's cool too! You don't have to throw away all your existing code and re-write everything just to take advantage of Jasonette!
+However if you already have existing code and just want to integrate with Jasonette here and there, that's cool too! You don't have to throw away all your existing code and re-write everything just to take advantage of Jasonette!
 
 ## How it works
 
@@ -534,13 +534,13 @@ Basically, `JasonViewController` is a self contained class whose only requiremen
 
 ---
 
-### ★ REMEMBER - Obviously, you will need to either copy all your existing project files into Jasonette project, or Jasonette files into your own project, before you do this.
+### ★ REMEMBER - You will need to either copy all your existing project files into your Jasonette project, or Jasonette files into your own project, before you do this.
 
 ---
 
 ## 1. Non-Jasonette => Jasonette
 
-Here's how you can open a `JasonViewController` from your own viewcontroller—it's same as opening any other viewcontrollers.
+Here's how you can open a `JasonViewController` from your own viewcontroller—it's the same as opening any other viewcontrollers.
 
 ###A. First, include JasonViewController.h in your viewcontroller
 

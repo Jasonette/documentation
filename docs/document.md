@@ -146,7 +146,7 @@ You can see that there's a `style` JSON for each label item. This is called `inl
 
 Now if you look closer, you'll see that each item has exactly the same repeating style.
 
-We would like to get rid of this redundancy by using `head.styles`:
+We can get rid of this redundancy by using `head.styles`:
 
 <pre><span style='color:silver;'>{
   "$jason": {
@@ -191,7 +191,7 @@ Now let's look under `$jason.head.styles`. You'll see we now have the `styled_ro
 
 **[Using action registry to define actions](actions.md#action-registry)**
 
-You can define actions under the action registry (`head.actions`) and reuse them through `trigger` keyword.
+You can define actions under the action registry (`head.actions`) and reuse them through the `trigger` keyword.
 
 ---
 
@@ -207,7 +207,7 @@ You can dynamically render any data using templates. Templates are registered un
 
 **[Using inline data for rendering](templates.md#1-inline-data)**
 
-`head.data` is like an inline database that gets rendered automatically by `body` template if included. Learn how to use it.
+`head.data` is like an inline database that gets rendered automatically by `body` template if included.
 
 ---
 
@@ -254,7 +254,7 @@ Here's what each part looks like in a real app:<br><br>
 ![body structure with sections](images/anatomy_with_sections.jpeg)
 <br><br>
 
-Sections contain a list that can be scrolled.
+Sections contains a list that can be scrolled.
 
 <br><br>
 
@@ -281,7 +281,7 @@ There are two ways to set the title of the header bar:
 
 ###Basic title
 
-Simplly set the string to change the title on the header bar.
+Simply set the string to change the title on the header bar.
 
     {
       "$jason": {

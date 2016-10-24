@@ -139,6 +139,8 @@ the space among each immediate children components, in pexels.
 background color code (Example: `{"background": "#ff0000"}`, `{"background": "rgba(0,0,0,0.4)"}`)
 ### ■  z_index
 specifies the stack order of the layout, defining whether the layout is displayed on top of another or below. Default is 0. (Example: `{"z_index": "-1"}`
+### ■ opacity
+opacity (between "0" and "1")
 ### ■  align
 How the children components will be aligned perpendicular to the layout's direction.
 
@@ -153,8 +155,18 @@ How the children components will be aligned perpendicular to the layout's direct
     - `bottom`: align bottom
     - `fill`: stretch all children vertically to fit the layout height equally
 
-### ■ opacity
-opacity (between "0" and "1")
+### ■  distribution
+Describes how the children components should be distributed in relation to one another.
+
+Normally you don't need to use this property, but this comes in handy when you just want child components to automatically stretch to each have the same size.
+
+  - For vertical layout
+    - `"fill"`: The child componenets stretch to fill the layout (default)
+    - `"equalsize"`: The child components have the same size. Use this if you didn't specify height for any of them but want them to just expand to fill the layout each with the same height.
+
+  - For horizontal layout
+    - `"fill"`: The child componenets stretch to fill the layout (default)
+    - `"equalsize"`: The child components have the same size. Use this if you didn't specify width for any of them but want them to just expand to fill the layout each with the same width.
 
 ##examples
 ###Example 1. Vertical layout with center align
