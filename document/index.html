@@ -398,7 +398,7 @@
 
 <p>You can see that there's a <code>style</code> JSON for each label item. This is called <code>inline styling</code> since the style attribute is attached to the UI component directly.</p>
 <p>Now if you look closer, you'll see that each item has exactly the same repeating style.</p>
-<p>We would like to get rid of this redundancy by using <code>head.styles</code>:</p>
+<p>We can get rid of this redundancy by using <code>head.styles</code>:</p>
 <pre><span style='color:silver;'>{
   "$jason": {
     "head": {
@@ -437,7 +437,7 @@
 <hr />
 <h1 id="headactions">head.actions</h1>
 <p><strong><a href="../actions/#action-registry">Using action registry to define actions</a></strong></p>
-<p>You can define actions under the action registry (<code>head.actions</code>) and reuse them through <code>trigger</code> keyword.</p>
+<p>You can define actions under the action registry (<code>head.actions</code>) and reuse them through the <code>trigger</code> keyword.</p>
 <hr />
 <h1 id="headtemplates">head.templates</h1>
 <p><strong><a href="../templates/">Declaring templates</a></strong></p>
@@ -445,7 +445,7 @@
 <hr />
 <h1 id="headdata">head.data</h1>
 <p><strong><a href="../templates/#1-inline-data">Using inline data for rendering</a></strong></p>
-<p><code>head.data</code> is like an inline database that gets rendered automatically by <code>body</code> template if included. Learn how to use it.</p>
+<p><code>head.data</code> is like an inline database that gets rendered automatically by <code>body</code> template if included.</p>
 <hr />
 <h1 id="body">── body ──</h1>
 <p>Body contains everything that gets displayed on the screen. A body is made up of the following view elements.</p>
@@ -486,7 +486,7 @@
 <p>Here's what each part looks like in a real app:<br><br></p>
 <p><img alt="body structure with sections" src="../images/anatomy_with_sections.jpeg" />
 <br><br></p>
-<p>Sections contain a list that can be scrolled.</p>
+<p>Sections contains a list that can be scrolled.</p>
 <p><br><br></p>
 <p><img alt="body structure with layers" src="../images/anatomy_with_layers.jpeg" />
 <br><br></p>
@@ -503,7 +503,7 @@
 <li>Advanced: Can be a text or an image</li>
 </ol>
 <h3 id="basic-title">Basic title</h3>
-<p>Simplly set the string to change the title on the header bar.</p>
+<p>Simply set the string to change the title on the header bar.</p>
 <pre><code>{
   "$jason": {
     "head": {

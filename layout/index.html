@@ -332,6 +332,8 @@
 <p>background color code (Example: <code>{"background": "#ff0000"}</code>, <code>{"background": "rgba(0,0,0,0.4)"}</code>)</p>
 <h3 id="z_index">■  z_index</h3>
 <p>specifies the stack order of the layout, defining whether the layout is displayed on top of another or below. Default is 0. (Example: <code>{"z_index": "-1"}</code></p>
+<h3 id="opacity">■ opacity</h3>
+<p>opacity (between "0" and "1")</p>
 <h3 id="align">■  align</h3>
 <p>How the children components will be aligned perpendicular to the layout's direction.</p>
 <ul>
@@ -353,8 +355,25 @@
 </ul>
 </li>
 </ul>
-<h3 id="opacity">■ opacity</h3>
-<p>opacity (between "0" and "1")</p>
+<h3 id="distribution">■  distribution</h3>
+<p>Describes how the children components should be distributed in relation to one another.</p>
+<p>Normally you don't need to use this property, but this comes in handy when you just want child components to automatically stretch to each have the same size.</p>
+<ul>
+<li>
+<p>For vertical layout</p>
+<ul>
+<li><code>"fill"</code>: The child componenets stretch to fill the layout (default)</li>
+<li><code>"equalsize"</code>: The child components have the same size. Use this if you didn't specify height for any of them but want them to just expand to fill the layout each with the same height.</li>
+</ul>
+</li>
+<li>
+<p>For horizontal layout</p>
+<ul>
+<li><code>"fill"</code>: The child componenets stretch to fill the layout (default)</li>
+<li><code>"equalsize"</code>: The child components have the same size. Use this if you didn't specify width for any of them but want them to just expand to fill the layout each with the same width.</li>
+</ul>
+</li>
+</ul>
 <h2 id="examples">examples</h2>
 <h3 id="example-1-vertical-layout-with-center-align">Example 1. Vertical layout with center align</h3>
 <p>In case of vertical layout, it describes how the children components should be aligned horizontally.</p>
