@@ -39,8 +39,8 @@ Ready? Let's get your first Jasonette app on your phone, in 20 seconds!
 ---
 
 ##Step 2. SETUP
-Initialize by running the `Jasonette` command.
-![init](images/init.png)
+Initialize by running the `Setup` command.
+![init](images/setup.png)
 
 This command automatically generates icons and sets the title and the url.
 
