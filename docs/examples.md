@@ -1,6 +1,6 @@
 # How to try these examples
 
-Simply take one of the JSON urls below, add to Jasonette and play. You can learn more on how to use Jasonette [here](http://jasonette.com/beta).
+Simply take one of the JSON urls below, add to Jasonette and play. You can learn more on how to use Jasonette [here](https://www.jasonette.com).
 
 ---
 
