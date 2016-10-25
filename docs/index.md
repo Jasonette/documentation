@@ -129,8 +129,8 @@ It is recommended that you use [the Setup command](#step-2-setup) since it takes
 [Download Jasonette](https://github.com/Jasonette/iOS-app/archive/master.zip) and unzip.
 ![download jasonette](images/download.png)
 
-###Step 2. Open the xcworkspace file
-Go into the `app` folder and open `Jasonette.xcworkspace` file.
+###Step 2. Open in XCode
+Go into the `app` folder and open `Jasonette.xcworkspace` file. **(warning: Make sure to open the `xcworkspace` file, NOT the `xcodeproj` file!)**
 
 ![init](images/workspace.png)
 
