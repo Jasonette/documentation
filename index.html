@@ -113,6 +113,17 @@
                 <li class="toctree-l3"><a href="#examples">Examples</a></li>
                 
             
+                <li class="toctree-l3"><a href="#manual-setup">Manual setup</a></li>
+                
+                    <li><a class="toctree-l4" href="#step-1-download_1">Step 1. Download</a></li>
+                
+                    <li><a class="toctree-l4" href="#step-2-open-the-xcworkspace-file">Step 2. Open the xcworkspace file</a></li>
+                
+                    <li><a class="toctree-l4" href="#step-3-update-config-attributes-and-generate-icons-manually">Step 3. Update config attributes and generate icons manually</a></li>
+                
+                    <li><a class="toctree-l4" href="#step-4-play">Step 4. Play</a></li>
+                
+            
                 <li class="toctree-l3"><a href="#troubleshoot">Troubleshoot</a></li>
                 
                     <li><a class="toctree-l4" href="#no-provisioning-error">"No provisioning..." error</a></li>
@@ -258,7 +269,7 @@
 <p>Jasonette itself is an app. Download it from above so you can build with XCode.</p>
 <hr />
 <h1 id="quick-start">Quick Start</h1>
-<p>Ready? Let's get your first Jasonette app on your phone, in 20 seconds!</p>
+<p>Ready? Let's get your first Jasonette app on your phone, in 20 seconds! <a href="#manual-setup">Interested in manual setup?</a></p>
 <hr />
 <h2 id="step-1-download">Step 1. DOWNLOAD</h2>
 <p><a href="https://github.com/Jasonette/iOS-app/archive/master.zip">Download Jasonette</a> and unzip.
@@ -267,7 +278,7 @@
 <h2 id="step-2-setup">Step 2. SETUP</h2>
 <p>Initialize by running the <code>Setup</code> command.
 <img alt="init" src="./images/setup.png" /></p>
-<p>This command automatically generates icons and sets the title and the url.</p>
+<p>This command automatically generates icons and sets the title and the url. </p>
 <hr />
 <h2 id="step-3-play">Step 3. PLAY</h2>
 <p>Connect your phone and click play on XCode. Done!</p>
@@ -336,6 +347,25 @@ You can use templates to dynamically render data, such as remote network content
 <h1 id="examples">Examples</h1>
 <p>Actual JSON examples you can try out with Jasonette:</p>
 <p><strong><a href="examples/">Try examples here</a></strong></p>
+<hr />
+<h1 id="manual-setup">Manual setup</h1>
+<p>It is recommended that you use <a href="#step-2-setup">the Setup command</a> since it takes care of most of tedious details, but you can also do this manually.</p>
+<h3 id="step-1-download_1">Step 1. Download</h3>
+<p><a href="https://github.com/Jasonette/iOS-app/archive/master.zip">Download Jasonette</a> and unzip.
+<img alt="download jasonette" src="./images/download.png" /></p>
+<h3 id="step-2-open-the-xcworkspace-file">Step 2. Open the xcworkspace file</h3>
+<p>Go into the <code>app</code> folder and open <code>Jasonette.xcworkspace</code> file.</p>
+<p><img alt="init" src="./images/workspace.png" /></p>
+<h3 id="step-3-update-config-attributes-and-generate-icons-manually">Step 3. Update config attributes and generate icons manually</h3>
+<p><img alt="init" src="./images/config.png" /></p>
+<ul>
+<li><strong>Set App Name:</strong> Under the <code>Config</code> group, open the <code>Info.plist</code> file and change the <code>CFBundleName</code> attribute.</li>
+<li><strong>Set Root URL:</strong> Under the <code>Config</code> group, open the <code>settings.plist</code> file and change the <code>url</code> attribute.</li>
+<li><strong>Generate Icon:</strong> You can try generating app icons using online services like <a href="https://makeappicon.com/">makeappicon.com</a>, and <a href="https://makeappicon.com/import-icons-into-xcode">add them manually to the project</a>.</li>
+</ul>
+<h3 id="step-4-play">Step 4. Play</h3>
+<p>Connect your phone and click play on XCode. Done!</p>
+<p><img alt="play" src="http://i.giphy.com/l3vRnkTqLc0Tr1esU.gif" /></p>
 <hr />
 <h1 id="troubleshoot">Troubleshoot</h1>
 <h2 id="no-provisioning-error">"No provisioning..." error</h2>
@@ -408,5 +438,5 @@ You can use templates to dynamically render data, such as remote network content
 
 <!--
 MkDocs version : 0.15.3
-Build Date UTC : 2016-10-25 19:16:33.254566
+Build Date UTC : 2016-10-25 19:43:17.159285
 -->
