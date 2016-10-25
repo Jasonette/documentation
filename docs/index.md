@@ -28,7 +28,7 @@ Jasonette itself is an app. Download it from above so you can build with XCode.
 ---
 
 # Quick Start
-Ready? Let's get your first Jasonette app on your phone, in 20 seconds!
+Ready? Let's get your first Jasonette app on your phone, in 20 seconds! [Interested in manual setup?](#manual-setup)
 
 ---
 
@@ -42,7 +42,8 @@ Ready? Let's get your first Jasonette app on your phone, in 20 seconds!
 Initialize by running the `Setup` command.
 ![init](images/setup.png)
 
-This command automatically generates icons and sets the title and the url.
+This command automatically generates icons and sets the title and the url. 
+
 
 ---
 
@@ -119,6 +120,32 @@ Actual JSON examples you can try out with Jasonette:
 **[Try examples here](examples.md)**
 
 ---
+# Manual setup
+
+It is recommended that you use [the Setup command](#step-2-setup) since it takes care of most of tedious details, but you can also do this manually.
+
+###Step 1. Download
+
+[Download Jasonette](https://github.com/Jasonette/iOS-app/archive/master.zip) and unzip.
+![download jasonette](images/download.png)
+
+###Step 2. Open the xcworkspace file
+Go into the `app` folder and open `Jasonette.xcworkspace` file.
+
+![init](images/workspace.png)
+
+###Step 3. Update setting attributes and files manually
+- **Set App Name:** Under the `Config` group, open the `Info.plist` file and change the `CFBundleName` attribute.
+- **Set Root URL:** Under the `Config` group, open the `settings.plist` file and change the `url` attribute.
+- **Generate Icon:** You can try generating app icons using online services like [makeappicon.com](https://makeappicon.com/), and [add them manually to the project](https://makeappicon.com/import-icons-into-xcode).
+
+###Step 4. Play
+Connect your phone and click play on XCode. Done!
+
+![play](http://i.giphy.com/l3vRnkTqLc0Tr1esU.gif)
+
+---
+
 # Troubleshoot
 
 
