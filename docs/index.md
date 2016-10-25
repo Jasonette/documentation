@@ -134,7 +134,10 @@ Go into the `app` folder and open `Jasonette.xcworkspace` file.
 
 ![init](images/workspace.png)
 
-###Step 3. Update setting attributes and files manually
+###Step 3. Update config attributes and generate icons manually
+
+![init](images/config.png)
+
 - **Set App Name:** Under the `Config` group, open the `Info.plist` file and change the `CFBundleName` attribute.
 - **Set Root URL:** Under the `Config` group, open the `settings.plist` file and change the `url` attribute.
 - **Generate Icon:** You can try generating app icons using online services like [makeappicon.com](https://makeappicon.com/), and [add them manually to the project](https://makeappicon.com/import-icons-into-xcode).
