@@ -73,7 +73,7 @@ Open external apps using url scheme (ex: `sms:`, `mailto:`, `twitter://`)
       "type": "label",
       "text": "Email me",
       "href": {
-        "url": "mailto:ethan.gliechtenstein@gmail.com?subject=You%20genius!",
+        "url": "mailto:ethan.gliechtenstein@gmail.com?subject=It20works!",
         "view": "app"
       }
     }

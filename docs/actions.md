@@ -988,7 +988,7 @@ Check out the full code on Github:
 
 Check out a functional demo app with backend server, with user accounts
 
-**[session-example](https://github.com/gliechtenstein/jason.token.authentication.rails)**
+**[session-example](https://github.com/Jasonette/token-authentication-example)**
 
 ---
 
@@ -1133,7 +1133,7 @@ Just set the `options.type` as `html`.
 
 Check out a functional demo app with backend server, with user accounts
 
-**[session-example](https://github.com/gliechtenstein/jason.token.authentication.rails)**
+**[session-example](https://github.com/Jasonette/token-authentication-example)**
 
 ---
 
