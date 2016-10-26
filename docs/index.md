@@ -19,7 +19,7 @@ Come ask questions and share tips with other Jasonette users
 
 # Download
 
-<a href='ihttps://github.com/Jasonette/iOS-app/archive/master.zip' class='btn'><i class='fa fa-download'></i> Download Jasonette</a>
+<a href='ihttps://github.com/Jasonette/JASONETTE-iOS/archive/master.zip' class='btn'><i class='fa fa-download'></i> Download Jasonette</a>
 
 <br>
 
@@ -33,7 +33,7 @@ Ready? Let's get your first Jasonette app on your phone, in 20 seconds! [Interes
 ---
 
 ##Step 1. DOWNLOAD
-[Download Jasonette](https://github.com/Jasonette/iOS-app/archive/master.zip) and unzip.
+[Download Jasonette](https://github.com/Jasonette/JASONETTE-iOS/archive/master.zip) and unzip.
 ![download jasonette](images/download.png)
 
 ---
@@ -126,7 +126,7 @@ It is recommended that you use [the Setup command](#step-2-setup) since it takes
 
 ###Step 1. Download
 
-[Download Jasonette](https://github.com/Jasonette/iOS-app/archive/master.zip) and unzip.
+[Download Jasonette](https://github.com/Jasonette/JASONETTE-iOS/archive/master.zip) and unzip.
 ![download jasonette](images/download.png)
 
 ###Step 2. Open in XCode
