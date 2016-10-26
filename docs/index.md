@@ -19,7 +19,7 @@ Come ask questions and share tips with other Jasonette users
 
 # Download
 
-<a href='ihttps://github.com/Jasonette/JASONETTE-iOS/archive/master.zip' class='btn'><i class='fa fa-download'></i> Download Jasonette</a>
+<a href='https://github.com/Jasonette/JASONETTE-iOS/archive/master.zip' class='btn'><i class='fa fa-download'></i> Download Jasonette</a>
 
 <br>
 
