@@ -16,7 +16,7 @@ Simply take one of the JSON urls below, add to Jasonette and play. You can learn
 
 # ★ Instagram UI
   - An Instagram UI, completely written in JSON.
-  - JSON: [https://github.com/Jasonette/Instagram](https://github.com/Jasonette/Instagram)
+  - JSON: [https://github.com/Jasonette/Instagram-UI-example](https://github.com/Jasonette/Instagram-UI-example)
 
 <br>
 
@@ -26,7 +26,7 @@ Simply take one of the JSON urls below, add to Jasonette and play. You can learn
 
 # ★ Twitter UI
   - A Twitter UI, completely written in JSON.
-  - JSON: [https://github.com/Jasonette/Twitter](https://github.com/Jasonette/Twitter)
+  - JSON: [https://github.com/Jasonette/Twitter-UI-example](https://github.com/Jasonette/Twitter-UI-example)
 
 <br>
 

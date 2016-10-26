@@ -327,7 +327,7 @@ Here's an example
                 "width": "94",
                 "height": "27"
               },
-              "url": "https://raw.githubusercontent.com/Jasonette/Instagram/master/images/logo.png"
+              "url": "https://raw.githubusercontent.com/Jasonette/Instagram-UI-example/master/images/logo.png"
             }
           },
           ...
@@ -969,40 +969,40 @@ Bottom tab bar
             "color": "#009efa"
           },
           "items": [{
-            "image": "https://raw.githubusercontent.com/Jasonette/Twitter/master/images/home.png",
+            "image": "https://raw.githubusercontent.com/Jasonette/Twitter-UI-example/master/images/home.png",
             "text": "Home",
             "style": {
               "height": "21"
             },
-            "url": "https://raw.githubusercontent.com/Jasonette/Twitter/master/home.json"
+            "url": "https://raw.githubusercontent.com/Jasonette/Twitter-UI-example/master/home.json"
           }, {
-            "image": "https://raw.githubusercontent.com/Jasonette/Twitter/master/images/notifications.png",
+            "image": "https://raw.githubusercontent.com/Jasonette/Twitter-UI-example/master/images/notifications.png",
             "text": "Notifications",
             "style": {
               "height": "21"
             },
-            "url": "https://raw.githubusercontent.com/Jasonette/Twitter/master/notifications.json"
+            "url": "https://raw.githubusercontent.com/Jasonette/Twitter-UI-example/master/notifications.json"
           }, {
-            "image": "https://raw.githubusercontent.com/Jasonette/Twitter/master/images/moments.png",
+            "image": "https://raw.githubusercontent.com/Jasonette/Twitter-UI-example/master/images/moments.png",
             "text": "Moments",
             "style": {
               "height": "21"
             },
-            "url": "https://raw.githubusercontent.com/Jasonette/Twitter/master/moments.json"
+            "url": "https://raw.githubusercontent.com/Jasonette/Twitter-UI-example/master/moments.json"
           }, {
-            "image": "https://raw.githubusercontent.com/Jasonette/Twitter/master/images/messages.png",
+            "image": "https://raw.githubusercontent.com/Jasonette/Twitter-UI-example/master/images/messages.png",
             "text": "Messages",
             "style": {
               "height": "21"
             },
-            "url": "https://raw.githubusercontent.com/Jasonette/Twitter/master/messages.json"
+            "url": "https://raw.githubusercontent.com/Jasonette/Twitter-UI-example/master/messages.json"
           }, {
-            "image": "https://raw.githubusercontent.com/Jasonette/Twitter/master/images/me.png",
+            "image": "https://raw.githubusercontent.com/Jasonette/Twitter-UI-example/master/images/me.png",
             "text": "Me",
             "style": {
               "height": "21"
             },
-            "url": "https://raw.githubusercontent.com/Jasonette/Twitter/master/me.json"
+            "url": "https://raw.githubusercontent.com/Jasonette/Twitter-UI-example/master/me.json"
           }]
         }
       }
