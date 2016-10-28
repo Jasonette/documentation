@@ -128,7 +128,19 @@
                 
                     <li><a class="toctree-l4" href="#no-provisioning-error">"No provisioning..." error</a></li>
                 
+            
+                <li class="toctree-l3"><a href="#signing-for-jasonette-requires-a-development-team-select-a-development-team-in-the-project-editor">"Signing for "Jasonette" requires a development team. Select a development team in the project editor."</a></li>
+                
+            
+                <li class="toctree-l3"><a href="#code-signing-is-required-for-product-type-application-in-sdk">"Code signing is required for product type 'Application' in SDK"</a></li>
+                
                     <li><a class="toctree-l4" href="#untrusted-enterprise-developer">"Untrusted Enterprise Developer"</a></li>
+                
+            
+                <li class="toctree-l3"><a href="#cant-be-opened-because-it-is-from-an-unidentified-developer">"Can't be opened because it is from an unidentified developer."</a></li>
+                
+            
+                <li class="toctree-l3"><a href="#is-busy-processing-symbol-files">"... is busy: Processing symbol files"</a></li>
                 
                     <li><a class="toctree-l4" href="#need-more-help">Need more help?</a></li>
                 
@@ -375,6 +387,28 @@ You can use templates to dynamically render data, such as remote network content
 <h3 id="just-press-fix-issue-and-sign-in-with-your-apple-account">Just press "Fix Issue" and sign in with your Apple account</h3>
 <p><strong><a href="http://apple.stackexchange.com/a/206130">If that doesn't work, read this post</a></strong></p>
 <hr />
+<h1 id="signing-for-jasonette-requires-a-development-team-select-a-development-team-in-the-project-editor">"Signing for "Jasonette" requires a development team. Select a development team in the project editor."</h1>
+<p><br></p>
+<p><img alt="Requires development team" src="./images/requires_development_team.png" /></p>
+<p><br></p>
+<ol>
+<li>Select the project from XCode.</li>
+<li>Go to "General" section.</li>
+<li>Click "Team" under Signing section. Switch it from "None" to your existing team. If you don't have one, select "Add an account" to add your own Apple account.</li>
+</ol>
+<p><img alt="add team" src="./images/add_team.png" /></p>
+<hr />
+<h1 id="code-signing-is-required-for-product-type-application-in-sdk">"Code signing is required for product type 'Application' in SDK"</h1>
+<p><br></p>
+<p><img alt="Requires development team" src="./images/requires_development_team.png" /></p>
+<p><br></p>
+<ol>
+<li>Select the project from XCode.</li>
+<li>Go to "General" section.</li>
+<li>Click "Team" under Signing section. Switch it from "None" to your existing team. If you don't have one, select "Add an account" to add your own Apple account.</li>
+</ol>
+<p><img alt="add team" src="./images/add_team.png" /></p>
+<hr />
 <h2 id="untrusted-enterprise-developer">"Untrusted Enterprise Developer"</h2>
 <p>Keep getting "Untrusted Enterprise Developer" alert when you try to open the installed app?</p>
 <p><br></p>
@@ -386,6 +420,19 @@ You can use templates to dynamically render data, such as remote network content
 <p>Or read the Apple Guideline below:</p>
 <p><strong><a href="https://support.apple.com/en-us/HT204460">Guidelines for installing custom enterprise apps on iOS</a></strong></p>
 <hr />
+<h1 id="cant-be-opened-because-it-is-from-an-unidentified-developer">"Can't be opened because it is from an unidentified developer."</h1>
+<p>Do you get the following error when you try to execute the <code>Setup</code> command?</p>
+<p><br></p>
+<p><img alt="unidentified developer" src="./images/unidentified_developer.png" /></p>
+<p><br></p>
+<p><strong><a href="http://www.iclarified.com/28180/how-to-open-applications-from-unidentified-developers-in-mac-os-x-mountain-lion">This article will help you</a></strong></p>
+<hr />
+<h1 id="is-busy-processing-symbol-files">"... is busy: Processing symbol files"</h1>
+<p>Do you get this alert when you press the <code>play</code> button?</p>
+<p><br></p>
+<p><img alt="processing symbol files" src="./images/processing_symbol.png" /></p>
+<p><br></p>
+<p><strong>Just wait for a bit until the progress bar gets to the end, and then retry.</strong></p>
 <h2 id="need-more-help">Need more help?</h2>
 <p><strong><a href="https://jasonette.herokuapp.com">Ask in chatroom</a></strong></p>
 <script async defer src="https://jasonette.herokuapp.com/slackin.js?large"></script>
@@ -438,5 +485,5 @@ You can use templates to dynamically render data, such as remote network content
 
 <!--
 MkDocs version : 0.15.3
-Build Date UTC : 2016-10-26 19:14:32.604676
+Build Date UTC : 2016-10-28 21:11:53.502449
 -->
