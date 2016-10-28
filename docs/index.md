@@ -152,7 +152,7 @@ Connect your phone and click play on XCode. Done!
 # Troubleshoot
 
 
-## "No provisioning..." error
+## ■ "No provisioning..." error
 
 <br>
 
@@ -167,7 +167,7 @@ Connect your phone and click play on XCode. Done!
 
 ---
 
-## "Signing for "Jasonette" requires a development team. Select a development team in the project editor."
+## ■ "Signing for "Jasonette" requires a development team. Select a development team in the project editor."
 <br>
 
 ![Requires development team](images/requires_development_team.png)
@@ -178,11 +178,13 @@ Connect your phone and click play on XCode. Done!
 2. Go to "General" section.
 3. Click "Team" under Signing section. Switch it from "None" to your existing team. If you don't have one, select "Add an account" to add your own Apple account.
 
+<br>
+
 ![add team](images/add_team.png)
 
 ---
 
-## "Code signing is required for product type 'Application' in SDK"
+## ■ "Code signing is required for product type 'Application' in SDK"
 <br>
 
 ![Requires development team](images/requires_development_team.png)
@@ -193,11 +195,13 @@ Connect your phone and click play on XCode. Done!
 2. Go to "General" section.
 3. Click "Team" under Signing section. Switch it from "None" to your existing team. If you don't have one, select "Add an account" to add your own Apple account.
 
+<br>
+
 ![add team](images/add_team.png)
 
 ---
 
-## "Untrusted Enterprise Developer"
+## ■ "Untrusted Enterprise Developer"
 Keep getting "Untrusted Enterprise Developer" alert when you try to open the installed app?
 
 <br>
@@ -215,7 +219,7 @@ Or read the Apple Guideline below:
 
 ---
 
-## "Can't be opened because it is from an unidentified developer."
+## ■ "Can't be opened because it is from an unidentified developer."
 
 Do you get the following error when you try to execute the `Setup` command?
 
@@ -229,7 +233,7 @@ Do you get the following error when you try to execute the `Setup` command?
 
 ---
 
-## "... is busy: Processing symbol files"
+## ■ "... is busy: Processing symbol files"
 
 Do you get this alert when you press the `play` button?
 
