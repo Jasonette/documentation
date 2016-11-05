@@ -90,7 +90,7 @@ You can access an action's return value by using the variable `$jason` from the 
 For example, `$geo.get` action returns the geolocation of the current device in the following format:
 	
     {
-      "coords": "51.5032510,-0.1278950"
+      "coord": "51.5032510,-0.1278950"
     }
 	
 Which means we can use this return value by accessing the `$jason` variable, using a [template](templates.md) like this:
@@ -101,7 +101,7 @@ Which means we can use this return value by accessing the `$jason` variable, usi
         "type": "$util.banner",
         "options": {
           "title": "Your current coordinate",
-          "description": "{{$jason.coords}}"
+          "description": "{{$jason.coord}}"
         }
       }
     }
