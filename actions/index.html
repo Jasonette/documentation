@@ -392,7 +392,7 @@
 <p>You can access an action's return value by using the variable <code>$jason</code> from the next action (either the <code>success</code> or the <code>error</code> action).</p>
 <p>For example, <code>$geo.get</code> action returns the geolocation of the current device in the following format:</p>
 <pre><code>{
-  "coords": "51.5032510,-0.1278950"
+  "coord": "51.5032510,-0.1278950"
 }
 </code></pre>
 <p>Which means we can use this return value by accessing the <code>$jason</code> variable, using a <a href="../templates/">template</a> like this:</p>
@@ -402,7 +402,7 @@
     "type": "$util.banner",
     "options": {
       "title": "Your current coordinate",
-      "description": "{{$jason.coords}}"
+      "description": "{{$jason.coord}}"
     }
   }
 }
