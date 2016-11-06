@@ -134,7 +134,7 @@ the space surrounding the layout itself, in pixels.
 
 If not specified, the default value is `10`.
 ### ■  spacing
-the space among each immediate children components, in pexels.
+the space among each immediate children components, in pixels.
 ### ■  background
 background color code (Example: `{"background": "#ff0000"}`, `{"background": "rgba(0,0,0,0.4)"}`)
 ### ■  z_index

@@ -244,7 +244,7 @@ Body contains everything that gets displayed on the screen. A body is made up of
 - `header` represents the top area
 - `sections` represent a scrollable list of items
 - `layers` represent non-scrolling items
-- `footer` repesent the bottom area
+- `footer` represents the bottom area
 
 ---
 #examples

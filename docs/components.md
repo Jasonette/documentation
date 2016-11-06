@@ -78,7 +78,7 @@ Image loaded from either remote url or data-url
 ---
 
 ##■  button
-A basic component that reponds to user tap.
+A basic component that responds to user tap.
 
 
 ![button component](images/components_button.jpeg)
@@ -389,7 +389,7 @@ An empty space component mostly used for layout purposes.
 ### Example 1. Flexible size space
 If you don't specify the style, the space component will contract or expand flexibly depending on its surrounding sibling components.
 
-This is useful for when you wish to make special alignments, such as alinging one component to the left, and the other to the right in a horizontal layout.
+This is useful for when you wish to make special alignments, such as aligning one component to the left, and the other to the right in a horizontal layout.
 
 
 <pre><span style='color:silver;'>{

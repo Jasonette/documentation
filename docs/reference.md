@@ -8,7 +8,7 @@ Components are basic units of user interface, such as image, label, textarea, bu
 
 #Describing layout
 
-In many cases we will combine multiple components to contstruct a unit. We use layouts to do this. [Learn more about layouts](layout.md)
+In many cases we will combine multiple components to construct a unit. We use layouts to do this. [Learn more about layouts](layout.md)
 
 #Interacting with Jason document
 

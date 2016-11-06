@@ -978,7 +978,7 @@ Here's what's going on above:
 <br><br>
 Check out the full code on Github:
 
-**[s3-upload-examle](https://github.com/Jasonette/s3-upload-example)**
+**[s3-upload-example](https://github.com/Jasonette/s3-upload-example)**
 
 ---
 
@@ -1264,7 +1264,7 @@ Cache lets you persist and retrieve content. Unlike local variables, it will sta
 
 ## Cache vs. Local variable
 - Cache and local variables are both sandboxed per view. Therefore anything you store to cache and local variable is stored just for that view.
-- Local variables are only on memory so will go away when the view refreshs. But cache is stored persistently and stays until you overwrite or reset it.
+- Local variables are only on memory so will go away when the view refreshes. But cache is stored persistently and stays until you overwrite or reset it.
 
 ---
 
