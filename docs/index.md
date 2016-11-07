@@ -100,7 +100,7 @@ Components are the most basic units of user interface, such as image, label, tex
 ---
 ###Layout
 **[Learn layouts](layout.md)**<br>
-In many cases we combine multiple components to contstruct a unit. We use layouts to do this.
+In many cases we combine multiple components to construct a unit. We use layouts to do this.
 ---
 ###Link multiple views
 **[Learn linking](href.md)**<br>
@@ -108,7 +108,7 @@ Above three sections are all you need to know to display content in a view. But 
 ---
 ###Actions
 **[Learn actions](actions.md)**<br>
-Actions define a task or a sequence of tasks you wish to run, such as network request, audio play, camera access, geolocation, dispalying banners, etc.
+Actions define a task or a sequence of tasks you wish to run, such as network request, audio play, camera access, geolocation, displaying banners, etc.
 ---
 ###Templates
 **[Learn templates](templates.md)**<br>

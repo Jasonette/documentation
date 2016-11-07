@@ -231,7 +231,7 @@ You don't even need to include an additional file, since the `stylize` method co
 ## 2. Extend Actions
 Just like components, you can easily write your own native [action](actions.md) modules and call them using 100% JSON syntax.
 
-One thing to keep in mind: **Action classes contain a collection of related action methods**, which is why most actions are namepaced as `$(GROUPNAME).(METHODNAME)` when you call it. 
+One thing to keep in mind: **Action classes contain a collection of related action methods**, which is why most actions are namespaced as `$(GROUPNAME).(METHODNAME)` when you call it. 
 
 For example `JasonNetworkAction` class--an action class that deals with network requests--contains multiple methods: `request`, `upload`, `auth`, `unauth`. Each method can be invoked by Jasonette using `$network.request`, `$network.auth`, `$network.upload`, and `$network.unauth` actions.
 
@@ -241,7 +241,7 @@ For example `JasonNetworkAction` class--an action class that deals with network 
 
 Let's try writing an action class (`$util`) and one of its methods which displays a banner (`$util.banner`).
 
-We woulid like to parse this JSON markup:
+We would like to parse this JSON markup:
 
     {
       "type": "$util.banner",
