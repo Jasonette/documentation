@@ -402,12 +402,12 @@
 <hr />
 <h2 id="2-extend-actions">2. Extend Actions</h2>
 <p>Just like components, you can easily write your own native <a href="../actions/">action</a> modules and call them using 100% JSON syntax.</p>
-<p>One thing to keep in mind: <strong>Action classes contain a collection of related action methods</strong>, which is why most actions are namepaced as <code>$(GROUPNAME).(METHODNAME)</code> when you call it. </p>
+<p>One thing to keep in mind: <strong>Action classes contain a collection of related action methods</strong>, which is why most actions are namespaced as <code>$(GROUPNAME).(METHODNAME)</code> when you call it. </p>
 <p>For example <code>JasonNetworkAction</code> class--an action class that deals with network requests--contains multiple methods: <code>request</code>, <code>upload</code>, <code>auth</code>, <code>unauth</code>. Each method can be invoked by Jasonette using <code>$network.request</code>, <code>$network.auth</code>, <code>$network.upload</code>, and <code>$network.unauth</code> actions.</p>
 <hr />
 <h3 id="21-how-to-write-an-action">2.1. How to write an Action</h3>
 <p>Let's try writing an action class (<code>$util</code>) and one of its methods which displays a banner (<code>$util.banner</code>).</p>
-<p>We woulid like to parse this JSON markup:</p>
+<p>We would like to parse this JSON markup:</p>
 <pre><code>{
   "type": "$util.banner",
   "options": {
