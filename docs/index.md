@@ -171,6 +171,18 @@ When you press "upload to app store", it will show up a confirmation dialog. Unc
 
 # Troubleshoot
 
+## ■ "Unknown property attribute 'class'"
+
+<br>
+
+![unknown property attribute class](images/build_error.png)
+
+<br>
+
+This is known to happen in old versions of XCode. Please upgrade your XCode to the [latest version](https://itunes.apple.com/us/app/xcode/id497799835?mt=12)
+
+--
+
 
 ## ■ "No provisioning..." error
 
