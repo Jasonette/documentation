@@ -124,6 +124,15 @@
                     <li><a class="toctree-l4" href="#step-4-play">Step 4. Play</a></li>
                 
             
+                <li class="toctree-l3"><a href="#submitting-to-the-app-store">Submitting to the app store</a></li>
+                
+                    <li><a class="toctree-l4" href="#1-sign-up-as-apple-developer">1. Sign up as Apple Developer</a></li>
+                
+                    <li><a class="toctree-l4" href="#2-archive-and-upload">2. Archive and Upload</a></li>
+                
+                    <li><a class="toctree-l4" href="#3-uncheck-include-bitcode">3. Uncheck "Include bitcode"</a></li>
+                
+            
                 <li class="toctree-l3"><a href="#troubleshoot">Troubleshoot</a></li>
                 
                     <li><a class="toctree-l4" href="#no-provisioning-error">■ "No provisioning..." error</a></li>
@@ -375,6 +384,17 @@ You can use templates to dynamically render data, such as remote network content
 <p>Connect your phone and click play on XCode. Done!</p>
 <p><img alt="play" src="http://i.giphy.com/l3vRnkTqLc0Tr1esU.gif" /></p>
 <hr />
+<h1 id="submitting-to-the-app-store">Submitting to the app store</h1>
+<p>There are a couple of things to keep in mind when submitting to the app store.</p>
+<h2 id="1-sign-up-as-apple-developer">1. Sign up as Apple Developer</h2>
+<p>You can test as much as you want without signing up as a developer, you can even put apps on your phone. However when it comes to actually submitting apps, you need to register as a developer. Google "apple developer" to learn how to do this.</p>
+<h2 id="2-archive-and-upload">2. Archive and Upload</h2>
+<p>Assuming you're all ready, you just need to "archive" the app first, and then press "upload to app store".</p>
+<p><img alt="no bitcode" src="./images/archive_app.png" /></p>
+<h2 id="3-uncheck-include-bitcode">3. Uncheck "Include bitcode"</h2>
+<p>When you press "upload to app store", it will show up a confirmation dialog. Uncheck "Include bitcode" option here. We do not need Bitcode because Jasonette is already small due to its modularity, and it actually may become larger. In fact including bitcode doesn't work well with Jasonette, so make sure you uncheck this.</p>
+<p><img alt="no bitcode" src="./images/appstore_submit.png" /></p>
+<hr />
 <h1 id="troubleshoot">Troubleshoot</h1>
 <h2 id="no-provisioning-error">■ "No provisioning..." error</h2>
 <p><br></p>
@@ -483,5 +503,5 @@ You can use templates to dynamically render data, such as remote network content
 
 <!--
 MkDocs version : 0.15.3
-Build Date UTC : 2016-11-08 01:13:20.003347
+Build Date UTC : 2016-11-09 01:53:04.228934
 -->
