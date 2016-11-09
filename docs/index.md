@@ -179,9 +179,9 @@ When you press "upload to app store", it will show up a confirmation dialog. Unc
 
 <br>
 
-This is known to happen in old versions of XCode. Please upgrade your XCode to the [latest version](https://itunes.apple.com/us/app/xcode/id497799835?mt=12)
+###This is known to happen in old versions of XCode. Please upgrade your XCode to the [latest version](https://itunes.apple.com/us/app/xcode/id497799835?mt=12)
 
---
+---
 
 
 ## ■ "No provisioning..." error
