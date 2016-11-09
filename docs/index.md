@@ -149,6 +149,26 @@ Connect your phone and click play on XCode. Done!
 
 ---
 
+# Submitting to the app store
+
+There are a couple of things to keep in mind when submitting to the app store.
+
+##1. Sign up as Apple Developer
+You can test as much as you want without signing up as a developer, you can even put apps on your phone. However when it comes to actually submitting apps, you need to register as a developer. Google "apple developer" to learn how to do this.
+
+##2. Archive and Upload
+Assuming you're all ready, you just need to "archive" the app first, and then press "upload to app store".
+
+![no bitcode](images/archive_app.png)
+
+##3. Uncheck "Include bitcode"
+
+When you press "upload to app store", it will show up a confirmation dialog. Uncheck "Include bitcode" option here. We do not need Bitcode because Jasonette is already small due to its modularity, and it actually may become larger. In fact including bitcode doesn't work well with Jasonette, so make sure you uncheck this.
+
+![no bitcode](images/appstore_submit.png)
+
+---
+
 # Troubleshoot
 
 
