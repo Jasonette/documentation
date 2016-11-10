@@ -863,7 +863,7 @@ Floating images
       "layers": [
         {
           "type": "image",
-          "url": "https://www.jasonclinet.org/img/sticker.png",
+          "url": "https://www.jasonclient.org/img/sticker.png",
           "style": {
             "width": "100",
             "corner_radius": "50",
