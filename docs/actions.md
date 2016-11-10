@@ -1263,8 +1263,8 @@ Cache lets you persist and retrieve content. Unlike local variables, it will sta
 ---
 
 ## Cache vs. Local variable
-- Cache and local variables are both sandboxed per view. Therefore anything you store to cache and local variable is stored just for that view.
-- Local variables are only on memory so will go away when the view refreshes. But cache is stored persistently and stays until you overwrite or reset it.
+- Cache and local variables are both sandboxed per view url. Therefore anything you store to cache and local variable is stored just for that view.
+- Local variables are only on memory so will go away when the view refreshes. But cache is stored persistently and stays until you overwrite or reset it, even if the app is killed and restarted.
 
 ---
 
