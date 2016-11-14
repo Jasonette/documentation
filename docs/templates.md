@@ -234,7 +234,8 @@ Then we will declare a `body` template that will iterate through this `members` 
                     "type": "label",
                     "text": "{{name}}"
                   }
-              }]
+                }]
+              }
             }
           }
         }
