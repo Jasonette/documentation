@@ -288,6 +288,7 @@ In the current implementation of Jasonette, this meesage means either:
 
 Please first check the network to see other apps are working fine. After that, check your JSON, keep simplifying it down until you find the problematic markup.
 
+
 ---
 
 ## Need more help?
