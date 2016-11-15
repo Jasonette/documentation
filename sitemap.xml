@@ -3,16 +3,16 @@
 
     
     <url>
-     <loc>None/</loc>
-     <lastmod>2016-11-08</lastmod>
+     <loc>/</loc>
+     <lastmod>2016-11-15</lastmod>
      <changefreq>daily</changefreq>
     </url>
     
 
     
     <url>
-     <loc>None/examples/</loc>
-     <lastmod>2016-11-08</lastmod>
+     <loc>/examples/</loc>
+     <lastmod>2016-11-15</lastmod>
      <changefreq>daily</changefreq>
     </url>
     
@@ -20,38 +20,38 @@
     
         
     <url>
-     <loc>None/document/</loc>
-     <lastmod>2016-11-08</lastmod>
+     <loc>/document/</loc>
+     <lastmod>2016-11-15</lastmod>
      <changefreq>daily</changefreq>
     </url>
         
     <url>
-     <loc>None/href/</loc>
-     <lastmod>2016-11-08</lastmod>
+     <loc>/href/</loc>
+     <lastmod>2016-11-15</lastmod>
      <changefreq>daily</changefreq>
     </url>
         
     <url>
-     <loc>None/actions/</loc>
-     <lastmod>2016-11-08</lastmod>
+     <loc>/actions/</loc>
+     <lastmod>2016-11-15</lastmod>
      <changefreq>daily</changefreq>
     </url>
         
     <url>
-     <loc>None/components/</loc>
-     <lastmod>2016-11-08</lastmod>
+     <loc>/components/</loc>
+     <lastmod>2016-11-15</lastmod>
      <changefreq>daily</changefreq>
     </url>
         
     <url>
-     <loc>None/layout/</loc>
-     <lastmod>2016-11-08</lastmod>
+     <loc>/layout/</loc>
+     <lastmod>2016-11-15</lastmod>
      <changefreq>daily</changefreq>
     </url>
         
     <url>
-     <loc>None/templates/</loc>
-     <lastmod>2016-11-08</lastmod>
+     <loc>/templates/</loc>
+     <lastmod>2016-11-15</lastmod>
      <changefreq>daily</changefreq>
     </url>
         
@@ -59,24 +59,24 @@
 
     
     <url>
-     <loc>None/convention/</loc>
-     <lastmod>2016-11-08</lastmod>
+     <loc>/convention/</loc>
+     <lastmod>2016-11-15</lastmod>
      <changefreq>daily</changefreq>
     </url>
     
 
     
     <url>
-     <loc>None/advanced/</loc>
-     <lastmod>2016-11-08</lastmod>
+     <loc>/advanced/</loc>
+     <lastmod>2016-11-15</lastmod>
      <changefreq>daily</changefreq>
     </url>
     
 
     
     <url>
-     <loc>None/faq/</loc>
-     <lastmod>2016-11-08</lastmod>
+     <loc>/faq/</loc>
+     <lastmod>2016-11-15</lastmod>
      <changefreq>daily</changefreq>
     </url>
     

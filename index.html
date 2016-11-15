@@ -5,35 +5,27 @@
   <meta charset="utf-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="None">
   
-  
-  
-  <title>Jasonette</title>
-  
-
   <link rel="shortcut icon" href="./img/favicon.ico">
-
-  
+  <title>■ Getting started - Jasonette</title>
   <link href='https://fonts.googleapis.com/css?family=Lato:400,700|Roboto+Slab:400,700|Inconsolata:400,700' rel='stylesheet' type='text/css'>
 
   <link rel="stylesheet" href="./css/theme.css" type="text/css" />
   <link rel="stylesheet" href="./css/theme_extra.css" type="text/css" />
   <link rel="stylesheet" href="./css/highlight.css">
   <link href="./extra.css" rel="stylesheet">
-
   
   <script>
     // Current page data
-    var mkdocs_page_name = "None";
+    var mkdocs_page_name = "\u25a0 Getting started";
     var mkdocs_page_input_path = "index.md";
     var mkdocs_page_url = "/";
   </script>
   
   <script src="./js/jquery-2.1.1.min.js"></script>
   <script src="./js/modernizr-2.8.3.min.js"></script>
-  <script type="text/javascript" src="./js/highlight.pack.js"></script>
-  <script src="./js/theme.js"></script> 
-
+  <script type="text/javascript" src="./js/highlight.pack.js"></script> 
   
   <script>
       (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
@@ -63,7 +55,7 @@
       </div>
 
       <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
-        <ul class="current">
+	<ul class="current">
           
             <li>
     <li class="toctree-l1 current">
@@ -148,6 +140,8 @@
                     <li><a class="toctree-l4" href="#cant-be-opened-because-it-is-from-an-unidentified-developer">■ "Can't be opened because it is from an unidentified developer."</a></li>
                 
                     <li><a class="toctree-l4" href="#is-busy-processing-symbol-files">■ "... is busy: Processing symbol files"</a></li>
+                
+                    <li><a class="toctree-l4" href="#offline-mode">■ "Offline mode"</a></li>
                 
                     <li><a class="toctree-l4" href="#need-more-help">Need more help?</a></li>
                 
@@ -260,9 +254,8 @@
     <li>■ Getting started</li>
     <li class="wy-breadcrumbs-aside">
       
-        
-          <a href="https://github.com/Jasonette/documentation" class="icon icon-github"> Edit on GitHub</a>
-        
+        <a href="https://github.com/Jasonette/documentation/edit/master/docs/index.md"
+          class="icon icon-github"> Edit on GitHub</a>
       
     </li>
   </ul>
@@ -459,6 +452,15 @@ You can use templates to dynamically render data, such as remote network content
 <p><img alt="processing symbol files" src="./images/processing_symbol.png" /></p>
 <p><br></p>
 <p><strong>Just wait for a bit until the progress bar gets to the end, and then retry.</strong></p>
+<hr />
+<h2 id="offline-mode">■ "Offline mode"</h2>
+<p>In the current implementation of Jasonette, this meesage means either:</p>
+<ol>
+<li>There's a problem with your network.</li>
+<li>There's something wrong with your JSON markup and Jasonette is not able to interpret it correctly.</li>
+</ol>
+<p>Please first check the network to see other apps are working fine. After that, check your JSON, keep simplifying it down until you find the problematic markup.</p>
+<hr />
 <h2 id="need-more-help">Need more help?</h2>
 <p><strong><a href="https://jasonette.herokuapp.com">Ask in chatroom</a></strong></p>
 <script async defer src="https://jasonette.herokuapp.com/slackin.js?large"></script>
@@ -491,10 +493,10 @@ You can use templates to dynamically render data, such as remote network content
       </div>
 
     </section>
-
+    
   </div>
 
-<div class="rst-versions" role="note" style="cursor: pointer">
+  <div class="rst-versions" role="note" style="cursor: pointer">
     <span class="rst-current-version" data-toggle="rst-current-version">
       
           <a href="https://github.com/Jasonette/documentation" class="icon icon-github" style="float: left; color: #fcfcfc"> GitHub</a>
@@ -505,11 +507,12 @@ You can use templates to dynamically render data, such as remote network content
       
     </span>
 </div>
+    <script src="./js/theme.js"></script>
 
 </body>
 </html>
 
 <!--
-MkDocs version : 0.15.3
-Build Date UTC : 2016-11-09 02:04:52.847840
+MkDocs version : 0.16.0
+Build Date UTC : 2016-11-15 18:17:34
 -->
