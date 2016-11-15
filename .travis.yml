@@ -2,7 +2,13 @@ language: python
 install: pip install mkdocs
 cache: pip
 
-script: mkdocs gh-deploy --clean
+before_script:
+  - git config user.name "Ethan Gliechtenstein"
+  - git config user.email "ethan.gliechtenstein@gmail.com"
+  - git remote add production "https://${GH_TOKEN}@github.com/Jasonette/documentation.git";
+  - git fetch production && git fetch production gh-pages:gh-pages;
+
+script: mkdocs gh-deploy --clean --remote-name production
 
 env:
   global:
