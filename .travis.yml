@@ -2,14 +2,8 @@ language: python
 install: pip install mkdocs
 cache: pip
 
-before_script:
-  - git config user.name "Guilherme J. Tramontina"
-  - git config user.email "guilherme.tramontina@gmail.com"
-  - git remote add production "https://${GH_TOKEN}@github.com/gtramontina/documentation.git";
-  - git fetch production && git fetch production gh-pages:gh-pages;
-
-script: mkdocs gh-deploy --clean --remote-name production
+script: mkdocs gh-deploy --clean
 
 env:
   global:
-    secure: XgIfU6Ec16za4/tWEso/MoxrtDLA3jHGz4MhISKSUewDw3wqgzFdKt8ev1EdL9U7u46dz28pSPu0ylpyEctfdu7TTnjgbsJcw3EbK77JghE+EHAzbmWD3CUNI1Th0pJb+sEgAF5dNfRIhescJwbJXEoEWZqrrEIpdukK7SmHRyyBlCyC0pWmSCZ7gPoAi0Lo0aNHZJMMdCUhwrVEawKYnIe3tQQaEWHp9tRxOnd10lDPlXOk46OD+z5lnyFeJ1WiDw/OEk4AGDfVYdeUHDOSxb6iUgxCpEDBTJ5rjsWWCQ8XSQIpNp3PMwL44PSD5Uc+0ictXkWaPvj6fmjDBtDGeFtUeO/vNFg4C8jzVsOAXhyhDVxw1udoGTaMdosvnTgG5EKuno6nCqjSMxq2WmrlLuOgLXJP47M9Mp4mcT71Dtn7dBX8b5g1iBfnE4DTYHdpsb7EpGPDXVoOPJrFqa6og5GCuRDjmQp2G2fLvj+z0jIxP2157bkJeooDDtMQ8ZV8EB+ACncSWQo/4MeDZGKqjJcuUYVhTowP1zZb6/P43KOmdWUqdpUN76gC/1yCpWErpqIkx//WK5BNuU0ZFUTP1t0UA/V7CiyJAjw1LoR4BitRdOTr8SUgeVYeDCQfcn43ItrDJpvUh/D9AFCyYIH8CkAVXPp449rTzwF+45Mcz4M=
+    secure: ONk9/62E659Sw5tsr4LZ2FlB4XwcZWe88rBQltmjVCsrKVJYze0I34NiqGp8CRICI3MZBlmOflCCOVPnTQ8AuGKQTxtrIOLhrQ30cL34mATzxp7u/SgrkWLKAPiWPGt/o/VQJSaWj5RhlJZvqU4eiY6LtIYnEWolRKuyGx9gf4mxZEaxhO5FwnwObYZ0mUxnGZHPSrSPT0avTR+q501kNmZ6/lhJG2Ymqaay9V5qF24VxqBQTIeeJrRGoM0EG7gZ6tC+dQm7Ew/4QHwZ9kuZoJXX33S0OY7SrG1mF0NCnpEo6qrTdFHY9X1KgMIBZsCzzw+7Fwg06Lm8VPqKE4OaeOjS0hp8OFiKTxU6AREQCbi0Zost2POK1tYNX0FXLjCeMklDaiUi4tcPwLlz1g4SrPGkvVzk7FqW/wK/v4dvh/pE+qA7Sa0lisv4GlhORGt0IdPVtVY+tkwpwUwbKdbyJsFcaYXP+BipRpTi78kfpOgx87fxzO7sPIHvfviEyG4mFATqrlYVlIYV5pNHTHmqw17PuuhHYJoEvkcfCq4x+4LaGUIEt3dpH/vfh/LsM0hGtSpMyNWtPoQWBAhEG/sIDZBZaGRvGfJFKCACWr9QOIf9NVv2qV6ZNtLE3tq1ZNSsjadRD8MgxQRhoBjG/xvl19BfxUOrWgVwmps84QRXO8I=
