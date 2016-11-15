@@ -277,6 +277,19 @@ Do you get this alert when you press the `play` button?
 
 **Just wait for a bit until the progress bar gets to the end, and then retry.**
 
+---
+
+## ■ "Offline mode"
+
+In the current implementation of Jasonette, this meesage means either:
+
+1. There's a problem with your network.
+2. There's something wrong with your JSON markup and Jasonette is not able to interpret it correctly.
+
+Please first check the network to see other apps are working fine. After that, check your JSON, keep simplifying it down until you find the problematic markup.
+
+---
+
 ## Need more help?
 
 **[Ask in chatroom](https://jasonette.herokuapp.com)**
