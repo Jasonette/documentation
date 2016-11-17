@@ -765,12 +765,12 @@ A header is similar to `items`. Visually it looks the same. However there are so
 ### attributes
 Here's a list of attributes a header supports (Same as `items`, with an exception of interactive features):
 
-####■  `type`: `vertical` or `horizontal` in case of layout. A component name in case it's a component item. (for example, `label`, `image`, `button`, etc.)
-####■  `components`: child components, in case it's a layout item.
-####■  `style`: layout style + item specific style
-  - `color`: Set the color of the item's disclosure indicator in case [href](href.md) is used.
-  - `height`: Set the height of the item.
-  - `z_index`: An integer value (example: `{"z_index": "-1"}`). Set the z-index of the item. (Similar to [CSS z-index](https://developer.mozilla.org/en-US/docs/Web/CSS/z-index))
+  -  `type`: `vertical` or `horizontal` in case of layout. A component name in case it's a component item. (for example, `label`, `image`, `button`, etc.)
+  -  `components`: child components, in case it's a layout item.
+  -  `style`: layout style + item specific style
+    - `color`: Set the color of the item's text.
+    - `height`: Set the height of the item.
+    - `z_index`: An integer value (example: `{"z_index": "-1"}`). Set the z-index of the item. (Similar to [CSS z-index](https://developer.mozilla.org/en-US/docs/Web/CSS/z-index))
     - By default, `header` has a higher `z_index` than `items`. That's why the items scroll below the header as they scroll. You can however change that by setting the header's z_index.
 
 ---
