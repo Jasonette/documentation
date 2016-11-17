@@ -86,11 +86,11 @@ Here's an example where we use the `$geo.get` action to get the current location
                 "items": [
                   {
                     "type": "label",
-                    "text": "Latitude: <span style='color:#ff0000;'>{{ $jason.coord.split(',')[0] }}</span>"
+                    "text": "Latitude: {{ $jason.coord.split(',')[0] }}"
                   },
                   {
                     "type": "label",
-                    "text": "Longitude: <span style='color:#ff0000;'>{{ $jason.coord.split(',')[1] }}</span>"
+                    "text": "Longitude: {{ $jason.coord.split(',')[1] }}"
                   }           
                 ]
               }]
@@ -120,11 +120,11 @@ The `$render` action will render the data with the template, and insert it into 
                 "items": [
                   {
                     "type": "label",
-                    "text": "Latitude: <span style='color:#ff0000;'>{{ $jason.coord.split(',')[0] }}</span>"
+                    "text": "Latitude: {{ $jason.coord.split(',')[0] }}"
                   },
                   {
                     "type": "label",
-                    "text": "Longitude: <span style='color:#ff0000;'>{{ $jason.coord.split(',')[1] }}</span>"
+                    "text": "Longitude: {{ $jason.coord.split(',')[1] }}"
                   }           
                 ]
               }]
