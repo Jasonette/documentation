@@ -264,14 +264,33 @@
 <hr />
 <h4 id="step-2-implement-the-builder-method">Step 2. Implement the builder method</h4>
 <p>You only need to implement a single class method:</p>
-<p><strong>+ (UIView<em>)build:(NSDictionary</em>)json withOptions:(NSDictionary*)options</strong>.</p>
-<p>Basically it's a builder method that takes a JSON snippet in NSDictionary format and creates a UIView subclass. It can be a UILabel, UIButton, or whatever, as long as it's a subclass of <code>UIView</code>.</p>
-<p>Customize it using the info passed in from the <code>json</code> parameter, and finally return the <code>UIView</code> once you're done.</p>
+<p><strong>+ (UIView <em>)build: (UIView</em>)component withJSON: (NSDictionary <em>)json withOptions: (NSDictionary </em>)options</strong>.</p>
+<p>Basically it's a builder method that takes three arguments to create a UIView subclass. The arguments are:</p>
+<p>A. <code>component</code>: A UIView instance to fill in. Just assume that a UIView will be passed in, and repurpose it to your liking.</p>
+<p>B. <code>json</code>: A JSON snippet in NSDictionary format which includes all the information we need to construct this component.</p>
+<p>C. <code>options</code>: Useful in a few cases but you don't need to use this in most cases, so let's not worry about it here.</p>
+<p>The result can be a UILabel, UIButton, or whatever, as long as it's a subclass of <code>UIView</code>.</p>
+<p>Here's how it works:</p>
+<p>When Jasonette is building a layout, it will call this <code>build:withJSON:withOptions</code> method, passing in a relevant UIView instance (<code>component</code>) as well as the JSON blueprint (<code>json</code>) from which you will build your own UIView subclass.</p>
+<p>From here, all you need to do is:</p>
+<ol>
+<li>
+<p>Check if the <code>component</code> is nil. If it's nil, create a new instance. If it's not, then we just reuse it.</p>
+</li>
+<li>
+<p>Construct your own custom UIView subclass instance based on the <code>json</code> object received, and return. You're done!</p>
+</li>
+</ol>
 <p>Here's what the most primitive version would look like:</p>
 <pre><code>// JasonMapComponent.m
 @implementation JasonMapComponent
-+ (UIView *)build:(NSDictionary *)json withOptions:(NSDictionary *)options{
-  MKMapView *mapView = [[MKMapView alloc] init];
++ + (UIView *)build: (UIView*)component withJSON: (NSDictionary *)json withOptions: (NSDictionary *)options{
+  MKMapView *mapView;
+  if(component){
+    mapView = (MKMapView*)component;
+  } else {
+    mapView = [[MKMapView alloc] init];
+  }
   return mapView;
 }
 @end
@@ -307,11 +326,18 @@
 <p>All you need to do is take this, parse it, and customize the <code>mapView</code> object before returning, like the comment below.</p>
 <pre><code>// JasonMapComponent.m
 @implementation JasonMapComponent
-+ (UIView *)build:(NSDictionary *)json withOptions:(NSDictionary *)options{
-  MKMapView *mapView = [[MKMapView alloc] init];
++ (UIView *)build: (UIView*)component withJSON: (NSDictionary *)json withOptions: (NSDictionary *)options{
+  MKMapView *mapView;
+  if(component){
+    mapView = (MKMapView*)component;
+  } else {
+    mapView = [[MKMapView alloc] init];
+  }
+
   /*
     Do some customization with the 'json' argument here.
   */
+
   return mapView;
 }
 @end
@@ -329,8 +355,13 @@
 <p><strong>Just switch out the instance method with its class method version</strong> (use <code>+</code> instead of <code>-</code> at the beginning of the method definition), like below:</p>
 <pre><code>// JasonMapComponent.m
 @implementation JasonMapComponent
-+ (UIView *)build:(NSDictionary *)json withOptions:(NSDictionary *)options{
-  MKMapView *mapView = [[MKMapView alloc] init];
++ (UIView *)build: (UIView*)component withJSON: (NSDictionary *)json withOptions: (NSDictionary *)options{
+  MKMapView *mapView;
+  if(component){
+    mapView = (MKMapView*)component;
+  } else {
+    mapView = [[MKMapView alloc] init];
+  }
 
   /*
     Do some customization with the 'json' argument here
@@ -370,9 +401,14 @@
 }
 </code></pre>
 <p>Here's an example code that creates a UIView, runs it through the built-in <code>stylize</code>, and then applies additional custom styles.</p>
-<pre><code>+ (UIView *)build:(NSDictionary *)json withOptions:(NSDictionary *)options{
+<pre><code>+ (UIView *)build: (UIView*)component withJSON: (NSDictionary *)json withOptions: (NSDictionary *)options{
   // Build some component here
-  UIView *component = [[UIView alloc] init];
+  MKMapView *mapView;
+  if(component){
+    mapView = (MKMapView*)component;
+  } else {
+    mapView = [[MKMapView alloc] init];
+  }
 
   /*
   customize the component here
