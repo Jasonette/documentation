@@ -102,7 +102,7 @@ A basic component that responds to user tap.
 
     {
       "type": "button",
-      "text": "http://i.imgur.com/KUJPgGV.png",
+      "text": "Tap Me!",
       "style": {
         "width": "50",
         "height": "50",
