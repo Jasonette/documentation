@@ -144,6 +144,9 @@ p{
 .rst-content p img {
   max-width: 500px;
 }
+.rst-content p img.large{
+  max-width: 800px;
+}
 ol{
   line-height: 20px !important;
 }
@@ -176,4 +179,46 @@ a.navbar-brand{
 }
 ul.nav li:not(.main){
   margin-left: 20px;
+}
+#mce-EMAIL{
+  width: 300px;
+  border: 2px solid #8bb92d;
+}
+#mc-embedded-subscribe{
+  background: #8bb92d;
+  padding: 8px 20px;
+  color: white;
+  border:none;
+  font-size: 13px;
+}
+#mc-embedded-subscribe-form{
+  background: #f1f1f1;
+  padding: 10px 20px 20px;
+  border-radius: 3px;
+}
+img.download{
+  width: 200px;
+}
+img.screenshot{
+  max-width: 400px;
+}
+div.row img.image{
+  width: 150px !important;
+  margin: 20px;
+}
+div.row a{
+  display:block;
+}
+div.row:hover{
+  background: #ebebeb;
+}
+div.row h3{
+  display: inline;
+}
+.well{
+  padding: 20px;
+  background: #f2f2f2;
+}
+table.equalwidth th{
+  width: 50%; 
 }

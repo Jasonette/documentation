@@ -34,19 +34,9 @@ Simply take one of the JSON urls below, add to Jasonette and play. You can learn
 
 ---
 
-# ★ CatchAll!
-  - Take a photo and add Pokemon stickers to pretend you captured'em all. Makes use of [layers](document.md#user-content-body-layers) that can be dragged, resized, rotated, or fixed. [[website](http://www.jasonette.com/catchall)]
-  - JSON: [http://www.jasonbase.com/things/EGD](http://www.jasonbase.com/things/EGD)
-
-<br>
-
-  ![catchall](images/layers.gif)
-
----
-
 # ★ Kitty
   - A minimal [Product Hunt](http://www.producthunt.com) client. Makes use of the [HTML to JSON parsing](templates.md#html) feature. [[website](http://www.jasonette.com/kitty)]
-  - JSON: [http://www.jasonbase.com/things/nRp](http://www.jasonbase.com/things/nRp)
+  - JSON: [https://github.com/gliechtenstein/kitty.json](https://github.com/gliechtenstein/kitty.json)
 
 <br>
 
