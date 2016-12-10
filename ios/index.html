@@ -1,0 +1,465 @@
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  
+  <link rel="shortcut icon" href="../img/favicon.ico">
+  <title>■ iOS - Jasonette</title>
+  <link href='https://fonts.googleapis.com/css?family=Lato:400,700|Roboto+Slab:400,700|Inconsolata:400,700' rel='stylesheet' type='text/css'>
+
+  <link rel="stylesheet" href="../css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="../css/theme_extra.css" type="text/css" />
+  <link rel="stylesheet" href="../css/highlight.css">
+  <link href="../extra.css" rel="stylesheet">
+  
+  <script>
+    // Current page data
+    var mkdocs_page_name = "\u25a0 iOS";
+    var mkdocs_page_input_path = "ios.md";
+    var mkdocs_page_url = "/ios/";
+  </script>
+  
+  <script src="../js/jquery-2.1.1.min.js"></script>
+  <script src="../js/modernizr-2.8.3.min.js"></script>
+  <script type="text/javascript" src="../js/highlight.pack.js"></script> 
+  
+  <script>
+      (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+      (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+      m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+      })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+      ga('create', 'UA-54282166-8', 'auto');
+      ga('send', 'pageview');
+  </script>
+  
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+  <div class="wy-grid-for-nav">
+
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side stickynav">
+      <div class="wy-side-nav-search">
+        <a href=".." class="icon icon-home"> Jasonette</a>
+        <div role="search">
+  <form id ="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+  </form>
+</div>
+      </div>
+
+      <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+	<ul class="current">
+          
+            <li>
+    <li class="toctree-l1 ">
+        <a class="" href="..">■ Getting started</a>
+        
+    </li>
+<li>
+          
+            <li>
+    <li class="toctree-l1 current">
+        <a class="current" href="./">■ iOS</a>
+        
+            <ul>
+            
+                <li class="toctree-l3"><a href="#step-1-download">Step 1. DOWNLOAD</a></li>
+                
+            
+                <li class="toctree-l3"><a href="#step-2-setup">Step 2. SETUP</a></li>
+                
+            
+                <li class="toctree-l3"><a href="#step-3-play">Step 3. PLAY</a></li>
+                
+            
+                <li class="toctree-l3"><a href="#did-it-work">★ Did it work?</a></li>
+                
+                    <li><a class="toctree-l4" href="#yes">YES?</a></li>
+                
+                    <li><a class="toctree-l4" href="#no">NO?</a></li>
+                
+            
+                <li class="toctree-l3"><a href="#manual-setup">Manual setup</a></li>
+                
+                    <li><a class="toctree-l4" href="#step-1-download_1">Step 1. Download</a></li>
+                
+                    <li><a class="toctree-l4" href="#step-2-open-in-xcode">Step 2. Open in XCode</a></li>
+                
+                    <li><a class="toctree-l4" href="#step-3-update-config-attributes-and-generate-icons-manually">Step 3. Update config attributes and generate icons manually</a></li>
+                
+                    <li><a class="toctree-l4" href="#step-4-play">Step 4. Play</a></li>
+                
+            
+                <li class="toctree-l3"><a href="#submitting-to-the-app-store">Submitting to the app store</a></li>
+                
+                    <li><a class="toctree-l4" href="#1-sign-up-as-apple-developer">1. Sign up as Apple Developer</a></li>
+                
+                    <li><a class="toctree-l4" href="#2-archive-and-upload">2. Archive and Upload</a></li>
+                
+                    <li><a class="toctree-l4" href="#3-uncheck-include-bitcode">3. Uncheck "Include bitcode"</a></li>
+                
+            
+                <li class="toctree-l3"><a href="#troubleshoot">Troubleshoot</a></li>
+                
+                    <li><a class="toctree-l4" href="#unknown-property-attribute-class">■ "Unknown property attribute 'class'"</a></li>
+                
+                    <li><a class="toctree-l4" href="#no-provisioning-error">■ "No provisioning..." error</a></li>
+                
+                    <li><a class="toctree-l4" href="#signing-for-jasonette-requires-a-development-team-select-a-development-team-in-the-project-editor">■ "Signing for "Jasonette" requires a development team. Select a development team in the project editor."</a></li>
+                
+                    <li><a class="toctree-l4" href="#code-signing-is-required-for-product-type-application-in-sdk">■ "Code signing is required for product type 'Application' in SDK"</a></li>
+                
+                    <li><a class="toctree-l4" href="#untrusted-enterprise-developer">■ "Untrusted Enterprise Developer"</a></li>
+                
+                    <li><a class="toctree-l4" href="#cant-be-opened-because-it-is-from-an-unidentified-developer">■ "Can't be opened because it is from an unidentified developer."</a></li>
+                
+                    <li><a class="toctree-l4" href="#is-busy-processing-symbol-files">■ "... is busy: Processing symbol files"</a></li>
+                
+                    <li><a class="toctree-l4" href="#offline-mode">■ "Offline mode"</a></li>
+                
+                    <li><a class="toctree-l4" href="#need-more-help">Need more help?</a></li>
+                
+            
+            </ul>
+        
+    </li>
+<li>
+          
+            <li>
+    <li class="toctree-l1 ">
+        <a class="" href="../android/">■ Android</a>
+        
+    </li>
+<li>
+          
+            <li>
+    <li class="toctree-l1 ">
+        <a class="" href="../examples/">■ Examples</a>
+        
+    </li>
+<li>
+          
+            <li>
+    <ul class="subnav">
+    <li><span>■ Reference</span></li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../document/">★ View</a>
+        
+    </li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../href/">★ Link</a>
+        
+    </li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../actions/">★ Actions</a>
+        
+    </li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../components/">★ Components</a>
+        
+    </li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../layout/">★ Layout</a>
+        
+    </li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../templates/">★ Templates</a>
+        
+    </li>
+
+        
+    </ul>
+<li>
+          
+            <li>
+    <li class="toctree-l1 ">
+        <a class="" href="../convention/">■ Convention</a>
+        
+    </li>
+<li>
+          
+            <li>
+    <li class="toctree-l1 ">
+        <a class="" href="../advanced/">■ Extending Jasonette (advanced)</a>
+        
+    </li>
+<li>
+          
+            <li>
+    <li class="toctree-l1 ">
+        <a class="" href="../faq/">■ Troubleshoot</a>
+        
+    </li>
+<li>
+          
+        </ul>
+      </div>
+      &nbsp;
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" role="navigation" aria-label="top navigation">
+        <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+        <a href="..">Jasonette</a>
+      </nav>
+
+      
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="breadcrumbs navigation">
+  <ul class="wy-breadcrumbs">
+    <li><a href="..">Docs</a> &raquo;</li>
+    
+      
+    
+    <li>■ iOS</li>
+    <li class="wy-breadcrumbs-aside">
+      
+        <a href="https://github.com/Jasonette/documentation/edit/master/docs/ios.md"
+          class="icon icon-github"> Edit on GitHub</a>
+      
+    </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main">
+            <div class="section">
+              
+                <h1><i class='icon fa-apple'></i> Set up Jasonette iOS</h1>
+
+<p>Ready? Let's get your first Jasonette app on your phone, in 20 seconds! <a href="#manual-setup">Interested in manual setup?</a></p>
+<p><br></p>
+<h2 id="step-1-download">Step 1. DOWNLOAD</h2>
+<div class='well'>
+Jasonette itself is a pre-built app.<br>All you need to do is download and build with <a href='https://itunes.apple.com/us/app/xcode/id497799835?mt=12'>XCode</a>.
+<br><br>
+Go ahead and download Jasonette, and then unzip.
+<br><br>
+<a href='https://github.com/Jasonette/JASONETTE-iOS/archive/master.zip' class='btn'><i class='fa fa-download'></i> Download Jasonette-iOS</a>
+</div>
+
+<p><img alt="download jasonette" src="../images/download.png" /></p>
+<p><br></p>
+<h2 id="step-2-setup">Step 2. SETUP</h2>
+<p>Initialize by running the <code>Setup</code> command.
+<img alt="init" src="../images/setup.png" /></p>
+<p>This command automatically generates icons and sets the title and the url. 
+<br>
+<br></p>
+<h2 id="step-3-play">Step 3. PLAY</h2>
+<p>Connect your phone and click play on XCode. Done!</p>
+<p><img alt="play" src="http://i.giphy.com/l3vRnkTqLc0Tr1esU.gif" /></p>
+<hr />
+<h2 id="did-it-work">★ Did it work?</h2>
+<p><br></p>
+<ul>
+<li>
+<h3 id="yes">YES?</h3>
+<ul>
+<li>Congratulations! You're ready to transform this into your OWN app! Go on to the next section.</li>
+</ul>
+</li>
+</ul>
+<p><br></p>
+<ul>
+<li>
+<h3 id="no">NO?</h3>
+<ul>
+<li><strong><a href="#troubleshoot">Check troubleshoot section</a></strong></li>
+</ul>
+</li>
+</ul>
+<hr />
+<h1 id="manual-setup">Manual setup</h1>
+<p>It is recommended that you use <a href="#step-2-setup">the Setup command</a> since it takes care of most of tedious details, but you can also do this manually.</p>
+<p><br></p>
+<h3 id="step-1-download_1">Step 1. Download</h3>
+<p><a href="https://github.com/Jasonette/JASONETTE-iOS/archive/master.zip">Download Jasonette</a> and unzip.
+<img alt="download jasonette" src="../images/download.png" /></p>
+<p><br></p>
+<h3 id="step-2-open-in-xcode">Step 2. Open in XCode</h3>
+<p>Go into the <code>app</code> folder and open <code>Jasonette.xcworkspace</code> file. <strong>(warning: Make sure to open the <code>xcworkspace</code> file, NOT the <code>xcodeproj</code> file!)</strong></p>
+<p><img alt="init" src="../images/workspace.png" /></p>
+<p><br></p>
+<h3 id="step-3-update-config-attributes-and-generate-icons-manually">Step 3. Update config attributes and generate icons manually</h3>
+<p><img alt="init" src="../images/config.png" /></p>
+<ul>
+<li><strong>Set App Name:</strong> Under the <code>Config</code> group, open the <code>Info.plist</code> file and change the <code>CFBundleName</code> attribute.</li>
+<li><strong>Set Root URL:</strong> Under the <code>Config</code> group, open the <code>settings.plist</code> file and change the <code>url</code> attribute.</li>
+<li><strong>Generate Icon:</strong> You can try generating app icons using online services like <a href="https://makeappicon.com/">makeappicon.com</a>, and <a href="https://makeappicon.com/import-icons-into-xcode">add them manually to the project</a>.</li>
+</ul>
+<p><br></p>
+<h3 id="step-4-play">Step 4. Play</h3>
+<p>Connect your phone and click play on XCode. Done!</p>
+<p><img alt="play" src="http://i.giphy.com/l3vRnkTqLc0Tr1esU.gif" /></p>
+<hr />
+<h1 id="submitting-to-the-app-store">Submitting to the app store</h1>
+<p>There are a couple of things to keep in mind when submitting to the app store.</p>
+<h2 id="1-sign-up-as-apple-developer">1. Sign up as Apple Developer</h2>
+<p>You can test as much as you want without signing up as a developer, you can even put apps on your phone. However when it comes to actually submitting apps, you need to register as a developer. Google "apple developer" to learn how to do this.</p>
+<p><br></p>
+<h2 id="2-archive-and-upload">2. Archive and Upload</h2>
+<p>Assuming you're all ready, you just need to "archive" the app first, and then press "upload to app store".</p>
+<p><img alt="no bitcode" src="../images/archive_app.png" /></p>
+<p><br></p>
+<h2 id="3-uncheck-include-bitcode">3. Uncheck "Include bitcode"</h2>
+<p>When you press "upload to app store", it will show up a confirmation dialog. Uncheck "Include bitcode" option here. We do not need Bitcode because Jasonette is already small due to its modularity, and it actually may become larger. In fact including bitcode doesn't work well with Jasonette, so make sure you uncheck this.</p>
+<p><img alt="no bitcode" src="../images/appstore_submit.png" /></p>
+<hr />
+<h1 id="troubleshoot">Troubleshoot</h1>
+<h2 id="unknown-property-attribute-class">■ "Unknown property attribute 'class'"</h2>
+<p><br></p>
+<p><img alt="unknown property attribute class" src="../images/build_error.png" /></p>
+<p><br></p>
+<h3 id="this-is-known-to-happen-in-old-versions-of-xcode-please-upgrade-your-xcode-to-the-latest-version">This is known to happen in old versions of XCode. Please upgrade your XCode to the <a href="https://itunes.apple.com/us/app/xcode/id497799835?mt=12">latest version</a></h3>
+<hr />
+<h2 id="no-provisioning-error">■ "No provisioning..." error</h2>
+<p><br></p>
+<p><img alt="No provisioning error" src="../images/no_provisioning_profiles.png" /></p>
+<p><br></p>
+<h3 id="just-press-fix-issue-and-sign-in-with-your-apple-account">Just press "Fix Issue" and sign in with your Apple account</h3>
+<p><strong><a href="http://apple.stackexchange.com/a/206130">If that doesn't work, read this post</a></strong></p>
+<hr />
+<h2 id="signing-for-jasonette-requires-a-development-team-select-a-development-team-in-the-project-editor">■ "Signing for "Jasonette" requires a development team. Select a development team in the project editor."</h2>
+<p><br></p>
+<p><img alt="Requires development team" src="../images/requires_development_team.png" /></p>
+<p><br></p>
+<ol>
+<li>Select the project from XCode.</li>
+<li>Go to "General" section.</li>
+<li>Click "Team" under Signing section. Switch it from "None" to your existing team. If you don't have one, select "Add an account" to add your own Apple account.</li>
+</ol>
+<p><br></p>
+<p><img alt="add team" src="../images/add_team.png" /></p>
+<hr />
+<h2 id="code-signing-is-required-for-product-type-application-in-sdk">■ "Code signing is required for product type 'Application' in SDK"</h2>
+<p><br></p>
+<p><img alt="Requires development team" src="../images/requires_development_team.png" /></p>
+<p><br></p>
+<ol>
+<li>Select the project from XCode.</li>
+<li>Go to "General" section.</li>
+<li>Click "Team" under Signing section. Switch it from "None" to your existing team. If you don't have one, select "Add an account" to add your own Apple account.</li>
+</ol>
+<p><br></p>
+<p><img alt="add team" src="../images/add_team.png" /></p>
+<hr />
+<h2 id="untrusted-enterprise-developer">■ "Untrusted Enterprise Developer"</h2>
+<p>Keep getting "Untrusted Enterprise Developer" alert when you try to open the installed app?</p>
+<p><br></p>
+<div class='video-container'>
+<iframe width="640" height="360" src="https://www.youtube.com/embed/EG9spHluLKg?rel=0" frameborder="0" allowfullscreen></iframe>
+</div>
+
+<p><br></p>
+<p>Or read the Apple Guideline below:</p>
+<p><strong><a href="https://support.apple.com/en-us/HT204460">Guidelines for installing custom enterprise apps on iOS</a></strong></p>
+<hr />
+<h2 id="cant-be-opened-because-it-is-from-an-unidentified-developer">■ "Can't be opened because it is from an unidentified developer."</h2>
+<p>Do you get the following error when you try to execute the <code>Setup</code> command?</p>
+<p><br></p>
+<p><img alt="unidentified developer" src="../images/unidentified_developer.png" /></p>
+<p><br></p>
+<p><strong><a href="http://www.iclarified.com/28180/how-to-open-applications-from-unidentified-developers-in-mac-os-x-mountain-lion">This article will help you</a></strong></p>
+<hr />
+<h2 id="is-busy-processing-symbol-files">■ "... is busy: Processing symbol files"</h2>
+<p>Do you get this alert when you press the <code>play</code> button?</p>
+<p><br></p>
+<p><img alt="processing symbol files" src="../images/processing_symbol.png" /></p>
+<p><br></p>
+<p><strong>Just wait for a bit until the progress bar gets to the end, and then retry.</strong></p>
+<hr />
+<h2 id="offline-mode">■ "Offline mode"</h2>
+<p>In the current implementation of Jasonette, this meesage means either:</p>
+<ol>
+<li>There's a problem with your network.</li>
+<li>There's something wrong with your JSON markup and Jasonette is not able to interpret it correctly.</li>
+</ol>
+<p>Please first check the network to see other apps are working fine. After that, check your JSON, keep simplifying it down until you find the problematic markup.</p>
+<hr />
+<h2 id="need-more-help">Need more help?</h2>
+<ul>
+<li>
+<p><strong>Slack - </strong>  Come ask quick questions and share tips with other Jasonette users. <a href="https://jasonette.herokuapp.com">Join here</a></p>
+<p><script async defer src="https://jasonette.herokuapp.com/slackin.js?large"></script></p>
+</li>
+<li>
+<p><strong>Forum - </strong>  Chat messages on Slack tend to flow away, so you may want to ask questions on the forum. Also it's good for future users who may have the same problem. All messages on the forum will be read. Visit here: <a href="https://forum.jasonette.com">https://forum.jasonette.com</a></p>
+</li>
+</ul>
+              
+            </div>
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="../android/" class="btn btn-neutral float-right" title="■ Android">Next <span class="icon icon-circle-arrow-right"></span></a>
+      
+      
+        <a href=".." class="btn btn-neutral" title="■ Getting started"><span class="icon icon-circle-arrow-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <!-- Copyright etc -->
+    
+  </div>
+
+  Built with <a href="http://www.mkdocs.org">MkDocs</a> using a <a href="https://github.com/snide/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>.
+</footer>
+	  
+        </div>
+      </div>
+
+    </section>
+    
+  </div>
+
+  <div class="rst-versions" role="note" style="cursor: pointer">
+    <span class="rst-current-version" data-toggle="rst-current-version">
+      
+          <a href="https://github.com/Jasonette/documentation" class="icon icon-github" style="float: left; color: #fcfcfc"> GitHub</a>
+      
+      
+        <span><a href=".." style="color: #fcfcfc;">&laquo; Previous</a></span>
+      
+      
+        <span style="margin-left: 15px"><a href="../android/" style="color: #fcfcfc">Next &raquo;</a></span>
+      
+    </span>
+</div>
+    <script src="../js/theme.js"></script>
+
+</body>
+</html>

@@ -8,7 +8,7 @@
   
   
   <link rel="shortcut icon" href="../img/favicon.ico">
-  <title>■ Examples - Jasonette</title>
+  <title>■ Android - Jasonette</title>
   <link href='https://fonts.googleapis.com/css?family=Lato:400,700|Roboto+Slab:400,700|Inconsolata:400,700' rel='stylesheet' type='text/css'>
 
   <link rel="stylesheet" href="../css/theme.css" type="text/css" />
@@ -18,9 +18,9 @@
   
   <script>
     // Current page data
-    var mkdocs_page_name = "\u25a0 Examples";
-    var mkdocs_page_input_path = "examples.md";
-    var mkdocs_page_url = "/examples/";
+    var mkdocs_page_name = "\u25a0 Android";
+    var mkdocs_page_input_path = "android.md";
+    var mkdocs_page_url = "/android/";
   </script>
   
   <script src="../js/jquery-2.1.1.min.js"></script>
@@ -72,46 +72,52 @@
 <li>
           
             <li>
-    <li class="toctree-l1 ">
-        <a class="" href="../android/">■ Android</a>
+    <li class="toctree-l1 current">
+        <a class="current" href="./">■ Android</a>
+        
+            <ul>
+            
+                <li class="toctree-l3"><a href="#step-1-download-and-unzip">Step 1. DOWNLOAD AND UNZIP</a></li>
+                
+            
+                <li class="toctree-l3"><a href="#step-2-launch-android-studio">Step 2. LAUNCH ANDROID STUDIO</a></li>
+                
+            
+                <li class="toctree-l3"><a href="#step-3-import-the-project">Step 3. IMPORT THE PROJECT</a></li>
+                
+            
+                <li class="toctree-l3"><a href="#step-4-press-play">Step 4. PRESS PLAY</a></li>
+                
+            
+                <li class="toctree-l3"><a href="#step-5-connect-the-phone-and-run">Step 5. CONNECT THE PHONE AND RUN</a></li>
+                
+            
+                <li class="toctree-l3"><a href="#step-6-customize">Step 6. CUSTOMIZE!</a></li>
+                
+            
+                <li class="toctree-l3"><a href="#did-it-work">★ Did it work?</a></li>
+                
+                    <li><a class="toctree-l4" href="#yes">YES?</a></li>
+                
+                    <li><a class="toctree-l4" href="#no">NO?</a></li>
+                
+            
+                <li class="toctree-l3"><a href="#submitting-to-the-play-store">Submitting to the play store</a></li>
+                
+            
+                <li class="toctree-l3"><a href="#troubleshoot">Troubleshoot</a></li>
+                
+                    <li><a class="toctree-l4" href="#need-more-help">Need more help?</a></li>
+                
+            
+            </ul>
         
     </li>
 <li>
           
             <li>
-    <li class="toctree-l1 current">
-        <a class="current" href="./">■ Examples</a>
-        
-            <ul>
-            
-                <li class="toctree-l3"><a href="#how-to-try-these-examples">How to try these examples</a></li>
-                
-            
-                <li class="toctree-l3"><a href="#jasonpedia">★ Jasonpedia</a></li>
-                
-            
-                <li class="toctree-l3"><a href="#instagram-ui">★ Instagram UI</a></li>
-                
-            
-                <li class="toctree-l3"><a href="#twitter-ui">★ Twitter UI</a></li>
-                
-            
-                <li class="toctree-l3"><a href="#kitty">★ Kitty</a></li>
-                
-            
-                <li class="toctree-l3"><a href="#weather">★ Weather</a></li>
-                
-            
-                <li class="toctree-l3"><a href="#eliza">★ Eliza</a></li>
-                
-            
-                <li class="toctree-l3"><a href="#photo-upload-example">★ Photo upload example</a></li>
-                
-            
-                <li class="toctree-l3"><a href="#microblog-with-user-accounts">★ Microblog with user accounts</a></li>
-                
-            
-            </ul>
+    <li class="toctree-l1 ">
+        <a class="" href="../examples/">■ Examples</a>
         
     </li>
 <li>
@@ -209,10 +215,10 @@
     
       
     
-    <li>■ Examples</li>
+    <li>■ Android</li>
     <li class="wy-breadcrumbs-aside">
       
-        <a href="https://github.com/Jasonette/documentation/edit/master/docs/examples.md"
+        <a href="https://github.com/Jasonette/documentation/edit/master/docs/android.md"
           class="icon icon-github"> Edit on GitHub</a>
       
     </li>
@@ -222,86 +228,74 @@
           <div role="main">
             <div class="section">
               
-                <h1 id="how-to-try-these-examples">How to try these examples</h1>
-<p>Simply take one of the JSON urls below, add to Jasonette and play. You can learn more on how to use Jasonette <a href="https://www.jasonette.com">here</a>.</p>
+                <h1><i class='icon fa-android'></i> Set up Jasonette android</h1>
+
+<p><br></p>
+<h2 id="step-1-download-and-unzip">Step 1. DOWNLOAD AND UNZIP</h2>
+<div class='well'>
+Jasonette itself is a pre-built app.<br>All you need to do is download Jasonette and build with <a href='https://developer.android.com/studio/index.html'>Android Studio</a>.
+<br><br>
+<a href='https://github.com/Jasonette/JASONETTE-android/archive/master.zip' class='btn'><i class='fa fa-download'></i> Download Jasonette-android</a>
+</div>
+
+<p><img src='/images/android_1.png' class='large'></p>
+<p><br></p>
+<h2 id="step-2-launch-android-studio">Step 2. LAUNCH ANDROID STUDIO</h2>
+<p>Now launch <a href="https://developer.android.com/studio/index.html">Android Studio</a>, and select "Import project"</p>
+<p><img src='/images/android_2.png' class='large'></p>
+<h2 id="step-3-import-the-project">Step 3. IMPORT THE PROJECT</h2>
+<p>Find the Jasonette folder you just unzipped and press OK.</p>
+<p><img src='/images/android_3.png' class='large'></p>
+<h2 id="step-4-press-play">Step 4. PRESS PLAY</h2>
+<p>Jasonette comes with a default demo JSON url embedded. Let's try running it to make sure it works.</p>
+<p><img src='/images/android_4.png' class='large'></p>
+<h2 id="step-5-connect-the-phone-and-run">Step 5. CONNECT THE PHONE AND RUN</h2>
+<p>It will show up a dialog that looks like this.</p>
+<p>Here you can either choose to run it on an emulator or a real device.</p>
+<p><strong>To learn how to connect the phone, or how to run it on an emulator, <a href="https://developer.android.com/training/basics/firstapp/running-app.html">read this</a>.</strong></p>
+<p><img src='/images/android_7.png' class='large'></p>
+<h2 id="step-6-customize">Step 6. CUSTOMIZE!</h2>
+<p>Now let's try changing the JSON url so you can turn it into your own app.</p>
+<p>First, click the "Project" tab on the left side.</p>
+<p>Then find <code>app</code> &gt; <code>java</code> &gt; <code>com.jasonette.seed</code> &gt; <code>JasonSettings</code>.</p>
+<p>Update the return value for the url to your own JSON url. That's it!</p>
+<p>If you don't have a JSON yet, <a href="../examples">here are some example apps you can try quickly</a></p>
+<p><img src='/images/android_5.png' class='large'></p>
 <hr />
-<h1 id="jasonpedia">★ Jasonpedia</h1>
+<h2 id="did-it-work">★ Did it work?</h2>
+<p><br></p>
 <ul>
-<li>A tutorial demo of every Jasonette UI component and action. Try this first if you haven't yet.</li>
-<li>JSON: <a href="https://github.com/Jasonette/Jasonpedia">https://github.com/Jasonette/Jasonpedia</a></li>
+<li>
+<h3 id="yes">YES?</h3>
+<ul>
+<li>Congratulations! You're ready to transform this into your OWN app! Go on to the next section.</li>
+</ul>
+</li>
 </ul>
 <p><br></p>
-<p><img alt="components demo" src="../images/jasonpedia.png" /></p>
-<hr />
-<h1 id="instagram-ui">★ Instagram UI</h1>
 <ul>
-<li>An Instagram UI, completely written in JSON.</li>
-<li>JSON: <a href="https://github.com/Jasonette/Instagram-UI-example">https://github.com/Jasonette/Instagram-UI-example</a></li>
-</ul>
-<p><br></p>
-<p><img alt="components demo" src="../images/instagram.gif" /></p>
-<hr />
-<h1 id="twitter-ui">★ Twitter UI</h1>
+<li>
+<h3 id="no">NO?</h3>
 <ul>
-<li>A Twitter UI, completely written in JSON.</li>
-<li>JSON: <a href="https://github.com/Jasonette/Twitter-UI-example">https://github.com/Jasonette/Twitter-UI-example</a></li>
+<li><strong><a href="#troubleshoot">Check troubleshoot section</a></strong></li>
 </ul>
-<p><br></p>
-<p><img alt="components demo" src="../images/twitter.gif" /></p>
+</li>
+</ul>
 <hr />
-<h1 id="kitty">★ Kitty</h1>
+<h1 id="submitting-to-the-play-store">Submitting to the play store</h1>
+<p><a href="https://support.google.com/googleplay/android-developer/answer/113469?hl=en">Check out this documentation</a> on how to submit to the play store.</p>
+<hr />
+<h1 id="troubleshoot">Troubleshoot</h1>
+<h2 id="need-more-help">Need more help?</h2>
 <ul>
-<li>A minimal <a href="http://www.producthunt.com">Product Hunt</a> client. Makes use of the <a href="../templates/#html">HTML to JSON parsing</a> feature. [<a href="http://www.jasonette.com/kitty">website</a>]</li>
-<li>JSON: <a href="https://github.com/gliechtenstein/kitty.json">https://github.com/gliechtenstein/kitty.json</a></li>
+<li>
+<p><strong>Slack - </strong>  Come ask quick questions and share tips with other Jasonette users. <a href="https://jasonette.herokuapp.com">Join here</a></p>
+<p><script async defer src="https://jasonette.herokuapp.com/slackin.js?large"></script></p>
+</li>
+<li>
+<p><strong>Forum - </strong>  Chat messages on Slack tend to flow away, so you may want to ask questions on the forum. Also it's good for future users who may have the same problem. All messages on the forum will be read. Visit here: <a href="https://forum.jasonette.com">https://forum.jasonette.com</a></p>
+</li>
 </ul>
-<p><br></p>
-<p><img alt="Kitty" src="../images/kitty.png" /></p>
-<hr />
-<h1 id="weather">★ Weather</h1>
-<ul>
-<li>Takes the device location, makes a network request to <a href="http://www.openweathermap.org">openweathermap.org API</a>, and then displays the result on the screen. Also uses <code>camera</code> as background display.</li>
-<li>JSON: <a href="http://www.jasonbase.com/things/1wn">http://www.jasonbase.com/things/1wn</a></li>
-</ul>
-<p><br></p>
-<p><img alt="Weather" src="http://i.giphy.com/3o6ZtnO53EwLCeRruo.gif" /></p>
-<hr />
-<h1 id="eliza">★ Eliza</h1>
-<ul>
-<li>Eliza chatbot app. Uses a simple node.js server as backend. If you want to install the backend on your own server, here's the <a href="https://github.com/Jasonette/eliza-example">full source</a>.</li>
-<li>JSON: <a href="http://fureliza.herokuapp.com">http://fureliza.herokuapp.com</a></li>
-</ul>
-<p><br></p>
-<p><img alt="Eliza" src="http://i.giphy.com/3o6ZsWrg6FkjHlUAmI.gif" /></p>
-<hr />
-<h1 id="photo-upload-example">★ Photo upload example</h1>
-<ul>
-<li>Simple app to upload photos to S3. Uses a simple node.js server as backend. If you want to install the backend on your own server, here's the <a href="https://github.com/Jasonette/s3-upload-example">full source</a>.</li>
-<li>JSON: <a href="http://imagejason.herokuapp.com">http://imagejason.herokuapp.com</a></li>
-</ul>
-<p><br></p>
-<p><img alt="Photo upload" src="http://i.giphy.com/l0HlD1pF6PHF4Y3Pq.gif" /></p>
-<hr />
-<h1 id="microblog-with-user-accounts">★ Microblog with user accounts</h1>
-<ul>
-<li>Simple microblog app to post messages, complete with user login. If you want to install the backend on your own server, here's the <a href="https://github.com/Jasonette/token-authentication-example">full source and an instruction on how to build one from scratch</a>.</li>
-<li>JSON: <a href="http://sessionjason.herokuapp.com">http://sessionjason.herokuapp.com</a></li>
-</ul>
-<p><br></p>
-<table>
-<thead>
-<tr>
-<th>signed out</th>
-<th>signed in</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td><img alt="signed out" src="../images/signed_out.png" /></td>
-<td><img alt="signed in" src="../images/signed_in.png" /></td>
-</tr>
-</tbody>
-</table>
-<hr />
               
             </div>
           </div>
@@ -309,10 +303,10 @@
   
     <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
       
-        <a href="../document/" class="btn btn-neutral float-right" title="★ View">Next <span class="icon icon-circle-arrow-right"></span></a>
+        <a href="../examples/" class="btn btn-neutral float-right" title="■ Examples">Next <span class="icon icon-circle-arrow-right"></span></a>
       
       
-        <a href="../android/" class="btn btn-neutral" title="■ Android"><span class="icon icon-circle-arrow-left"></span> Previous</a>
+        <a href="../ios/" class="btn btn-neutral" title="■ iOS"><span class="icon icon-circle-arrow-left"></span> Previous</a>
       
     </div>
   
@@ -340,10 +334,10 @@
           <a href="https://github.com/Jasonette/documentation" class="icon icon-github" style="float: left; color: #fcfcfc"> GitHub</a>
       
       
-        <span><a href="../android/" style="color: #fcfcfc;">&laquo; Previous</a></span>
+        <span><a href="../ios/" style="color: #fcfcfc;">&laquo; Previous</a></span>
       
       
-        <span style="margin-left: 15px"><a href="../document/" style="color: #fcfcfc">Next &raquo;</a></span>
+        <span style="margin-left: 15px"><a href="../examples/" style="color: #fcfcfc">Next &raquo;</a></span>
       
     </span>
 </div>
