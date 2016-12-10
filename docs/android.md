@@ -10,7 +10,7 @@ Jasonette itself is a pre-built app.<br>All you need to do is download Jasonette
 <a href='https://github.com/Jasonette/JASONETTE-android/archive/master.zip' class='btn'><i class='fa fa-download'></i> Download Jasonette-android</a>
 </div>
 
-<img src='images/android_1.png' class='large'>
+<img src='/images/android_1.png' class='large'>
 
 <br>
 
@@ -18,19 +18,19 @@ Jasonette itself is a pre-built app.<br>All you need to do is download Jasonette
 
 Now launch [Android Studio](https://developer.android.com/studio/index.html), and select "Import project"
 
-<img src='images/android_2.png' class='large'>
+<img src='/images/android_2.png' class='large'>
 
 ##Step 3. IMPORT THE PROJECT
 
 Find the Jasonette folder you just unzipped and press OK.
 
-<img src='images/android_3.png' class='large'>
+<img src='/images/android_3.png' class='large'>
 
 ##Step 4. PRESS PLAY
 
 Jasonette comes with a default demo JSON url embedded. Let's try running it to make sure it works.
 
-<img src='images/android_4.png' class='large'>
+<img src='/images/android_4.png' class='large'>
 
 
 ##Step 5. CONNECT THE PHONE AND RUN
@@ -41,7 +41,7 @@ Here you can either choose to run it on an emulator or a real device.
 
 **To learn how to connect the phone, or how to run it on an emulator, [read this](https://developer.android.com/training/basics/firstapp/running-app.html).**
 
-<img src='images/android_7.png' class='large'>
+<img src='/images/android_7.png' class='large'>
 
 ##Step 6. CUSTOMIZE!
 
@@ -55,7 +55,7 @@ Update the return value for the url to your own JSON url. That's it!
 
 If you don't have a JSON yet, [here are some example apps you can try quickly](/examples)
 
-<img src='images/android_5.png' class='large'>
+<img src='/images/android_5.png' class='large'>
 
 
 ---
