@@ -231,7 +231,7 @@ h3{
   font-size: 20px;
   line-height: 30px;
 }
-table.equalwidth th.span6{
+table.equalwidth th.span6, table.equalwidth td.span6{
   width: 50%; 
   background: #f9f9f9;
 }
@@ -253,7 +253,7 @@ table.equalwidth.follow td a i{
 table.equalwidth.follow td a:hover{
   background: #ebebeb;
 }
-table.equalwidth th.span4{
+table.equalwidth th.span4, table.equalwidth td.span4{
   width: 33%;
 }
 table.equalwidth h1{
