@@ -1,58 +1,4 @@
-# Choose Your Adventure
-
-There are two ways to get started.
-
-<table class='equalwidth'>
-	<tr>
-		<th><h1>{ ˃̵̑ᴥ˂̵̑}<br>jasonette</h1></td>
-		<th><h1>{ ·ᴥ·}<br>jason</h1></td>
-	</tr>
-	<tr>
-		<td><h4>What is it?</h4>Make a publishable app.</td>
-		<td><h4>What is it?</h4>A standalone Jasonette browser. Try Jasonette without any setup.</td>
-	</tr>
-	<tr>
-		<td>
-			<h4>When to use</h4>
-			<ul>
-				<li>If you want to publish your app right now.</li>
-			</ul>
-		</td>
-		<td>
-			<h4>When to use</h4>
-			<ul>
-				<li>For instant prototyping.</li>
-				<li>If you don't need to publish your app to the app store</li>
-				<li>Switch between multiple Jasonette apps quickly.</li>
-			</ul>
-		</td>
-	</tr>
-	<tr>
-		<td>
-			<h4>How to use</h4>
-			<ol>
-				<li>Download Jasonette</li>
-				<li>Add your JSON url</li>
-				<li>Build it in XCode</li>
-			</ol>
-			<br>
-			<a href='https://github.com/Jasonette/JASONETTE-iOS/archive/master.zip' class='btn'><i class='fa fa-apple'></i> Download Jasonette-iOS</a>
-		</td>
-		<td>
-			<h4>How to use</h4>
-			<ol>
-				<li>Download Jason from the app store</li>
-				<li>Enter your JSON url in the address bar</li>
-			</ol>
-			<br>
-			<a href='https://github.com/Jasonette/JASONETTE-iOS/archive/master.zip'><img src='/images/appstore.png' class='download'></a>
-		</td>
-	</tr>
-</table>
-
----
-
-# Quick Start
+<h1><i class='icon fa-apple'></i> Set up Jasonette iOS</h1>
 Ready? Let's get your first Jasonette app on your phone, in 20 seconds! [Interested in manual setup?](#manual-setup)
 
 <br>
@@ -64,7 +10,7 @@ Jasonette itself is a pre-built app.<br>All you need to do is download and build
 <br><br>
 Go ahead and download Jasonette, and then unzip.
 <br><br>
-<a href='https://github.com/Jasonette/JASONETTE-iOS/archive/master.zip' class='btn'><i class='fa fa-apple'></i> Download Jasonette-iOS</a>
+<a href='https://github.com/Jasonette/JASONETTE-iOS/archive/master.zip' class='btn'><i class='fa fa-download'></i> Download Jasonette-iOS</a>
 </div>
 
 ![download jasonette](images/download.png)
@@ -99,89 +45,27 @@ Connect your phone and click play on XCode. Done!
     - **[Check troubleshoot section](#troubleshoot)**
 
 
----
-
-# Tutorial Screencast
-
-Watch the 2 videos below and you'll have learned everything you need to know to get started.
-
-<b>The videos were shot using an iPhone, but it works exactly the same for Android.</b>
-
-<br>
-
-### A. Do you know JSON?
-
-
-Before we dive in, do you know JSON? If not, just check out [this tutorial](http://www.w3schools.com/js/js_json_syntax.asp), takes 2 minutes.
-
-<br><br>
-
-### B. Learn the basics
-This video walks you through the basics of Jasonette, such as how it works, how to get started, etc.
-<br><br>
-<div class='video-container'>
-<iframe width="640" height="360" src="https://www.youtube.com/embed/hfevBAAfCMQ?rel=0" frameborder="0" allowfullscreen></iframe>
-</div>
-
-<br><br>
-
-### C. Learn JASON syntax
-This video teaches you how to actually write a JSON markup to build sophisticated interactive layouts.
-<br><br>
-<div class='video-container'>
-<iframe width="640" height="360" src="https://www.youtube.com/embed/S7yGejKIH6Q?rel=0" frameborder="0" allowfullscreen></iframe>
-</div>
-
-
----
-
-
-# Documentation
-
-###Anatomy of a Jason view
-**[Learn the basic structure of a JASON view](document.md)**<br>
-Just like HTML has basic tags such as body, div, span, li, etc, Jasonette has JSON based tags to describe the structure of a view.
----
-###Components
-**[Learn component syntax](components.md)**<br>
-Components are the most basic units of user interface, such as image, label, textarea, button, slider, etc. 
----
-###Layout
-**[Learn layouts](layout.md)**<br>
-In many cases we combine multiple components to construct a unit. We use layouts to do this.
----
-###Link multiple views
-**[Learn linking](href.md)**<br>
-Above three sections are all you need to know to display content in a view. But what if we want multiple views? We can link them using `href`.
----
-###Actions
-**[Learn actions](actions.md)**<br>
-Actions define a task or a sequence of tasks you wish to run, such as network request, audio play, camera access, geolocation, displaying banners, etc.
----
-###Templates
-**[Learn templates](templates.md)**<br>
-You can use templates to dynamically render data, such as remote network content, local data, and user input.
----
-# Examples
-Actual JSON examples you can try out with Jasonette:
-
-**[Try examples here](examples.md)**
-
 
 ---
 # Manual setup
 
 It is recommended that you use [the Setup command](#step-2-setup) since it takes care of most of tedious details, but you can also do this manually.
 
+<br>
+
 ###Step 1. Download
 
 [Download Jasonette](https://github.com/Jasonette/JASONETTE-iOS/archive/master.zip) and unzip.
 ![download jasonette](images/download.png)
 
+<br>
+
 ###Step 2. Open in XCode
 Go into the `app` folder and open `Jasonette.xcworkspace` file. **(warning: Make sure to open the `xcworkspace` file, NOT the `xcodeproj` file!)**
 
 ![init](images/workspace.png)
+
+<br>
 
 ###Step 3. Update config attributes and generate icons manually
 
@@ -190,6 +74,8 @@ Go into the `app` folder and open `Jasonette.xcworkspace` file. **(warning: Make
 - **Set App Name:** Under the `Config` group, open the `Info.plist` file and change the `CFBundleName` attribute.
 - **Set Root URL:** Under the `Config` group, open the `settings.plist` file and change the `url` attribute.
 - **Generate Icon:** You can try generating app icons using online services like [makeappicon.com](https://makeappicon.com/), and [add them manually to the project](https://makeappicon.com/import-icons-into-xcode).
+
+<br>
 
 ###Step 4. Play
 Connect your phone and click play on XCode. Done!
@@ -205,10 +91,14 @@ There are a couple of things to keep in mind when submitting to the app store.
 ##1. Sign up as Apple Developer
 You can test as much as you want without signing up as a developer, you can even put apps on your phone. However when it comes to actually submitting apps, you need to register as a developer. Google "apple developer" to learn how to do this.
 
+<br>
+
 ##2. Archive and Upload
 Assuming you're all ready, you just need to "archive" the app first, and then press "upload to app store".
 
 ![no bitcode](images/archive_app.png)
+
+<br>
 
 ##3. Uncheck "Include bitcode"
 

@@ -3,6 +3,8 @@ body {
 }
 .btn{
   background: #8bb92d;
+  padding: 10px;
+  font-size: 15px;
 }
 .__slackin{
   z-index: 100000000000;
@@ -195,9 +197,10 @@ ul.nav li:not(.main){
   background: #f1f1f1;
   padding: 10px 20px 20px;
   border-radius: 3px;
+  margin: 10px 0;
 }
 img.download{
-  width: 200px;
+  width: 45%;
 }
 img.screenshot{
   max-width: 400px;
@@ -215,10 +218,52 @@ div.row:hover{
 div.row h3{
   display: inline;
 }
+h3{
+  margin: 0 !important;
+}
 .well{
+  margin: 10px 0;
   padding: 20px;
   background: #f2f2f2;
 }
-table.equalwidth th{
+.group li{
+  padding: 5px;
+  font-size: 20px;
+  line-height: 30px;
+}
+table.equalwidth th.span6{
   width: 50%; 
+  background: #f9f9f9;
+}
+table.equalwidth.follow img{
+  width: 100px;
+}
+table.equalwidth.follow td{
+  text-align: center;
+  padding: 10px !important;
+}
+table.equalwidth.follow td a{
+  display: block;
+  padding: 10px;
+  color: #8bb92d;
+}
+table.equalwidth.follow td a i{
+  color: #8bb92d;
+}
+table.equalwidth.follow td a:hover{
+  background: #ebebeb;
+}
+table.equalwidth th.span4{
+  width: 33%;
+}
+table.equalwidth h1{
+  color: black;
+}
+table.equalwidth h3{
+  margin: 10px 0 !important;
+}
+table.equalwidth td{
+  vertical-align: top !important;
+  padding: 10px 20px 20px !important;
+  background: white !important;
 }

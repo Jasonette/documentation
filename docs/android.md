@@ -1,20 +1,14 @@
-# Download
-
-<div class='well'>
-Jasonette itself is a pre-built app.<br>All you need to do is download Jasonette and build with <a href='https://developer.android.com/studio/index.html'>Android Studio</a>.
-<br><br>
-<a href='https://github.com/Jasonette/JASONETTE-android/archive/master.zip' class='btn'><i class='fa fa-android'></i> Download Jasonette-android</a>
-</div>
-
-
----
-
-# Quick Start
-Ready? Let's get your first Jasonette app on your phone, in 20 seconds!
+<h1><i class='icon fa-android'></i> Set up Jasonette android</h1>
 
 <br>
 
 ##Step 1. DOWNLOAD AND UNZIP
+
+<div class='well'>
+Jasonette itself is a pre-built app.<br>All you need to do is download Jasonette and build with <a href='https://developer.android.com/studio/index.html'>Android Studio</a>.
+<br><br>
+<a href='https://github.com/Jasonette/JASONETTE-android/archive/master.zip' class='btn'><i class='fa fa-download'></i> Download Jasonette-android</a>
+</div>
 
 <img src='/images/android_1.png' class='large'>
 
@@ -77,76 +71,6 @@ If you don't have a JSON yet, [here are some example apps you can try quickly](/
 
   - ###NO?
     - **[Check troubleshoot section](#troubleshoot)**
-
-
----
-
-# Tutorial Screencast
-
-Watch the 2 videos below and you'll have learned everything you need to know to get started.
-
-**The videos were shot using an iPhone, but it works exactly the same for Android.**
-
-<br>
-
-### A. Do you know JSON?
-
-
-Before we dive in, do you know JSON? If not, just check out [this tutorial](http://www.w3schools.com/js/js_json_syntax.asp), takes 2 minutes.
-
-<br><br>
-
-### B. Learn the basics
-This video walks you through the basics of Jasonette, such as how it works, how to get started, etc.
-<br><br>
-<div class='video-container'>
-<iframe width="640" height="360" src="https://www.youtube.com/embed/hfevBAAfCMQ?rel=0" frameborder="0" allowfullscreen></iframe>
-</div>
-
-<br><br>
-
-### C. Learn JASON syntax
-This video teaches you how to actually write a JSON markup to build sophisticated interactive layouts.
-<br><br>
-<div class='video-container'>
-<iframe width="640" height="360" src="https://www.youtube.com/embed/S7yGejKIH6Q?rel=0" frameborder="0" allowfullscreen></iframe>
-</div>
-
-
----
-
-
-# Documentation
-
-###Anatomy of a Jason view
-**[Learn the basic structure of a JASON view](document.md)**<br>
-Just like HTML has basic tags such as body, div, span, li, etc, Jasonette has JSON based tags to describe the structure of a view.
----
-###Components
-**[Learn component syntax](components.md)**<br>
-Components are the most basic units of user interface, such as image, label, textarea, button, slider, etc. 
----
-###Layout
-**[Learn layouts](layout.md)**<br>
-In many cases we combine multiple components to construct a unit. We use layouts to do this.
----
-###Link multiple views
-**[Learn linking](href.md)**<br>
-Above three sections are all you need to know to display content in a view. But what if we want multiple views? We can link them using `href`.
----
-###Actions
-**[Learn actions](actions.md)**<br>
-Actions define a task or a sequence of tasks you wish to run, such as network request, audio play, camera access, geolocation, displaying banners, etc.
----
-###Templates
-**[Learn templates](templates.md)**<br>
-You can use templates to dynamically render data, such as remote network content, local data, and user input.
----
-# Examples
-Actual JSON examples you can try out with Jasonette:
-
-**[Try examples here](examples.md)**
-
 
 ---
 
