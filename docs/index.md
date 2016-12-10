@@ -20,7 +20,7 @@ This means what you see here is just the beginning. Sounds interesting? Stay in 
 	</tr>
 	<tr>
 		<td class='span4'><a href='https://www.twitter.com/jasonclient'><h1><i class='icon fa-twitter fa-1x'></i></h1>@jasonclient</a></td>
-		<td class='span4'><a href='https://wwww.github.com/Jasonette/JASONETTE-iOS'><h1><i class='icon fa-github fa-1x'></i></h1>JASONETTE-iOS</a></td>
+		<td class='span4'><a href='https://www.github.com/Jasonette/JASONETTE-iOS'><h1><i class='icon fa-github fa-1x'></i></h1>JASONETTE-iOS</a></td>
 		<td class='span4'><a href='https://wwww.github.com/Jasonette/JASONETTE-Android'><h1><i class='icon fa-github fa-1x'></i></h1>JASONETTE-Android</a></td>
 	</tr>
 </table>
