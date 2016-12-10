@@ -4,7 +4,12 @@ body {
 .btn{
   background: #8bb92d;
   padding: 10px;
-  font-size: 15px;
+  margin: 5px;
+}
+.btn i{
+  font-size: 30px;
+  margin: 10px;
+  display: inline-block !important;
 }
 .__slackin{
   z-index: 100000000000;
@@ -184,7 +189,9 @@ ul.nav li:not(.main){
 }
 #mce-EMAIL{
   width: 300px;
+  max-width: 100%;
   border: 2px solid #8bb92d;
+  margin: 2px;
 }
 #mc-embedded-subscribe{
   background: #8bb92d;
@@ -192,6 +199,7 @@ ul.nav li:not(.main){
   color: white;
   border:none;
   font-size: 13px;
+  margin: 2px;
 }
 #mc-embedded-subscribe-form{
   background: #f1f1f1;
@@ -200,7 +208,8 @@ ul.nav li:not(.main){
   margin: 10px 0;
 }
 img.download{
-  width: 45%;
+  max-height: 50px;
+  margin: 5px 0;
 }
 img.screenshot{
   max-width: 400px;
@@ -259,11 +268,18 @@ table.equalwidth th.span4, table.equalwidth td.span4{
 table.equalwidth h1{
   color: black;
 }
+table.equalwidth h1 small{
+  font-size: 14px;
+}
 table.equalwidth h3{
   margin: 10px 0 !important;
+  font-size: 16px;
 }
 table.equalwidth td{
   vertical-align: top !important;
   padding: 10px 20px 20px !important;
   background: white !important;
+}
+table.equalwidth li{
+  margin-left: 10px !important;
 }
