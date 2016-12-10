@@ -129,7 +129,7 @@ There are two ways to get started. Pick either Jasonette or Jason.
 	<tr>
 		<td class='span6'>
 			<h3>Setup</h3>
-			<a href='/ios' class='btn'><i class='fa fa-apple'></i><br>Jasonette<br>iOS</a> <a href='/android' class='btn'><i class='fa fa-android'></i><br>Jasonette<br>android</a>
+			<a href='ios' class='btn'><i class='fa fa-apple'></i><br>Jasonette<br>iOS</a> <a href='android' class='btn'><i class='fa fa-android'></i><br>Jasonette<br>android</a>
 		</td>
 		<td class='span6'>
 			<h3>Download</h3>
