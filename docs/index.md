@@ -19,9 +19,9 @@ This means what you see here is just the beginning. Sounds interesting? Stay in 
 		<th class='span4'>Github Android</th>
 	</tr>
 	<tr>
-		<td class='span4'><a href='https://www.twitter.com/jasonclient'><h1><i class='icon fa-twitter fa-1x'></i></h1>@gliechtenstein</a></td>
+		<td class='span4'><a href='https://www.twitter.com/jasonclient'><h1><i class='icon fa-twitter fa-1x'></i></h1>@jasonclient</a></td>
 		<td class='span4'><a href='https://wwww.github.com/Jasonette/JASONETTE-iOS'><h1><i class='icon fa-github fa-1x'></i></h1>JASONETTE-iOS</a></td>
-		<td class='span4'><a href='https://wwww.github.com/Jasonette/JASONETTE-android'><h1><i class='icon fa-github fa-1x'></i></h1>JASONETTE-android</a></td>
+		<td class='span4'><a href='https://wwww.github.com/Jasonette/JASONETTE-Android'><h1><i class='icon fa-github fa-1x'></i></h1>JASONETTE-Android</a></td>
 	</tr>
 </table>
 
@@ -72,7 +72,7 @@ This means what you see here is just the beginning. Sounds interesting? Stay in 
 
 <br>
 
-# Quickstart
+# ⚡️Quickstart
 
 <br>
 
@@ -101,10 +101,10 @@ There are two ways to get started. Pick either Jasonette or Jason.
 		<td class='span6'>
 			<h3>When to use</h3>
 			<ul>
-				<li>For quick prototyping</li>
 				<li>Start building without setting up development environment like XCode or Android Studio</li>
+				<li>Useful for quick prototyping</li>
 				<li>Bookmark and run multiple Jasonette apps from a single app</li>
-				<li>Apps that don't need to be published to the app store</li>
+				<li>Good for apps that don't need to be published to the app store</li>
 			</ul>
 		</td>
 	</tr>
@@ -129,7 +129,7 @@ There are two ways to get started. Pick either Jasonette or Jason.
 	<tr>
 		<td class='span6'>
 			<h3>Setup</h3>
-			<a href='ios' class='btn'><i class='fa fa-apple'></i><br>Jasonette<br>iOS</a> <a href='android' class='btn'><i class='fa fa-android'></i><br>Jasonette<br>android</a>
+			<a href='ios' class='btn'><i class='fa fa-apple'></i><br>Download<br>Jasonette<br>iOS</a> <a href='android' class='btn'><i class='fa fa-android'></i><br>Download<br>Jasonette<br>Android</a>
 		</td>
 		<td class='span6'>
 			<h3>Download</h3>

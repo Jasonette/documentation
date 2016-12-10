@@ -7,7 +7,7 @@
 <div class='well'>
 Jasonette itself is a pre-built app.<br>All you need to do is download Jasonette and build with <a href='https://developer.android.com/studio/index.html'>Android Studio</a>.
 <br><br>
-<a href='https://github.com/Jasonette/JASONETTE-android/archive/master.zip' class='btn'><i class='fa fa-download'></i> Download Jasonette-android</a>
+<a href='https://github.com/Jasonette/JASONETTE-Android/archive/master.zip' class='btn'><i class='fa fa-download'></i> Download Jasonette-android</a>
 </div>
 
 <img src='../images/android_1.png' class='large'>
@@ -54,9 +54,6 @@ Then find `app` > `java` > `com.jasonette.seed` > `JasonSettings`.
 Update the return value for the url to your own JSON url. That's it!
 
 If you don't have a JSON yet, [here are some example apps you can try quickly](/examples)
-
-<img src='/images/android_5.png' class='large'>
-
 
 ---
 
