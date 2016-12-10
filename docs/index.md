@@ -19,9 +19,9 @@ This means what you see here is just the beginning. Sounds interesting? Stay in 
 		<th class='span4'>Github Android</th>
 	</tr>
 	<tr>
-		<td class='span4'><a href='https://www.twitter.com/jasonclient'><h1><i class='icon fa-twitter fa-2x'></i></h1>@gliechtenstein</a></td>
-		<td class='span4'><a href='https://wwww.github.com/Jasonette/JASONETTE-iOS'><h1><i class='icon fa-github fa-2x'></i></h1>JASONETTE-iOS</a></td>
-		<td class='span4'><a href='https://wwww.github.com/Jasonette/JASONETTE-android'><h1><i class='icon fa-github fa-2x'></i></h1>JASONETTE-android</a></td>
+		<td class='span4'><a href='https://www.twitter.com/jasonclient'><h1><i class='icon fa-twitter fa-1x'></i></h1>@gliechtenstein</a></td>
+		<td class='span4'><a href='https://wwww.github.com/Jasonette/JASONETTE-iOS'><h1><i class='icon fa-github fa-1x'></i></h1>JASONETTE-iOS</a></td>
+		<td class='span4'><a href='https://wwww.github.com/Jasonette/JASONETTE-android'><h1><i class='icon fa-github fa-1x'></i></h1>JASONETTE-android</a></td>
 	</tr>
 </table>
 
@@ -54,7 +54,7 @@ This means what you see here is just the beginning. Sounds interesting? Stay in 
 	<tr>
 		<td class='span6'>
 			<a href='https://jasonette.herokuapp.com'><img src='images/slack.png'></a>
-			<p><script async defer src="https://jasonette.herokuapp.com/slackin.js?large"></script></p>
+			<p><script async defer src="https://jasonette.herokuapp.com/slackin.js"></script></p>
 		</td>
 		<td class='span6'>
 			<a href='https://forum.jasonette.com'>
@@ -84,8 +84,8 @@ There are two ways to get started. Pick either Jasonette or Jason.
 
 <table class='equalwidth'>
 	<tr>
-		<th class='span6'><h1>{ ˃̵̑ᴥ˂̵̑}<br>jasonette</h1></th>
-		<th class='span6'><h1>{ ·ᴥ·}<br>jason</h1></th>
+		<th class='span6'><h1>{ ˃̵̑ᴥ˂̵̑}<br><small>jasonette</small></h1></th>
+		<th class='span6'><h1>{ ·ᴥ·}<br><small>jason</small></h1></th>
 	</tr>
 	<tr>
 		<td class='span6'><h3>What is it?</h3>The open source app engine that lets you make your own publishable app.</td>
@@ -129,7 +129,7 @@ There are two ways to get started. Pick either Jasonette or Jason.
 	<tr>
 		<td class='span6'>
 			<h3>Setup</h3>
-			<a href='/ios' class='btn'><i class='fa fa-apple'></i> Jasonette-iOS</a> <a href='/android' class='btn'><i class='fa fa-android'></i> Jasonette-android</a>
+			<a href='/ios' class='btn'><i class='fa fa-apple'></i><br>Jasonette<br>iOS</a> <a href='/android' class='btn'><i class='fa fa-android'></i><br>Jasonette<br>android</a>
 		</td>
 		<td class='span6'>
 			<h3>Download</h3>
