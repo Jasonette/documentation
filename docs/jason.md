@@ -1,4 +1,5 @@
 # What is Jason?
+<div class='huge'>{ ·ᴥ·}</div>
 
 Jason is a single app that lets you summon and bookmark multiple Jasonette apps simply by entering the JSON url, <b>without building your own physical app or setting up development environment.</b>
 
@@ -30,7 +31,11 @@ It's good for [prototyping, development, beta testing, etc.](#how-is-it-differen
 
 <br>
 
-# How is it different from Jasonette?
+# How is related to Jasonette?
+
+Maybe it's easier if we put it this way:
+
+<h2>Chrome : Webkit = Jason : Jasonette</h2>
 
 <br>
 
