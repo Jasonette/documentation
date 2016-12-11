@@ -37,7 +37,7 @@ Connect your phone and click play on XCode. Done!
 <br>
 
   - ###YES?
-    - Congratulations! You're ready to transform this into your OWN app! Go on to the next section.
+    - Congratulations! You're ready to transform this into your OWN app! Go on to the [tutorial](../#step-2-learn)
 
 <br>
 

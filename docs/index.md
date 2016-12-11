@@ -1,16 +1,18 @@
-# First Things First
+# About the Project
 
-Hello there! Jasonette is a young and fast-evolving project.
+---
 
+<b class='large'>⚡️ Let's power anything and everything with JSON.</b>
 
-<b>Our mission is to power anything and everything with JSON.</b>
+The goal is to express, store, and transmit all kinds of application logic in JSON, over HTTP.
 
+This will open doors to many things that weren't possible before.
 
-This means what you see here is just the beginning. Sounds interesting? Stay in touch:
+Sounds exciting? Follow the project. Stay in touch. Join us.
 
-<br>
+---
 
-##Follow the project
+##■ Follow the project
 
 <table class='equalwidth follow'>
 	<tr>
@@ -44,7 +46,7 @@ This means what you see here is just the beginning. Sounds interesting? Stay in 
 
 <br>
 
-##Join the community
+##■ Join the community
 
 <table class='equalwidth follow'>
 	<tr>
@@ -72,7 +74,7 @@ This means what you see here is just the beginning. Sounds interesting? Stay in 
 
 <br>
 
-# ⚡️Quickstart
+#Quickstart
 
 <br>
 
@@ -88,8 +90,8 @@ There are two ways to get started. Pick either Jasonette or Jason.
 		<th class='span6'><h1>{ ·ᴥ·}<br><small>jason</small></h1></th>
 	</tr>
 	<tr>
-		<td class='span6'><h3>What is it?</h3>The open source app engine that lets you make your own publishable app.</td>
-		<td class='span6'><h3>What is it?</h3>A standalone browser that can bookmark and run multiple Jasonette apps without setup.</td>
+		<td class='span6'><h3>What is it?</h3>The open source app engine that lets you build your own publishable app.</td>
+		<td class='span6'><h3>What is it?</h3>A standalone browser that can bookmark and run multiple Jasonette apps without building your own.</td>
 	</tr>
 	<tr>
 		<td class='span6'>
@@ -101,10 +103,10 @@ There are two ways to get started. Pick either Jasonette or Jason.
 		<td class='span6'>
 			<h3>When to use</h3>
 			<ul>
-				<li>Start building without setting up development environment like XCode or Android Studio</li>
+				<li>Start building without a development environment like XCode or Android Studio</li>
 				<li>Useful for quick prototyping</li>
 				<li>Bookmark and run multiple Jasonette apps from a single app</li>
-				<li>Good for apps that don't need to be published to the app store</li>
+				<li>Build apps that can't be / don't need to be published to the app store</li>
 			</ul>
 		</td>
 	</tr>
@@ -129,7 +131,7 @@ There are two ways to get started. Pick either Jasonette or Jason.
 	<tr>
 		<td class='span6'>
 			<h3>Setup</h3>
-			<a href='ios' class='btn'><i class='fa fa-apple'></i><br>Download<br>Jasonette<br>iOS</a> <a href='android' class='btn'><i class='fa fa-android'></i><br>Download<br>Jasonette<br>Android</a>
+			<a href='ios' class='btn'><i class='fa fa-apple'></i><br>Download<br>Jasonette<br>iOS</a><a href='android' class='btn'><i class='fa fa-android'></i><br>Download<br>Jasonette<br>Android</a>
 		</td>
 		<td class='span6'>
 			<h3>Download</h3>
@@ -155,8 +157,28 @@ Before we dive in, do you know JSON? If not, just check out [this tutorial](http
 
 <br><br>
 
-### B. Learn the basics
-This video walks you through the basics of Jasonette, such as how it works, how to get started, etc.
+### B. Get a JSON server
+
+You'll be serving your entire app from a server, so you will need somewhere to host JSON, just like you need somewhere to host websites. There are many ways to do this:
+
+<div class='well'>
+<h3><a href='https://www.jasonbase.com'>1. Jasonbase.com (https://www.jasonbase.com)</a></h3>
+<b>Recommended.</b> I built Jasonbase because there was no easy way to host, edit, and serve JSON instantly. I've now opened it up to the community so anyone can get up and running instantly. This is the site I use in the tutorial videos. <b>You can use it for FREE.</b>
+
+<br><br>
+<h3>2. Code hosting or pastebin sites</h3>
+You can also use <a href='https://www.github.com'>Github</a> or <a href='http://pastebin.com'>Pastebin</a>. I don't recommend this for development because these sites are <b>NOT built for this type of usage</b>. They actually discourage you from using them as API endpoint. Lastly, their content is cached, so they'll keep sending the old response for a while everytime you update your JSON, which is a pain. <b>However, you can use them to share / open source your JSON files AFTER you're done though.</b>
+
+<br><br>
+
+<h3>3. Plug into your existing server</h3>
+You can skip all this and set up your own web app with a JSON endpoint, or just plug into your existing web app.
+
+</div>
+<br><br>
+
+### C. Learn the basics
+This video walks you through the basics of Jasonette, such as how it works, how to get started, etc. It was shot using iOS but it basically works the same for Android.
 <br><br>
 <div class='video-container'>
 <iframe width="640" height="360" src="https://www.youtube.com/embed/hfevBAAfCMQ?rel=0" frameborder="0" allowfullscreen></iframe>
@@ -164,7 +186,7 @@ This video walks you through the basics of Jasonette, such as how it works, how 
 
 <br><br>
 
-### C. Learn JASON syntax
+### D. Learn JASON syntax
 This video teaches you how to actually write a JSON markup to build sophisticated interactive layouts.
 <br><br>
 <div class='video-container'>
