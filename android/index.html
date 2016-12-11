@@ -94,6 +94,14 @@
             
                 <li class="toctree-l3"><a href="#step-6-customize">Step 6. CUSTOMIZE!</a></li>
                 
+                    <li><a class="toctree-l4" href="#a-update-json-url">A. Update JSON URL</a></li>
+                
+                    <li><a class="toctree-l4" href="#b-update-app-name">B. Update App name</a></li>
+                
+                    <li><a class="toctree-l4" href="#c-update-app-icon">C. Update App icon</a></li>
+                
+                    <li><a class="toctree-l4" href="#d-update-app-id-important">D. Update App ID (Important!)</a></li>
+                
             
                 <li class="toctree-l3"><a href="#did-it-work">★ Did it work?</a></li>
                 
@@ -193,6 +201,13 @@
     </li>
 <li>
           
+            <li>
+    <li class="toctree-l1 ">
+        <a class="" href="../jason/">■ Jason</a>
+        
+    </li>
+<li>
+          
         </ul>
       </div>
       &nbsp;
@@ -230,12 +245,16 @@
               
                 <h1><i class='icon fa-android'></i> Set up Jasonette android</h1>
 
-<p><br></p>
+<div class='banner'>
+<i class='icon fa-exclamation-circle'></i> Want to skip the setup and try Jasonette without building your own app? - <a href='/jason'><b>Try Jason.</b></a>
+</div>
+
+<hr />
 <h2 id="step-1-download-and-unzip">Step 1. DOWNLOAD AND UNZIP</h2>
 <div class='well'>
 Jasonette itself is a pre-built app.<br>All you need to do is download Jasonette and build with <a href='https://developer.android.com/studio/index.html'>Android Studio</a>.
 <br><br>
-<a href='https://github.com/Jasonette/JASONETTE-Android/archive/master.zip' class='btn'><i class='fa fa-download'></i> Download Jasonette-android</a>
+<a href='https://github.com/Jasonette/JASONETTE-Android/archive/master.zip' class='btn'><i class='fa fa-download'></i> Download Jasonette-Android</a>
 </div>
 
 <p><img src='../images/android_1.png' class='large'></p>
@@ -257,9 +276,41 @@ Jasonette itself is a pre-built app.<br>All you need to do is download Jasonette
 <h2 id="step-6-customize">Step 6. CUSTOMIZE!</h2>
 <p>Now let's try changing the JSON url so you can turn it into your own app.</p>
 <p>First, click the "Project" tab on the left side.</p>
-<p>Then find <code>app</code> &gt; <code>java</code> &gt; <code>com.jasonette.seed</code> &gt; <code>JasonSettings</code>.</p>
-<p>Update the return value for the url to your own JSON url. That's it!</p>
+<p>Then find <code>app</code> &gt; <code>res</code> &gt; <code>values</code> &gt; <code>strings.xml</code>.</p>
+<p><img src='../images/stringsxml.png' class='large'></p>
+<p><br></p>
+<h3 id="a-update-json-url">A. Update JSON URL</h3>
+<p>Update the <code>url</code> property inside <code>strings.xml</code> to your own JSON url. That's it! Build and run the app and you'll find that it's turned into your own app!</p>
 <p>If you don't have a JSON yet, <a href="../examples">here are some example apps you can try quickly</a></p>
+<p><br></p>
+<h3 id="b-update-app-name">B. Update App name</h3>
+<p>By default the app is named "Jasonette". You probably want to change this. From the same <code>strings.xml</code> file, change the <code>app_name</code> value to your desired app name.</p>
+<p><br></p>
+<h3 id="c-update-app-icon">C. Update App icon</h3>
+<p><strong>Step 1. Create new Image Asset</strong></p>
+<p>Select <code>app</code> &gt; <code>res</code> and right-click to display a context menu. Then select <code>New</code> &gt; <code>Image Asset</code>. </p>
+<p><img src='../images/icon_step1.png' class='large'></p>
+<p><br></p>
+<p><strong>Step 2. Select your image</strong></p>
+<p>Select <code>image</code> as Asset Type, and select the <code>path</code> to the image you want to use.</p>
+<p><img src='../images/icon_step2.png' class='large'></p>
+<p><br></p>
+<p><strong>Step 3. Confirm and finish</strong></p>
+<p>It will display some warning about overwriting existing icon. You're overwriting the default icon with your own so it's natural. Press Finish.
+<br>
+<img src='../images/icon_step3.png' class='large'></p>
+<p><br></p>
+<h3 id="d-update-app-id-important">D. Update App ID (Important!)</h3>
+<p>This is important if you want to submit to the play store, since this is the ID that distinguishes one app from another.</p>
+<p>To change this ID, go to: <code>Gradle Scripts</code> &gt; <code>build.gradle (Module: app)</code>, and find the <code>applicationId</code> attribute.</p>
+<p>It should be <code>com.jasonette</code> by default.</p>
+<ol>
+<li>Change this to your own unique ID. (In this example I've changed it to <code>com.jasonette.seed</code>)</li>
+<li>Press "Sync Now" at the top right corner, and rebuild.</li>
+</ol>
+<p>To learn more, <a href="https://developer.android.com/studio/build/application-id.html">read this documentation</a>.</p>
+<p><img src='../images/gradle.png' class='large'></p>
+<p><br></p>
 <hr />
 <h2 id="did-it-work">★ Did it work?</h2>
 <p><br></p>
@@ -267,7 +318,7 @@ Jasonette itself is a pre-built app.<br>All you need to do is download Jasonette
 <li>
 <h3 id="yes">YES?</h3>
 <ul>
-<li>Congratulations! You're ready to transform this into your OWN app! Go on to the next section.</li>
+<li>Congratulations! You're ready to transform this into your OWN app! Go on to the <a href="../../#step-2-learn">tutorial</a>.</li>
 </ul>
 </li>
 </ul>
@@ -282,7 +333,7 @@ Jasonette itself is a pre-built app.<br>All you need to do is download Jasonette
 </ul>
 <hr />
 <h1 id="submitting-to-the-play-store">Submitting to the play store</h1>
-<p><a href="https://support.google.com/googleplay/android-developer/answer/113469?hl=en">Check out this documentation</a> on how to submit to the play store.</p>
+<p><a href="https://support.google.com/googleplay/android-developer/answer/113469?hl=en">Check out this documentation</a> to learn how to submit to the play store.</p>
 <hr />
 <h1 id="troubleshoot">Troubleshoot</h1>
 <h2 id="need-more-help">Need more help?</h2>

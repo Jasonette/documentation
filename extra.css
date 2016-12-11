@@ -1,15 +1,33 @@
 body {
   background: white;
 }
+code{
+  padding: 0 5px;
+  font-size: 80%;
+}
 .btn{
   background: #8bb92d;
-  padding: 10px;
+  padding: 5px 10px 15px;
   margin: 5px;
+  font-size: 12px;
+  font-weight: bold;
 }
 .btn i{
   font-size: 30px;
   margin: 10px;
   display: inline-block !important;
+}
+.well .btn{
+  padding: 10px;
+  margin: 0;
+}
+.well .btn i{
+  font-size: 16px;
+  margin: 0;
+}
+.well h3{
+  font-family: "Helvetica Neue", helvetica;
+  padding: 5px 0;
 }
 .__slackin{
   z-index: 100000000000;
@@ -28,6 +46,9 @@ body {
   left: 0;
   width: 100%;
   height: 100%;
+}
+b.large{
+  font-size: 30px;
 }
 pre{
 /*
@@ -162,7 +183,7 @@ code{
   font-size:12px !important;
 }
 */
-code, .rst-content tt{
+.rst-content tt{
   font-size: 100%;
 }
 h3, h4, h5, h6{
@@ -215,7 +236,7 @@ img.screenshot{
   max-width: 400px;
 }
 div.row img.image{
-  width: 150px !important;
+  width: 100px !important;
   margin: 20px;
 }
 div.row a{
@@ -227,6 +248,13 @@ div.row:hover{
 div.row h3{
   display: inline;
 }
+div.banner{
+  padding: 30px;
+  background: #f7ffc9;
+  margin: 20px 0;
+  border-radius: 5px;
+  color: #7fbc03;
+}
 h3{
   margin: 0 !important;
 }
@@ -234,11 +262,23 @@ h3{
   margin: 10px 0;
   padding: 20px;
   background: #f2f2f2;
+  font-family: "Helvetica Neue", helvetica;
+  font-size: 14px;
 }
 .group li{
   padding: 5px;
   font-size: 20px;
   line-height: 30px;
+}
+table.equalwidth.center td, table.equalwidth.center th{
+  text-align: center;
+  background: #f9f9f9 !important;
+  border: none !important;
+}
+table.center.equalwidth img.logo{
+  height: 100px !important;
+  width: auto !important;
+  margin: 10px;
 }
 table.equalwidth th.span6, table.equalwidth td.span6{
   width: 50%; 
@@ -254,10 +294,10 @@ table.equalwidth.follow td{
 table.equalwidth.follow td a{
   display: block;
   padding: 10px;
-  color: #8bb92d;
+  color: #3091d1;
 }
 table.equalwidth.follow td a i{
-  color: #8bb92d;
+  color: #3091d1;
 }
 table.equalwidth.follow td a:hover{
   background: #ebebeb;
@@ -282,4 +322,9 @@ table.equalwidth td{
 }
 table.equalwidth li{
   margin-left: 10px !important;
+  line-height: 18px;
+  padding: 5px 0;
+}
+.green{
+  color:#8bb92d !important;
 }
