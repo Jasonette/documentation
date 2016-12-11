@@ -77,7 +77,7 @@ Sounds exciting? Follow the project. Stay in touch. Join us.
 
 <br>
 
-<h2 class='green'>Step 1. Download</h2>
+##Step 1. Download
 
 Go download and come back, we'll wait.
 <br><br>
@@ -111,7 +111,7 @@ Go download and come back, we'll wait.
 
 <br>
 
-<h2 class='green'>Step 2. Learn</h2>
+##Step 2. Learn
 
 Watch the 2 videos below and you'll have learned everything you need to know to get started.
 
@@ -168,7 +168,7 @@ This video teaches you how to actually write a JSON markup to build sophisticate
 
 <br>
 
-<h2 class='green'>Step 3. Learn more (Documentation)</h2>
+##Step 3. Learn more (Reference)
 
 <br>
 
