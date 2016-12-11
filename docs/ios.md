@@ -2,7 +2,7 @@
 Ready? Let's get your first Jasonette app on your phone, in 20 seconds! [Interested in manual setup?](#manual-setup)
 
 <div class='banner'>
-<i class='icon fa-exclamation-circle'></i> Want to skip the setup and try Jasonette without building your own app? - <a href='/jason'><b>Try Jason.</b></a>
+<i class='icon fa-exclamation-circle'></i> Want to skip the setup and try Jasonette without building your own app? - <a href='../jason'><b>Try Jason.</b></a>
 </div>
 
 ---

@@ -1,7 +1,7 @@
 <h1><i class='icon fa-android'></i> Set up Jasonette android</h1>
 
 <div class='banner'>
-<i class='icon fa-exclamation-circle'></i> Want to skip the setup and try Jasonette without building your own app? - <a href='/jason'><b>Try Jason.</b></a>
+<i class='icon fa-exclamation-circle'></i> Want to skip the setup and try Jasonette without building your own app? - <a href='../jason'><b>Try Jason.</b></a>
 </div>
 
 ---
