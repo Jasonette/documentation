@@ -80,7 +80,7 @@ Sounds exciting? Follow the project. Stay in touch. Join us.
 <h2 class='green'>Step 1. Download</h2>
 
 Go download and come back, we'll wait.
-<br>
+<br><br>
 
 <table class='equalwidth follow'>
 	<tr>
@@ -89,14 +89,14 @@ Go download and come back, we'll wait.
 	</tr>
 	<tr>
 		<td class='span6'>
-      <a href="/ios">
+      <a href="ios">
         <i class='icon fa-apple fa-5x'></i>
         <br><br>
         iOS Setup
       </a>
 		</td>
 		<td class='span6'>
-      <a href="/android">
+      <a href="android">
         <i class='icon fa-android fa-5x'></i>
         <br><br>
         Android Setup
