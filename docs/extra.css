@@ -48,7 +48,7 @@ code{
   height: 100%;
 }
 b.large{
-  font-size: 25px;
+  font-size: 30px;
 }
 pre{
 /*
@@ -236,7 +236,7 @@ img.screenshot{
   max-width: 400px;
 }
 div.row img.image{
-  width: 150px !important;
+  width: 100px !important;
   margin: 20px;
 }
 div.row a{
@@ -247,6 +247,13 @@ div.row:hover{
 }
 div.row h3{
   display: inline;
+}
+div.banner{
+  padding: 30px;
+  background: #f7ffc9;
+  margin: 20px 0;
+  border-radius: 5px;
+  color: #7fbc03;
 }
 h3{
   margin: 0 !important;
@@ -262,6 +269,16 @@ h3{
   padding: 5px;
   font-size: 20px;
   line-height: 30px;
+}
+table.equalwidth.center td, table.equalwidth.center th{
+  text-align: center;
+  background: #f9f9f9 !important;
+  border: none !important;
+}
+table.center.equalwidth img.logo{
+  height: 100px !important;
+  width: auto !important;
+  margin: 10px;
 }
 table.equalwidth th.span6, table.equalwidth td.span6{
   width: 50%; 
@@ -307,4 +324,7 @@ table.equalwidth li{
   margin-left: 10px !important;
   line-height: 18px;
   padding: 5px 0;
+}
+.green{
+  color:#8bb92d !important;
 }

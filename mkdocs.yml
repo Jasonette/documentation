@@ -17,6 +17,7 @@ pages:
 - ■ Convention: convention.md
 - ■ Extending Jasonette (advanced): advanced.md
 - ■ Troubleshoot: faq.md
+- ■ Jason: jason.md
 theme: readthedocs
 #theme: simplex
 #theme: flatly

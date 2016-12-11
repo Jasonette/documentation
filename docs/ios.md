@@ -1,7 +1,11 @@
 <h1><i class='icon fa-apple'></i> Set up Jasonette iOS</h1>
 Ready? Let's get your first Jasonette app on your phone, in 20 seconds! [Interested in manual setup?](#manual-setup)
 
-<br>
+<div class='banner'>
+<i class='icon fa-exclamation-circle'></i> Want to skip the setup and try Jasonette without building your own app? - <a href='/jason'><b>Try Jason.</b></a>
+</div>
+
+---
 
 ##Step 1. DOWNLOAD
 

@@ -1,12 +1,11 @@
 # About the Project
 
----
 
-<b class='large'>⚡️ Let's power anything and everything with JSON.</b>
+<b class='large'>Power anything and everything with JSON.</b>
 
-The goal is to express, store, and transmit all kinds of application logic in JSON, over HTTP.
+This project's goal is to express, store, and transmit all kinds of application logic in JSON, over HTTP.
 
-This will open doors to many things that weren't possible before.
+This will enable many things that weren't possible before.
 
 Sounds exciting? Follow the project. Stay in touch. Join us.
 
@@ -78,71 +77,41 @@ Sounds exciting? Follow the project. Stay in touch. Join us.
 
 <br>
 
-##Step 1. Download (Choose Your Adventure!)
+<h2 class='green'>Step 1. Download</h2>
 
-There are two ways to get started. Pick either Jasonette or Jason.
-
+Go download and come back, we'll wait.
 <br>
 
-<table class='equalwidth'>
+<table class='equalwidth follow'>
 	<tr>
-		<th class='span6'><h1>{ ˃̵̑ᴥ˂̵̑}<br><small>jasonette</small></h1></th>
-		<th class='span6'><h1>{ ·ᴥ·}<br><small>jason</small></h1></th>
-	</tr>
-	<tr>
-		<td class='span6'><h3>What is it?</h3>The open source app engine that lets you build your own publishable app.</td>
-		<td class='span6'><h3>What is it?</h3>A standalone browser that can bookmark and run multiple Jasonette apps without building your own.</td>
+		<th class='span6'>iOS</th>
+		<th class='span6'>Android</th>
 	</tr>
 	<tr>
 		<td class='span6'>
-			<h3>When to use</h3>
-			<ul>
-				<li>To package up an app so you can publish to the app store</li>
-			</ul>
+      <a href="/ios">
+        <i class='icon fa-apple fa-5x'></i>
+        <br><br>
+        iOS Setup
+      </a>
 		</td>
 		<td class='span6'>
-			<h3>When to use</h3>
-			<ul>
-				<li>Start building without a development environment like XCode or Android Studio</li>
-				<li>Useful for quick prototyping</li>
-				<li>Bookmark and run multiple Jasonette apps from a single app</li>
-				<li>Build apps that can't be / don't need to be published to the app store</li>
-			</ul>
-		</td>
-	</tr>
-	<tr>
-		<td class='span6'>
-			<h3>How to use</h3>
-			<ol>
-				<li>Download Jasonette</li>
-				<li>Add your JSON url to the project</li>
-				<li>Build it in XCode or Android Studio</li>
-				<li>Publish to the app store or play store</li>
-			</ol>
-		</td>
-		<td class='span6'>
-			<h3>How to use</h3>
-			<ol>
-				<li>Download Jason from the app store</li>
-				<li>Enter your JSON url in the address bar</li>
-			</ol>
-		</td>
-	</tr>
-	<tr>
-		<td class='span6'>
-			<h3>Setup</h3>
-			<a href='ios' class='btn'><i class='fa fa-apple'></i><br>Download<br>Jasonette<br>iOS</a><a href='android' class='btn'><i class='fa fa-android'></i><br>Download<br>Jasonette<br>Android</a>
-		</td>
-		<td class='span6'>
-			<h3>Download</h3>
-			<a href='https://itunes.apple.com/us/app/jason./id1095557868?mt=8'><img src='images/appstore.png' class='download'></a> <a href='https://play.google.com/store/apps/details?id=com.jasonette.seed'><img src='images/playstore.png' class='download'></a>
+      <a href="/android">
+        <i class='icon fa-android fa-5x'></i>
+        <br><br>
+        Android Setup
+      </a>
 		</td>
 	</tr>
 </table>
 
 <br>
 
-##Step 2. Learn
+---
+
+<br>
+
+<h2 class='green'>Step 2. Learn</h2>
 
 Watch the 2 videos below and you'll have learned everything you need to know to get started.
 
@@ -163,11 +132,11 @@ You'll be serving your entire app from a server, so you will need somewhere to h
 
 <div class='well'>
 <h3><a href='https://www.jasonbase.com'>1. Jasonbase.com (https://www.jasonbase.com)</a></h3>
-<b>Recommended.</b> I built Jasonbase because there was no easy way to host, edit, and serve JSON instantly. I've now opened it up to the community so anyone can get up and running instantly. This is the site I use in the tutorial videos. <b>You can use it for FREE.</b>
+<b>Recommended.</b> Jasonbase was built because there was no easy way to host, edit, and serve JSON instantly. It's now been opened up to the community so anyone can get up and running instantly. This is the site used in the tutorial videos below. <b>You can use it for FREE.</b>
 
 <br><br>
 <h3>2. Code hosting or pastebin sites</h3>
-You can also use <a href='https://www.github.com'>Github</a> or <a href='http://pastebin.com'>Pastebin</a>. I don't recommend this for development because these sites are <b>NOT built for this type of usage</b>. They actually discourage you from using them as API endpoint. Lastly, their content is cached, so they'll keep sending the old response for a while everytime you update your JSON, which is a pain. <b>However, you can use them to share / open source your JSON files AFTER you're done though.</b>
+You can also use <a href='https://www.github.com'>Github</a> or <a href='http://pastebin.com'>Pastebin</a>. Not really recommended for development because these sites are <b>NOT built for this type of usage</b>. They actually discourage you from using them as API endpoint. Lastly, their content is cached, so they'll keep sending the old response for a while everytime you update your JSON, which is a pain. <b>However, you can use them to share / open source your JSON files AFTER you're done though.</b>
 
 <br><br>
 
@@ -199,7 +168,7 @@ This video teaches you how to actually write a JSON markup to build sophisticate
 
 <br>
 
-##Step 3. Learn more (Documentation)
+<h2 class='green'>Step 3. Learn more (Documentation)</h2>
 
 <br>
 
