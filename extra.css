@@ -328,3 +328,10 @@ table.equalwidth li{
 .green{
   color:#8bb92d !important;
 }
+.huge{
+  font-size: 100px;
+  padding: 50px;
+  font-family: "Helvetica Neue";
+  text-align: center;
+  font-weight: bold;
+}
