@@ -146,9 +146,9 @@ To learn more, [read this documentation](https://developer.android.com/studio/bu
 
 ## Need more help?
 
-  - **Slack - **  Come ask quick questions and share tips with other Jasonette users. [Join here](https://jasonette.herokuapp.com)
+  - **Slack - **  Come ask quick questions and share tips with other Jasonette users. [Join here](https://jasonette.now.sh)
 
-	<script async defer src="https://jasonette.herokuapp.com/slackin.js?large"></script>
+	<script async defer src="https://jasonette.now.sh/slackin.js?large"></script>
 
   - **Forum - **  Chat messages on Slack tend to flow away, so you may want to ask questions on the forum. Also it's good for future users who may have the same problem. All messages on the forum will be read. Visit here: [https://forum.jasonette.com](https://forum.jasonette.com)
 

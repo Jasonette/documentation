@@ -54,8 +54,8 @@ Sounds exciting? Follow the project. Stay in touch. Join us.
 	</tr>
 	<tr>
 		<td class='span6'>
-			<a href='https://jasonette.herokuapp.com'><img src='images/slack.png'></a>
-			<p><script async defer src="https://jasonette.herokuapp.com/slackin.js"></script></p>
+			<a href='https://jasonette.now.sh'><img src='images/slack.png'></a>
+			<p><script async defer src="https://jasonette.now.sh/slackin.js"></script></p>
 		</td>
 		<td class='span6'>
 			<a href='https://forum.jasonette.com'>

@@ -3,8 +3,8 @@
 
 Jason is a single app that lets you summon and bookmark multiple Jasonette apps simply by entering the JSON url, <b>without building your own physical app or setting up development environment.</b>
 
-It's good for [prototyping, development, beta testing, etc.](#how-is-it-different-from-jasonette).
-<br>
+It's good for [using as a container for single purpose apps or quick disposable apps, prototyping, beta testing, etc.](#how-is-it-different-from-jasonette).
+<br><br>
 
 <table class='equalwidth center'>
 	<tr>
@@ -57,6 +57,7 @@ Maybe it's easier if we put it this way:
         <li>Beta test your Jasonette app with friends before submitting to the app store. Just need to share URL</li>
 				<li>Bookmark and run multiple Jasonette apps from a single app</li>
 				<li>Build apps that can't be / don't need to be published to the app store</li>
+        <li>Disposable apps, private apps</li>
 			</ul>
 		</td>
 		<td class='span6'>
