@@ -1,15 +1,13 @@
-# About the Project
+# About the project
+Jasonette is a different way of making native apps.
 
-
-<b class='large'>Power anything and everything with JSON.</b>
-
-This project's goal is to express, store, and transmit all kinds of application logic in JSON, over HTTP.
-
-This will enable many things that weren't possible before.
-
-Sounds exciting? Follow the project. Stay in touch. Join us.
+Instead of programming an app on the device, you simply write a JSON file hosted on a server, and the Jasonette apps fetch and use it to build themselves on-demand whenever you open the app.
 
 ---
+
+Before we jump in, <b>here's where you can stay in touch with the project community:</b>
+
+<br>
 
 ##■ Follow the project
 
@@ -74,6 +72,16 @@ Sounds exciting? Follow the project. Stay in touch. Join us.
 <br>
 
 #Quickstart
+
+
+  1.  Download Jasonette for iOS or Android
+
+  2.  Write and host a JSON recipe that defines your app
+
+  3.  Add the JSON URL to Jasonette to turn it into your app 
+
+<br>
+
 
 <br>
 
