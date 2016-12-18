@@ -224,7 +224,7 @@ Do you get this alert when you press the `play` button?
 
 ## ■ "Offline mode"
 
-In the current implementation of Jasonette, this meesage means either:
+In the current implementation of Jasonette, this message means either:
 
 1. There's a problem with your network.
 2. There's something wrong with your JSON markup and Jasonette is not able to interpret it correctly.
