@@ -27,7 +27,7 @@ In JSON they look like this:
       "title": "...",
       "description: "...",
       "icon": "...",
-      "offline": "true/false",
+      "offline": "true",
       "styles": {
         ...
       },
@@ -98,9 +98,10 @@ An icon URL that represents your app.
 ---
 
 #head.offline
-Option to cache JSON file for offline use.
+Optional value to cache JSON file for offline use.
+Defaults to `true`.
+It doesn't matter what you set the value to; due to a quirk of Jasonette, just including it with any value makes it be counted as true.
 
-Can be `true` or `false`.
 Here's an example of how to use it:
 <pre><span style='color:silver;'>{
   "$jason": {
@@ -108,7 +109,7 @@ Here's an example of how to use it:
       "title": "Hellow World",
       "description": "This app displays 'Hello World' on the screen",
       "icon": "https://s3.amazonaws.com/jasonclient/hello.png",
-      <span style='color:black;'>"offline": "true",</span>
+      <span style='color:black;'>"offline": "true/yes/on",</span>
       ...
     },
     ...
