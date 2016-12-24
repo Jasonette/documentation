@@ -13,10 +13,11 @@ Head can contain the following attributes:
 1. title
 2. description
 3. icon
-4. styles
-5. actions
-6. templates
-7. data
+4. offline
+5. styles
+6. actions
+7. templates
+8. data
 
 In JSON they look like this:
 
@@ -26,6 +27,7 @@ In JSON they look like this:
       "title": "...",
       "description: "...",
       "icon": "...",
+      "offline": "true",
       "styles": {
         ...
       },
@@ -95,6 +97,26 @@ An icon URL that represents your app.
 
 ---
 
+#head.offline
+Optional value to cache JSON file for offline use.
+Defaults to `true`.
+It doesn't matter what you set the value to; due to a quirk of Jasonette, just including it with any value makes it be counted as true.
+
+Here's an example of how to use it:
+<pre><span style='color:silver;'>{
+  "$jason": {
+    "head": {
+      "title": "Hellow World",
+      "description": "This app displays 'Hello World' on the screen",
+      "icon": "https://s3.amazonaws.com/jasonclient/hello.png",
+      <span style='color:black;'>"offline": "true/yes/on",</span>
+      ...
+    },
+    ...
+  }
+}</span></pre>
+
+---
 #head.styles
 Declare commonly used style classes here so you can reuse them later.
 
@@ -936,7 +958,7 @@ Chat input at the bottom
 ##■  tabs
 Bottom tab bar
 
-**⚠️   DISCLAIMER: ONLY Use tabs at the root level (The first view that shows up on launch). Any other usage may introduce unexpected behavior.**
+**   DISCLAIMER: ONLY Use tabs at the root level (The first view that shows up on launch). Any other usage may introduce unexpected behavior.**
 
 ![footer tabs](images/footer_tabs.jpeg)
 
