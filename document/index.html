@@ -111,6 +111,9 @@
                 <li class="toctree-l3"><a href="#headicon">head.icon</a></li>
                 
             
+                <li class="toctree-l3"><a href="#headoffline">head.offline</a></li>
+                
+            
                 <li class="toctree-l3"><a href="#headstyles">head.styles</a></li>
                 
             
@@ -290,6 +293,7 @@
 <li>title</li>
 <li>description</li>
 <li>icon</li>
+<li>offline</li>
 <li>styles</li>
 <li>actions</li>
 <li>templates</li>
@@ -302,6 +306,7 @@
       "title": "...",
       "description: "...",
       "icon": "...",
+      "offline": "true",
       "styles": {
         ...
       },
@@ -363,6 +368,24 @@
   }
 }</span></pre>
 
+<hr />
+<h1 id="headoffline">head.offline</h1>
+<p>Optional value to cache JSON file for offline use.
+Defaults to <code>true</code>.
+It doesn't matter what you set the value to; due to a quirk of Jasonette, just including it with any value makes it be counted as true.</p>
+<p>Here's an example of how to use it:
+<pre><span style='color:silver;'>{
+  "$jason": {
+    "head": {
+      "title": "Hellow World",
+      "description": "This app displays 'Hello World' on the screen",
+      "icon": "https://s3.amazonaws.com/jasonclient/hello.png",
+      <span style='color:black;'>"offline": "true/yes/on",</span>
+      ...
+    },
+    ...
+  }
+}</span></pre></p>
 <hr />
 <h1 id="headstyles">head.styles</h1>
 <p>Declare commonly used style classes here so you can reuse them later.</p>
@@ -1141,7 +1164,7 @@ Let's go into more details:</p>
 </code></pre>
 <h2 id="tabs">■  tabs</h2>
 <p>Bottom tab bar</p>
-<p><strong>⚠️   DISCLAIMER: ONLY Use tabs at the root level (The first view that shows up on launch). Any other usage may introduce unexpected behavior.</strong></p>
+<p><strong>   DISCLAIMER: ONLY Use tabs at the root level (The first view that shows up on launch). Any other usage may introduce unexpected behavior.</strong></p>
 <p><img alt="footer tabs" src="../images/footer_tabs.jpeg" /></p>
 <hr />
 <h3 id="attributes_8">attributes</h3>
