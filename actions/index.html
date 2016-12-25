@@ -172,6 +172,8 @@
                 
                     <li><a class="toctree-l4" href="#reset">Reset</a></li>
                 
+                    <li><a class="toctree-l4" href="#keys-ios-only">── KEYS (iOS Only) ──</a></li>
+                
                     <li><a class="toctree-l4" href="#util">── UTIL ──</a></li>
                 
                     <li><a class="toctree-l4" href="#utilbanner">$util.banner</a></li>
@@ -721,7 +723,7 @@ In the example below, an <code>action</code> is attached to a <code>slider</code
 <hr />
 <h1 id="api">API</h1>
 <h2 id="view">──── VIEW ────</h2>
-<p>actions related to drawing views</p>
+<p>Actions related to drawing views</p>
 <hr />
 <h2 id="reload">$reload</h2>
 <p>Refreshes the view completely by re-fetching content from the current URL.</p>
@@ -1553,6 +1555,14 @@ Check out the full code on Github:</p>
   "type": "$cache.reset"
 }
 </code></pre>
+<hr />
+<h2 id="keys-ios-only">── KEYS (iOS Only) ──</h2>
+<p>Keys are used to store sensitive data (like auth tokens) that you don't want to store in the JSON file.</p>
+<hr />
+<p>Keys is especially useful for open-source projects, where you might not want contributors to have access to certain data.
+This is currently only supported on iOS, but there is an open issue for Android support <a href="https://github.com/Jasonette/JASONETTE-Android/issues/17">here</a></p>
+<p>To define keys, go to <code>settings.plist</code>. You'll see <code>client_id</code>, <code>client_secret</code>, <code>url</code>, and <code>loading</code>. You can create as many attributes as you want, and they are accessed with <code>$keys.____</code>.
+If you set <code>client_id</code>, you can access it with <code>$keys.client_id</code>, or you can create your own keys.</p>
 <hr />
 <h2 id="util">── UTIL ──</h2>
 <p>Utility and widget methods</p>
