@@ -451,7 +451,7 @@ Here's an example
 #API
 
 ##──── VIEW ────
-actions related to drawing views
+Actions related to drawing views
 
 ---
 
@@ -1359,6 +1359,18 @@ The following will wipe out all the cache values associated with the current vie
     {
       "type": "$cache.reset"
     }
+
+---
+
+##── KEYS (iOS Only) ──
+Keys are used to store sensitive data (like auth tokens) that you don't want to store in the JSON file.
+
+---
+Keys is especially useful for open-source projects, where you might not want contributors to have access to certain data.
+This is currently only supported on iOS, but there is an open issue for Android support [here](https://github.com/Jasonette/JASONETTE-Android/issues/17)
+
+To define keys, go to `settings.plist`. You'll see `client_id`, `client_secret`, `url`, and `loading`. You can create as many attributes as you want, and they are accessed with `$keys.____`.
+If you set `client_id`, you can access it with `$keys.client_id`, or you can create your own keys.
 
 ---
 
