@@ -25,7 +25,7 @@ In JSON they look like this:
   "$jason": {
     <span style='color:black;'>"head": {
       "title": "...",
-      "description: "...",
+      "description": "...",
       "icon": "...",
       "offline": "true",
       "styles": {
