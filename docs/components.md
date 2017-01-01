@@ -502,10 +502,10 @@ Map component
 Use to show banner and interstitial ads.
 Currently iOS only, open Android Issue here: [Ad support for Android #22](https://github.com/Jasonette/JASONETTE-Android/issues/22)
 
-#### Banner ads: 
+### Banner ads: 
 
-![banner_ads](images/ads_b.png)
+![ad_banner](images/ads_b.png)
 
-#### Interstitial ads:
+### Interstitial ads:
 
-![interstitial_ads](images/ads_i.png)
+![ad_interstitial](images/ads_i.png)
