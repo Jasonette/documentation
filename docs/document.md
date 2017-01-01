@@ -295,6 +295,45 @@ You can also drag/resize/rotate layers depending on how you define them.
 
 ---
 
+##■  ads
+Use to show banner and interstitial ads.
+Currently iOS only, open Android Issue here: [Ad support for Android #22](https://github.com/Jasonette/JASONETTE-Android/issues/22)
+
+### screenshots
+#### Banner ad: 
+![ad_banner](images/ads_b.png)
+#### Interstitial ad:
+![ad_interstitial](images/ads_i.png)
+
+### syntax
+
+####• `type`: `"admob"`
+####• `options`: Possible options for the ad
+  - `type`: `banner` or `interstitial`, for type of ad.
+  - `unitID`: AdMob Unit ID. Just a string of letters and numbers, e.g.: `ca-app-pub-6606303247985815/7014816684`
+  
+### Example
+
+    ...
+    "ads": [
+      {
+        "type": "admob",
+        "options": {
+          "type": "banner",
+          "unitId": "a14dccd0fb24d45"
+        }
+      },
+      {
+        "type": "admob",
+        "options": {
+          "type": "interstitial",
+          "unitId": "ca-app-pub-6606303247985815/7014816684"
+        }
+      }
+    ],
+    ...
+
+
 ---
 
 #body.header
