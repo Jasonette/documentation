@@ -10,6 +10,7 @@ Components are user interface elements that can be used in different places, suc
 - [html](#html)
 - [space](#space)
 - [map](#map)
+- [ads](#ads)
 - Don't see what you want? [You can add more!](advanced.md#extension)
 
 ---
@@ -443,6 +444,8 @@ You can also set the size of a space component.
   ]
 }</span></pre>
 
+---
+
 ##■  map
 
 Map component
@@ -492,3 +495,10 @@ Map component
         "height": "300"
       }
     }
+
+---
+
+##■  ads
+Use to show banner and interstitial ads.
+Currently iOS only, open Android Issue here: [Ad support for Android #22](https://github.com/Jasonette/JASONETTE-Android/issues/22)
+
