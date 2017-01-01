@@ -289,6 +289,14 @@ You can also drag/resize/rotate layers depending on how you define them.
 
 ---
 
+#body.ads
+
+`body.ads` describes the banner ads and the interstitial ads on the page
+
+---
+
+---
+
 #body.header
 
 `body.header` describes the top header bar and its components.
