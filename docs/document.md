@@ -301,9 +301,9 @@ Currently iOS only, open Android Issue here: [Ad support for Android #22](https:
 
 ### screenshots
 #### Banner ad: 
-![ad_banner](images/ads_b.png)
+![banner ad](images/ads_b.png)
 #### Interstitial ad:
-![ad_interstitial](images/ads_i.png)
+![interstital ad](images/ads_i.png)
 
 ### syntax
 
@@ -333,6 +333,27 @@ Currently iOS only, open Android Issue here: [Ad support for Android #22](https:
     ],
     ...
 
+### How to enable ads
+Ads aren't enabled by default, so you have to enable them. To enable them, do the following steps:
+
+1. Download the latest version of Jasonette from the `develop` branch and unzip: https://github.com/Jasonette/JASONETTE-iOS/archive/develop.zip
+2. Download CocoaPods from here: https://cocoapods.org/app
+3. Run CocoaPods. From the app menu, open `File > Open Podfile`. Then find the project folder you just unzipped. From the project folder, go into `app` folder and you should see a file called `Podfile`. Select that file and open it from CocoaPods app. You should see this screen:
+
+![enable ads image 1](images/ads_enable_1.png)
+
+4. Uncomment `pod 'GoogleMobileAds', '~> 7.8'` (By removing the `#` character) and press the `install` button in the top right corner. The install will start, after that you'll see the following screen:
+
+![enable ads image 2](images/ads_enable_2.png)
+
+Notice the green Installing GoogleMobileAds line from above screenshot. That means the library has been successfully installed into the project and you can use it.
+
+5. Now go to the root folder of your project and run Setup, and go through the setup process just like any other Jasonette project.
+6. You now need to turn on the Ad feature on Xcode. To do this, open `Jasonette > Config > Constants.h` file from in your Xcode workspace (which should have opened after the setup process), Uncomment `#define ADS 1` by removing the `//`. The result should look something like this:
+
+![enable ads image 3](images/ads_enable_3.png)
+
+And that's it! You should now be able to use ads in your project.
 
 ---
 
