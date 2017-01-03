@@ -336,7 +336,7 @@ Currently iOS only, open Android Issue here: [Ad support for Android #22](https:
 ### How to enable ads
 Ads aren't enabled by default, so you have to enable them. To enable them, do the following steps:
 
-1. Download the latest version of Jasonette from the `develop` branch and unzip: https://github.com/Jasonette/JASONETTE-iOS/archive/develop.zip
+1. Download the latest version of Jasonette from the `master` branch and unzip: [master branch download](https://github.com/Jasonette/JASONETTE-iOS/archive/master.zip)
 2. Download CocoaPods from here: https://cocoapods.org/app
 3. Run CocoaPods. From the app menu, open `File > Open Podfile`. Then find the project folder you just unzipped. From the project folder, go into `app` folder and you should see a file called `Podfile`. Select that file and open it from CocoaPods app. You should see this screen:
 
