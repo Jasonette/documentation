@@ -443,6 +443,8 @@ You can also set the size of a space component.
   ]
 }</span></pre>
 
+---
+
 ##■  map
 
 Map component
