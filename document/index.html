@@ -132,6 +132,11 @@
                 <li class="toctree-l3"><a href="#examples">examples</a></li>
                 
             
+                <li class="toctree-l3"><a href="#bodyads">body.ads</a></li>
+                
+                    <li><a class="toctree-l4" href="#ads">■  ads</a></li>
+                
+            
                 <li class="toctree-l3"><a href="#bodyheader">body.header</a></li>
                 
                     <li><a class="toctree-l4" href="#title">■ title</a></li>
@@ -528,6 +533,64 @@ It doesn't matter what you set the value to; due to a quirk of Jasonette, just i
 <p>Layers are images or labels that stay put on top of everything.</p>
 <p>You can also drag/resize/rotate layers depending on how you define them.</p>
 <hr />
+<h1 id="bodyads">body.ads</h1>
+<p><code>body.ads</code> describes the banner ads and the interstitial ads on the page</p>
+<hr />
+<h2 id="ads">■  ads</h2>
+<p>Use to show banner and interstitial ads.
+Currently iOS only, open Android Issue here: <a href="https://github.com/Jasonette/JASONETTE-Android/issues/22">Ad support for Android #22</a></p>
+<h3 id="screenshots">screenshots</h3>
+<h4 id="banner-ad">Banner ad:</h4>
+<p><img alt="banner ad" src="../images/ads_b.png" /></p>
+<h4 id="interstitial-ad">Interstitial ad:</h4>
+<p><img alt="interstital ad" src="../images/ads_i.png" /></p>
+<h3 id="syntax">syntax</h3>
+<h4 id="type-admob">• <code>type</code>: <code>"admob"</code></h4>
+<h4 id="options-possible-options-for-the-ad">• <code>options</code>: Possible options for the ad</h4>
+<ul>
+<li><code>type</code>: <code>banner</code> or <code>interstitial</code>, for type of ad.</li>
+<li><code>unitID</code>: AdMob Unit ID. Just a string of letters and numbers, e.g.: <code>ca-app-pub-6606303247985815/7014816684</code></li>
+</ul>
+<h3 id="example">Example</h3>
+<pre><code>...
+"ads": [
+  {
+    "type": "admob",
+    "options": {
+      "type": "banner",
+      "unitId": "a14dccd0fb24d45"
+    }
+  },
+  {
+    "type": "admob",
+    "options": {
+      "type": "interstitial",
+      "unitId": "ca-app-pub-6606303247985815/7014816684"
+    }
+  }
+],
+...
+</code></pre>
+<h3 id="how-to-enable-ads">How to enable ads</h3>
+<p>Ads aren't enabled by default, so you have to enable them. To enable them, do the following steps:</p>
+<ol>
+<li>Download the latest version of Jasonette from the <code>develop</code> branch and unzip: https://github.com/Jasonette/JASONETTE-iOS/archive/develop.zip</li>
+<li>Download CocoaPods from here: https://cocoapods.org/app</li>
+<li>Run CocoaPods. From the app menu, open <code>File &gt; Open Podfile</code>. Then find the project folder you just unzipped. From the project folder, go into <code>app</code> folder and you should see a file called <code>Podfile</code>. Select that file and open it from CocoaPods app. You should see this screen:</li>
+</ol>
+<p><img alt="enable ads image 1" src="../images/ads_enable_1.png" /></p>
+<ol>
+<li>Uncomment <code>pod 'GoogleMobileAds', '~&gt; 7.8'</code> (By removing the <code>#</code> character) and press the <code>install</code> button in the top right corner. The install will start, after that you'll see the following screen:</li>
+</ol>
+<p><img alt="enable ads image 2" src="../images/ads_enable_2.png" /></p>
+<p>Notice the green Installing GoogleMobileAds line from above screenshot. That means the library has been successfully installed into the project and you can use it.</p>
+<ol>
+<li>Now go to the root folder of your project and run Setup, and go through the setup process just like any other Jasonette project.</li>
+<li>You now need to turn on the Ad feature on Xcode. To do this, open <code>Jasonette &gt; Config &gt; Constants.h</code> file from in your Xcode workspace (which should have opened after the setup process), Uncomment <code>#define ADS 1</code> by removing the <code>//</code>. The result should look something like this:</li>
+</ol>
+<p><img alt="enable ads image 3" src="../images/ads_enable_3.png" /></p>
+<p>And that's it! You should now be able to use ads in your project.</p>
+<hr />
 <h1 id="bodyheader">body.header</h1>
 <p><code>body.header</code> describes the top header bar and its components.</p>
 <hr />
@@ -606,7 +669,7 @@ It doesn't matter what you set the value to; due to a quirk of Jasonette, just i
 </ul>
 </li>
 </ul>
-<h3 id="example">example</h3>
+<h3 id="example_1">example</h3>
 <ol>
 <li>The search component can trigger an action if you define one.</li>
 <li>Also the value inside the search input is automatically stored to the <a href="../actions/#variable">local variable</a> which you name by setting the <code>name</code> attribute.<ul>
@@ -676,7 +739,7 @@ It doesn't matter what you set the value to; due to a quirk of Jasonette, just i
 </ul>
 </li>
 </ul>
-<h3 id="example_1">example</h3>
+<h3 id="example_2">example</h3>
 <pre><code>{
   "$jason": {
     "head": {
@@ -868,7 +931,7 @@ Let's go into more details:</p>
 <li><code>href</code>: An <a href="../href/">href</a> to trigger when a user taps the item. See <a href="../href/">href reference</a> for details.</li>
 <li><code>menu</code>: menu to display when a user swipes the item to the left. See the next section to learn more.</li>
 </ul>
-<h3 id="example_2">example</h3>
+<h3 id="example_3">example</h3>
 <p>Here's an example:</p>
 <pre><code>{
   ...
@@ -925,7 +988,7 @@ Let's go into more details:</p>
 <p>section items can contain a sliding menu with multiple <code>items</code>, just like the iPhone mail app. </p>
 <p><img alt="item menu" src="../images/menu.gif" /></p>
 <p><br></p>
-<h4 id="syntax">syntax</h4>
+<h4 id="syntax_1">syntax</h4>
 <h5 id="items-array-of-actionable-items-each-item-can-have-the-following-attributes">■  <code>items</code>: array of actionable items. Each item can have the following attributes:</h5>
 <ul>
 <li><code>text</code>: Menu button text to display</li>
@@ -935,7 +998,7 @@ Let's go into more details:</p>
 </li>
 <li><code>action</code>: <a href="../actions/">action</a> to be executed when user selects this item</li>
 </ul>
-<h4 id="example_3">example</h4>
+<h4 id="example_4">example</h4>
 <pre><code>{
   ...
   {
@@ -1050,7 +1113,7 @@ Let's go into more details:</p>
 </ul>
 </li>
 </ul>
-<h3 id="example_4">example</h3>
+<h3 id="example_5">example</h3>
 <pre><code>{
   "layers": [
     {
@@ -1088,7 +1151,7 @@ Let's go into more details:</p>
 </ul>
 </li>
 </ul>
-<h3 id="example_5">example</h3>
+<h3 id="example_6">example</h3>
 <pre><code>{
   "layers": [
     {
@@ -1130,7 +1193,7 @@ Let's go into more details:</p>
 </ul>
 </li>
 </ul>
-<h3 id="example_6">example</h3>
+<h3 id="example_7">example</h3>
 <pre><code>{
   "footer": {
     "input": {
@@ -1185,7 +1248,7 @@ Let's go into more details:</p>
 <li><code>color:disabled</code>: deselected item color</li>
 <li><code>background</code>: background color of the entire tab bar</li>
 </ul>
-<h3 id="example_7">example</h3>
+<h3 id="example_8">example</h3>
 <pre><code>{
   "footer": {
     "tabs": {
