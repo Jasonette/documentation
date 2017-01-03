@@ -1,3 +1,5 @@
+[![Code Climate](https://codeclimate.com/github/Jasonette/documentation/badges/gpa.svg)](https://codeclimate.com/github/Jasonette/documentation)
+[![Issue Count](https://codeclimate.com/github/Jasonette/documentation/badges/issue_count.svg)](https://codeclimate.com/github/Jasonette/documentation)
 # JASONETTE DOCUMENTATION
 
 ###[View the generated documentation >](https://jasonette.github.io/documentation)
