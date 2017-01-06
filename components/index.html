@@ -301,12 +301,14 @@
 <hr />
 <h2 id="button">■  button</h2>
 <p>A basic component that responds to user tap.</p>
+<p>Can be either a text button or an image button, depending on what attributes are used.</p>
 <p><img alt="button component" src="../images/components_button.jpeg" /></p>
 <p><br></p>
 <h3 id="syntax_2">syntax</h3>
 <ul>
 <li><code>type</code>: <code>"button"</code></li>
-<li><code>text</code>: button text</li>
+<li><code>text</code>: button text (pick either <code>text</code> or <code>url</code>, can't have both)</li>
+<li><code>url</code>: button image url (pick either <code>text</code> or <code>url</code>, can't have both)</li>
 <li><code>style</code><ul>
 <li><code>width</code></li>
 <li><code>height</code></li>
@@ -318,9 +320,27 @@
 </li>
 </ul>
 <h3 id="example_2">Example</h3>
+<p><strong>Text button</strong></p>
+<p>Use <code>text</code> attribute to make it a label button</p>
 <pre><code>{
   "type": "button",
   "text": "Tap Me!",
+  "style": {
+    "width": "50",
+    "height": "50",
+    "background": "#00ff00",
+    "color": "#ffffff",
+    "font": "HelveticaNeue",
+    "size": "12",
+    "corner_radius": "25"
+  }
+}
+</code></pre>
+<p><strong>Image button</strong></p>
+<p>Use <code>url</code> attribute to make it an image button</p>
+<pre><code>{
+  "type": "button",
+  "url": "https://raw.githubusercontent.com/Jasonette/Jasonpedia/gh-pages/assets/krusty.png",
   "style": {
     "width": "50",
     "height": "50",
