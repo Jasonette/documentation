@@ -80,6 +80,8 @@ Image loaded from either remote url or data-url
 ##■  button
 A basic component that responds to user tap.
 
+Can be either a text button or an image button, depending on what attributes are used.
+
 
 ![button component](images/components_button.jpeg)
 
@@ -88,7 +90,8 @@ A basic component that responds to user tap.
 ###syntax
 
   - `type`: `"button"`
-  - `text`: button text
+  - `text`: button text (pick either `text` or `url`, can't have both)
+  - `url`: button image url (pick either `text` or `url`, can't have both)
   - `style`
     - `width`
     - `height`
@@ -99,6 +102,10 @@ A basic component that responds to user tap.
 
 
 ###Example
+
+**Text button**
+
+Use `text` attribute to make it a label button
 
     {
       "type": "button",
@@ -113,6 +120,25 @@ A basic component that responds to user tap.
         "corner_radius": "25"
       }
     }
+
+**Image button**
+
+Use `url` attribute to make it an image button
+
+    {
+      "type": "button",
+      "url": "https://raw.githubusercontent.com/Jasonette/Jasonpedia/gh-pages/assets/krusty.png",
+      "style": {
+        "width": "50",
+        "height": "50",
+        "background": "#00ff00",
+        "color": "#ffffff",
+        "font": "HelveticaNeue",
+        "size": "12",
+        "corner_radius": "25"
+      }
+    }
+
 
 ---
 
