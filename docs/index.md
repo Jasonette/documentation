@@ -13,14 +13,19 @@ Before we jump in, <b>here's where you can stay in touch with the project commun
 
 <table class='equalwidth follow'>
 	<tr>
-		<th class='span4'>Twitter</th>
-		<th class='span4'>Github iOS</th>
-		<th class='span4'>Github Android</th>
+		<th class='span6'>Twitter</th>
+		<th class='span6'>Blog</th>
 	</tr>
 	<tr>
-		<td class='span4'><a href='https://www.twitter.com/jasonclient'><h1><i class='icon fa-twitter fa-1x'></i></h1>@jasonclient</a></td>
-		<td class='span4'><a href='https://www.github.com/Jasonette/JASONETTE-iOS'><h1><i class='icon fa-github fa-1x'></i></h1>JASONETTE-iOS</a></td>
-		<td class='span4'><a href='https://www.github.com/Jasonette/JASONETTE-Android'><h1><i class='icon fa-github fa-1x'></i></h1>JASONETTE-Android</a></td>
+		<td class='span6'><a href='https://www.twitter.com/jasonclient'><h1><i class='icon fa-twitter fa-1x'></i></h1>@jasonclient</a></td>
+		<td class='span6'><a href='https://blog.jasonette.com'><h1><i class='icon fa-rss fa-1x'></i></h1>Blog</a></td>
+	</tr>
+  <tr>
+		<th class='span6'>Github iOS</th>
+		<th class='span6'>Github Android</th>
+	<tr>
+		<td class='span6'><a href='https://www.github.com/Jasonette/JASONETTE-iOS'><h1><i class='icon fa-github fa-1x'></i></h1>JASONETTE-iOS</a></td>
+		<td class='span6'><a href='https://www.github.com/Jasonette/JASONETTE-Android'><h1><i class='icon fa-github fa-1x'></i></h1>JASONETTE-Android</a></td>
 	</tr>
 </table>
 
