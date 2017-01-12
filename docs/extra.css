@@ -6,7 +6,7 @@ code{
   font-size: 80%;
 }
 .btn{
-  background: #8bb92d;
+  background: #262626;
   padding: 5px 10px 15px;
   margin: 5px;
   font-size: 12px;
@@ -69,7 +69,7 @@ pre{
   border-radius: 0;
 }
 .wy-nav-top{
-  background: #8bb92d;
+  background: #262626;
   line-height: 32px;
 }
 .wy-nav-top a{
@@ -79,16 +79,16 @@ pre{
   margin-bottom: 0 !important;
 }
 .wy-side-nav-search{
-  background: #8bb92d;
+  background: #262626;
 }
 .wy-menu-vertical li.current{
-  background: #8bb92d;
+  background: #262626;
 }
 .wy-menu-vertical li a{
   color: white !important;
 }
 .wy-menu-vertical li.current a.current{
-  color: #8bb92d !important;
+  color: #262626 !important;
   background:white;
 }
 .wy-menu-vertical span{
@@ -108,11 +108,11 @@ pre{
   word-break: break-word;
 }
 .wy-nav-content strong{
-  color:#8bb92d;
+  color:#262626;
 }
 .wy-nav-content strong a{
   text-decoration: underline;
-  color:#8bb92d;
+  color:#262626;
   font-size: 20px;
   line-height: 30px;
   font-weight: normal;
@@ -124,13 +124,13 @@ pre{
   padding-bottom: 100%;
 }
 .rst-versions .rst-current-version{
-  background: #8bb92d;
+  background: #262626;
 }
 .rst-versions{
   border-top: none;
 }
 .wy-nav-side {
-  background: #8bb92d;
+  background: #262626;
 }
 .wy-menu-vertical .subnav > li.toctree-l1 > a{
   padding: 0.4045em 2.5em !important;
@@ -145,7 +145,7 @@ pre{
   background: #343131;
 }
 h1{
-  color: #8bb92d;
+  color: #262626;
   font-size: 40px;
   font-family: "Helvetica Neue", helvetica;
 }
@@ -191,7 +191,7 @@ h3, h4, h5, h6{
   font-weight: bold !important;
 }
 .navbar{
-  background: #8bb92d;
+  background: #262626;
 }
 .navbar.navbar-default .navbar-nav>li>a{
   color: white;
@@ -211,11 +211,11 @@ ul.nav li:not(.main){
 #mce-EMAIL{
   width: 300px;
   max-width: 100%;
-  border: 2px solid #8bb92d;
+  border: 2px solid #262626;
   margin: 2px;
 }
 #mc-embedded-subscribe{
-  background: #8bb92d;
+  background: #262626;
   padding: 8px 20px;
   color: white;
   border:none;
@@ -326,7 +326,7 @@ table.equalwidth li{
   padding: 5px 0;
 }
 .green{
-  color:#8bb92d !important;
+  color:#262626 !important;
 }
 .huge{
   font-size: 100px;
