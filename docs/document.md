@@ -563,6 +563,7 @@ Style the entire header bar.
 - `font`: the font for `body.header.title`
 - `size`: the text size for `body.header.title`
 - `background`: the background color for the entire header bar: `body.header`
+- `color`: the font color for `body.header.title`
 
 ---
 
