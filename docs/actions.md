@@ -1,6 +1,12 @@
-# How do actions work?
+# Basics
 
-Attach action attributes to UI elements and they will get called whenever a user touches them.
+[Expressing a view using JSON](document.md) is pretty straightforward.
+
+However what makes Jasonette truly powerful is the ability to express **functions** that actually do something, entirely in JSON. We call it `action`.
+
+This could be anything from accessing the device features such as camera or addressbook, to making network requests. And you can compose them to carry out any sophisticated tasks. Not to mention being able to use inline Javascript within any JSON expression.
+
+<br>
 
 ##Syntax
 Actions can take the following 5 attributes
@@ -9,15 +15,27 @@ Actions can take the following 5 attributes
   - `options`: Arguments to be passed into the action (optional)
   - `success`: Another action to be called when the current action finishes. You can chain multiple actions to execute in sequence this way. (optional)
   - `error`: You can handle exceptions by attaching `error` to an action. (optional)
-  - `trigger`: Or you can simply [trigger an existing action by name](#triggerring-an-action-by-name)
 
-##Example
+There are two ways of calling actions: 
+
+1. You can directly attach actions to UI elements **inline**. In this case, the action will be executed when a user taps the element.
+2. You can define an action under **actions registry** and trigger it by name. In this case you not only can attach actions to UI elements but also can trigger them based on system events or call them from anywhere.
+
+First read through the explanation below to learn how to define actions inline.
+
+And after that, [learn how to use `"trigger"` to trigger an action by name](#triggering-an-action-by-name).
+
+<br>
+
+##Examples - Define Inline
 
 ### Network request and then render
 
 Make a network request and `$render` its content when it succeeds.
 
     {
+      "type": "label",
+      "text": "refresh",
       "action": {
         "type": "$network.request",
         "options": {
@@ -34,6 +52,8 @@ Make a network request and `$render` its content when it succeeds.
 Same as above, except display a banner when the request fails.
 
     {
+      "type": "label",
+      "text": "refresh",
       "action": {
         "type": "$network.request",
         "options": {
@@ -52,36 +72,6 @@ Same as above, except display a banner when the request fails.
       }
     }
 
-### Triggering an action by name
-
-First, you need to define the action inside `head.actions`. In this case we name it `refresh_view`:
-
-    {
-      "$jason": {
-        "head": {
-          "actions": {
-            "refresh_view": {
-              "type": "$network.request",
-              "options": {
-                "url": "https://jasonbase.com/things/jYJ.json"
-              },
-              "success": {
-                "type": "$render"
-              }
-            }
-          },
-      ...
-    }
-
-Second, to actually trigger it by name, just attach an action with a `trigger` attribute, like this:
-
-    {
-      "type": "label",
-      "text": "Refresh",
-      "action": {
-        "trigger": "refresh_view"
-      }
-    }
 
 ## Return values
 
@@ -105,6 +95,8 @@ Which means we can use this return value by accessing the `$jason` variable, usi
         }
       }
     }
+
+<br>
 
 ## Where to use actions?
 
@@ -234,6 +226,345 @@ Here's a brief example:
     }
 
 **[Learn more about system events](#system-events)**
+
+---
+
+# Triggering actions
+
+When you define an action inline, these actions have no name. Therefore you cannot reuse them form elsewhere.
+
+To be able to reuse actions, you need to register them under actions registry, and then trigger them by name.
+
+## Syntax
+
+To trigger an action, you can use the following syntax:
+
+- `"trigger"`: Trigger an action by name, registered under the actions registry.
+- `"options"` (optional): [same as inline actions](#examples-define-inline)
+- `"success"` (optional): executed when the triggered action returnes via `$return.success` action
+- `"error"` (optional): executed when the triggered action returns via `$return.error` action
+
+They look similar to inline action definition except that you use `trigger` instead of `type`.
+<br>
+
+### 1. Define an action under the actions registry
+
+First, you need to define the action inside `head.actions`. In this case we name it `refresh_view`:
+
+    {
+      "$jason": {
+        "head": {
+          "actions": {
+            "refresh_view": {
+              "type": "$network.request",
+              "options": {
+                "url": "https://jasonbase.com/things/jYJ.json"
+              },
+              "success": {
+                "type": "$render"
+              }
+            }
+          },
+      ...
+    }
+
+### 2. Trigger it by name
+
+Second, to actually trigger it by name, just attach an action with a `trigger` attribute, like this:
+
+    {
+      "type": "label",
+      "text": "Refresh",
+      "action": {
+        "trigger": "refresh_view"
+      }
+    }
+
+Cool thing about this is, now you can trigger this action from anywhere in your code. You can trigger it manually from another action, or you could make it so that a system event automatically triggers the action.
+
+Here's an example where `refresh_view` is triggered whenever the view comes into focus (`$show`) or comes back from background (`$foreground`):
+
+    {
+      "$jason": {
+        "head": {
+          "actions": {
+            "$show": {
+              "trigger": "refresh_view"
+            },
+            "$foreground": {
+              "trigger": "refresh_view"
+            },
+            "refresh_view": {
+              "type": "$network.request",
+              "options": {
+                "url": "https://jasonbase.com/things/jYJ.json"
+              },
+              "success": {
+                "type": "$render"
+              }
+            }
+          },
+      ...
+    }
+
+Here's an example where an action triggers another action (`refresh` sets the cache, and then triggers `fetch`):
+
+
+    {
+      "$jason": {
+        "head": {
+          "actions": {
+            "refresh": {
+              "type": "$cache.set",
+              "options": {
+                "items": []
+              },
+              "success": {
+                "trigger": "fetch"
+              }
+            },
+            "fetch": {
+              "type": "$network.request",
+              "options": {
+                "url": "https://jasonbase.com/things/jYJ.json"
+              },
+              "success": {
+                "type": "$render"
+              }
+          },
+      ...
+    }
+
+<br>
+
+### 3. Return from subroutine when finished
+
+We saw from above that actions can trigger other actions.
+
+But so far these action call chain examples have been one-way trip only, which means once an action triggers another action its life is over.
+
+You can't do things like making a call and waiting for it to return with its result, and then continue on where it left off, using that value.
+
+Let's look at the `refresh` example from above:
+
+    {
+      "$jason": {
+        "head": {
+          "actions": {
+            "refresh": {
+              "type": "$cache.set",
+              "options": {
+                "items": []
+              },
+              "success": {
+                "trigger": "fetch"
+              }
+            },
+            "fetch": {
+              "type": "$network.request",
+              "options": {
+                "url": "https://jasonbase.com/things/jYJ.json"
+              },
+              "success": {
+                "type": "$render"
+              }
+            }
+            ...
+          }
+      ...
+    }
+
+The problem with this is each action does more than one thing:
+
+1. `refresh` resets the cache AND triggers fetch
+2. `fetch` makes a network request AND renders the result.
+
+Maybe we want to add another action that resets the cache before doing something. Then, we need to add the same `$cache.set` action again.
+
+Maybe we want to make the network request but do something else with the result instead of rendering.
+
+It becomes difficult to reuse these actions since one action does more than one thing.
+
+To solve this problem, we can break these actions out into self-contained modules so that:
+
+1. One action only does one thing.
+2. Each action ends by **returning its result instead of triggering another action** using `$return.success` or `$return.error` actions.
+
+Here's the solution:
+
+    {
+      "$jason": {
+        "head": {
+          "actions": {
+            "reset": {
+              "type": "$cache.set",
+              "options": {
+                "items": []
+              },
+              "success": {
+                "type": "$return.success"
+              }
+            },
+            "refresh": {
+              "trigger": "reset",
+              "success": {
+                "trigger": "fetch",
+                "success": {
+                  "type": "$render"
+                }
+              }
+            },
+            "fetch": {
+              "type": "$network.request",
+              "options": {
+                "url": "https://jasonbase.com/things/jYJ.json"
+              },
+              "success": {
+                "type": "$return.success"
+              }
+            }
+            ...
+          }
+      ...
+    }
+
+Here, the `reset` action only resets the cache.
+
+And `fetch` action only makes a network request and returns its result. (No $render)
+
+Lastly the `refresh` action functions as the main program that triggers each action one after another (triggers `reset`, then triggers `fetch`, and finally executes `$render`)
+
+
+## When to use trigger vs. defining actions inline
+
+In **most cases** it's recommended that you define your actions under [actions registry](#action-registry) and trigger them using `"trigger"`.
+
+For example, instead of:
+
+    {
+      "$jason": {
+        "head": {
+        },
+        "body": {
+          "sections": [{
+            "items": [{
+              "type": "label",
+              "text": "item 1",
+              "action": {
+                "type": "$util.banner",
+                "options": {
+                  "title": "Banner",
+                  "description": "Pressed item"
+                }
+              }
+            }, {
+              "type": "label",
+              "text": "item 2",
+              "action": {
+                "type": "$util.banner",
+                "options": {
+                  "title": "Banner",
+                  "description": "Pressed item"
+                }
+              }
+            }, {
+              "type": "label",
+              "text": "item 3",
+              "action": {
+                "type": "$util.banner",
+                "options": {
+                  "title": "Banner",
+                  "description": "Pressed item"
+                }
+              }
+            }]
+          }]
+        }
+      }
+    }
+
+You may want to define the action inside `head.actions`, like this:
+
+    {
+      "$jason": {
+        "head": {
+          "actions": {
+            "show_banner": {
+              "type": "$util.banner",
+              "options": {
+                "title": "Banner",
+                "description": "Pressed item"
+              }
+            }
+          }
+        },
+        "body": {
+          "sections": [{
+            "items": [{
+              "type": "label",
+              "text": "item 1",
+              "action": {
+                "trigger": "show_banner"
+              }
+            }, {
+              "type": "label",
+              "text": "item 2",
+              "action": {
+                "trigger": "show_banner"
+              }
+            }, {
+              "type": "label",
+              "text": "item 3",
+              "action": {
+                "trigger": "show_banner"
+              }
+            }]
+          }]
+        }
+      }
+    }
+
+###Benefit 1
+As you can see above, using `trigger` lets you define a single action once and reuse it from multiple places in your view. It removes redundant code.
+
+<br>
+
+###Benefit 2
+When you define an action inline, its behavior is fixed. For example, the `show_banner` action example above only does one thing: It displays a banner that says "Pressed item".
+
+However in many cases we want to write one action and reuse them for various purposes. Maybe we want to display a banner that says "Pressed item 1", or "Pressed item 2".
+
+    {
+      "$jason": {
+        "head": {
+          "actions": {
+            "show_banner": {
+              "type": "$util.banner",
+              "options": {
+                "title": "Banner",
+                "description": "Pressed item {{$jason.item}}"
+              }
+            }
+          }
+        },
+        "body": {
+          "sections": [{
+            "items": [{
+              "type": "label",
+              "text": "item 1",
+              "action": {
+                "trigger": "show_banner",
+                "options": {
+                  "item": "1"
+                }
+              }
+            }]
+          }]
+        }
+      }
+    }
+
+<br>
 
 ---
 
@@ -449,6 +780,274 @@ Here's an example
 ---
 
 #API
+
+
+##── REQUIRE ──
+##$require
+The `$require` action imports remote JSON files in parallel.
+
+    {
+      "type": "$require",
+      "options": {
+        "profiles": ["https://...", "https://...", "https://"],
+        "items": ["https://...", "https://...", "https://..."]
+      },
+      "success": {
+        "type": "$render"
+      }
+    }
+
+It works similar to [$network.request](#$networkrequest) but with a few differences:
+
+1. It can fetch multiple remote JSON files in parallel.
+2. It is only for making simple `GET` requests. No POST/PUT/DELETE requests, etc.
+
+<br>
+
+### ■ options
+The `options` object defines what the return value should look like. For example, the following `$require` action would fetch the contents of `https://hello.world/1.json` and then attach it to the `profile` attribute.
+
+    {
+      "type": "$require",
+      "options": {
+        "profile": "https://hello.world/1.json"
+      }
+    }
+
+When you chain this action with another action, you should be able to access the contents of `https://hello.world/1.json` via `{{$jason.profile}}`.
+
+The value in the key/value pair can take the form of:
+
+1. a single url: `"profile": "https://..."`
+
+2. an array of urls: `"profiles": ["https://...", "https://...", "https://..."]`
+
+
+<br>
+
+### ■ return value
+returns the constructed `options` object.
+
+For example, let's say `https://blahblah.blah/1.json` and `https://blahblah.blah/2.json` each contained the following JSON files respectively:
+
+    {
+      "items": ["abc", "def", "ghi"]
+    }
+
+    {
+      "items": ["cba", "fed", "ihg"]
+    }
+
+We can fetch them in parallel like this:
+
+    {
+      "type": "$require",
+      "options": {
+        "items1": "https://blahblah.blah/1.json",
+        "items2": "https://blahblah.blah/2.json"
+      },
+      "success": {
+        "type": "$render"
+      }
+    }
+
+As a result, when we are ready to `$render`, the `$jason` value will be:
+
+    {
+      "items1": {
+        "items": ["abc", "def", "ghi"]
+      },
+      "items2": {
+        "items": ["cba", "fed", "ihg"]
+      }
+    }
+
+### ■ note
+Unlike `$set` or `$cache.set`, the `$require` action on its own doesn't persist the data in any way.
+
+So if you want to persist them to a local variable or a cache variable, you will need to chain the result to these actions and take care of assignment that way. Here's an example:
+
+    {
+      "type": "$require",
+      "options": {
+        "profiles": ["https://...", "https://...", "https://"]
+      },
+      "success": {
+        "type": "$set",
+        "options": {
+          "profiles": "{{$jason.profiles}}"
+        }
+      }
+    }
+  
+
+
+---
+
+
+##── FUNCTIONAL ──
+Just like functions in any other programming language, you can call an action from an action, wait for it to return, and use the return value to continue where it left off.
+
+---
+
+##$lambda
+Call another action by name (This is how [trigger](#triggering-actions) is implemented internally)
+
+    {
+      "type": "$lambda",
+      "options": {
+        "name": "refresh",
+        "options": {
+          "url": "https://jasonbase.com/things/3nf.json"
+        }
+      },
+      "success": {
+        "type": "$render"
+      },
+      "error": {
+        "type": "$util.banner",
+        "options": {
+          "title": "Error",
+          "description": "Something went wrong"
+        }
+      }
+    }
+
+Above code is the same as:
+
+    {
+      "trigger": "refresh",
+      "options": {
+        "url": "https://jasonbase.com/things/3nf.json"
+      },
+      "success": {
+        "type": "$render"
+      },
+      "error": {
+        "type": "$util.banner",
+        "options": {
+          "title": "Error",
+          "description": "Something went wrong"
+        }
+      }
+    }
+
+In most cases you may want to use [trigger](#triggering-actions) but sometimes it's useful to use **$lambda** directly, for example if you want to dynamically trigger different actions. Example:
+
+    {
+      "type": "$lambda",
+      "options": {
+        "name": "{{action_name}}",
+        "options": {
+          "url": "https://jasonbase.com/things/3nf.json"
+        }
+      },
+      ...
+    }
+
+<br>
+
+### ■ options
+- name: the name of the action to trigger, registered [under actions registry](#triggering-actions)
+- options: [options object](#syntax) to pass to the next action
+
+<br>
+
+### ■ return value
+- Whatever the triggered action returns via [$return.success](#returnsuccess) or [$return.error](#returnerror)
+
+---
+
+##$return.success
+
+Unless you explicitly call `$return.success` or `$return.error`, all triggered actions terminate when they reach the end of the call chain.
+
+To return to the action which called the current action with a `success` state, we need to use `$return.success`.
+
+Then the caller action will resume where it left off and keep executing its `success` action.
+
+<br>
+
+### ■ options
+- The return value to pass back to the caller action.  If not specified, it automatically returns the current `$jason` value
+
+<br>
+
+### ■ no `success` or `error` of its own
+- `none` : Since `$return.success` is an action solely designed for returning the control back to the caller action, `$return.success` itself does not have `success` or `error` actions.
+
+<br>
+
+### ■ example
+In the example below, the `display_banner` triggers `fetch`, and then displays a banner using the return value `$jason`.
+
+Notice how the `$lambda` action's `success` takes over after the `fetch` action returns via `$return.success`.
+
+    {
+      "display_banner": {
+        "type": "$lambda",
+        "options": {
+          "name": "fetch"
+        },
+        "success": {
+          "type": "$util.banner",
+          "options": {
+            "title": "The number of items:",
+            "description": "{{$jason.items.length}}"
+          }
+        }
+      },
+      "fetch": {
+        "type": "$network.request",
+        "options": {
+          "url": "https://jasonbase.com/things/3nf.json"
+        },
+        "success": {
+          "type": "$return.success",
+          "options": {
+            "items": "{{$jason}}"
+          }
+        }
+      }
+    }
+
+Again, this is the same as using `trigger`:
+
+    {
+      "display_banner": {
+        "trigger": "return_homer_simpson",
+        "success": {
+          "type": "$util.banner",
+          "options": {
+            "title": "The number of items:",
+            "description": "{{$jason.items.length}}"
+          }
+        }
+      },
+      "fetch": {
+        "type": "$network.request",
+        "options": {
+          "url": "https://jasonbase.com/things/3nf.json"
+        },
+        "success": {
+          "type": "$return.success",
+          "options": {
+            "items": "{{$jason}}"
+          }
+        }
+      }
+    }
+
+<br>
+
+---
+
+##$return.error
+
+Pretty much the same as [$return.success](#returnsuccess), except that it returns the control back to the caller action's `error` action.
+
+---
+
 
 ##──── VIEW ────
 Actions related to drawing views

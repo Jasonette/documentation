@@ -14,6 +14,7 @@ pages:
 #  - Interaction: interaction.md
   - ★ Layout: layout.md
   - ★ Templates: templates.md
+  - ★ Composition: composition.md
 - ■ Convention: convention.md
 - ■ Extending Jasonette (advanced): advanced.md
 - ■ Troubleshoot: faq.md

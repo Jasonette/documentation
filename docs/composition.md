@@ -1,0 +1,391 @@
+
+![lego](images/legobricks.png)
+
+![brackets](images/brackets.png)
+
+Just like you can build a car, build a castle, or build a build a spaceship by composing simple lego bricks, you can build an entire application by composing multiple JSON files.
+
+---
+
+##■ Basics
+
+You can use `@` to import a remote JSON object.
+
+Let's say `https://lorem.ipsum/simpsons.json` contains the following content:
+
+    ["Homer", "Marge", "Lisa", "Bart", "Maggie"]
+
+We can import this into our JSON simply by doing this:
+
+    {
+      "the_simpsons": {
+        "firstnames": {
+          "@": "https://lorem.ipsum/simpsons.json"
+        },
+        "lastname": "Simpson"
+      }
+    }
+
+The result would be:
+
+    {
+      "the_simpsons": {
+        "firstnames": ["Homer", "Marge", "Lisa", "Bart", "Maggie"],
+        "lastname": "Simpson"
+      }
+    }
+
+<br>
+
+##■ How it works
+
+It's useful to understand how this works internally. Whenever Jasonette loads a single JSON file here's what happens:
+
+1. Load JSON from a URL.
+2. Jasonette scans the JSON to resolve the imports if any.
+3. Sometimes it's not enough to resolve it once, especially when you mix [remote imports with local imports](#mix-remote-and-local-imports). Jasonette continues import resolution until everything is resolved.
+4. Jasonette draws the view.
+5. The system triggers `$load` / `$show` events.
+
+** Note 1: All imports are carried out in parallel, and the rendering starts only when all imports have resolved (or failed).**
+
+** Note 2: In case an endpoint doesn't respond or returns an error, that part gets resolved as an empty string and silently fails instead of halting everything.**
+
+<br>
+
+##■ Multiple Imports
+
+You are not limited to a single import. You can import as many remote JSON urls as you want. For example:
+
+    {
+      "cats": {
+        "@": "https://lorem.ipsum/cats.json"
+      },
+      "dogs": {
+        "@": "https://lorem.ipsum/dogs.json"
+      },
+      "monsters": {
+        "@": "https://lorem.ipsum/monsters.json"
+      }
+    }
+
+Jasonette automatically detects all occurrences of imports in a JSON file, fetches them in parallel, and assigns them to the corresponding node.
+
+<br>
+
+##■ Anywhere in the JSON tree
+
+You can reference URLs anywhere in the JSON tree, as many times as you want. They will all be downloaded in parallel and replaced in automatically.
+
+    {
+      "$jason": {
+        "head": {
+          "data": {
+            "users": {
+              "@": "https://lorem.ipsum/data.json"
+            }
+          },
+          "templates": {
+            "body": {
+              "sections": [{
+                "items": {
+                  "{{#each users}}": {
+                    "@": "https://lorem.ipsum/user_item_template.json"
+                  }
+                }
+              }]
+            }
+          }
+        }
+      }
+    }
+
+You can even create the entire JSON out of importing its root node:
+
+    {
+      "@": "https://jasonbase.com/things/3nf.json"
+    }
+
+This may seem silly but it becomes powerful when combined with the [override](#overriding-imported-values) feature. Basically you can import a template from elsewhere and add small amount of code to customize it. [See "override" section](#overriding-imported-values) for details.
+
+<br>
+
+##■ Importing subtree
+
+Sometimes you may want to import only the subtree of the remote JSON.
+
+In this case, we use the following syntax:
+
+    [JSON PATH]@[JSON URL]
+
+For example, let's say we have a "drinks" database at `https://drinks.db/drinks.json`.
+
+    {
+      "drinks": {
+        "coffee": ["ethiopia", "sumatra", "nigeria"],
+        "tea": ["english breakfast", "chai", "green", "oolong", "yerba mate"],
+        "sparkling water": ["perrier", "poland spring", "la croix", "s. pellegriono"]
+      }
+    }
+
+We want to only use the coffee database, how do we do this? 
+
+    {
+      "coffee": {
+        "@": "drinks.coffee@https://drinks.db/drinks.json"
+      }
+    }
+
+As you can see, we're prefixing the URL with the path `drinks.coffee` so it assigns only that subtree into the coffee attribute.
+
+<br>
+
+##■ Overriding imported values
+
+Sometimes you may want to import but also override certain attributes from the imported JSON.
+
+In this case you simply define the attribute locally and it will automatically override the imported value.
+
+Let's say we have a JSON at `https://jasonbase.com/things/dnf.json` that looks like this:
+
+    {
+      "type": "label",
+      "text": "this is a placehlder",
+      "style": {
+        "font": "HelveticaNeue",
+        "size": "12"
+      }
+    }
+
+We may want to use this JSON somewhere but also customize the `text` part. Here's how:
+
+    {
+      "items": [{
+        "@": "https://jasonbase.com/thing/dnf.json",
+        "text": "This is a custom label"
+      }]
+    }
+
+Here's what happens when Jasonette sees this JSON:
+
+1. It first imports the referenced JSON.
+2. And then it goes through the rest of the attributes.
+3. If an attribute already exists from the import, it overrides the imported value.
+4. Otherwise it just attaches the key/value pair.
+5. Keep going until all key/value pairs are processed.
+
+In this case it ends up overriding the `text` attribute. The result:
+
+    {
+      "items": [{
+        "type": "label",
+        "text": "This is a custom label",
+        "style": {
+          "font": "HelveticaNeue",
+          "size": "12"
+        }
+      }]
+    }
+
+##■ Importing from self
+
+Importing is not limited to remote JSON files. A JSON can even import itself and its subtree.
+
+To access the current JSON object, you just need to use the `$document` object.
+
+Here's an example:
+
+    {
+      "users": {
+        "{{#each users}}": {
+          "@": "$document.item"
+        }
+      },
+      "item": {
+        "type": "label",
+        "text": "{{name}}"
+      }
+    }
+
+When parsed, it makes the local import, which turns into:
+
+    {
+      "users": {
+        "{{#each users}}": {
+          "type": "label",
+          "text": "{{name}}"
+        }
+      },
+      "item": {
+        "type": "label",
+        "text": "{{name}}"
+      }
+    }
+
+Another example:
+
+    {
+      "custom_templates": {
+        "item": {
+          "type": "label",
+          "text": "{{name}}",
+          "style": {
+            "color": "#ff0000",
+            "size": "12"
+          }
+        }
+      },
+      "$jason": {
+        "head": {
+          "templates": {
+            "body": {
+              "sections": [{
+                "items": {
+                  "{{#each $jason.items}}": {
+                    "@": "$document.custom_templates.item"
+                  }
+                }
+              }]
+            }
+          }
+        }
+      }
+    }
+      
+When parsed, this turns into: 
+
+    {
+      "custom_templates": {
+        "item": {
+          "type": "label",
+          "text": "{{name}}",
+          "style": {
+            "color": "#ff0000",
+            "size": "12"
+          }
+        }
+      },
+      "$jason": {
+        "head": {
+          "templates": {
+            "body": {
+              "sections": [{
+                "items": {
+                  "{{#each $jason.items}}": {
+                    "type": "label",
+                    "text": "{{name}}",
+                    "style": {
+                      "color": "#ff0000",
+                      "size": "12"
+                    }
+                  }
+                }
+              }]
+            }
+          }
+        }
+      }
+    }
+
+##■ Mix remote and local imports
+
+You can do all kinds of things when you combine the remote import approach with the local import.
+
+Let's revisit the above example:
+
+    {
+      "custom_templates": {
+        "item": {
+          "type": "label",
+          "text": "{{name}}",
+          "style": {
+            "color": "#ff0000",
+            "size": "12"
+          }
+        }
+      },
+      "$jason": {
+        "head": {
+          "templates": {
+            "body": {
+              "sections": [{
+                "items": {
+                  "{{#each $jason.items}}": {
+                    "@": "$document.custom_templates.item"
+                  }
+                }
+              }]
+            }
+          }
+        }
+      }
+    }
+
+We can extract out the `custom_templates` as its own JSON file.
+
+Let's save it at `https://custom.templates/item.json`.
+
+    {
+      "item": {
+        "type": "label",
+        "text": "{{name}}",
+        "style": {
+          "color": "#ff0000",
+          "size": "12"
+        }
+      }
+    }
+
+Then we can update the code like so:
+
+    {
+      "custom_templates": {
+        "@": "https://custom.templates/item.json"
+      },
+      "$jason": {
+        "head": {
+          "templates": {
+            "body": {
+              "sections": [{
+                "items": {
+                  "{{#each $jason.items}}": {
+                    "@": "$document.custom_templates.item"
+                  }
+                }
+              }]
+            }
+          }
+        }
+      }
+    }
+
+Let's go deeper. We will save everything under `$jason` into `https://blahblah.blah/view.json`:
+
+    {
+      "$jason": {
+        "head": {
+          "templates": {
+            "body": {
+              "sections": [{
+                "items": {
+                  "{{#each $jason.items}}": {
+                    "@": "$document.custom_templates.item"
+                  }
+                }
+              }]
+            }
+          }
+        }
+      }
+    }
+
+Then we can update the original code down to:
+
+    {
+      "custom_templates": {
+        "@": "https://custom.templates/item.json"
+      },
+      "@": "https://blahblah.blah/view.json"
+    }
+
+That's it! An entire app in 6 lines of JSON.
