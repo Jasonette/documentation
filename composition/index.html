@@ -1,0 +1,634 @@
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  
+  <link rel="shortcut icon" href="../img/favicon.ico">
+  <title>★ Composition - Jasonette</title>
+  <link href='https://fonts.googleapis.com/css?family=Lato:400,700|Roboto+Slab:400,700|Inconsolata:400,700' rel='stylesheet' type='text/css'>
+
+  <link rel="stylesheet" href="../css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="../css/theme_extra.css" type="text/css" />
+  <link rel="stylesheet" href="../css/highlight.css">
+  <link href="../extra.css" rel="stylesheet">
+  
+  <script>
+    // Current page data
+    var mkdocs_page_name = "\u2605 Composition";
+    var mkdocs_page_input_path = "composition.md";
+    var mkdocs_page_url = "/composition/";
+  </script>
+  
+  <script src="../js/jquery-2.1.1.min.js"></script>
+  <script src="../js/modernizr-2.8.3.min.js"></script>
+  <script type="text/javascript" src="../js/highlight.pack.js"></script> 
+  
+  <script>
+      (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+      (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+      m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+      })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+      ga('create', 'UA-54282166-8', 'auto');
+      ga('send', 'pageview');
+  </script>
+  
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+  <div class="wy-grid-for-nav">
+
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side stickynav">
+      <div class="wy-side-nav-search">
+        <a href=".." class="icon icon-home"> Jasonette</a>
+        <div role="search">
+  <form id ="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+  </form>
+</div>
+      </div>
+
+      <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+	<ul class="current">
+          
+            <li>
+    <li class="toctree-l1 ">
+        <a class="" href="..">■ Getting started</a>
+        
+    </li>
+<li>
+          
+            <li>
+    <li class="toctree-l1 ">
+        <a class="" href="../ios/">■ iOS</a>
+        
+    </li>
+<li>
+          
+            <li>
+    <li class="toctree-l1 ">
+        <a class="" href="../android/">■ Android</a>
+        
+    </li>
+<li>
+          
+            <li>
+    <li class="toctree-l1 ">
+        <a class="" href="../examples/">■ Examples</a>
+        
+    </li>
+<li>
+          
+            <li>
+    <ul class="subnav">
+    <li><span>■ Reference</span></li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../document/">★ View</a>
+        
+    </li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../href/">★ Link</a>
+        
+    </li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../actions/">★ Actions</a>
+        
+    </li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../components/">★ Components</a>
+        
+    </li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../layout/">★ Layout</a>
+        
+    </li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../templates/">★ Templates</a>
+        
+    </li>
+
+        
+            
+    <li class="toctree-l1 current">
+        <a class="current" href="./">★ Composition</a>
+        
+            <ul>
+            
+                <li class="toctree-l3"><a href="#basics">■ Basics</a></li>
+                
+            
+                <li class="toctree-l3"><a href="#how-it-works">■ How it works</a></li>
+                
+            
+                <li class="toctree-l3"><a href="#multiple-imports">■ Multiple Imports</a></li>
+                
+            
+                <li class="toctree-l3"><a href="#anywhere-in-the-json-tree">■ Anywhere in the JSON tree</a></li>
+                
+            
+                <li class="toctree-l3"><a href="#importing-subtree">■ Importing subtree</a></li>
+                
+            
+                <li class="toctree-l3"><a href="#overriding-imported-values">■ Overriding imported values</a></li>
+                
+            
+                <li class="toctree-l3"><a href="#importing-from-self">■ Importing from self</a></li>
+                
+            
+                <li class="toctree-l3"><a href="#mix-remote-and-local-imports">■ Mix remote and local imports</a></li>
+                
+            
+            </ul>
+        
+    </li>
+
+        
+    </ul>
+<li>
+          
+            <li>
+    <li class="toctree-l1 ">
+        <a class="" href="../convention/">■ Convention</a>
+        
+    </li>
+<li>
+          
+            <li>
+    <li class="toctree-l1 ">
+        <a class="" href="../advanced/">■ Extending Jasonette (advanced)</a>
+        
+    </li>
+<li>
+          
+            <li>
+    <li class="toctree-l1 ">
+        <a class="" href="../faq/">■ Troubleshoot</a>
+        
+    </li>
+<li>
+          
+            <li>
+    <li class="toctree-l1 ">
+        <a class="" href="../jason/">■ Jason</a>
+        
+    </li>
+<li>
+          
+        </ul>
+      </div>
+      &nbsp;
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" role="navigation" aria-label="top navigation">
+        <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+        <a href="..">Jasonette</a>
+      </nav>
+
+      
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="breadcrumbs navigation">
+  <ul class="wy-breadcrumbs">
+    <li><a href="..">Docs</a> &raquo;</li>
+    
+      
+        
+          <li>■ Reference &raquo;</li>
+        
+      
+    
+    <li>★ Composition</li>
+    <li class="wy-breadcrumbs-aside">
+      
+        <a href="https://github.com/Jasonette/documentation/edit/master/docs/composition.md"
+          class="icon icon-github"> Edit on GitHub</a>
+      
+    </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main">
+            <div class="section">
+              
+                <p><img alt="lego" src="../images/lego.png" /></p>
+<p>Just like you can build a car, build a castle, or build a spaceship by composing simple lego bricks, you can build an entire application by composing multiple JSON files.</p>
+<hr />
+<h2 id="basics">■ Basics</h2>
+<p>You can use <code>@</code> to import a remote JSON object.</p>
+<p>Let's say <code>https://lorem.ipsum/simpsons.json</code> contains the following content:</p>
+<pre><code>["Homer", "Marge", "Lisa", "Bart", "Maggie"]
+</code></pre>
+<p>We can import this into our JSON simply by doing this:</p>
+<pre><code>{
+  "the_simpsons": {
+    "firstnames": {
+      "@": "https://lorem.ipsum/simpsons.json"
+    },
+    "lastname": "Simpson"
+  }
+}
+</code></pre>
+<p>Jasonette fetches the JSON from the URL and simply replaces it with the <code>@</code> node.</p>
+<p>Here's the result:</p>
+<pre><code>{
+  "the_simpsons": {
+    "firstnames": ["Homer", "Marge", "Lisa", "Bart", "Maggie"],
+    "lastname": "Simpson"
+  }
+}
+</code></pre>
+<p><br></p>
+<h2 id="how-it-works">■ How it works</h2>
+<p>It's useful to understand how this works internally. Whenever Jasonette loads a single JSON file here's what happens:</p>
+<ol>
+<li>Load JSON from a URL.</li>
+<li>Jasonette scans the JSON to resolve the imports if any.</li>
+<li>Sometimes it's not enough to resolve it once, especially when you mix <a href="#mix-remote-and-local-imports">remote imports with local imports</a>. Jasonette continues import resolution until everything is resolved.</li>
+<li>Jasonette draws the view.</li>
+<li>The system triggers <code>$load</code> / <code>$show</code> events.</li>
+</ol>
+<p><strong> Note 1: All imports are carried out in parallel, and the rendering starts only when all imports have resolved (or failed).</strong></p>
+<p><strong> Note 2: In case an endpoint doesn't respond or returns an error, that part gets resolved as an empty string and silently fails instead of halting everything.</strong></p>
+<p><strong> Note 3: The order is important. Since the import happens BEFORE actual rendering, you can even import a template expression from a remote JSON</strong></p>
+<p><br></p>
+<h2 id="multiple-imports">■ Multiple Imports</h2>
+<p>You are not limited to a single import. You can import as many remote JSON urls as you want. For example:</p>
+<pre><code>{
+  "cats": {
+    "@": "https://lorem.ipsum/cats.json"
+  },
+  "dogs": {
+    "@": "https://lorem.ipsum/dogs.json"
+  },
+  "monsters": {
+    "@": "https://lorem.ipsum/monsters.json"
+  }
+}
+</code></pre>
+<p>Jasonette automatically detects all occurrences of imports in a JSON file, fetches them in parallel, and attaches them to their corresponding locations.</p>
+<p><br></p>
+<h2 id="anywhere-in-the-json-tree">■ Anywhere in the JSON tree</h2>
+<p>You can reference URLs anywhere in the JSON tree, as many times as you want. They will all be downloaded in parallel at load time and substituted in automatically.</p>
+<pre><code>{
+  "$jason": {
+    "head": {
+      "data": {
+        "users": {
+          "@": "https://lorem.ipsum/data.json"
+        }
+      },
+      "templates": {
+        "body": {
+          "sections": [{
+            "items": {
+              "{{#each users}}": {
+                "@": "https://lorem.ipsum/user_item_template.json"
+              }
+            }
+          }]
+        }
+      }
+    }
+  }
+}
+</code></pre>
+<p>You can even create an entire JSON tree with an import:</p>
+<pre><code>{
+  "@": "https://jasonbase.com/things/3nf.json"
+}
+</code></pre>
+<p>This particular example may seem silly but it becomes powerful when combined with the <a href="#overriding-imported-values">override</a> feature.</p>
+<p>Basically you can use this to import a base JSON you wish to inherit from, and then simply add a small amount of code to customize it. <a href="#overriding-imported-values">See "override" section</a> for details.</p>
+<p><br></p>
+<h2 id="importing-subtree">■ Importing subtree</h2>
+<p>Sometimes you may want to import only the subtree of a remote JSON file.</p>
+<p>In this case, we use the following syntax:</p>
+<pre><code>[JSON_PATH]@[JSON_URL]
+</code></pre>
+<p>For example, let's say we have a "drinks" database at <code>https://drinks.db/drinks.json</code>.</p>
+<pre><code>{
+  "drinks": {
+    "coffee": ["ethiopia", "sumatra", "nigeria"],
+    "tea": ["english breakfast", "chai", "green", "oolong", "yerba mate"],
+    "sparkling water": ["perrier", "poland spring", "la croix", "s. pellegriono"]
+  }
+}
+</code></pre>
+<p>We want to only use the coffee database, how do we do this? </p>
+<pre><code>{
+  "coffee": {
+    "@": "drinks.coffee@https://drinks.db/drinks.json"
+  }
+}
+</code></pre>
+<p>As you can see, we're prefixing the URL with the path <code>drinks.coffee</code> so it assigns only that subtree into the coffee attribute.</p>
+<p><br></p>
+<h2 id="overriding-imported-values">■ Overriding imported values</h2>
+<p>Sometimes you may want to import and override certain attributes from the imported JSON.</p>
+<p>In this case you simply define the attribute locally and it will automatically override the imported value.</p>
+<p>Let's say we have a JSON at <code>https://jasonbase.com/things/dnf.json</code> that looks like this:</p>
+<pre><code>{
+  "type": "label",
+  "text": "this is a placehlder",
+  "style": {
+    "font": "HelveticaNeue",
+    "size": "12"
+  }
+}
+</code></pre>
+<p>We may want to use this JSON somewhere but also customize the <code>text</code> part so that it doesn't say <code>this is a placeholder</code>. Here's how you would do it:</p>
+<pre><code>{
+  "items": [{
+    "@": "https://jasonbase.com/thing/dnf.json",
+    "text": "This is a custom label"
+  }]
+}
+</code></pre>
+<p>Here's what happens when Jasonette sees this JSON:</p>
+<ol>
+<li>It first imports the referenced JSON.</li>
+<li>And then it goes through the rest of the attributes.</li>
+<li>If there's a collision, it overrides the imported value with the local value.</li>
+<li>Keep going until all key/value pairs are processed.</li>
+</ol>
+<p>In this case it ends up overriding the <code>text</code> attribute. The result:</p>
+<pre><code>{
+  "items": [{
+    "type": "label",
+    "text": "This is a custom label",
+    "style": {
+      "font": "HelveticaNeue",
+      "size": "12"
+    }
+  }]
+}
+</code></pre>
+<h2 id="importing-from-self">■ Importing from self</h2>
+<p>Importing is not limited to remote JSON files. A JSON can even import itself and its own subtree to another location within its descendents.</p>
+<p>To access the current JSON object, you just need to use the <code>$document</code> object.</p>
+<p>Here's an example:</p>
+<pre><code>{
+  "users": {
+    "{{#each users}}": {
+      "@": "$document.item"
+    }
+  },
+  "item": {
+    "type": "label",
+    "text": "{{name}}"
+  }
+}
+</code></pre>
+<p>Here, the <code>$document.item</code> is equivalent to:</p>
+<pre><code>{
+  "type": "label",
+  "text": "{{name}}"
+}
+</code></pre>
+<p>After the import finishes, it turns into:</p>
+<pre><code>{
+  "users": {
+    "{{#each users}}": {
+      "type": "label",
+      "text": "{{name}}"
+    }
+  },
+  "item": {
+    "type": "label",
+    "text": "{{name}}"
+  }
+}
+</code></pre>
+<p>Another example:</p>
+<pre><code>{
+  "custom_templates": {
+    "item": {
+      "type": "label",
+      "text": "{{name}}",
+      "style": {
+        "color": "#ff0000",
+        "size": "12"
+      }
+    }
+  },
+  "$jason": {
+    "head": {
+      "templates": {
+        "body": {
+          "sections": [{
+            "items": {
+              "{{#each $jason.items}}": {
+                "@": "$document.custom_templates.item"
+              }
+            }
+          }]
+        }
+      }
+    }
+  }
+}
+</code></pre>
+<p>When parsed, this turns into: </p>
+<pre><code>{
+  "custom_templates": {
+    "item": {
+      "type": "label",
+      "text": "{{name}}",
+      "style": {
+        "color": "#ff0000",
+        "size": "12"
+      }
+    }
+  },
+  "$jason": {
+    "head": {
+      "templates": {
+        "body": {
+          "sections": [{
+            "items": {
+              "{{#each $jason.items}}": {
+                "type": "label",
+                "text": "{{name}}",
+                "style": {
+                  "color": "#ff0000",
+                  "size": "12"
+                }
+              }
+            }
+          }]
+        }
+      }
+    }
+  }
+}
+</code></pre>
+<h2 id="mix-remote-and-local-imports">■ Mix remote and local imports</h2>
+<p>You can do all kinds of things when you combine remote import with local import.</p>
+<p>Let's revisit the above example:</p>
+<pre><code>{
+  "custom_templates": {
+    "item": {
+      "type": "label",
+      "text": "{{name}}",
+      "style": {
+        "color": "#ff0000",
+        "size": "12"
+      }
+    }
+  },
+  "$jason": {
+    "head": {
+      "templates": {
+        "body": {
+          "sections": [{
+            "items": {
+              "{{#each $jason.items}}": {
+                "@": "$document.custom_templates.item"
+              }
+            }
+          }]
+        }
+      }
+    }
+  }
+}
+</code></pre>
+<p>We can extract out the <code>custom_templates</code> as its own JSON file.</p>
+<p>Let's save it at <code>https://custom.templates/item.json</code>.</p>
+<pre><code>{
+  "item": {
+    "type": "label",
+    "text": "{{name}}",
+    "style": {
+      "color": "#ff0000",
+      "size": "12"
+    }
+  }
+}
+</code></pre>
+<p>Then we can update the code like so:</p>
+<pre><code>{
+  "custom_templates": {
+    "@": "https://custom.templates/item.json"
+  },
+  "$jason": {
+    "head": {
+      "templates": {
+        "body": {
+          "sections": [{
+            "items": {
+              "{{#each $jason.items}}": {
+                "@": "$document.custom_templates.item"
+              }
+            }
+          }]
+        }
+      }
+    }
+  }
+}
+</code></pre>
+<p>Let's go deeper. We will save everything under <code>$jason</code> into <code>https://blahblah.blah/view.json</code>:</p>
+<pre><code>{
+  "$jason": {
+    "head": {
+      "templates": {
+        "body": {
+          "sections": [{
+            "items": {
+              "{{#each $jason.items}}": {
+                "@": "$document.custom_templates.item"
+              }
+            }
+          }]
+        }
+      }
+    }
+  }
+}
+</code></pre>
+<p>Then we can update the original code down to:</p>
+<pre><code>{
+  "custom_templates": {
+    "@": "https://custom.templates/item.json"
+  },
+  "@": "https://blahblah.blah/view.json"
+}
+</code></pre>
+<p>There! An entire app in 6 lines of JSON.</p>
+              
+            </div>
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="../convention/" class="btn btn-neutral float-right" title="■ Convention">Next <span class="icon icon-circle-arrow-right"></span></a>
+      
+      
+        <a href="../templates/" class="btn btn-neutral" title="★ Templates"><span class="icon icon-circle-arrow-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <!-- Copyright etc -->
+    
+  </div>
+
+  Built with <a href="http://www.mkdocs.org">MkDocs</a> using a <a href="https://github.com/snide/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>.
+</footer>
+	  
+        </div>
+      </div>
+
+    </section>
+    
+  </div>
+
+  <div class="rst-versions" role="note" style="cursor: pointer">
+    <span class="rst-current-version" data-toggle="rst-current-version">
+      
+          <a href="https://github.com/Jasonette/documentation" class="icon icon-github" style="float: left; color: #fcfcfc"> GitHub</a>
+      
+      
+        <span><a href="../templates/" style="color: #fcfcfc;">&laquo; Previous</a></span>
+      
+      
+        <span style="margin-left: 15px"><a href="../convention/" style="color: #fcfcfc">Next &raquo;</a></span>
+      
+    </span>
+</div>
+    <script src="../js/theme.js"></script>
+
+</body>
+</html>
