@@ -192,7 +192,7 @@ In this case it ends up overriding the `text` attribute. The result:
 
 ##■ Importing from self
 
-Importing is not limited to remote JSON files. A JSON can even import itself and its own subtree to another location within its descendents.
+Importing is not limited to remote JSON files. A JSON can even import itself and its own subtree to another location within itself.
 
 To access the current JSON object, you just need to use the `$document` object.
 
