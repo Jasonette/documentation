@@ -1,9 +1,7 @@
 
-![lego](images/legobricks.png)
+![lego](images/lego.png)
 
-![brackets](images/brackets.png)
-
-Just like you can build a car, build a castle, or build a build a spaceship by composing simple lego bricks, you can build an entire application by composing multiple JSON files.
+Just like you can build a car, build a castle, or build a spaceship by composing simple lego bricks, you can build an entire application by composing multiple JSON files.
 
 ---
 
@@ -26,7 +24,9 @@ We can import this into our JSON simply by doing this:
       }
     }
 
-The result would be:
+Jasonette fetches the JSON from the URL and simply replaces it with the `@` node.
+
+Here's the result:
 
     {
       "the_simpsons": {
@@ -51,6 +51,8 @@ It's useful to understand how this works internally. Whenever Jasonette loads a 
 
 ** Note 2: In case an endpoint doesn't respond or returns an error, that part gets resolved as an empty string and silently fails instead of halting everything.**
 
+** Note 3: The order is important. Since the import happens BEFORE actual rendering, you can even import a template expression from a remote JSON**
+
 <br>
 
 ##■ Multiple Imports
@@ -69,13 +71,13 @@ You are not limited to a single import. You can import as many remote JSON urls 
       }
     }
 
-Jasonette automatically detects all occurrences of imports in a JSON file, fetches them in parallel, and assigns them to the corresponding node.
+Jasonette automatically detects all occurrences of imports in a JSON file, fetches them in parallel, and attaches them to their corresponding locations.
 
 <br>
 
 ##■ Anywhere in the JSON tree
 
-You can reference URLs anywhere in the JSON tree, as many times as you want. They will all be downloaded in parallel and replaced in automatically.
+You can reference URLs anywhere in the JSON tree, as many times as you want. They will all be downloaded in parallel at load time and substituted in automatically.
 
     {
       "$jason": {
@@ -100,23 +102,25 @@ You can reference URLs anywhere in the JSON tree, as many times as you want. The
       }
     }
 
-You can even create the entire JSON out of importing its root node:
+You can even create an entire JSON tree with an import:
 
     {
       "@": "https://jasonbase.com/things/3nf.json"
     }
 
-This may seem silly but it becomes powerful when combined with the [override](#overriding-imported-values) feature. Basically you can import a template from elsewhere and add small amount of code to customize it. [See "override" section](#overriding-imported-values) for details.
+This particular example may seem silly but it becomes powerful when combined with the [override](#overriding-imported-values) feature.
+
+Basically you can use this to import a base JSON you wish to inherit from, and then simply add a small amount of code to customize it. [See "override" section](#overriding-imported-values) for details.
 
 <br>
 
 ##■ Importing subtree
 
-Sometimes you may want to import only the subtree of the remote JSON.
+Sometimes you may want to import only the subtree of a remote JSON file.
 
 In this case, we use the following syntax:
 
-    [JSON PATH]@[JSON URL]
+    [JSON_PATH]@[JSON_URL]
 
 For example, let's say we have a "drinks" database at `https://drinks.db/drinks.json`.
 
@@ -142,7 +146,7 @@ As you can see, we're prefixing the URL with the path `drinks.coffee` so it assi
 
 ##■ Overriding imported values
 
-Sometimes you may want to import but also override certain attributes from the imported JSON.
+Sometimes you may want to import and override certain attributes from the imported JSON.
 
 In this case you simply define the attribute locally and it will automatically override the imported value.
 
@@ -157,7 +161,7 @@ Let's say we have a JSON at `https://jasonbase.com/things/dnf.json` that looks l
       }
     }
 
-We may want to use this JSON somewhere but also customize the `text` part. Here's how:
+We may want to use this JSON somewhere but also customize the `text` part so that it doesn't say `this is a placeholder`. Here's how you would do it:
 
     {
       "items": [{
@@ -170,9 +174,8 @@ Here's what happens when Jasonette sees this JSON:
 
 1. It first imports the referenced JSON.
 2. And then it goes through the rest of the attributes.
-3. If an attribute already exists from the import, it overrides the imported value.
-4. Otherwise it just attaches the key/value pair.
-5. Keep going until all key/value pairs are processed.
+3. If there's a collision, it overrides the imported value with the local value.
+4. Keep going until all key/value pairs are processed.
 
 In this case it ends up overriding the `text` attribute. The result:
 
@@ -189,7 +192,7 @@ In this case it ends up overriding the `text` attribute. The result:
 
 ##■ Importing from self
 
-Importing is not limited to remote JSON files. A JSON can even import itself and its subtree.
+Importing is not limited to remote JSON files. A JSON can even import itself and its own subtree to another location within its descendents.
 
 To access the current JSON object, you just need to use the `$document` object.
 
@@ -207,7 +210,14 @@ Here's an example:
       }
     }
 
-When parsed, it makes the local import, which turns into:
+Here, the `$document.item` is equivalent to:
+
+    {
+      "type": "label",
+      "text": "{{name}}"
+    }
+
+After the import finishes, it turns into:
 
     {
       "users": {
@@ -289,7 +299,7 @@ When parsed, this turns into:
 
 ##■ Mix remote and local imports
 
-You can do all kinds of things when you combine the remote import approach with the local import.
+You can do all kinds of things when you combine remote import with local import.
 
 Let's revisit the above example:
 
@@ -388,4 +398,4 @@ Then we can update the original code down to:
       "@": "https://blahblah.blah/view.json"
     }
 
-That's it! An entire app in 6 lines of JSON.
+There! An entire app in 6 lines of JSON.

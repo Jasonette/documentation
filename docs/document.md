@@ -1043,11 +1043,17 @@ Bottom tab bar
     - `width`: icon width
     - `height`: icon height
   - `badge`: badge text
+  - `url`: the view url to load when tapped.
+  - `href`: the view [href](http://docs.jasonette.com/href/) to load when tapped.
+  - `action`: an [action](http://docs.jasonette.com/actions/) to run when tapped.
+
 ####• `style`: overall style for the tab bar
 
   - `color`: selected item color
   - `color:disabled`: deselected item color
   - `background`: background color of the entire tab bar
+
+<br>
 
 ###example
 
