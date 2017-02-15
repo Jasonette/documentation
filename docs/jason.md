@@ -16,7 +16,7 @@ It's good for [using as a container for single purpose apps or quick disposable 
 			<a href='https://itunes.apple.com/us/app/jason./id1095557868?mt=8'><img src='../images/appstore.png' class='download'></a>
     </td>
     <td>
-      <a href='https://play.google.com/store/apps/details?id=com.jasonette.seed'><img src='../images/playstore.png' class='download'></a>
+      <a href='https://play.google.com/store/apps/details?id=com.jasonette.jason'><img src='../images/playstore.png' class='download'></a>
     </td>
   </tr>
   <tr>
