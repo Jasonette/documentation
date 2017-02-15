@@ -1324,6 +1324,8 @@ It's the same set of attributes as [href](href.md) since it simply invokes the h
     - the url to transition to
   - `view`
     - can be `"web"` | `"app"` | `"jason"` (default)
+  - `options`
+    - Works the same way as the [options object for href](http://docs.jasonette.com/href/#options) 
   - `transition`
     - can be `"modal"` | `"fullscreen"` | `"push"` (default)
 
