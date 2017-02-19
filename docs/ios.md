@@ -26,6 +26,11 @@ Initialize by running the `Setup` command.
 ![init](images/setup.png)
 
 This command automatically generates icons and sets the title and the url. 
+
+<div class='well'>
+<i class='icon fa-exclamation-circle'></i> <b>BEFORE YOU START:</b> Make sure you have the most recent version of XCode! (At least XCode 8) You can download it <a href='https://itunes.apple.com/us/app/xcode/id497799835?mt=12'>Here</a>.
+</div>
+
 <br>
 <br>
 
