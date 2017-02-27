@@ -8,7 +8,7 @@
   
   
   <link rel="shortcut icon" href="../img/favicon.ico">
-  <title>★ Composition - Jasonette</title>
+  <title>★ Mix-in - Jasonette</title>
   <link href='https://fonts.googleapis.com/css?family=Lato:400,700|Roboto+Slab:400,700|Inconsolata:400,700' rel='stylesheet' type='text/css'>
 
   <link rel="stylesheet" href="../css/theme.css" type="text/css" />
@@ -18,9 +18,9 @@
   
   <script>
     // Current page data
-    var mkdocs_page_name = "\u2605 Composition";
-    var mkdocs_page_input_path = "composition.md";
-    var mkdocs_page_url = "/composition/";
+    var mkdocs_page_name = "\u2605 Mix-in";
+    var mkdocs_page_input_path = "mixin.md";
+    var mkdocs_page_url = "/mixin/";
   </script>
   
   <script src="../js/jquery-2.1.1.min.js"></script>
@@ -134,7 +134,7 @@
         
             
     <li class="toctree-l1 current">
-        <a class="current" href="./">★ Composition</a>
+        <a class="current" href="./">★ Mix-in</a>
         
             <ul>
             
@@ -144,22 +144,22 @@
                 <li class="toctree-l3"><a href="#how-it-works">■ How it works</a></li>
                 
             
-                <li class="toctree-l3"><a href="#multiple-imports">■ Multiple Imports</a></li>
+                <li class="toctree-l3"><a href="#multiple-mixins">■ Multiple Mixins</a></li>
                 
             
                 <li class="toctree-l3"><a href="#anywhere-in-the-json-tree">■ Anywhere in the JSON tree</a></li>
                 
             
-                <li class="toctree-l3"><a href="#importing-subtree">■ Importing subtree</a></li>
+                <li class="toctree-l3"><a href="#partial-mixin">■ Partial Mixin</a></li>
                 
             
-                <li class="toctree-l3"><a href="#overriding-imported-values">■ Overriding imported values</a></li>
+                <li class="toctree-l3"><a href="#overriding-mixed-in-values">■ Overriding mixed in values</a></li>
                 
             
-                <li class="toctree-l3"><a href="#importing-from-self">■ Importing from self</a></li>
+                <li class="toctree-l3"><a href="#self-mixin">■ Self Mixin</a></li>
                 
             
-                <li class="toctree-l3"><a href="#mix-remote-and-local-imports">■ Mix remote and local imports</a></li>
+                <li class="toctree-l3"><a href="#mix-remote-and-local-mixins">■ Mix remote and local mixins</a></li>
                 
             
             </ul>
@@ -224,10 +224,10 @@
         
       
     
-    <li>★ Composition</li>
+    <li>★ Mix-in</li>
     <li class="wy-breadcrumbs-aside">
       
-        <a href="https://github.com/Jasonette/documentation/edit/master/docs/composition.md"
+        <a href="https://github.com/Jasonette/documentation/edit/master/docs/mixin.md"
           class="icon icon-github"> Edit on GitHub</a>
       
     </li>
@@ -241,11 +241,11 @@
 <p>Just like you can build a car, build a castle, or build a spaceship by composing simple lego bricks, you can build an entire application by composing multiple JSON files.</p>
 <hr />
 <h2 id="basics">■ Basics</h2>
-<p>You can use <code>@</code> to import a remote JSON object.</p>
+<p>You can use <code>@</code> to mix-in a remote JSON object.</p>
 <p>Let's say <code>https://lorem.ipsum/simpsons.json</code> contains the following content:</p>
 <pre><code>["Homer", "Marge", "Lisa", "Bart", "Maggie"]
 </code></pre>
-<p>We can import this into our JSON simply by doing this:</p>
+<p>We can mix this into our JSON simply by doing this:</p>
 <pre><code>{
   "the_simpsons": {
     "firstnames": {
@@ -269,17 +269,17 @@
 <p>It's useful to understand how this works internally. Whenever Jasonette loads a single JSON file here's what happens:</p>
 <ol>
 <li>Load JSON from a URL.</li>
-<li>Jasonette scans the JSON to resolve the imports if any.</li>
-<li>Sometimes it's not enough to resolve it once, especially when you mix <a href="#mix-remote-and-local-imports">remote imports with local imports</a>. Jasonette continues import resolution until everything is resolved.</li>
+<li>Jasonette scans the JSON to resolve the mixins if any.</li>
+<li>Sometimes it's not enough to resolve it once, especially when you mix <a href="#mix-remote-and-local-mixins">remote mixins with local mixins</a>. Jasonette continues mixin resolution until everything is resolved.</li>
 <li>Jasonette draws the view.</li>
 <li>The system triggers <code>$load</code> / <code>$show</code> events.</li>
 </ol>
-<p><strong> Note 1: All imports are carried out in parallel, and the rendering starts only when all imports have resolved (or failed).</strong></p>
+<p><strong> Note 1: All mixins resolutions are carried out in parallel, and the rendering starts only when all mixins have resolved (or failed).</strong></p>
 <p><strong> Note 2: In case an endpoint doesn't respond or returns an error, that part gets resolved as an empty string and silently fails instead of halting everything.</strong></p>
-<p><strong> Note 3: The order is important. Since the import happens BEFORE actual rendering, you can even import a template expression from a remote JSON</strong></p>
+<p><strong> Note 3: The order is important. Since the mixin resolution happens BEFORE actual rendering, you can even mix-in a template expression from a remote JSON</strong></p>
 <p><br></p>
-<h2 id="multiple-imports">■ Multiple Imports</h2>
-<p>You are not limited to a single import. You can import as many remote JSON urls as you want. For example:</p>
+<h2 id="multiple-mixins">■ Multiple Mixins</h2>
+<p>You are not limited to a single mixin. You can mix-in as many remote JSON urls as you want. For example:</p>
 <pre><code>{
   "cats": {
     "@": "https://lorem.ipsum/cats.json"
@@ -292,7 +292,7 @@
   }
 }
 </code></pre>
-<p>Jasonette automatically detects all occurrences of imports in a JSON file, fetches them in parallel, and attaches them to their corresponding locations.</p>
+<p>Jasonette automatically detects all occurrences of mixins in a JSON file, fetches them in parallel, and attaches them to their corresponding locations.</p>
 <p><br></p>
 <h2 id="anywhere-in-the-json-tree">■ Anywhere in the JSON tree</h2>
 <p>You can reference URLs anywhere in the JSON tree, as many times as you want. They will all be downloaded in parallel at load time and substituted in automatically.</p>
@@ -319,16 +319,16 @@
   }
 }
 </code></pre>
-<p>You can even create an entire JSON tree with an import:</p>
+<p>You can even create an entire JSON tree with a mixin:</p>
 <pre><code>{
   "@": "https://jasonbase.com/things/3nf.json"
 }
 </code></pre>
-<p>This particular example may seem silly but it becomes powerful when combined with the <a href="#overriding-imported-values">override</a> feature.</p>
-<p>Basically you can use this to import a base JSON you wish to inherit from, and then simply add a small amount of code to customize it. <a href="#overriding-imported-values">See "override" section</a> for details.</p>
+<p>This particular example may seem silly but it becomes powerful when combined with the <a href="#overriding-mixed-in-values">override</a> feature.</p>
+<p>Basically you can use this to mix-in a base JSON you wish to inherit from, and then simply add a small amount of code to customize it. <a href="#overriding-mixed-in-values">See "override" section</a> for details.</p>
 <p><br></p>
-<h2 id="importing-subtree">■ Importing subtree</h2>
-<p>Sometimes you may want to import only the subtree of a remote JSON file.</p>
+<h2 id="partial-mixin">■ Partial Mixin</h2>
+<p>Sometimes you may want to mix-in only the subtree of a remote JSON file.</p>
 <p>In this case, we use the following syntax:</p>
 <pre><code>[JSON_PATH]@[JSON_URL]
 </code></pre>
@@ -350,9 +350,9 @@
 </code></pre>
 <p>As you can see, we're prefixing the URL with the path <code>drinks.coffee</code> so it assigns only that subtree into the coffee attribute.</p>
 <p><br></p>
-<h2 id="overriding-imported-values">■ Overriding imported values</h2>
-<p>Sometimes you may want to import and override certain attributes from the imported JSON.</p>
-<p>In this case you simply define the attribute locally and it will automatically override the imported value.</p>
+<h2 id="overriding-mixed-in-values">■ Overriding mixed in values</h2>
+<p>Sometimes you may want to mix-in and override certain attributes from the mixed-in JSON.</p>
+<p>In this case you simply define the attribute locally and it will automatically override the mixed-in value.</p>
 <p>Let's say we have a JSON at <code>https://jasonbase.com/things/dnf.json</code> that looks like this:</p>
 <pre><code>{
   "type": "label",
@@ -373,9 +373,9 @@
 </code></pre>
 <p>Here's what happens when Jasonette sees this JSON:</p>
 <ol>
-<li>It first imports the referenced JSON.</li>
+<li>It first mixes the referenced JSON in.</li>
 <li>And then it goes through the rest of the attributes.</li>
-<li>If there's a collision, it overrides the imported value with the local value.</li>
+<li>If there's a collision, it overrides the mixed-in value with the local value.</li>
 <li>Keep going until all key/value pairs are processed.</li>
 </ol>
 <p>In this case it ends up overriding the <code>text</code> attribute. The result:</p>
@@ -390,8 +390,8 @@
   }]
 }
 </code></pre>
-<h2 id="importing-from-self">■ Importing from self</h2>
-<p>Importing is not limited to remote JSON files. A JSON can even import itself and its own subtree to another location within itself.</p>
+<h2 id="self-mixin">■ Self Mixin</h2>
+<p>Mix-in is not limited to remote JSON files. A JSON can even mix-in itself and its own subtree to another location within itself.</p>
 <p>To access the current JSON object, you just need to use the <code>$document</code> object.</p>
 <p>Here's an example:</p>
 <pre><code>{
@@ -412,7 +412,7 @@
   "text": "{{name}}"
 }
 </code></pre>
-<p>After the import finishes, it turns into:</p>
+<p>After the mix-in resolution finishes, it turns into:</p>
 <pre><code>{
   "users": {
     "{{#each users}}": {
@@ -489,8 +489,8 @@
   }
 }
 </code></pre>
-<h2 id="mix-remote-and-local-imports">■ Mix remote and local imports</h2>
-<p>You can do all kinds of things when you combine remote import with local import.</p>
+<h2 id="mix-remote-and-local-mixins">■ Mix remote and local mixins</h2>
+<p>You can do all kinds of things when you combine remote mixins with local mixins.</p>
 <p>Let's revisit the above example:</p>
 <pre><code>{
   "custom_templates": {
