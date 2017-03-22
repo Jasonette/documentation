@@ -56,263 +56,241 @@
 
       <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
 	<ul class="current">
+	  
           
-            <li>
-    <li class="toctree-l1 ">
-        <a class="" href="..">■ Getting started</a>
-        
-    </li>
-<li>
+            <li class="toctree-l1">
+		
+    <a class="" href="..">■ Getting started</a>
+	    </li>
           
-            <li>
-    <li class="toctree-l1 ">
-        <a class="" href="../ios/">■ iOS</a>
-        
-    </li>
-<li>
+            <li class="toctree-l1">
+		
+    <a class="" href="../ios/">■ iOS</a>
+	    </li>
           
-            <li>
-    <li class="toctree-l1 ">
-        <a class="" href="../android/">■ Android</a>
-        
-    </li>
-<li>
+            <li class="toctree-l1">
+		
+    <a class="" href="../android/">■ Android</a>
+	    </li>
           
-            <li>
-    <li class="toctree-l1 ">
-        <a class="" href="../examples/">■ Examples</a>
-        
-    </li>
-<li>
+            <li class="toctree-l1">
+		
+    <a class="" href="../examples/">■ Examples</a>
+	    </li>
           
-            <li>
+            <li class="toctree-l1">
+		
+    <span class="caption-text">■ Reference</span>
     <ul class="subnav">
-    <li><span>■ Reference</span></li>
+                <li class="">
+                    
+    <a class="" href="../document/">★ View</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../href/">★ Link</a>
+                </li>
+                <li class=" current">
+                    
+    <a class="current" href="./">★ Actions</a>
+    <ul class="subnav">
+            
+    <li class="toctree-l3"><a href="#basics">Basics</a></li>
+    
+        <ul>
+        
+            <li><a class="toctree-l4" href="#syntax">Syntax</a></li>
+        
+            <li><a class="toctree-l4" href="#examples-define-inline">Examples - Define Inline</a></li>
+        
+            <li><a class="toctree-l4" href="#return-values">Return values</a></li>
+        
+            <li><a class="toctree-l4" href="#where-to-use-actions">Where to use actions?</a></li>
+        
+        </ul>
+    
 
+    <li class="toctree-l3"><a href="#triggering-actions">Triggering actions</a></li>
+    
+        <ul>
         
-            
-    <li class="toctree-l1 ">
-        <a class="" href="../document/">★ View</a>
+            <li><a class="toctree-l4" href="#syntax_1">Syntax</a></li>
         
-    </li>
+            <li><a class="toctree-l4" href="#when-to-use-trigger-vs-defining-actions-inline">When to use trigger vs. defining actions inline</a></li>
+        
+        </ul>
+    
 
+    <li class="toctree-l3"><a href="#declaring-actions">Declaring actions</a></li>
+    
+        <ul>
         
-            
-    <li class="toctree-l1 ">
-        <a class="" href="../href/">★ Link</a>
+            <li><a class="toctree-l4" href="#inline-action">Inline Action</a></li>
         
-    </li>
+            <li><a class="toctree-l4" href="#action-registry">Action Registry</a></li>
+        
+        </ul>
+    
 
+    <li class="toctree-l3"><a href="#api">API</a></li>
+    
+        <ul>
         
-            
-    <li class="toctree-l1 current">
-        <a class="current" href="./">★ Actions</a>
+            <li><a class="toctree-l4" href="#require">── REQUIRE ──</a></li>
         
-            <ul>
-            
-                <li class="toctree-l3"><a href="#basics">Basics</a></li>
-                
-                    <li><a class="toctree-l4" href="#syntax">Syntax</a></li>
-                
-                    <li><a class="toctree-l4" href="#examples-define-inline">Examples - Define Inline</a></li>
-                
-                    <li><a class="toctree-l4" href="#return-values">Return values</a></li>
-                
-                    <li><a class="toctree-l4" href="#where-to-use-actions">Where to use actions?</a></li>
-                
-            
-                <li class="toctree-l3"><a href="#triggering-actions">Triggering actions</a></li>
-                
-                    <li><a class="toctree-l4" href="#syntax_1">Syntax</a></li>
-                
-                    <li><a class="toctree-l4" href="#when-to-use-trigger-vs-defining-actions-inline">When to use trigger vs. defining actions inline</a></li>
-                
-            
-                <li class="toctree-l3"><a href="#declaring-actions">Declaring actions</a></li>
-                
-                    <li><a class="toctree-l4" href="#inline-action">Inline Action</a></li>
-                
-                    <li><a class="toctree-l4" href="#action-registry">Action Registry</a></li>
-                
-            
-                <li class="toctree-l3"><a href="#api">API</a></li>
-                
-                    <li><a class="toctree-l4" href="#require">── REQUIRE ──</a></li>
-                
-                    <li><a class="toctree-l4" href="#require_1">$require</a></li>
-                
-                    <li><a class="toctree-l4" href="#functional">── FUNCTIONAL ──</a></li>
-                
-                    <li><a class="toctree-l4" href="#lambda">$lambda</a></li>
-                
-                    <li><a class="toctree-l4" href="#returnsuccess">$return.success</a></li>
-                
-                    <li><a class="toctree-l4" href="#returnerror">$return.error</a></li>
-                
-                    <li><a class="toctree-l4" href="#view">──── VIEW ────</a></li>
-                
-                    <li><a class="toctree-l4" href="#reload">$reload</a></li>
-                
-                    <li><a class="toctree-l4" href="#render">$render</a></li>
-                
-                    <li><a class="toctree-l4" href="#snapshot">$snapshot</a></li>
-                
-                    <li><a class="toctree-l4" href="#href">$href</a></li>
-                
-                    <li><a class="toctree-l4" href="#close">$close</a></li>
-                
-                    <li><a class="toctree-l4" href="#back">$back</a></li>
-                
-                    <li><a class="toctree-l4" href="#network">── NETWORK ──</a></li>
-                
-                    <li><a class="toctree-l4" href="#networkrequest">$network.request</a></li>
-                
-                    <li><a class="toctree-l4" href="#networkupload">$network.upload</a></li>
-                
-                    <li><a class="toctree-l4" href="#session">── SESSION ──</a></li>
-                
-                    <li><a class="toctree-l4" href="#sessionset">$session.set</a></li>
-                
-                    <li><a class="toctree-l4" href="#sessionreset">$session.reset</a></li>
-                
-                    <li><a class="toctree-l4" href="#variable">── VARIABLE ──</a></li>
-                
-                    <li><a class="toctree-l4" href="#set">$set</a></li>
-                
-                    <li><a class="toctree-l4" href="#get">$get</a></li>
-                
-                    <li><a class="toctree-l4" href="#cache">── CACHE ──</a></li>
-                
-                    <li><a class="toctree-l4" href="#cache-vs-local-variable">Cache vs. Local variable</a></li>
-                
-                    <li><a class="toctree-l4" href="#write">Write</a></li>
-                
-                    <li><a class="toctree-l4" href="#read">Read</a></li>
-                
-                    <li><a class="toctree-l4" href="#reset">Reset</a></li>
-                
-                    <li><a class="toctree-l4" href="#keys-ios-only">── KEYS (iOS Only) ──</a></li>
-                
-                    <li><a class="toctree-l4" href="#util">── UTIL ──</a></li>
-                
-                    <li><a class="toctree-l4" href="#utilbanner">$util.banner</a></li>
-                
-                    <li><a class="toctree-l4" href="#utiltoast">$util.toast</a></li>
-                
-                    <li><a class="toctree-l4" href="#utilalert">$util.alert</a></li>
-                
-                    <li><a class="toctree-l4" href="#utilshare">$util.share</a></li>
-                
-                    <li><a class="toctree-l4" href="#utilpicker">$util.picker</a></li>
-                
-                    <li><a class="toctree-l4" href="#utildatepicker">$util.datepicker</a></li>
-                
-                    <li><a class="toctree-l4" href="#utiladdressbook">$util.addressbook</a></li>
-                
-                    <li><a class="toctree-l4" href="#media">── MEDIA ──</a></li>
-                
-                    <li><a class="toctree-l4" href="#mediacamera">$media.camera</a></li>
-                
-                    <li><a class="toctree-l4" href="#mediapicker">$media.picker</a></li>
-                
-                    <li><a class="toctree-l4" href="#mediaplay">$media.play</a></li>
-                
-                    <li><a class="toctree-l4" href="#audio">── AUDIO ──</a></li>
-                
-                    <li><a class="toctree-l4" href="#audioplay">$audio.play</a></li>
-                
-                    <li><a class="toctree-l4" href="#audiopause">$audio.pause</a></li>
-                
-                    <li><a class="toctree-l4" href="#audiostop">$audio.stop</a></li>
-                
-                    <li><a class="toctree-l4" href="#audioseek">$audio.seek</a></li>
-                
-                    <li><a class="toctree-l4" href="#audioposition">$audio.position</a></li>
-                
-                    <li><a class="toctree-l4" href="#audioduration">$audio.duration</a></li>
-                
-                    <li><a class="toctree-l4" href="#audiorecord">$audio.record</a></li>
-                
-                    <li><a class="toctree-l4" href="#geo">── GEO ──</a></li>
-                
-                    <li><a class="toctree-l4" href="#geoget">$geo.get</a></li>
-                
-                    <li><a class="toctree-l4" href="#timer">── TIMER ──</a></li>
-                
-                    <li><a class="toctree-l4" href="#timerstart">$timer.start</a></li>
-                
-                    <li><a class="toctree-l4" href="#timerstop">$timer.stop</a></li>
-                
-                    <li><a class="toctree-l4" href="#conversion">── CONVERSION ──</a></li>
-                
-                    <li><a class="toctree-l4" href="#convertcsv">$convert.csv</a></li>
-                
-                    <li><a class="toctree-l4" href="#convertrss">$convert.rss</a></li>
-                
-            
-            </ul>
+            <li><a class="toctree-l4" href="#require_1">$require</a></li>
         
-    </li>
+            <li><a class="toctree-l4" href="#functional">── FUNCTIONAL ──</a></li>
+        
+            <li><a class="toctree-l4" href="#lambda">$lambda</a></li>
+        
+            <li><a class="toctree-l4" href="#returnsuccess">$return.success</a></li>
+        
+            <li><a class="toctree-l4" href="#returnerror">$return.error</a></li>
+        
+            <li><a class="toctree-l4" href="#view">──── VIEW ────</a></li>
+        
+            <li><a class="toctree-l4" href="#reload">$reload</a></li>
+        
+            <li><a class="toctree-l4" href="#render">$render</a></li>
+        
+            <li><a class="toctree-l4" href="#snapshot">$snapshot</a></li>
+        
+            <li><a class="toctree-l4" href="#href">$href</a></li>
+        
+            <li><a class="toctree-l4" href="#close">$close</a></li>
+        
+            <li><a class="toctree-l4" href="#back">$back</a></li>
+        
+            <li><a class="toctree-l4" href="#network">── NETWORK ──</a></li>
+        
+            <li><a class="toctree-l4" href="#networkrequest">$network.request</a></li>
+        
+            <li><a class="toctree-l4" href="#networkupload">$network.upload</a></li>
+        
+            <li><a class="toctree-l4" href="#session">── SESSION ──</a></li>
+        
+            <li><a class="toctree-l4" href="#sessionset">$session.set</a></li>
+        
+            <li><a class="toctree-l4" href="#sessionreset">$session.reset</a></li>
+        
+            <li><a class="toctree-l4" href="#variable">── VARIABLE ──</a></li>
+        
+            <li><a class="toctree-l4" href="#set">$set</a></li>
+        
+            <li><a class="toctree-l4" href="#get">$get</a></li>
+        
+            <li><a class="toctree-l4" href="#cache">── CACHE ──</a></li>
+        
+            <li><a class="toctree-l4" href="#cache-vs-local-variable">Cache vs. Local variable</a></li>
+        
+            <li><a class="toctree-l4" href="#write">Write</a></li>
+        
+            <li><a class="toctree-l4" href="#read">Read</a></li>
+        
+            <li><a class="toctree-l4" href="#reset">Reset</a></li>
+        
+            <li><a class="toctree-l4" href="#keys-ios-only">── KEYS (iOS Only) ──</a></li>
+        
+            <li><a class="toctree-l4" href="#util">── UTIL ──</a></li>
+        
+            <li><a class="toctree-l4" href="#utilbanner">$util.banner</a></li>
+        
+            <li><a class="toctree-l4" href="#utiltoast">$util.toast</a></li>
+        
+            <li><a class="toctree-l4" href="#utilalert">$util.alert</a></li>
+        
+            <li><a class="toctree-l4" href="#utilshare">$util.share</a></li>
+        
+            <li><a class="toctree-l4" href="#utilpicker">$util.picker</a></li>
+        
+            <li><a class="toctree-l4" href="#utildatepicker">$util.datepicker</a></li>
+        
+            <li><a class="toctree-l4" href="#utiladdressbook">$util.addressbook</a></li>
+        
+            <li><a class="toctree-l4" href="#media">── MEDIA ──</a></li>
+        
+            <li><a class="toctree-l4" href="#mediacamera">$media.camera</a></li>
+        
+            <li><a class="toctree-l4" href="#mediapicker">$media.picker</a></li>
+        
+            <li><a class="toctree-l4" href="#mediaplay">$media.play</a></li>
+        
+            <li><a class="toctree-l4" href="#audio">── AUDIO ──</a></li>
+        
+            <li><a class="toctree-l4" href="#audioplay">$audio.play</a></li>
+        
+            <li><a class="toctree-l4" href="#audiopause">$audio.pause</a></li>
+        
+            <li><a class="toctree-l4" href="#audiostop">$audio.stop</a></li>
+        
+            <li><a class="toctree-l4" href="#audioseek">$audio.seek</a></li>
+        
+            <li><a class="toctree-l4" href="#audioposition">$audio.position</a></li>
+        
+            <li><a class="toctree-l4" href="#audioduration">$audio.duration</a></li>
+        
+            <li><a class="toctree-l4" href="#audiorecord">$audio.record</a></li>
+        
+            <li><a class="toctree-l4" href="#geo">── GEO ──</a></li>
+        
+            <li><a class="toctree-l4" href="#geoget">$geo.get</a></li>
+        
+            <li><a class="toctree-l4" href="#timer">── TIMER ──</a></li>
+        
+            <li><a class="toctree-l4" href="#timerstart">$timer.start</a></li>
+        
+            <li><a class="toctree-l4" href="#timerstop">$timer.stop</a></li>
+        
+            <li><a class="toctree-l4" href="#conversion">── CONVERSION ──</a></li>
+        
+            <li><a class="toctree-l4" href="#convertcsv">$convert.csv</a></li>
+        
+            <li><a class="toctree-l4" href="#convertrss">$convert.rss</a></li>
+        
+        </ul>
+    
 
-        
-            
-    <li class="toctree-l1 ">
-        <a class="" href="../components/">★ Components</a>
-        
-    </li>
-
-        
-            
-    <li class="toctree-l1 ">
-        <a class="" href="../layout/">★ Layout</a>
-        
-    </li>
-
-        
-            
-    <li class="toctree-l1 ">
-        <a class="" href="../templates/">★ Templates</a>
-        
-    </li>
-
-        
-            
-    <li class="toctree-l1 ">
-        <a class="" href="../mixin/">★ Mix-in</a>
-        
-    </li>
-
-        
     </ul>
-<li>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../components/">★ Components</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../layout/">★ Layout</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../templates/">★ Templates</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../mixin/">★ Mix-in</a>
+                </li>
+    </ul>
+	    </li>
           
-            <li>
-    <li class="toctree-l1 ">
-        <a class="" href="../convention/">■ Convention</a>
-        
-    </li>
-<li>
+            <li class="toctree-l1">
+		
+    <a class="" href="../convention/">■ Convention</a>
+	    </li>
           
-            <li>
-    <li class="toctree-l1 ">
-        <a class="" href="../advanced/">■ Extending Jasonette (advanced)</a>
-        
-    </li>
-<li>
+            <li class="toctree-l1">
+		
+    <a class="" href="../advanced/">■ Extending Jasonette (advanced)</a>
+	    </li>
           
-            <li>
-    <li class="toctree-l1 ">
-        <a class="" href="../faq/">■ Troubleshoot</a>
-        
-    </li>
-<li>
+            <li class="toctree-l1">
+		
+    <a class="" href="../faq/">■ Troubleshoot</a>
+	    </li>
           
-            <li>
-    <li class="toctree-l1 ">
-        <a class="" href="../jason/">■ Jason</a>
-        
-    </li>
-<li>
+            <li class="toctree-l1">
+		
+    <a class="" href="../jason/">■ Jason</a>
+	    </li>
           
         </ul>
       </div>
@@ -3510,7 +3488,7 @@ product hunt, Discover your next favorite thing, https://www.producthunt.com, ht
   <div class="rst-versions" role="note" style="cursor: pointer">
     <span class="rst-current-version" data-toggle="rst-current-version">
       
-          <a href="https://github.com/Jasonette/documentation" class="icon icon-github" style="float: left; color: #fcfcfc"> GitHub</a>
+          <a href="https://github.com/Jasonette/documentation" class="fa fa-github" style="float: left; color: #fcfcfc"> GitHub</a>
       
       
         <span><a href="../href/" style="color: #fcfcfc;">&laquo; Previous</a></span>
