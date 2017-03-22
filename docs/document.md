@@ -714,7 +714,6 @@ Each item can contain the following attributes
     - `z_index`: An integer value (example: `{"z_index": "-1"}`). Set the z-index of the item. (Similar to [CSS z-index](https://developer.mozilla.org/en-US/docs/Web/CSS/z-index))
   - `action`: An [action](actions.md) to trigger when a user taps the item. See [actions reference](actions.md) for details.
   - `href`: An [href](href.md) to trigger when a user taps the item. See [href reference](href.md) for details.
-  - `menu`: menu to display when a user swipes the item to the left. See the next section to learn more.
 
 ###example
 
@@ -774,74 +773,6 @@ This section contains 3 items.
 The first one is a `label` component item (Displays the text "Label only item")
 
 The second and third are `vertical` layouts, each of which contains one image and two labels.
-
-### menu
-
-section items can contain a sliding menu with multiple `items`, just like the iPhone mail app. 
-
-![item menu](images/menu.gif)
-
-<br>
-
-#### syntax
-
-##### ■  `items`: array of actionable items. Each item can have the following attributes:
-  - `text`: Menu button text to display
-  - `style`
-    - `background`: background color of the button
-  - `action`: [action](actions.md) to be executed when user selects this item
-
-#### example
-
-    {
-      ...
-      {
-        "type": "label",
-        "text": "Slide left to view the menu",
-        "menu": {
-          "items": [
-            {
-              "text": "Red",
-              "style": {
-                "background": "#ff0000"
-              },
-              "action": {
-                "type": "$util.toast",
-                "options": {
-                  "text": "You've selected Red"
-                }
-              }
-            },
-            {
-              "text": "Green",
-              "style": {
-                "background": "#00ff00"
-              },
-              "action": {
-                "type": "$util.toast",
-                "options": {
-                  "text": "You've selected Green"
-                }
-              }
-            },
-            {
-              "text": "Blue",
-              "style": {
-                "background": "#0000ff"
-              },
-              "action": {
-                "type": "$util.toast",
-                "options": {
-                  "text": "You've selected Blue"
-                }
-              }
-            }
-          ]
-        }
-      }
-      ...
-    }
-
 
 ##■ header
 A header is similar to `items`. Visually it looks the same. However there are some differences:
