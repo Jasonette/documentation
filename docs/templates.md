@@ -8,7 +8,7 @@ To achieve this we use templates.
 
 1. Templates have slots (`{{ }}`) to be filled in.
 2. All expressions inside `{{ }}` are evaluated with the data in memory and substituted in.
-3. Templates handle not only evaluation but also support **looping (`#each`) and conditionals (`#if/#elseif/#else`)**. 
+3. Templates handle not only evaluation but also support **looping (`#each`) and conditionals (`#if/#elseif/#else`)**.
 4. Templates are always declared under `$jason.head.templates`.
 5. Most of the times we just use the `body` template (`$jason.head.templates.body`).
 
@@ -289,7 +289,7 @@ Let's say we are are trying to render the following return value (`$jason`):
       }
     }
 
-What happens when we run above data through the following template? 
+What happens when we run above data through the following template?
 
     {
     	"type": "label",
@@ -370,6 +370,8 @@ This is where `this` comes in. To handle this situation we can write the followi
       }
     }
 
+Keep in mind that the change in context makes global objects such as `$get`, and `$cache` inaccessible. You can use the `$root` object to get at them, e.g. `$root.$get`.
+
 
 ##Non-JSON
 
@@ -382,7 +384,7 @@ To do this, use [$convert.csv](actions.md#convertcsv)
 
 **[Here's a functional example](http://www.jasonbase.com/things/B1m/edit)**
 
---- 
+---
 
 ###RSS
 When you have an RSS content, you can parse it into JSON format before feeding it into a template.
@@ -391,7 +393,7 @@ To do this, use [$convert.rss](actions.md#convertrss)
 
 **[Here's a functional example](http://www.jasonbase.com/things/2dL/edit)**
 
---- 
+---
 
 ###HTML
 Unlike other formats like CSV and RSS, Jasonette implements a separate HTML template engine, so we don't need to parse HTML into JSON.
@@ -652,7 +654,7 @@ You can render templates using any type of data, which includes **local variable
 - etc.
 
 
-**Example:** Below, we render the label using a local variable named `message`, which is automatically set whenever the `textfield` value changes. **Note that there is no top level `body` element after `head`.** Instead we have a `body` template, which will be rendered into body whenever we call the `$render` action. 
+**Example:** Below, we render the label using a local variable named `message`, which is automatically set whenever the `textfield` value changes. **Note that there is no top level `body` element after `head`.** Instead we have a `body` template, which will be rendered into body whenever we call the `$render` action.
 
     {
       "$jason": {
