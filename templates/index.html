@@ -232,7 +232,7 @@
 <ol>
 <li>Templates have slots (<code>{{ }}</code>) to be filled in.</li>
 <li>All expressions inside <code>{{ }}</code> are evaluated with the data in memory and substituted in.</li>
-<li>Templates handle not only evaluation but also support <strong>looping (<code>#each</code>) and conditionals (<code>#if/#elseif/#else</code>)</strong>. </li>
+<li>Templates handle not only evaluation but also support <strong>looping (<code>#each</code>) and conditionals (<code>#if/#elseif/#else</code>)</strong>.</li>
 <li>Templates are always declared under <code>$jason.head.templates</code>.</li>
 <li>Most of the times we just use the <code>body</code> template (<code>$jason.head.templates.body</code>).</li>
 </ol>
@@ -484,7 +484,7 @@
   }
 }
 </code></pre>
-<p>What happens when we run above data through the following template? </p>
+<p>What happens when we run above data through the following template?</p>
 <pre><code>{
     "type": "label",
     "text": [
@@ -556,6 +556,7 @@
   }
 }
 </code></pre>
+<p>Keep in mind that the change in context makes global objects such as <code>$get</code>, and <code>$cache</code> inaccessible. You can use the <code>$root</code> object to get at them, e.g. <code>$root.$get</code>.</p>
 <h2 id="non-json">Non-JSON</h2>
 <p>Let's take a look at how non-JSON (CSV, RSS, HTML) templating works:</p>
 <h3 id="csv">CSV</h3>
@@ -820,7 +821,7 @@ For example here's a JSON markup that renders a list of labels:</p>
 <li><a href="../document/#search">search</a></li>
 <li>etc.</li>
 </ul>
-<p><strong>Example:</strong> Below, we render the label using a local variable named <code>message</code>, which is automatically set whenever the <code>textfield</code> value changes. <strong>Note that there is no top level <code>body</code> element after <code>head</code>.</strong> Instead we have a <code>body</code> template, which will be rendered into body whenever we call the <code>$render</code> action. </p>
+<p><strong>Example:</strong> Below, we render the label using a local variable named <code>message</code>, which is automatically set whenever the <code>textfield</code> value changes. <strong>Note that there is no top level <code>body</code> element after <code>head</code>.</strong> Instead we have a <code>body</code> template, which will be rendered into body whenever we call the <code>$render</code> action.</p>
 <pre><code>{
   "$jason": {
     "head": {
