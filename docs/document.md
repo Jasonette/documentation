@@ -958,7 +958,27 @@ Chat input at the bottom
 ##■  tabs
 Bottom tab bar
 
-**   DISCLAIMER: ONLY Use tabs at the root level (The first view that shows up on launch). Any other usage may introduce unexpected behavior.**
+---
+
+** ⚠️   DISCLAIMER 1: **
+
+ONLY Use tabs at the root level (The first view that shows up on launch). Any other usage may introduce unexpected behavior.
+
+---
+
+**  ⚠️    DISCLAIMER 2:**
+
+**The first tab MUST have a URL.** Otherwise the view won't load.
+
+---
+
+**  ⚠️    DISCLAIMER 3:**
+
+**The first tab's url MUST EXACTLY MATCH the URL of the view it loads from.** Otherwise the view won't load.
+
+For example in the below example, the visible view's URL should match the URL of the "Top Secret" tab. It wouldn't make sense for these two URLs to NOT match anyway.
+
+---
 
 ![footer tabs](images/footer_tabs.jpeg)
 
