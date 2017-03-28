@@ -15,7 +15,7 @@ pages:
   - ★ Layout: layout.md
   - ★ Templates: templates.md
   - ★ Mix-in: mixin.md
-- ■ Convention: convention.md
+- ■ Tips: convention.md
 - ■ Extending Jasonette (advanced): advanced.md
 - ■ Troubleshoot: faq.md
 - ■ Jason: jason.md
