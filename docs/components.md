@@ -536,3 +536,18 @@ Map component
         "height": "300"
       }
     }
+
+### Permissions and API Keys
+
+On iOS the map component works right out of the box using Apple's native map.
+
+However on Android you need to set it up using Google Maps API.
+
+1. Just open up `AndroidManifest.xml` file from Android Studio.
+2. Uncomment the lines described below:
+3. And add your Google Maps API Key (You can get it from [here](https://developers.google.com/maps/))
+
+<br>
+
+<img src='../images/map_permission.png' class='large'>
+
