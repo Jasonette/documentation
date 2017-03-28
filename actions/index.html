@@ -238,8 +238,6 @@
         
             <li><a class="toctree-l4" href="#geoget">$geo.get</a></li>
         
-            <li><a class="toctree-l4" href="#required-permissions">Required Permissions</a></li>
-        
             <li><a class="toctree-l4" href="#timer">── TIMER ──</a></li>
         
             <li><a class="toctree-l4" href="#timerstart">$timer.start</a></li>
@@ -2530,6 +2528,11 @@ If you set <code>client_id</code>, you can access it with <code>$keys.client_id<
   }
 }
 </code></pre>
+<h3 id="required-permissions">■  Required Permissions</h3>
+<p>On iOS, <code>$util.addressbook</code> works out of the box so you don't need to do anything.</p>
+<p>But on Android you need to set up a <code>android.permission.READ_CONTACTS</code> permission.</p>
+<p>Just open up <code>AndroidManifest.xml</code> file from Android Studio, and uncomment the lines described below:</p>
+<p><img src='../images/util_addressbook_permission.png' class='large'></p>
 <hr />
 <h2 id="media">── MEDIA ──</h2>
 <p>Anything related to photo/video/camera.</p>
@@ -3034,7 +3037,7 @@ If you set <code>client_id</code>, you can access it with <code>$keys.client_id<
 }
 </code></pre>
 <p><br></p>
-<h2 id="required-permissions">Required Permissions</h2>
+<h3 id="required-permissions_1">■  Required Permissions</h3>
 <p>On iOS, <code>$geo.get</code> works out of the box so you don't need to do anything.</p>
 <p>But on Android you need to set up a location permission.</p>
 <p>Just open up <code>AndroidManifest.xml</code> file from Android Studio, and uncomment the lines described below:</p>
