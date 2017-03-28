@@ -2589,12 +2589,15 @@ plays a video from remote url.
 
 Anything related to audio
 
----
+<br>
+
 
 ## $audio.play
 
 - Play audio from remote url. 
 - Toggles between play and pause state if called multiple times.
+
+<br>
 
 ### ■  options
 - `url`:  A remote url to stream audio from.
@@ -2837,6 +2840,53 @@ Normally you will want to pass the result immediately to a `$network.upload` cal
         }
       }
     }
+
+---
+
+## Additional Permissions
+
+⚠️  There are certain device permissions you need to turn on in order to use some of these actions.
+
+<br>
+
+---
+
+### iOS Permission
+
+To support background audio play, you need to turn on background audio mode. Here's how:
+
+<br>
+
+**[1] From XCode open `info.plist` file. Right click on the file and open as `source code`.**
+
+<img src='../images/backgroundaudio_infoplist.png' class='large'>
+  
+<br>
+
+**[2] Uncomment the UIBackgroundModes part**
+
+<img src='../images/backgroundaudio.png' class='large'>
+
+<br>
+
+---
+
+### Android Permissions
+
+
+**[A] To support `$audio.record` on Android, you need to turn on `android.permission.RECORD_AUDIO` permission.**
+
+**[B] To support background audio play, you need to turn on `android.permission.WAKE_LOCK` permission.**
+
+<br>
+
+First open `AndroidManifest.xml` file from Android Stuido, and uncomment the relevant lines as shown below:
+
+<br>
+
+<img src='../images/androidaudio.png' class='large'>
+
+<br>
 
 ---
 
