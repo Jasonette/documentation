@@ -224,7 +224,7 @@
           
             <li class="toctree-l1">
 		
-    <a class="" href="../convention/">■ Convention</a>
+    <a class="" href="../convention/">■ Tips</a>
 	    </li>
           
             <li class="toctree-l1">
@@ -1156,7 +1156,17 @@ Let's go into more details:</p>
 </code></pre>
 <h2 id="tabs">■  tabs</h2>
 <p>Bottom tab bar</p>
-<p><strong>   DISCLAIMER: ONLY Use tabs at the root level (The first view that shows up on launch). Any other usage may introduce unexpected behavior.</strong></p>
+<hr />
+<p><strong> ⚠️   DISCLAIMER 1: </strong></p>
+<p>ONLY Use tabs at the root level (The first view that shows up on launch). Any other usage may introduce unexpected behavior.</p>
+<hr />
+<p><strong>  ⚠️    DISCLAIMER 2:</strong></p>
+<p><strong>The first tab MUST have a URL.</strong> Otherwise the view won't load.</p>
+<hr />
+<p><strong>  ⚠️    DISCLAIMER 3:</strong></p>
+<p><strong>The first tab's url MUST EXACTLY MATCH the URL of the view it loads from.</strong> Otherwise the view won't load.</p>
+<p>For example in the below example, the visible view's URL should match the URL of the "Top Secret" tab. It wouldn't make sense for these two URLs to NOT match anyway.</p>
+<hr />
 <p><img alt="footer tabs" src="../images/footer_tabs.jpeg" /></p>
 <hr />
 <h3 id="attributes_8">attributes</h3>
