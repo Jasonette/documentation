@@ -258,11 +258,13 @@
 </blockquote>
 <hr />
 <p><img alt="image component" src="../images/components_image.jpeg" /></p>
+<p><br></p>
 <h3 id="syntax_1">syntax</h3>
 <ul>
 <li><code>type</code>: <code>"image"</code></li>
 <li><code>url</code>: image url</li>
-<li><code>style</code><ul>
+<li><code>header</code>: (optional) in case the image needs authentication and we need to attach a header object to the request</li>
+<li><code>style</code> (optional)<ul>
 <li><code>corner_radius</code>: corner radius. use this to make the image rounded</li>
 <li><code>width</code></li>
 <li><code>height</code></li>
@@ -270,10 +272,14 @@
 </ul>
 </li>
 </ul>
+<p><br></p>
 <h3 id="example_1">example</h3>
 <pre><code>{
   "type": "image",
   "url": "http://i.imgur.com/KUJPgGV.png",
+  "header": {
+    "auth_token": "3nfdss3fNdlenghs_dnekgldnvq334hd"
+  },
   "style": {
     "width": "50",
     "height": "50",
@@ -292,6 +298,7 @@
 <li><code>type</code>: <code>"button"</code></li>
 <li><code>text</code>: button text (pick either <code>text</code> or <code>url</code>, can't have both)</li>
 <li><code>url</code>: button image url (pick either <code>text</code> or <code>url</code>, can't have both)</li>
+<li><code>header</code>: (optional) in case the we're using the image button and the image needs authentication and we need to attach a header object to the request</li>
 <li><code>style</code><ul>
 <li><code>width</code></li>
 <li><code>height</code></li>
@@ -329,6 +336,9 @@
 <pre><code>{
   "type": "button",
   "url": "https://raw.githubusercontent.com/Jasonette/Jasonpedia/gh-pages/assets/krusty.png",
+  "header": {
+    "auth_token": "3nfdss3fNdlenghs_dnekgldnvq334hd"
+  },
   "style": {
     "width": "50",
     "height": "50",
