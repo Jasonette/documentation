@@ -1,0 +1,352 @@
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  
+  <link rel="shortcut icon" href="../img/favicon.ico">
+  <title>★ Local JSON - Jasonette</title>
+  <link href='https://fonts.googleapis.com/css?family=Lato:400,700|Roboto+Slab:400,700|Inconsolata:400,700' rel='stylesheet' type='text/css'>
+
+  <link rel="stylesheet" href="../css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="../css/theme_extra.css" type="text/css" />
+  <link rel="stylesheet" href="../css/highlight.css">
+  <link href="../extra.css" rel="stylesheet">
+  
+  <script>
+    // Current page data
+    var mkdocs_page_name = "\u2605 Local JSON";
+    var mkdocs_page_input_path = "local.md";
+    var mkdocs_page_url = "/local/";
+  </script>
+  
+  <script src="../js/jquery-2.1.1.min.js"></script>
+  <script src="../js/modernizr-2.8.3.min.js"></script>
+  <script type="text/javascript" src="../js/highlight.pack.js"></script> 
+  
+  <script>
+      (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+      (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+      m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+      })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+      ga('create', 'UA-54282166-8', 'auto');
+      ga('send', 'pageview');
+  </script>
+  
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+  <div class="wy-grid-for-nav">
+
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side stickynav">
+      <div class="wy-side-nav-search">
+        <a href=".." class="icon icon-home"> Jasonette</a>
+        <div role="search">
+  <form id ="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+  </form>
+</div>
+      </div>
+
+      <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+	<ul class="current">
+	  
+          
+            <li class="toctree-l1">
+		
+    <a class="" href="..">■ Getting started</a>
+	    </li>
+          
+            <li class="toctree-l1">
+		
+    <a class="" href="../ios/">■ iOS</a>
+	    </li>
+          
+            <li class="toctree-l1">
+		
+    <a class="" href="../android/">■ Android</a>
+	    </li>
+          
+            <li class="toctree-l1">
+		
+    <a class="" href="../examples/">■ Examples</a>
+	    </li>
+          
+            <li class="toctree-l1">
+		
+    <span class="caption-text">■ Reference</span>
+    <ul class="subnav">
+                <li class="">
+                    
+    <a class="" href="../document/">★ View</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../href/">★ Link</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../actions/">★ Actions</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../components/">★ Components</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../layout/">★ Layout</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../templates/">★ Templates</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../mixin/">★ Mix-in</a>
+                </li>
+                <li class=" current">
+                    
+    <a class="current" href="./">★ Local JSON</a>
+    <ul class="subnav">
+            
+    <li class="toctree-l3"><a href="#app-portability">App Portability</a></li>
+    
+
+    <li class="toctree-l3"><a href="#local">Local</a></li>
+    
+        <ul>
+        
+            <li><a class="toctree-l4" href="#1-data-uri">1. Data-uri</a></li>
+        
+            <li><a class="toctree-l4" href="#2-file-url">2. File URL</a></li>
+        
+            <li><a class="toctree-l4" href="#3-offline-caching">3. Offline Caching</a></li>
+        
+        </ul>
+    
+
+    </ul>
+                </li>
+    </ul>
+	    </li>
+          
+            <li class="toctree-l1">
+		
+    <a class="" href="../convention/">■ Tips</a>
+	    </li>
+          
+            <li class="toctree-l1">
+		
+    <a class="" href="../advanced/">■ Extending Jasonette (advanced)</a>
+	    </li>
+          
+            <li class="toctree-l1">
+		
+    <a class="" href="../faq/">■ Troubleshoot</a>
+	    </li>
+          
+            <li class="toctree-l1">
+		
+    <a class="" href="../jason/">■ Jason</a>
+	    </li>
+          
+        </ul>
+      </div>
+      &nbsp;
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" role="navigation" aria-label="top navigation">
+        <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+        <a href="..">Jasonette</a>
+      </nav>
+
+      
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="breadcrumbs navigation">
+  <ul class="wy-breadcrumbs">
+    <li><a href="..">Docs</a> &raquo;</li>
+    
+      
+        
+          <li>■ Reference &raquo;</li>
+        
+      
+    
+    <li>★ Local JSON</li>
+    <li class="wy-breadcrumbs-aside">
+      
+        <a href="https://github.com/Jasonette/documentation/edit/master/docs/local.md"
+          class="icon icon-github"> Edit on GitHub</a>
+      
+    </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main">
+            <div class="section">
+              
+                <h1 id="app-portability">App Portability</h1>
+<p>With Jasonette, the apps become completely portable because the entire logic can be expressed as JSON, which can be sent to, stored, and received from anywhere.</p>
+<p><br></p>
+<p>Since portability is one of Jasonette's main benefits, we are developing many different ways of storing, transmitting, and receiving JSON, and planning on supporting many useful protocols.</p>
+<p><br></p>
+<p>One of those efforts is local JSON. </p>
+<p><br></p>
+<h1 id="local">Local</h1>
+<p>There are currently several ways Jasonette supports local JSON, each of which is unique in its own way.</p>
+<hr />
+<ol>
+<li><a href="#1-data-uri">Data-uri</a></li>
+<li><a href="#2-file-url">Store JSON locally on the app</a></li>
+<li><a href="#3-offline-caching">Offline caching</a></li>
+</ol>
+<hr />
+<h2 id="1-data-uri">1. Data-uri</h2>
+<p>Jasonette supports <a href="https://en.wikipedia.org/wiki/Data_URI_scheme">data-uri</a>. This means you can store the entire content within the URL itself. It's not always practical but there are several cases where you can get neat effects using this approach.</p>
+<p>Try entering a data-url instead of http or https based url. It should work.</p>
+<hr />
+<h2 id="2-file-url">2. File URL</h2>
+<p>Another URL scheme Jasonette supports is local file scheme (<code>file://</code>).</p>
+<p>Instead of using <code>http</code> or <code>https</code>, you can refer directly to your local file bundled up with the app. There are currently two ways to use the file URL scheme:</p>
+<p><br></p>
+<h3 id="using-file-url-scheme">Using File URL Scheme</h3>
+<p><br></p>
+<blockquote>
+<p><strong>A. Home URL </strong></p>
+<p>Instead of setting a remote URL you can point it to a local JSON file.</p>
+</blockquote>
+<p><br></p>
+<blockquote>
+<p>Here's what it looks like on Android:</p>
+<p><br></p>
+<p><img src='../images/android_home_local_url.png' class='large'></p>
+</blockquote>
+<p><br></p>
+<blockquote>
+<p>Here's what it looks like on iOS: </p>
+<p><img src='../images/ios_home_local_url.png' class='large'></p>
+</blockquote>
+<hr />
+<blockquote>
+<p><strong>B. HREF</strong></p>
+<p>You can also <code>href</code> into local JSON URLs:</p>
+</blockquote>
+<pre><code>    {
+      &quot;type&quot;: &quot;label&quot;,
+      &quot;text&quot;: &quot;Go&quot;,
+      &quot;href&quot;: {
+        &quot;url&quot;: &quot;file://demo.json&quot;
+      }
+    }
+</code></pre>
+
+<p><br></p>
+<h3 id="storing-files-locally">Storing files locally</h3>
+<p>To utilize this feature, you first need to store files under the right folders. Let me show you how:</p>
+<p><br></p>
+<p><strong>iOS File URL</strong></p>
+<ol>
+<li>Open XCode, go to <code>Jasonette &gt; Core &gt; file://</code> from the sidebar, and add your files there by drag and dropping.</li>
+<li>Access using <code>file://your_filename.json</code></li>
+</ol>
+<p><br></p>
+<p><img src='../images/ios_local_file.png' class='large'></p>
+<p><br></p>
+<p><strong> Android File URL</strong></p>
+<ol>
+<li>Open Android Studio, go to <code>app &gt; assets &gt; file</code>. Copy and paste your files there.</li>
+<li>Access using <code>file://your_filename.json</code></li>
+</ol>
+<p><br></p>
+<p><img src='../images/android_local_file.png' class='large'></p>
+<p><br></p>
+<p><strong>(Disclaimer: The file url scheme is currently limited to the home URL and <code>href</code>s. It doesn't include mixins, requires, network.request. If you would like to add these features to Jasonette, feel free to send a pull request and contribute!)</strong></p>
+<hr />
+<h2 id="3-offline-caching">3. Offline Caching</h2>
+<p>You can have best of both worlds (Stream the app on demand to keep it up-to-date all the time, as well as have the app logic cached locally so it loads instantly) by using the offline caching feature.</p>
+<p><br></p>
+<h3 id="how-offline-caching-works">How offline caching works</h3>
+<ol>
+<li>
+<p>The first time the app loads, Jasonette fetches the JSON from your server.</p>
+</li>
+<li>
+<p>If you specify that you want to use offline caching, Jasonette will cache the entire JSON for that view.</p>
+</li>
+<li>
+<p>Next time you open the view, Jasonette will load immediately from the offline cached version.</p>
+</li>
+<li>
+<p>But it doesn't stop there, Jaasonette checks to see if the network is available, and if it is, it re-fetches the JSON and updates the view. The trick is <strong>step C</strong> comes first, so it will ONLY update if the network is available. Otherwise you'll still have your offline cached version of your app.</p>
+</li>
+</ol>
+<p><br></p>
+<h3 id="how-to-use">How to use</h3>
+<p>Offline caching is managed on a per-view basis. All you need to do to enable is put <code>"offline": "true"</code> under <code>$jason.head</code>, like this:</p>
+<pre><code>{
+  "$jason": {
+    "head": {
+      "title": "offline test",
+      "offline": "true",
+      ...
+}
+</code></pre>
+              
+            </div>
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="../convention/" class="btn btn-neutral float-right" title="■ Tips">Next <span class="icon icon-circle-arrow-right"></span></a>
+      
+      
+        <a href="../mixin/" class="btn btn-neutral" title="★ Mix-in"><span class="icon icon-circle-arrow-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <!-- Copyright etc -->
+    
+  </div>
+
+  Built with <a href="http://www.mkdocs.org">MkDocs</a> using a <a href="https://github.com/snide/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>.
+</footer>
+	  
+        </div>
+      </div>
+
+    </section>
+    
+  </div>
+
+  <div class="rst-versions" role="note" style="cursor: pointer">
+    <span class="rst-current-version" data-toggle="rst-current-version">
+      
+          <a href="https://github.com/Jasonette/documentation" class="fa fa-github" style="float: left; color: #fcfcfc"> GitHub</a>
+      
+      
+        <span><a href="../mixin/" style="color: #fcfcfc;">&laquo; Previous</a></span>
+      
+      
+        <span style="margin-left: 15px"><a href="../convention/" style="color: #fcfcfc">Next &raquo;</a></span>
+      
+    </span>
+</div>
+    <script src="../js/theme.js"></script>
+
+</body>
+</html>

@@ -2561,6 +2561,56 @@
             "title": "\u25a0 Mix remote and local mixins"
         }, 
         {
+            "location": "/local/", 
+            "text": "App Portability\n\n\nWith Jasonette, the apps become completely portable because the entire logic can be expressed as JSON, which can be sent to, stored, and received from anywhere.\n\n\n\n\nSince portability is one of Jasonette's main benefits, we are developing many different ways of storing, transmitting, and receiving JSON, and planning on supporting many useful protocols.\n\n\n\n\nOne of those efforts is local JSON. \n\n\n\n\nLocal\n\n\nThere are currently several ways Jasonette supports local JSON, each of which is unique in its own way.\n\n\n\n\n\n\nData-uri\n\n\nStore JSON locally on the app\n\n\nOffline caching\n\n\n\n\n\n\n1. Data-uri\n\n\nJasonette supports \ndata-uri\n. This means you can store the entire content within the URL itself. It's not always practical but there are several cases where you can get neat effects using this approach.\n\n\nTry entering a data-url instead of http or https based url. It should work.\n\n\n\n\n2. File URL\n\n\nAnother URL scheme Jasonette supports is local file scheme (\nfile://\n).\n\n\nInstead of using \nhttp\n or \nhttps\n, you can refer directly to your local file bundled up with the app. There are currently two ways to use the file URL scheme:\n\n\n\n\nUsing File URL Scheme\n\n\n\n\n\n\nA. Home URL \n\n\nInstead of setting a remote URL you can point it to a local JSON file.\n\n\n\n\n\n\n\n\nHere's what it looks like on Android:\n\n\n\n\n\n\n\n\n\n\n\n\nHere's what it looks like on iOS: \n\n\n\n\n\n\n\n\n\n\nB. HREF\n\n\nYou can also \nhref\n into local JSON URLs:\n\n\n\n\n    {\n      \ntype\n: \nlabel\n,\n      \ntext\n: \nGo\n,\n      \nhref\n: {\n        \nurl\n: \nfile://demo.json\n\n      }\n    }\n\n\n\n\n\n\nStoring files locally\n\n\nTo utilize this feature, you first need to store files under the right folders. Let me show you how:\n\n\n\n\niOS File URL\n\n\n\n\nOpen XCode, go to \nJasonette \n Core \n file://\n from the sidebar, and add your files there by drag and dropping.\n\n\nAccess using \nfile://your_filename.json\n\n\n\n\n\n\n\n\n\n\n Android File URL\n\n\n\n\nOpen Android Studio, go to \napp \n assets \n file\n. Copy and paste your files there.\n\n\nAccess using \nfile://your_filename.json\n\n\n\n\n\n\n\n\n\n\n(Disclaimer: The file url scheme is currently limited to the home URL and \nhref\ns. It doesn't include mixins, requires, network.request. If you would like to add these features to Jasonette, feel free to send a pull request and contribute!)\n\n\n\n\n3. Offline Caching\n\n\nYou can have best of both worlds (Stream the app on demand to keep it up-to-date all the time, as well as have the app logic cached locally so it loads instantly) by using the offline caching feature.\n\n\n\n\nHow offline caching works\n\n\n\n\n\n\nThe first time the app loads, Jasonette fetches the JSON from your server.\n\n\n\n\n\n\nIf you specify that you want to use offline caching, Jasonette will cache the entire JSON for that view.\n\n\n\n\n\n\nNext time you open the view, Jasonette will load immediately from the offline cached version.\n\n\n\n\n\n\nBut it doesn't stop there, Jaasonette checks to see if the network is available, and if it is, it re-fetches the JSON and updates the view. The trick is \nstep C\n comes first, so it will ONLY update if the network is available. Otherwise you'll still have your offline cached version of your app.\n\n\n\n\n\n\n\n\nHow to use\n\n\nOffline caching is managed on a per-view basis. All you need to do to enable is put \n\"offline\": \"true\"\n under \n$jason.head\n, like this:\n\n\n{\n  \"$jason\": {\n    \"head\": {\n      \"title\": \"offline test\",\n      \"offline\": \"true\",\n      ...\n}", 
+            "title": "\u2605 Local JSON"
+        }, 
+        {
+            "location": "/local/#app-portability", 
+            "text": "With Jasonette, the apps become completely portable because the entire logic can be expressed as JSON, which can be sent to, stored, and received from anywhere.   Since portability is one of Jasonette's main benefits, we are developing many different ways of storing, transmitting, and receiving JSON, and planning on supporting many useful protocols.   One of those efforts is local JSON.", 
+            "title": "App Portability"
+        }, 
+        {
+            "location": "/local/#local", 
+            "text": "There are currently several ways Jasonette supports local JSON, each of which is unique in its own way.    Data-uri  Store JSON locally on the app  Offline caching", 
+            "title": "Local"
+        }, 
+        {
+            "location": "/local/#1-data-uri", 
+            "text": "Jasonette supports  data-uri . This means you can store the entire content within the URL itself. It's not always practical but there are several cases where you can get neat effects using this approach.  Try entering a data-url instead of http or https based url. It should work.", 
+            "title": "1. Data-uri"
+        }, 
+        {
+            "location": "/local/#2-file-url", 
+            "text": "Another URL scheme Jasonette supports is local file scheme ( file:// ).  Instead of using  http  or  https , you can refer directly to your local file bundled up with the app. There are currently two ways to use the file URL scheme:", 
+            "title": "2. File URL"
+        }, 
+        {
+            "location": "/local/#using-file-url-scheme", 
+            "text": "A. Home URL   Instead of setting a remote URL you can point it to a local JSON file.     Here's what it looks like on Android:       Here's what it looks like on iOS:       B. HREF  You can also  href  into local JSON URLs:       {\n       type :  label ,\n       text :  Go ,\n       href : {\n         url :  file://demo.json \n      }\n    }", 
+            "title": "Using File URL Scheme"
+        }, 
+        {
+            "location": "/local/#storing-files-locally", 
+            "text": "To utilize this feature, you first need to store files under the right folders. Let me show you how:   iOS File URL   Open XCode, go to  Jasonette   Core   file://  from the sidebar, and add your files there by drag and dropping.  Access using  file://your_filename.json       Android File URL   Open Android Studio, go to  app   assets   file . Copy and paste your files there.  Access using  file://your_filename.json      (Disclaimer: The file url scheme is currently limited to the home URL and  href s. It doesn't include mixins, requires, network.request. If you would like to add these features to Jasonette, feel free to send a pull request and contribute!)", 
+            "title": "Storing files locally"
+        }, 
+        {
+            "location": "/local/#3-offline-caching", 
+            "text": "You can have best of both worlds (Stream the app on demand to keep it up-to-date all the time, as well as have the app logic cached locally so it loads instantly) by using the offline caching feature.", 
+            "title": "3. Offline Caching"
+        }, 
+        {
+            "location": "/local/#how-offline-caching-works", 
+            "text": "The first time the app loads, Jasonette fetches the JSON from your server.    If you specify that you want to use offline caching, Jasonette will cache the entire JSON for that view.    Next time you open the view, Jasonette will load immediately from the offline cached version.    But it doesn't stop there, Jaasonette checks to see if the network is available, and if it is, it re-fetches the JSON and updates the view. The trick is  step C  comes first, so it will ONLY update if the network is available. Otherwise you'll still have your offline cached version of your app.", 
+            "title": "How offline caching works"
+        }, 
+        {
+            "location": "/local/#how-to-use", 
+            "text": "Offline caching is managed on a per-view basis. All you need to do to enable is put  \"offline\": \"true\"  under  $jason.head , like this:  {\n  \"$jason\": {\n    \"head\": {\n      \"title\": \"offline test\",\n      \"offline\": \"true\",\n      ...\n}", 
+            "title": "How to use"
+        }, 
+        {
             "location": "/convention/", 
             "text": "Jasonette is built around various conventions in order to make things simpler.\n\n\n\n\nRules\n\n\n\u25a0  Everything is a string\n\n\nThe JSON we use in Jasonette is completely string based. All values are string. Sometimes this may look inconvenient, but \nassuming everything is a string\n provides lots of convenience when JSON parsing is concerned.\n\n\n\u25a0  All keywords are lowercased\n\n\nAll reserved keywords on Jasonette (component name, action name, etc.) are lowercased. \n\n\n\n\nValues\n\n\n\u25a0 color\n\n\nrgb\n\n\nWe can use rgb code.\n\n\n{\n  \"body\": {\n    \"style\": {\n      \"background\": \"rgb(244,244,244)\"\n    }\n  }\n}\n\n\n\nrgba\n\n\nWe can use rgba code. r,g,b parts are same as rgb, but the last value is the opacity.\n\n\n{\n  \"body\": {\n    \"style\": {\n      \"background\": \"rgba(255,255,255,0.3)\"\n    }\n  }\n}\n\n\n\nhex code\n\n\nWe can also use hex code\n\n\n{\n  \"body\": {\n    \"style\": {\n      \"background\": \"#ff0000\"\n    }\n  }\n}\n\n\n\n\n\n\u25a0 dimension\n\n\nAll numbers are pixels unless otherwise specified.\n\n\n1. Pixels\n\n\nBelow we create a label with 300pixel width.\n\n\n{\n  \"type\": \"label\",\n  \"text\": \"hi\",\n  \"style\": {\n    \"width\": \"300\"\n  }\n}\n\n\n\n2. Percentage\n\n\nWe can use the \n%\n sign. When we do so, it sets the dimension based on the current orientation.\n\n\n{\n  \"type\": \"label\",\n  \"text\": \"hi\",\n  \"style\": {\n    \"width\": \"100%\"\n  }\n}\n\n\n\n3. Pixels and Percentage\n\n\nWe can also use a combination of percentage and pixels.\n\n\nIn the following example we create a label that's 80 pixels smaller horizontally than the full device width:\n\n\n{\n  \"type\": \"label\",\n  \"text\": \"hi\",\n  \"style\": {\n    \"width\": \"100%-80\"\n  }\n}", 
             "title": "\u25a0 Tips"

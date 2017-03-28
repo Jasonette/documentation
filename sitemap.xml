@@ -77,6 +77,12 @@
      <changefreq>daily</changefreq>
     </url>
         
+    <url>
+     <loc>/local/</loc>
+     <lastmod>2017-03-28</lastmod>
+     <changefreq>daily</changefreq>
+    </url>
+        
     
 
     
