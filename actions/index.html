@@ -105,6 +105,12 @@
         
             <li><a class="toctree-l4" href="#return-values">Return values</a></li>
         
+            <li><a class="toctree-l4" href="#what-kind-of-ui-elements-can-have-action-handlers">What kind of UI elements can have action handlers?</a></li>
+        
+            <li><a class="toctree-l4" href="#can-be-attached-to">CAN be attached to:</a></li>
+        
+            <li><a class="toctree-l4" href="#cannot-be-attached-to">CANNOT be attached to:</a></li>
+        
             <li><a class="toctree-l4" href="#where-to-use-actions">Where to use actions?</a></li>
         
         </ul>
@@ -414,8 +420,77 @@
 }
 </code></pre>
 <p><br></p>
+<h2 id="what-kind-of-ui-elements-can-have-action-handlers">What kind of UI elements can have action handlers?</h2>
+<p><code>action</code> can be attached to various UI elements to respond to touch, but not all.</p>
+<p><br></p>
+<h2 id="can-be-attached-to">CAN be attached to:</h2>
+<ol>
+<li>menu - <code>$jason.body.header.menu</code></li>
+<li>footer tabs - <code>$jason.body.footer.tabs</code></li>
+<li>footer input - <code>$jason.body.footer.input.left</code> and <code>$jason.body.footer.input.right</code></li>
+<li>Top level of a section item - Example: <code>$body.sections[0].items[0]</code></li>
+<li>Layer item - Example - <code>$body.layers[0].items[0]</code></li>
+<li>Button component - Normally you need to attach actions at at the item level as described above. But if you want to attach an action at a component level, you can use <a href="http://docs.jasonette.com/components/#button">"type": "button</a>. </li>
+</ol>
+<p><br></p>
+<h2 id="cannot-be-attached-to">CANNOT be attached to:</h2>
+<p>CANNOT attach actions to a label or image component unless it's at <code>item</code> level. Here's an example that DOESN'T work::</p>
+<pre><code>{
+  &quot;items&quot;: [{
+    &quot;type&quot;: &quot;vertical&quot;,
+    &quot;components&quot;: [{
+      &quot;type&quot;: &quot;label&quot;,
+      &quot;text&quot;: &quot;touch me&quot;,
+      &quot;action&quot;: { ... } 
+    }]
+  }]
+}
+</code></pre>
+
+<p><code>label</code> and any other <strong>non-button</strong> type components do not respond to touch events directly.</p>
+<p>This is why above code won't respond to touch, since it's attaching the action to the label.</p>
+<p>However the following code WILL respond to touch:</p>
+<pre><code>{
+  &quot;items&quot;: [{
+    &quot;type&quot;: &quot;label&quot;,
+    &quot;text&quot;: &quot;touch me&quot;,
+    &quot;action&quot;: { ... } 
+  }]
+}
+</code></pre>
+
+<p>This is because the <code>label</code> is at <code>item</code> level. Jasonette automatically wraps components with a layout when they're at <code>item</code> level.</p>
+<p>Which means, internally above code is the same as:</p>
+<pre><code>{
+  &quot;items&quot;: [{
+    &quot;type&quot;: &quot;vertical&quot;,
+    &quot;action&quot;: { ... },
+    &quot;components&quot;: [{
+      &quot;type&quot;: &quot;label&quot;,
+      &quot;text&quot;: &quot;touch me&quot;,
+    }]
+  }]
+}
+</code></pre>
+
+<p>Notice how the action is tied to the <code>vetical</code> layout, which is at <code>item</code> level. So this will respond to touch.</p>
+<hr />
+<p><strong>So what if you really want to attach an action to a component, but the componet is NOT at item level?</strong></p>
+<p>=&gt; Use <a href="../components#button">buttons</a>, like this:</p>
+<pre><code>{
+  &quot;items&quot;: [{
+    &quot;type&quot;: &quot;vertical&quot;,
+    &quot;components&quot;: [{
+      &quot;type&quot;: &quot;button&quot;,
+      &quot;url&quot;: &quot;https://.....&quot;,
+      &quot;action&quot;: { ... } 
+    }]
+  }]
+}
+</code></pre>
+
 <h2 id="where-to-use-actions">Where to use actions?</h2>
-<p>Actions can be used in various situations:</p>
+<p>Actions are not just for UI components. It can be triggered in various ways, and used for various situations:</p>
 <ul>
 <li>Handling user interaction</li>
 <li>Handling another action's result</li>
