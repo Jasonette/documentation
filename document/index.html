@@ -1111,35 +1111,74 @@ Let's go into more details:</p>
 <p>Chat input at the bottom</p>
 <p><img alt="footer input" src="../images/footer_input.jpeg" /></p>
 <hr />
+<p><br></p>
 <h3 id="attributes_7">attributes</h3>
+<h4 id="textfield">■ <code>textfield</code></h4>
 <ul>
-<li><code>name</code>: the local variable name connected to the input field.</li>
-<li><code>placeholder</code>: placeholder text for the input field</li>
-<li><code>left</code>: left button<ul>
+<li><code>name</code>: the local variable name connected to this input field.</li>
+<li><code>placeholder</code>: the placeholder text for this input field</li>
+<li><code>style</code><ul>
+<li><code>color</code>: font color</li>
+<li><code>color:placeholder</code>: placeholder color</li>
+<li><code>background</code>: background color for the input field</li>
+</ul>
+</li>
+</ul>
+<h4 id="left-left-button-only-allows-image">■ <code>left</code>: left button (Only allows image)</h4>
+<ul>
 <li><code>image</code>: image URL to display as the left button</li>
 <li><code>action</code>: action to call when touched</li>
+<li><code>style</code><ul>
+<li><code>color</code>: tint color for the image</li>
 </ul>
 </li>
-<li><code>right</code>: right button<ul>
+</ul>
+<h4 id="right-right-button-only-allows-label">■ <code>right</code>: right button (Only allows label)</h4>
+<ul>
 <li><code>text</code>: text to display as the right button</li>
 <li><code>action</code>: action to call when touched</li>
+<li><code>style</code><ul>
+<li><code>color</code>: font color</li>
+<li><code>color:disabled</code>: disabled state font color</li>
 </ul>
 </li>
 </ul>
+<h4 id="style_2">■ <code>style</code></h4>
+<ul>
+<li><code>background</code>: background color for the root toolbar that contains all of the above</li>
+</ul>
+<p><br></p>
 <h3 id="example_6">example</h3>
 <pre><code>{
   "footer": {
     "input": {
-      "name": "message",
-      "placeholder": "Say something...",
+      "style": {
+        "background": "#cecece"
+      },
       "left": {
         "image": "https://www.jasonclient.org/img/camera.png",
+        "style": {
+          "color": "#ff0000"
+        },
         "action": {
           "type": "$media.camera"
         }
       },
+      "textfield": {
+        "name": "message",
+        "placeholder": "Say something...",
+        "style": {
+          "background": "#ffffff",
+          "color": "#ff0000",
+          "color:placeholder": "#ebebeb"
+        }
+      },
       "right": {
         "text": "Send",
+        "style": {
+          "color": "#ff0000",
+          "color:disabled": "#ebebeb"
+        },
         "action": {
           "type": "$network.request",
           "options": {
@@ -1158,9 +1197,12 @@ Let's go into more details:</p>
   }
 }
 </code></pre>
+<p><br></p>
+<hr />
+<p><br></p>
 <h2 id="tabs">■  tabs</h2>
 <p>Bottom tab bar</p>
-<hr />
+<p><br></p>
 <p><img alt="footer tabs" src="../images/footer_tabs.jpeg" /></p>
 <hr />
 <h3 id="attributes_8">attributes</h3>
