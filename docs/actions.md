@@ -2417,6 +2417,16 @@ In this example, we access the addressbook when the view `$load`s, then `$render
       }
     }
 
+### ■  Required Permissions
+
+On iOS, `$util.addressbook` works out of the box so you don't need to do anything.
+
+But on Android you need to set up a `android.permission.READ_CONTACTS` permission.
+
+Just open up `AndroidManifest.xml` file from Android Studio, and uncomment the lines described below:
+
+<img src='../images/util_addressbook_permission.png' class='large'>
+
 ---
 
 ##── MEDIA ──
@@ -2987,7 +2997,7 @@ Below example demonstrates various ways of utilizing `$geo.get` return values
 
 <br>
 
-## Required Permissions
+### ■  Required Permissions
 
 On iOS, `$geo.get` works out of the box so you don't need to do anything.
 
