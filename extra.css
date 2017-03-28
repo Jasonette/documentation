@@ -170,10 +170,12 @@ p{
   margin-bottom: 7px;
 }
 .rst-content p img {
-  max-width: 500px;
+  width: 500px;
+  max-width: 100%;
 }
 .rst-content p img.large{
-  max-width: 800px;
+  width: 800px;
+  max-width: 100%;
 }
 ol{
   line-height: 20px !important;

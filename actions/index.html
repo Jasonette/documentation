@@ -232,6 +232,8 @@
         
             <li><a class="toctree-l4" href="#audiorecord">$audio.record</a></li>
         
+            <li><a class="toctree-l4" href="#additional-permissions">Additional Permissions</a></li>
+        
             <li><a class="toctree-l4" href="#geo">── GEO ──</a></li>
         
             <li><a class="toctree-l4" href="#geoget">$geo.get</a></li>
@@ -2673,12 +2675,13 @@ If you set <code>client_id</code>, you can access it with <code>$keys.client_id<
 <hr />
 <h2 id="audio">── AUDIO ──</h2>
 <p>Anything related to audio</p>
-<hr />
+<p><br></p>
 <h2 id="audioplay">$audio.play</h2>
 <ul>
 <li>Play audio from remote url. </li>
 <li>Toggles between play and pause state if called multiple times.</li>
 </ul>
+<p><br></p>
 <h3 id="options_26">■  options</h3>
 <ul>
 <li><code>url</code>:  A remote url to stream audio from.</li>
@@ -2912,6 +2915,29 @@ If you set <code>client_id</code>, you can access it with <code>$keys.client_id<
   }
 }
 </code></pre>
+<hr />
+<h2 id="additional-permissions">Additional Permissions</h2>
+<p>⚠️  There are certain device permissions you need to turn on in order to use some of these actions.</p>
+<p><br></p>
+<hr />
+<h3 id="ios-permission">iOS Permission</h3>
+<p>To support background audio play, you need to turn on background audio mode. Here's how:</p>
+<p><br></p>
+<p><strong>[1] From XCode open <code>info.plist</code> file. Right click on the file and open as <code>source code</code>.</strong></p>
+<p><img src='../images/backgroundaudio_infoplist.png' class='large'></p>
+<p><br></p>
+<p><strong>[2] Uncomment the UIBackgroundModes part</strong></p>
+<p><img src='../images/backgroundaudio.png' class='large'></p>
+<p><br></p>
+<hr />
+<h3 id="android-permissions">Android Permissions</h3>
+<p><strong>[A] To support <code>$audio.record</code> on Android, you need to turn on <code>android.permission.RECORD_AUDIO</code> permission.</strong></p>
+<p><strong>[B] To support background audio play, you need to turn on <code>android.permission.WAKE_LOCK</code> permission.</strong></p>
+<p><br></p>
+<p>First open <code>AndroidManifest.xml</code> file from Android Stuido, and uncomment the relevant lines as shown below:</p>
+<p><br></p>
+<p><img src='../images/androidaudio.png' class='large'></p>
+<p><br></p>
 <hr />
 <h2 id="geo">── GEO ──</h2>
 <h2 id="geoget">$geo.get</h2>
