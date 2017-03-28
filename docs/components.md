@@ -61,21 +61,29 @@ Image loaded from either remote url or data-url
 
 ![image component](images/components_image.jpeg)
 
+<br>
+
 ###syntax
 
   - `type`: `"image"`
   - `url`: image url
-  - `style`
+  - `header`: (optional) in case the image needs authentication and we need to attach a header object to the request
+  - `style` (optional)
     - `corner_radius`: corner radius. use this to make the image rounded
     - `width`
     - `height`
     - `color`: To set the tint color (only for icons)
+
+<br>
 
 ###example
 
     {
       "type": "image",
       "url": "http://i.imgur.com/KUJPgGV.png",
+      "header": {
+      	"auth_token": "3nfdss3fNdlenghs_dnekgldnvq334hd"
+      },
       "style": {
         "width": "50",
         "height": "50",
@@ -100,6 +108,7 @@ Can be either a text button or an image button, depending on what attributes are
   - `type`: `"button"`
   - `text`: button text (pick either `text` or `url`, can't have both)
   - `url`: button image url (pick either `text` or `url`, can't have both)
+  - `header`: (optional) in case the we're using the image button and the image needs authentication and we need to attach a header object to the request
   - `style`
     - `width`
     - `height`
@@ -141,6 +150,9 @@ Use `url` attribute to make it an image button
     {
       "type": "button",
       "url": "https://raw.githubusercontent.com/Jasonette/Jasonpedia/gh-pages/assets/krusty.png",
+      "header": {
+      	"auth_token": "3nfdss3fNdlenghs_dnekgldnvq334hd"
+      },
       "style": {
         "width": "50",
         "height": "50",
