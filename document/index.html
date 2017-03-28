@@ -1157,16 +1157,6 @@ Let's go into more details:</p>
 <h2 id="tabs">■  tabs</h2>
 <p>Bottom tab bar</p>
 <hr />
-<p><strong> ⚠️   DISCLAIMER 1: </strong></p>
-<p>ONLY Use tabs at the root level (The first view that shows up on launch). Any other usage may introduce unexpected behavior.</p>
-<hr />
-<p><strong>  ⚠️    DISCLAIMER 2:</strong></p>
-<p><strong>The first tab MUST have a URL.</strong> Otherwise the view won't load.</p>
-<hr />
-<p><strong>  ⚠️    DISCLAIMER 3:</strong></p>
-<p><strong>The first tab's url MUST EXACTLY MATCH the URL of the view it loads from.</strong> Otherwise the view won't load.</p>
-<p>For example in the below example, the visible view's URL should match the URL of the "Top Secret" tab. It wouldn't make sense for these two URLs to NOT match anyway.</p>
-<hr />
 <p><img alt="footer tabs" src="../images/footer_tabs.jpeg" /></p>
 <hr />
 <h3 id="attributes_8">attributes</h3>
@@ -1240,6 +1230,22 @@ Let's go into more details:</p>
   }
 }
 </code></pre>
+<p><br></p>
+<h3 id="troubleshooting-tabs">Troubleshooting Tabs</h3>
+<hr />
+<p><strong> ⚠️   Troubleshoot 1: </strong></p>
+<p>ONLY Use tabs at the root level (The first view that shows up on launch). Any other usage may introduce unexpected behavior.</p>
+<hr />
+<p><strong>  ⚠️  Troubleshoot 2:</strong></p>
+<p><strong>The first tab MUST have a URL.</strong> Otherwise the view won't load.</p>
+<hr />
+<p><strong>  ⚠️  Troubleshoot 3:</strong></p>
+<p><strong>The first tab's url MUST EXACTLY MATCH the URL of the view it loads from.</strong> Otherwise the view won't load.</p>
+<p>For example in the below example, the visible view's URL should match the URL of the "Top Secret" tab. It wouldn't make sense for these two URLs to NOT match anyway.</p>
+<hr />
+<p><strong>  ⚠️  Troubleshoot 4:</strong></p>
+<p><code>tabs</code> can have up to 5 items (5 tabs max).</p>
+<hr />
 <h1 id="bodystyle">body.style</h1>
 <p>Styling the body</p>
 <ul>
