@@ -106,6 +106,8 @@
         
             <li><a class="toctree-l4" href="#transition">■ transition</a></li>
         
+            <li><a class="toctree-l4" href="#loading">■ loading</a></li>
+        
         </ul>
     
 
@@ -215,9 +217,12 @@
 <li><a href="#view">view</a></li>
 <li><a href="#options">options</a></li>
 <li><a href="#transition">transition</a></li>
+<li><a href="#loading">loading</a></li>
 </ul>
+<p><br></p>
 <h2 id="url">■ url</h2>
 <p>The url to load in the next view</p>
+<p><br></p>
 <h2 id="view">■ view</h2>
 <p>Type of view to load</p>
 <h3 id="1-view-jason">1. "view": "jason"</h3>
@@ -267,6 +272,7 @@
 </code></pre>
 <p>Above example will result in the following transition:</p>
 <p><img alt="app href" src="../images/href_app.gif" /></p>
+<p><br></p>
 <h2 id="options">■ options</h2>
 <p>Parameters to pass to the next view. Here's how to set and use options:</p>
 <h3 id="step-1-set-options">Step 1. Set options</h3>
@@ -305,6 +311,7 @@
   ...
 }
 </code></pre>
+<p><br></p>
 <h2 id="transition">■ transition</h2>
 <p>The way the next view gets presented</p>
 <ul>
@@ -327,6 +334,23 @@
 </tr>
 </tbody>
 </table>
+<p><br></p>
+<h2 id="loading">■ loading</h2>
+<p>If set to <code>"true"</code>, it displays a loading indicator when the new view loads.</p>
+<pre><code>{
+  "href": {
+    "url": "...",
+    "loading": "true"
+  }
+}
+</code></pre>
+<p>For the very first view the app loads with, we can't do this since there is no view it's <code>href</code>'ing from.</p>
+<ul>
+<li>On Android, we ALWAYS display loading indicator because that's considered the normal UX for Android.</li>
+<li>On iOS In this case we can make the first view display a loading indicator by setting the <code>loading</code> attribute inside <code>settings.plist</code>.</li>
+</ul>
+<p><br></p>
+<p><img src='../images/settingsplist.png' class='large'></p>
               
             </div>
           </div>
