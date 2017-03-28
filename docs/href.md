@@ -16,9 +16,14 @@ To describe links between views, we use `href`. Here are some of its traits:
 - [view](#view)
 - [options](#options)
 - [transition](#transition)
+- [loading](#loading)
+
+<br>
 
 ## ■ url
 The url to load in the next view
+
+<br>
 
 ## ■ view
 Type of view to load
@@ -82,6 +87,7 @@ Above example will result in the following transition:
 
 ![app href](images/href_app.gif)
 
+<br>
 
 ## ■ options
 Parameters to pass to the next view. Here's how to set and use options:
@@ -127,6 +133,8 @@ Since `$params` is `{"name": "howto"}` at this point, above template will turn i
       ...
     }
 
+<br>
+
 ## ■ transition
 
 The way the next view gets presented
@@ -139,3 +147,26 @@ The way the next view gets presented
   push transition | modal transition
   ----------------|-----------------------
   ![push transition](images/href_push.gif) | ![modal transition](images/href_modal.gif)
+
+<br>
+
+## ■ loading
+
+If set to `"true"`, it displays a loading indicator when the new view loads.
+
+    {
+      "href": {
+        "url": "...",
+        "loading": "true"
+      }
+    }
+
+For the very first view the app loads with, we can't do this since there is no view it's `href`'ing from.
+
+- On Android, we ALWAYS display loading indicator because that's considered the normal UX for Android.
+- On iOS In this case we can make the first view display a loading indicator by setting the `loading` attribute inside `settings.plist`.
+
+<br>
+
+<img src='../images/settingsplist.png' class='large'>
+
