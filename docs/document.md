@@ -911,32 +911,72 @@ Chat input at the bottom
 
 ---
 
+<br>
+
 ### attributes
 
-  - `name`: the local variable name connected to the input field.
-  - `placeholder`: placeholder text for the input field
-  - `left`: left button
-    - `image`: image URL to display as the left button
-    - `action`: action to call when touched
-  - `right`: right button
-    - `text`: text to display as the right button
-    - `action`: action to call when touched
+#### ■ `textfield`
+
+  - `name`: the local variable name connected to this input field.
+  - `placeholder`: the placeholder text for this input field
+  - `style`
+    - `color`: font color
+    - `color:placeholder`: placeholder color
+    - `background`: background color for the input field
+
+#### ■ `left`: left button (Only allows image)
+
+  - `image`: image URL to display as the left button
+  - `action`: action to call when touched
+  - `style`
+    - `color`: tint color for the image
+
+#### ■ `right`: right button (Only allows label)
+
+  - `text`: text to display as the right button
+  - `action`: action to call when touched
+  - `style`
+    - `color`: font color
+    - `color:disabled`: disabled state font color
+
+#### ■ `style`
+
+  - `background`: background color for the root toolbar that contains all of the above
+
+<br>
 
 ### example
 
     {
       "footer": {
         "input": {
-          "name": "message",
-          "placeholder": "Say something...",
+          "style": {
+            "background": "#cecece"
+          },
           "left": {
             "image": "https://www.jasonclient.org/img/camera.png",
+            "style": {
+              "color": "#ff0000"
+            },
             "action": {
               "type": "$media.camera"
             }
           },
+          "textfield": {
+            "name": "message",
+            "placeholder": "Say something...",
+            "style": {
+              "background": "#ffffff",
+              "color": "#ff0000",
+              "color:placeholder": "#ebebeb"
+            }
+          },
           "right": {
             "text": "Send",
+            "style": {
+              "color": "#ff0000",
+              "color:disabled": "#ebebeb"
+            },
             "action": {
               "type": "$network.request",
               "options": {
@@ -955,10 +995,16 @@ Chat input at the bottom
       }
     }
 
+<br>
+
+---
+
+<br>
+
 ##■  tabs
 Bottom tab bar
 
----
+<br>
 
 ![footer tabs](images/footer_tabs.jpeg)
 
