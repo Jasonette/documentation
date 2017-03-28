@@ -98,9 +98,101 @@ Which means we can use this return value by accessing the `$jason` variable, usi
 
 <br>
 
+
+## What kind of UI elements can have action handlers?
+
+`action` can be attached to various UI elements to respond to touch, but not all.
+
+<br>
+
+## CAN be attached to: 
+
+1. menu - `$jason.body.header.menu`
+2. footer tabs - `$jason.body.footer.tabs`
+3. footer input - `$jason.body.footer.input.left` and `$jason.body.footer.input.right`
+4. Top level of a section item - Example: `$body.sections[0].items[0]`
+5. Layer item - Example - `$body.layers[0].items[0]`
+6. Button component - Normally you need to attach actions at at the item level as described above. But if you want to attach an action at a component level, you can use ["type": "button](http://docs.jasonette.com/components/#button). 
+
+<br>
+
+## CANNOT be attached to:
+
+CANNOT attach actions to a label or image component unless it's at `item` level. Here's an example that DOESN'T work::
+
+
+```
+{
+  "items": [{
+    "type": "vertical",
+    "components": [{
+      "type": "label",
+      "text": "touch me",
+      "action": { ... } 
+    }]
+  }]
+}
+```
+
+`label` and any other **non-button** type components do not respond to touch events directly.
+
+This is why above code won't respond to touch, since it's attaching the action to the label.
+
+However the following code WILL respond to touch:
+
+```
+{
+  "items": [{
+    "type": "label",
+    "text": "touch me",
+    "action": { ... } 
+  }]
+}
+```
+
+This is because the `label` is at `item` level. Jasonette automatically wraps components with a layout when they're at `item` level.
+
+Which means, internally above code is the same as:
+
+```
+{
+  "items": [{
+    "type": "vertical",
+    "action": { ... },
+    "components": [{
+      "type": "label",
+      "text": "touch me",
+    }]
+  }]
+}
+```
+
+Notice how the action is tied to the `vetical` layout, which is at `item` level. So this will respond to touch.
+
+---
+
+**So what if you really want to attach an action to a component, but the componet is NOT at item level?**
+
+=> Use [buttons](/components#button), like this:
+
+```
+{
+  "items": [{
+    "type": "vertical",
+    "components": [{
+      "type": "button",
+      "url": "https://.....",
+      "action": { ... } 
+    }]
+  }]
+}
+```
+
+
+
 ## Where to use actions?
 
-Actions can be used in various situations:
+Actions are not just for UI components. It can be triggered in various ways, and used for various situations:
 
 - Handling user interaction
 - Handling another action's result
