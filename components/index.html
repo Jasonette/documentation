@@ -247,6 +247,12 @@
 <hr />
 <h2 id="image">■ image</h2>
 <p>Image loaded from either remote url or data-url</p>
+<hr />
+<blockquote>
+<p><strong> ⚠️ Disclaimer:</strong></p>
+<p><strong>image components are NOT Interactive. To attach <code>action</code> or <code>href</code> to make an image interactive, use <a href="#button">image buttons</a></strong></p>
+</blockquote>
+<hr />
 <p><img alt="image component" src="../images/components_image.jpeg" /></p>
 <h3 id="syntax_1">syntax</h3>
 <ul>
@@ -291,7 +297,9 @@
 <li><code>corner_radius</code>: corner radius for the button</li>
 </ul>
 </li>
+<li><a href="../actions">action</a> : Attach an action attribute to be triggered when user taps the button.</li>
 </ul>
+<p><br></p>
 <h3 id="example_2">Example</h3>
 <p><strong>Text button</strong></p>
 <p>Use <code>text</code> attribute to make it a label button</p>
@@ -306,6 +314,9 @@
     "font": "HelveticaNeue",
     "size": "12",
     "corner_radius": "25"
+  },
+  "action": {
+    "trigger": "reload"
   }
 }
 </code></pre>
@@ -322,6 +333,9 @@
     "font": "HelveticaNeue",
     "size": "12",
     "corner_radius": "25"
+  },
+  "action": {
+    "trigger": "reload"
   }
 }
 </code></pre>
