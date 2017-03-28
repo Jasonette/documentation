@@ -2985,6 +2985,18 @@ Below example demonstrates various ways of utilizing `$geo.get` return values
       }
     }
 
+<br>
+
+## Required Permissions
+
+On iOS, `$geo.get` works out of the box so you don't need to do anything.
+
+But on Android you need to set up a location permission.
+
+Just open up `AndroidManifest.xml` file from Android Studio, and uncomment the lines described below:
+
+<img src='../images/geoget_permission.png' class='large'>
+
 ---
 
 ##── TIMER ──
