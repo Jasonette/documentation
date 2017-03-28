@@ -51,6 +51,14 @@ Static uneditable text element.
 
 Image loaded from either remote url or data-url
 
+---
+
+> ** ⚠️ Disclaimer:**
+>
+>**image components are NOT Interactive. To attach `action` or `href` to make an image interactive, use [image buttons](#button)**
+
+---
+
 ![image component](images/components_image.jpeg)
 
 ###syntax
@@ -99,7 +107,9 @@ Can be either a text button or an image button, depending on what attributes are
     - `background`: background color
     - `color`: To set the tint color (only for icons)
     - `corner_radius`: corner radius for the button
+  - [action](/actions) : Attach an action attribute to be triggered when user taps the button.
 
+<br>
 
 ###Example
 
@@ -118,6 +128,9 @@ Use `text` attribute to make it a label button
         "font": "HelveticaNeue",
         "size": "12",
         "corner_radius": "25"
+      },
+      "action": {
+        "trigger": "reload"
       }
     }
 
@@ -136,6 +149,9 @@ Use `url` attribute to make it an image button
         "font": "HelveticaNeue",
         "size": "12",
         "corner_radius": "25"
+      },
+      "action": {
+        "trigger": "reload"
       }
     }
 
