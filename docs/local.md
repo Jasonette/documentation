@@ -8,7 +8,7 @@ Since portability is one of Jasonette's main benefits, we are developing many di
 
 <br>
 
-One of those efforts is local JSON. 
+One of those efforts is local JSON.
 
 <br>
 
@@ -45,20 +45,20 @@ Instead of using `http` or `https`, you can refer directly to your local file bu
 <br>
 
 > **A. Home URL **
-> 
+>
 > Instead of setting a remote URL you can point it to a local JSON file.
 
 <br>
 
 > Here's what it looks like on Android:
-> 
+>
 >  <br>
 >
 ><img src='../images/android_home_local_url.png' class='large'>
 
 <br>
 
-> Here's what it looks like on iOS: 
+> Here's what it looks like on iOS:
 
 ><img src='../images/ios_home_local_url.png' class='large'>
 
@@ -125,7 +125,7 @@ You can have best of both worlds (Stream the app on demand to keep it up-to-date
 
 3. Next time you open the view, Jasonette will load immediately from the offline cached version.
 
-4. But it doesn't stop there, Jaasonette checks to see if the network is available, and if it is, it re-fetches the JSON and updates the view. The trick is **step C** comes first, so it will ONLY update if the network is available. Otherwise you'll still have your offline cached version of your app.
+4. But it doesn't stop there, Jaasonette checks to see if the network is available, and if it is, it re-fetches the JSON and updates the view. The trick is **step 3** comes first, so it will ONLY update if the network is available. Otherwise you'll still have your offline cached version of your app.
 
 <br>
 
@@ -140,4 +140,3 @@ Offline caching is managed on a per-view basis. All you need to do to enable is 
           "offline": "true",
           ...
     }
-
