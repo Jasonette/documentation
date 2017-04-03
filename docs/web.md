@@ -2,17 +2,17 @@
 
 What if you could take any number of web elements, plug them straight into a native app layout, resize, scroll, interact with, and pretty much treat them just like any other [native components](components.md)?
 
-<img src='../images/compare.png' class='large'>
+<img src='../images/compare.jpg' class='large'>
 
 <br>
 
-Web Containers are self-contained web views that dissolve into native apps.
+Web Containers are self-contained web views that render into native app layout as native components.
 
 Of course, the great part is you can describe them all in JSON, just like the rest of [Jasonette components](components.md).
 
 <br>
 
-<img src='../images/header.png' class='large'>
+<img src='../images/header.jpg' class='large'>
 
 <br>
 
@@ -90,7 +90,7 @@ Three.js (background type) | Three.js (background type)
 
 <br>
 ## Use alongside native components
-Web containers dissolve into the native layout alongside other native components so seamlessly that you won't even be able to tell the difference in most cases. It's just like any other [component](components.md)! Style and use them together with other native Jasonette components.
+Web containers plug into native layout alongside other native components so seamlessly that you won't even be able to tell the difference in most cases. It's just like any other [component](components.md)! Style and use them together with other native Jasonette components.
 
 <img src='../images/aa.png' class='dark large'>
 
