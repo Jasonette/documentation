@@ -1124,18 +1124,20 @@ Styling the body
 ##■ background
 Set the background for the entire view
 
+<br>
+
 ### available values
 
-  - COLOR CODE : Here are some examples:
+  - **COLOR CODE** : Here are some examples:
     - `"rgb(144,233,233)"`
     - `"rgba(255,255,255,0.3)"`
     - `"#ff0000"`
 
-  - Image URL : If you wish to use an image as background, simply specify the image url
+  - **Image URL** : If you wish to use an image as background, simply specify the image url
 
-  - "camera": Use camera as background
+  - **JSON Web Container**: Lets you embed an entire self-contained web view as a background. Refer to [JSON web container](web.md) to learn more.
 
-  - {"type": "camera"}: More advanced camera-as-background option
+<br>
 
 ### example 1. red background
 
@@ -1169,7 +1171,7 @@ Set the background for the entire view
       }
     }
 
-### example 3. basic camera background
+### example 3. web container background
 
     {
       "$jason": {
@@ -1178,47 +1180,16 @@ Set the background for the entire view
         },
         "body": {
           "style": {
-            "background": "camera"
-          },
-          ...
-        }
-      }
-    }
-
-### example 4. advanced camera background
-
-Using back camera
-
-    {
-      "$jason": {
-        "head": {
-          ...
-        },
-        "body": {
-          "style": {
-            "background": {
-              "type": "camera",
-              "options": {
-                "device": "back"
-              }
+            "type": "html",
+            "text": "<html><head><style>...</style><script>....</script></head><body>...</body></html>",
+            "action": {
+              "type": "$default"
             }
-          },
-          ...
+          }
         }
       }
     }
 
-### Functional example
-
-**[Check out the full example](http://www.jasonbase.com/things/XgL/edit)**
-
-Here's the preview:
-
-<br>
-
-| color                                    | image                                    | camera                                  |
-| ---------------------------------------- | ---------------------------------------- | --------------------------------------- |
-| ![color background](images/background_color.jpeg) | ![image background](images/background_image.jpeg) | ![camera background](images/layers.gif) |
 
 ##■ border
 

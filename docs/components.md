@@ -356,74 +356,21 @@ Below, we set the slider's name `gauge` and triggers the `notice` action, which 
 
 ---
 
+<br>
+<br>
+
 ##■  html
 
-Simple HTML content display. Normally it's more flexible to parse html content using [HTML template](templates.md#html)
+A self-contained web environment that you can plug in, style, and manipulate just like the rest of the components.
 
-###syntax
+To learn more, refer to [Web containers](web.md).
 
-- `text`: the HTML string
-- `css`: CSS string to apply to the HTML. See below example.
+<br>
 
-You can also display html content, and even style them using CSS. However this is recommended only when you can get the content in HTML format. Normally it's recommended to receive content in JSON format and render them using rest of the components.
+<a href='/web'><img src='../images/header.png' class='large'></a>
 
-###example
-<pre><span style='color:silver;'>{
-  "$jason": {
-    "head": {
-      "title": "RSS Reader",
-      "description": "RSS Parsing example",
-      "actions": {
-        "$load": {
-          "trigger": "reload"
-        },
-        "reload": {
-          "type": "$network.request",
-          "options": {
-            "url": "http://feeds.gawker.com/lifehacker/full",
-            "dataType": "rss"
-          },
-          "success": {
-            "type": "$convert.rss",
-            "options": {
-              "data": "{{$jason}}"
-            },
-            "success": {
-              "type": "$render"
-            }
-          }
-        }
-      },
-      "templates": {
-        "body": {
-          "nav": {
-            "style": {
-              "background": "rgb(246, 246, 239)",
-              "theme": "light",
-              "color": "#000000"
-            }
-          },
-          "style": {
-            "background": "rgb(246, 246, 239)",
-            "color": "#000000",
-            "border": "0"
-          },
-          "sections": {
-            "{{#each $jason}}": {
-              "items": [
-                <span style='color:black;'>{
-                  "type": "html",
-                  "css": "body{font-family: Courier; font-size: 18px;} img{max-width: 100%; border-bottom: 30px solid white !important;}",
-                  "text": "<body>{{summary.replace(/width[ ]*=[ ]*\"[^\"]*\"/gi, '').replace(/height[ ]*=[ ]*\"[^\"]*\"/gi, '')}}</body>"
-                }</span>
-              ]
-            }
-          }
-        }
-      }
-    }
-  }
-}</span></pre>
+<br>
+<br>
 
 ---
 
