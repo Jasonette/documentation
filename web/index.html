@@ -1,0 +1,685 @@
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  
+  <link rel="shortcut icon" href="../img/favicon.ico">
+  <title>★ Web Container - Jasonette</title>
+  <link href='https://fonts.googleapis.com/css?family=Lato:400,700|Roboto+Slab:400,700|Inconsolata:400,700' rel='stylesheet' type='text/css'>
+
+  <link rel="stylesheet" href="../css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="../css/theme_extra.css" type="text/css" />
+  <link rel="stylesheet" href="../css/highlight.css">
+  <link href="../extra.css" rel="stylesheet">
+  
+  <script>
+    // Current page data
+    var mkdocs_page_name = "\u2605 Web Container";
+    var mkdocs_page_input_path = "web.md";
+    var mkdocs_page_url = "/web/";
+  </script>
+  
+  <script src="../js/jquery-2.1.1.min.js"></script>
+  <script src="../js/modernizr-2.8.3.min.js"></script>
+  <script type="text/javascript" src="../js/highlight.pack.js"></script> 
+  
+  <script>
+      (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+      (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+      m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+      })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+      ga('create', 'UA-54282166-8', 'auto');
+      ga('send', 'pageview');
+  </script>
+  
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+  <div class="wy-grid-for-nav">
+
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side stickynav">
+      <div class="wy-side-nav-search">
+        <a href=".." class="icon icon-home"> Jasonette</a>
+        <div role="search">
+  <form id ="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+  </form>
+</div>
+      </div>
+
+      <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+	<ul class="current">
+	  
+          
+            <li class="toctree-l1">
+		
+    <a class="" href="..">■ Getting started</a>
+	    </li>
+          
+            <li class="toctree-l1">
+		
+    <a class="" href="../ios/">■ iOS</a>
+	    </li>
+          
+            <li class="toctree-l1">
+		
+    <a class="" href="../android/">■ Android</a>
+	    </li>
+          
+            <li class="toctree-l1">
+		
+    <a class="" href="../examples/">■ Examples</a>
+	    </li>
+          
+            <li class="toctree-l1">
+		
+    <span class="caption-text">■ Reference</span>
+    <ul class="subnav">
+                <li class="">
+                    
+    <a class="" href="../document/">★ View</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../href/">★ Link</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../actions/">★ Actions</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../components/">★ Components</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../layout/">★ Layout</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../templates/">★ Templates</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../mixin/">★ Mix-in</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../local/">★ Local JSON</a>
+                </li>
+                <li class=" current">
+                    
+    <a class="current" href="./">★ Web Container</a>
+    <ul class="subnav">
+            
+    <li class="toctree-l3"><a href="#json-web-container">JSON Web Container</a></li>
+    
+
+    <li class="toctree-l3"><a href="#table-of-contents">Table of Contents</a></li>
+    
+
+    <li class="toctree-l3"><a href="#notice">Notice</a></li>
+    
+
+    <li class="toctree-l3"><a href="#web-containers-in-action">Web Containers in Action</a></li>
+    
+
+    <li class="toctree-l3"><a href="#features">Features</a></li>
+    
+        <ul>
+        
+            <li><a class="toctree-l4" href="#use-alongside-native-components">Use alongside native components</a></li>
+        
+            <li><a class="toctree-l4" href="#dissolve-right-into-native-layout">Dissolve right into native layout</a></li>
+        
+            <li><a class="toctree-l4" href="#scroll-just-like-other-components">Scroll just like other components</a></li>
+        
+            <li><a class="toctree-l4" href="#or-use-as-fullscreen-background">Or use as fullscreen background</a></li>
+        
+            <li><a class="toctree-l4" href="#write-once-use-anywhere">Write once, use anywhere</a></li>
+        
+        </ul>
+    
+
+    <li class="toctree-l3"><a href="#what-is-possible">What is possible?</a></li>
+    
+        <ul>
+        
+            <li><a class="toctree-l4" href="#canvas">Canvas</a></li>
+        
+            <li><a class="toctree-l4" href="#svg-css">SVG &amp; CSS</a></li>
+        
+            <li><a class="toctree-l4" href="#iframe">iframe</a></li>
+        
+            <li><a class="toctree-l4" href="#javascript">Javascript</a></li>
+        
+            <li><a class="toctree-l4" href="#interaction-between-native-actions-and-web-container">Interaction between native actions and Web container</a></li>
+        
+            <li><a class="toctree-l4" href="#mix-and-match">Mix and match</a></li>
+        
+        </ul>
+    
+
+    <li class="toctree-l3"><a href="#usage">Usage</a></li>
+    
+        <ul>
+        
+            <li><a class="toctree-l4" href="#syntax">Syntax</a></li>
+        
+            <li><a class="toctree-l4" href="#example">Example</a></li>
+        
+            <li><a class="toctree-l4" href="#tips">Tips</a></li>
+        
+            <li><a class="toctree-l4" href="#technical-details">Technical Details</a></li>
+        
+        </ul>
+    
+
+    </ul>
+                </li>
+    </ul>
+	    </li>
+          
+            <li class="toctree-l1">
+		
+    <a class="" href="../convention/">■ Tips</a>
+	    </li>
+          
+            <li class="toctree-l1">
+		
+    <a class="" href="../advanced/">■ Extending Jasonette (advanced)</a>
+	    </li>
+          
+            <li class="toctree-l1">
+		
+    <a class="" href="../faq/">■ Troubleshoot</a>
+	    </li>
+          
+            <li class="toctree-l1">
+		
+    <a class="" href="../jason/">■ Jason</a>
+	    </li>
+          
+        </ul>
+      </div>
+      &nbsp;
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" role="navigation" aria-label="top navigation">
+        <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+        <a href="..">Jasonette</a>
+      </nav>
+
+      
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="breadcrumbs navigation">
+  <ul class="wy-breadcrumbs">
+    <li><a href="..">Docs</a> &raquo;</li>
+    
+      
+        
+          <li>■ Reference &raquo;</li>
+        
+      
+    
+    <li>★ Web Container</li>
+    <li class="wy-breadcrumbs-aside">
+      
+        <a href="https://github.com/Jasonette/documentation/edit/master/docs/web.md"
+          class="icon icon-github"> Edit on GitHub</a>
+      
+    </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main">
+            <div class="section">
+              
+                <h1 id="json-web-container">JSON Web Container</h1>
+<p>What if you could take any number of web elements, plug them straight into a native app layout, resize, scroll, interact with, and pretty much treat them just like any other <a href="../components/">native components</a>?</p>
+<p><img src='../images/compare.png' class='large'></p>
+<p><br></p>
+<p>Web Containers are self-contained web views that dissolve into native apps.</p>
+<p>Of course, the great part is you can describe them all in JSON, just like the rest of <a href="../components/">Jasonette components</a>.</p>
+<p><br></p>
+<p><img src='../images/header.png' class='large'></p>
+<p><br></p>
+<p>Web containers are designed to be plugged into a native app layout alongside other <a href="../components/">native components</a>.</p>
+<p><br></p>
+<p>As you can see in above example, it's a combination of JSON and HTML.</p>
+<p>First, use HTML/CSS/Javascript to describe the internals of the container view.</p>
+<p>Then, <a href="#usage">plug it into your native app using JSON</a> as just another <a href="../components/">component</a>.</p>
+<p><br>
+<!--
+<div class = 'vid'>
+  <div class='content'>
+    <div class='video-container'>
+            <iframe width='1280' height='720' src="https://www.youtube.com/embed/Ww7siLEbJ0M" frameborder="0" allowfullscreen></iframe>
+    </div>
+  </div>
+</div>
+<br>
+--></p>
+<hr />
+<h1 id="table-of-contents">Table of Contents</h1>
+<ol>
+<li><a href="#notice">Notice</a></li>
+<li><a href="#web-containers-in-action">Web containers in action</a></li>
+<li><a href="#features">Features</a></li>
+<li><a href="#what-is-possible">What is possible?</a></li>
+<li><a href="#usage">Usage</a></li>
+</ol>
+<p><br></p>
+<hr />
+<h1 id="notice">Notice</h1>
+<p>Before we jump in, just a few things:</p>
+<ol>
+<li>
+<p>The web container performs pretty nicely on modern mobile devices, in fact so nicely that sometimes you forget that you're using web containers. But don't go overboard with it. Native will always be more performant and you should use native whenever possible. Try experimenting and you'll reach the sweet spot.</p>
+</li>
+<li>
+<p>A lot of design decisions around Web containers were made specifically for displaying rich dynamic content, which used to be tricky using just native components. Try to think of this as just another <a href="../components/">component</a> and try not to use the web container to implement app logic. It will most likely result in bad user experience.</p>
+</li>
+<li>
+<p>You can do a lot of cool things with this, such as implementing little animations here and there without having to invent a whole new JSON syntax because you can now just use CSS or Javascript animation. Also you can do things like text overlay over image simply by using CSS positioning. <a href="https://forum.jasonette.com">Please share cool use cases you find</a>.</p>
+</li>
+<li>
+<p>This is just the first draft and intentionally minimal. We may add more features depending on how it goes. Feedback appreciated.</p>
+</li>
+</ol>
+<hr />
+<h1 id="web-containers-in-action">Web Containers in Action</h1>
+<p>Web containers can be used both as a <a href="#or-use-as-fullscreen-background">fullscreen background</a> and as an <a href="#scroll-just-like-other-components">inline component</a>. Here are some examples:</p>
+<p><br></p>
+<table>
+<thead>
+<tr>
+<th>&shy;</th>
+<th>&shy;</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Anime.js (Mix and match with native)</td>
+<td>Native feed view + partial web</td>
+</tr>
+<tr>
+<td><img src='../images/anime.gif'></td>
+<td><img src='../images/feed.gif'></td>
+</tr>
+<tr>
+<td>D3.js (Native slider controller + Web container output)</td>
+<td>Canvas + JS Demo (Background type)</td>
+</tr>
+<tr>
+<td><img src='../images/gauge.gif'></td>
+<td><img src='../images/particles.gif'></td>
+</tr>
+<tr>
+<td>Anime.js (Animated HTML element inside native scroll view)</td>
+<td>Phaser.js (Background type, with user interaction)</td>
+</tr>
+<tr>
+<td><img src='../images/rotate.gif'></td>
+<td><img src='../images/phaserjs.gif'></td>
+</tr>
+<tr>
+<td>Three.js (background type)</td>
+<td>Three.js (background type)</td>
+</tr>
+<tr>
+<td><img src='../images/threejs.gif'></td>
+<td><img src='../images/threejstwo.gif'></td>
+</tr>
+</tbody>
+</table>
+<hr />
+<h1 id="features">Features</h1>
+<p><br></p>
+<h2 id="use-alongside-native-components">Use alongside native components</h2>
+<p>Web containers dissolve into the native layout alongside other native components so seamlessly that you won't even be able to tell the difference in most cases. It's just like any other <a href="../components/">component</a>! Style and use them together with other native Jasonette components.</p>
+<p><img src='../images/aa.png' class='dark large'></p>
+<hr />
+<h2 id="dissolve-right-into-native-layout">Dissolve right into native layout</h2>
+<p>Same native <a href="../layout/">layout system</a> you already know. </p>
+<p><img src='../images/bb.png' class='dark large'></p>
+<hr />
+<h2 id="scroll-just-like-other-components">Scroll just like other components</h2>
+<p>Since it's just like any other component, you can use it in a scroll view, and scroll it just like label, button, image, etc.</p>
+<p><strong>[Note] This is possible because of the <a href="#1-web-container-content-scrolls-only-when-used-as-a-background">design decision</a> made to make the contents inside a web container NOT scrollable when contained within a scroll view (for obvious UX reasons).</strong></p>
+<p><img src='../images/cc.png' class='dark large'></p>
+<hr />
+<h2 id="or-use-as-fullscreen-background">Or use as fullscreen background</h2>
+<p>Not just for scrolling components. you can use it as a background by setting "html" type for background.</p>
+<p><img src='../images/dd.png' class='dark large'></p>
+<hr />
+<h2 id="write-once-use-anywhere">Write once, use anywhere</h2>
+<p>You can use <a href="../mixin/">mix-ins</a> to write a single HTML container inside JSON and mix them into any context such as the background or a layout.</p>
+<p><img src='../images/ee.png' class='dark large'></p>
+<hr />
+<h1 id="what-is-possible">What is possible?</h1>
+<p>Since each Web container is basically a self-contained web view, you can do anything you can do with a browser, which includes any HTML markup, Javascript, and CSS styling.</p>
+<p><br></p>
+<h2 id="canvas">Canvas</h2>
+<p><img src='../images/ff.png' class='dark large'></p>
+<hr />
+<h2 id="svg-css">SVG &amp; CSS</h2>
+<p><img src='../images/svgclock.gif' class='dark large'></p>
+<hr />
+<h2 id="iframe">iframe</h2>
+<p><img src='../images/gg.png' class='dark large'></p>
+<hr />
+<h2 id="javascript">Javascript</h2>
+<p><img src='../images/hh.png' class='dark large'></p>
+<p><img src='../images/ii.png' class='dark large'></p>
+<hr />
+<h2 id="interaction-between-native-actions-and-web-container">Interaction between native actions and Web container</h2>
+<p><a href="../templates/">Templates</a> work exactly the same as the rest of Jasonette. So you can use native UI elements as input, set <a href="http://localhost:8000/actions/#variable">local variables</a>, and re-render accordingly using the local variable to dynamically display output onto the web container. </p>
+<p><img src='../images/jj.png' class='dark large'></p>
+<hr />
+<h2 id="mix-and-match">Mix and match</h2>
+<p>Jasonette already has most of what you need to build sophisticated native apps, even without the web container.</p>
+<p>But web containers can be powerful when seamlessly blended into the rest of the native app to perform things that were hard to do with existing Jasonette api.</p>
+<p><img src='../images/kk.png' class='dark large'></p>
+<hr />
+<h1 id="usage">Usage</h1>
+<ul>
+<li><a href="#syntax">Syntax</a></li>
+<li><a href="#examples">Examples</a></li>
+<li><a href="#tips">Important Tips (MUST READ)</a></li>
+</ul>
+<p><br></p>
+<h2 id="syntax">Syntax</h2>
+<p><br></p>
+<h3 id="1-as-component">1. As Component</h3>
+<p>Just like rest of the Jasonette <a href="../components/">components</a>, you can plug it into <a href="../layout/">layouts</a> and <a href="../document/#bodysections">scroll views(sections)</a>. </p>
+<table>
+<thead>
+<tr>
+<th>web containers plugged in everywhere</th>
+<th>using web container to animate text via JS</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><img src='../images/feed.gif'></td>
+<td><img src='../images/rotate.gif'></td>
+</tr>
+</tbody>
+</table>
+<ul>
+<li><code>type</code>: <code>"html"</code></li>
+<li><code>text</code>: A self contained HTML text (<code>&lt;html&gt;...&lt;/html&gt;</code>), which means everything from <code>script</code> tag to <code>style</code> tag.</li>
+<li><code>style</code>: <strong>Required. Especially the height</strong>. Web containers should NOT scroll, therefore everything outside of the <code>style.height</code> you specify will get cut off. This attribute is about how the web container looks from the outside. To style the HTML elements inside, just include the CSS inside the HTML markup. </li>
+<li><code>action</code>: (optional) Connect with any <a href="../actions/">action</a> or a web container specific action: <code>"type": "$default"</code>.<ul>
+<li><strong>[IMPORTANT]</strong> By default, web container content DOES NOT respond to user touch. This means if you click on a link inside the HTML, it won't do anything.</li>
+<li>In order to override this behavior, attach a <code>"type": "$default"</code> action, so the web container knows.</li>
+</ul>
+</li>
+</ul>
+<pre><code>{
+  &quot;items&quot;: [{
+    &quot;type&quot;: &quot;html&quot;,
+    &quot;text&quot;: &quot;&lt;html&gt;....&lt;/html&gt;&quot;,
+        &quot;style&quot;: {
+            &quot;height&quot;: &quot;100&quot;
+        },
+    &quot;action&quot;: {
+      &quot;type&quot;: &quot;$default&quot;
+    }
+  }]
+}
+</code></pre>
+
+<p><br></p>
+<h3 id="2-as-background">2. As Background</h3>
+<p>Web containers can be plugged into <code>body.style.background</code> too, which will take up the full screen.</p>
+<table>
+<thead>
+<tr>
+<th>Use any JS library</th>
+<th>Interacting with HTML content via touch</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><img src='../images/threejstwo.gif'></td>
+<td><img src='../images/phaserjs.gif'></td>
+</tr>
+</tbody>
+</table>
+<p>Same as component usage, except there's no need for <code>style</code>, and you can't attache an <code>action</code> other than <code>"type": "$default"</code>.</p>
+<ul>
+<li><code>type</code>: <code>"html"</code></li>
+<li><code>text</code>: A self contained HTML text (<code>&lt;html&gt;...&lt;/html&gt;</code>), which means everything from <code>script</code> tag to <code>style</code> tag.</li>
+<li><code>action</code>: (optional) Connect with <code>"type": "$default"</code> in order to let the web container handle the touch event. Otherwise not needed.<ul>
+<li><strong>[IMPORTANT]</strong> By default, web container content DOES NOT respond to user touch. This means if you click on a link inside the HTML, it won't do anything.</li>
+<li>In order to override this behavior, attach a <code>"type": "$default"</code> action, so the web container knows.</li>
+</ul>
+</li>
+</ul>
+<pre><code>{
+  &quot;body&quot;: {
+    &quot;style&quot;: {
+      &quot;background&quot;: {
+        &quot;type&quot;: &quot;html&quot;,
+        &quot;text&quot;: &quot;&lt;html&gt;....&lt;/html&gt;&quot;,
+        &quot;action&quot;: {
+          &quot;type&quot;: &quot;$default&quot;
+        }
+      }
+    }
+  }
+}
+</code></pre>
+
+<hr />
+<h2 id="example">Example</h2>
+<p><br></p>
+<h3 id="display-scrolling-h1-elements">Display scrolling H1 elements</h3>
+<pre><code>{
+    &quot;$jason&quot;: {
+        &quot;head&quot;: {
+            &quot;title&quot;: &quot;Scrolling Web Container&quot;
+            &quot;data&quot;: {
+                &quot;colors&quot;: [{
+                    &quot;code&quot;: &quot;#ff0000&quot;
+                }, {
+                    &quot;code&quot;: &quot;rgba(0,0,0,0.3)&quot;
+                }, {
+                    &quot;code&quot;: &quot;#00ff00&quot;
+                }, {
+                    &quot;code&quot;: &quot;rgb(130,43,32)&quot;
+                }]
+            },
+            &quot;templates&quot;: {
+                &quot;body&quot;: {
+                    &quot;sections&quot;: [{
+                        &quot;items&quot;: {
+                            &quot;{{#each colors}}&quot;: {
+                                &quot;type&quot;: &quot;html&quot;,
+                                &quot;style&quot;: {
+                                    &quot;height&quot;: &quot;50&quot;
+                                },
+                                &quot;text&quot;: &quot;&lt;html&gt;&lt;head&gt;&lt;style&gt;h1{font-size: 30px; color: {{code}};}&lt;/style&gt;&lt;/head&gt;&lt;body&gt;&lt;h1&gt;Hello World&lt;/h1&gt;&lt;/body&gt;&lt;/html&gt;&quot;
+                            }
+                        }
+                    }]
+                }
+            }
+        }
+    }
+}
+</code></pre>
+
+<p><br></p>
+<h3 id="iframe-as-background">iframe as background</h3>
+<pre><code>{
+  &quot;$jason&quot;: {
+    &quot;head&quot;: {
+      &quot;title&quot;: &quot;pdf.js&quot;
+    },
+    &quot;body&quot;: {
+      &quot;style&quot;: {
+        &quot;background&quot;: {
+          &quot;type&quot;: &quot;html&quot;,
+          &quot;text&quot;: &quot;&lt;html&gt;&lt;head&gt;&lt;style&gt;html{padding:0;margin:0;margin-top: 64px;} body,iframe{width:100%;height:100%;padding:0;margin:0;border:0;}&lt;/style&gt;&lt;body&gt;&lt;iframe src='https://mozilla.github.io/pdf.js/web/viewer.html'/&gt;&lt;/body&gt;&lt;/html&gt;&quot;
+        }
+      }
+    }
+  }
+}
+</code></pre>
+
+<p><br></p>
+<h3 id="threejs-as-background">three.js as background</h3>
+<pre><code>{
+  &quot;$jason&quot;: {
+    &quot;head&quot;: {
+        &quot;title&quot;: &quot;pdf.js&quot;
+    },
+    &quot;body&quot;: {
+        &quot;style&quot;: {
+            &quot;border&quot;: &quot;none&quot;,
+            &quot;color&quot;: &quot;rgba(0,0,0,0)&quot;,
+            &quot;background&quot;: {
+                &quot;type&quot;: &quot;html&quot;,
+                &quot;text&quot;: &quot;&lt;html&gt; &lt;head&gt; &lt;style&gt; body { margin: 0; padding: 0; background: #111; overflow: hidden; } .dg{visibility: hidden;}&lt;/style&gt; &lt;/head&gt; &lt;body&gt; &lt;script src='https://cdnjs.cloudflare.com/ajax/libs/dat-gui/0.6.2/dat.gui.min.js'&gt;&lt;/script&gt;&lt;script src='https://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.3/jquery.min.js'&gt;&lt;/script&gt;&lt;script src='https://cdnjs.cloudflare.com/ajax/libs/three.js/r50/three.min.js'&gt;&lt;/script&gt;&lt;script&gt; window.onload = function(){ var $container = $('#container'); var renderer = new THREE.WebGLRenderer({antialias: true}); var camera = new THREE.PerspectiveCamera(80,window.innerWidth/window.innerHeight,0.1,10000); var scene = new THREE.Scene(); var mouseX = 0, mouseY = 0; scene.add(camera); renderer.setSize(window.innerWidth, window.innerHeight); $container.append(renderer.domElement); window.addEventListener( 'resize', onWindowResize, false ); var Controls = function() { this.speed = 2; this.rotation = 0; }; var text = new Controls(), gui = new dat.GUI(); gui.add(text, 'speed', 0, 10); gui.add(text, 'rotation',0,15); var normalMaterial = new THREE.MeshNormalMaterial({}); function Torus(f){ this.b = new THREE.Mesh(new THREE.TorusGeometry( 160, 75, 2, 13),normalMaterial); this.b.position.x = 57*Math.cos(f); this.b.position.y = 57*Math.sin(f); this.b.position.z = f*1.25; this.b.rotation.z = f*0.03; } var numTorus = 80; var tabTorus = []; for(var i=0; i&lt;numTorus; i++){ tabTorus.push(new Torus(-i*13)); scene.add(tabTorus[i].b); }  function update(){ for(var i=0; i&lt;numTorus; i++){ tabTorus[i].b.position.z+=text.speed; tabTorus[i].b.rotation.z+=i*text.rotation/10000; if(tabTorus[i].b.position.z&gt;0) { tabTorus[i].b.position.z=-1000; } } } function onWindowResize() { windowHalfX = window.innerWidth / 2; windowHalfY = window.innerHeight / 2; camera.aspect = window.innerWidth / window.innerHeight; camera.updateProjectionMatrix(); renderer.setSize( window.innerWidth, window.innerHeight ); } function onDocumentMouseMove(event) { mouseX = ( event.clientX - windowHalfX ); mouseY = ( event.clientY - windowHalfY ); } function render() { requestAnimationFrame( render); camera.position.x += ( mouseX - camera.position.x ) * .05; camera.position.y += ( - mouseY - camera.position.y ) * .05; renderer.render(scene, camera); update(); } render(); }; &lt;/script&gt; &lt;div id='container'&gt;&lt;/div&gt; &lt;/body&gt; &lt;/html&gt;&quot;
+  }
+}
+</code></pre>
+
+<hr />
+<h2 id="tips">Tips</h2>
+<p><strong> ⚠️  ⚠️  ⚠️  ⚠️  ⚠️  IMPORTANT. READ ALL!!!!     ⚠️  ⚠️  ⚠️  ⚠️  ⚠️  </strong></p>
+<p><br></p>
+<h3 id="1-web-container-content-scrolls-only-when-used-as-a-background">1. Web container content scrolls ONLY when used as a background</h3>
+<p>When you use a web container <a href="#2-as-background">as a background</a>, it scrolls just fine, and behaves like you would expect.</p>
+<p>However when you use a web container <a href="#1-as-component">as a component inside a scrolling view</a>, the content inside <strong>does not scroll</strong> because the container itself is supposed to scroll. </p>
+<p>Which brings us to:</p>
+<p><br></p>
+<h3 id="2-must-specify-height-when-in-scroll-view">2. Must specify height when in scroll view</h3>
+<p>Every web container must have a fixed height when inside a scroll view (sections).</p>
+<p>This is so that there exists no scrolling view within a scroll view, which is a bad user experience.</p>
+<pre><code>{
+    ...
+    &quot;sections&quot;: [{
+        &quot;items&quot;: [{
+            &quot;type&quot;: &quot;html&quot;,
+            &quot;text&quot;: &quot;&lt;html&gt;....&lt;/html&gt;&quot;,
+            &quot;style&quot;: {
+                &quot;height&quot;: &quot;100&quot;
+            },
+            &quot;action&quot;: {
+                &quot;type&quot;: &quot;$default&quot;
+            }
+        }, {
+            ...
+        }],
+        ...
+    }]
+}
+</code></pre>
+
+<p><br></p>
+<h3 id="3-use-single-quotes">3. Use single quotes</h3>
+<p>Obviously, an entire HTML markup can be a long text. Sometimes it will contain double quotes and some characters that need to be escaped.</p>
+<p>Since we're trying to package an entire HTML markup into a text attribute, you'll either need to escape these characters or use single quotes instead of double quotes.</p>
+<p><br></p>
+<h3 id="4-wrap-all-script-content-inside-windowonload-function">4. Wrap all script content inside <code>window.onload = function() { ... }</code></h3>
+<p>Because of the way native scroll views recycle their child items, you need to make sure your javascript lines are run AFTER the container has loaded.</p>
+<p>To do this, wrap your Javascript inside <code>window.onload</code>. Here's an example:</p>
+<pre><code>{
+  &quot;type&quot;: &quot;html&quot;,
+  &quot;text&quot;: &quot;&lt;html&gt;&lt;head&gt;&lt;style&gt;.square{background: red; width: 50px; height: 50px;}&lt;/style&gt;&lt;script src='https://cdnjs.cloudflare.com/ajax/libs/animejs/2.0.0/anime.min.js'&gt;&lt;/script&gt;&lt;script&gt;var x=200; var move = function() {var el = document.querySelector('#domNode .el'); var domNode = anime({ targets: el, translateX: x, translateY: x}); x=200-x;}; document.addEventListener('DOMContentLoaded', function(event) { setInterval(move, 1000); }); &lt;/script&gt;&lt;body&gt;&lt;div id='domNode'&gt;&lt;div class='large square el'&gt;&lt;/div&gt;&lt;/div&gt;&lt;/body&gt;&lt;/html&gt;&quot;
+}
+</code></pre>
+
+<p><br></p>
+<h3 id="5-by-default-the-html-content-does-not-respond-to-user-input">5. By default, the HTML content does NOT respond to user input</h3>
+<p>HTML content inside a web container is NOT interactive by default. This means NOTHING will happen when you touch the contents inside, even if it's a link. (Especially if it's a link, because it would be weird to have a small portion of a native app redirect to a completely different web page)</p>
+<p><br></p>
+<p>The interaction is disabled by default because the web container is designed as a <strong>dynamic output method</strong> and <strong>NOT as an input method</strong>.</p>
+<p><br></p>
+<p>Web containers are very useful when it comes to <strong>displaying rich dynamic content</strong>, and this is the primary purpose of the web container. Also, in most cases we want to trigger native actions instead of letting the HTML content handle events. If we allowed HTML to handle user touch for example, then we wouldn't have a way to take advantage of Jasonette's <a href="../actions/">native actions</a>.</p>
+<p><br></p>
+<p>So whenever possible, use native components such as <a href="../components/#textarea">textarea</a> or <a href="../components/#textfield">textfield</a> to receive user input instead of trying to use the HTML<code>&lt;form&gt;</code> element. </p>
+<p>Also, keep in mind pure native components generally perform better too. Just use it wisely.</p>
+<p><br></p>
+<p>That said, there are some cases where it does make sense to let the HTML handle events. In which case you could:</p>
+<p><br></p>
+<h3 id="6-use-the-type-default-action-to-force-jasonette-to-let-html-handle-events">6. Use the <code>"type": "$default"</code> action to force Jasonette to let HTML handle events.</h3>
+<p>If you know what you're doing, you can override the block and let the HTML handle user events.</p>
+<pre><code>{
+    &quot;type&quot;: &quot;html&quot;,
+    &quot;text&quot;: &quot;&lt;html&gt;&lt;body&gt;&lt;script src='https://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.3/jquery.min.js'&gt;&lt;script&gt;$(function(){$(document).on('click', function(){ $('body').css('background', '#ff0000'); }); });&lt;/script&gt;&lt;/body&gt;&lt;/html&gt;&quot;,
+    &quot;action&quot;: {
+        &quot;type&quot;: &quot;$default&quot;
+    }
+}
+</code></pre>
+
+<p><br></p>
+<h2 id="technical-details">Technical Details</h2>
+<p>Under the hood, each web container is a containerized instance of web view (<a href="https://developer.apple.com/reference/uikit/uiwebview">UIWebView for iOS</a> and <a href="https://developer.android.com/reference/android/webkit/WebView.html">WebView for Android</a>).</p>
+<p>It gets recycled when you scroll just like rest of the native components so it's pretty efficient.</p>
+              
+            </div>
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="../convention/" class="btn btn-neutral float-right" title="■ Tips">Next <span class="icon icon-circle-arrow-right"></span></a>
+      
+      
+        <a href="../local/" class="btn btn-neutral" title="★ Local JSON"><span class="icon icon-circle-arrow-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <!-- Copyright etc -->
+    
+  </div>
+
+  Built with <a href="http://www.mkdocs.org">MkDocs</a> using a <a href="https://github.com/snide/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>.
+</footer>
+	  
+        </div>
+      </div>
+
+    </section>
+    
+  </div>
+
+  <div class="rst-versions" role="note" style="cursor: pointer">
+    <span class="rst-current-version" data-toggle="rst-current-version">
+      
+          <a href="https://github.com/Jasonette/documentation" class="fa fa-github" style="float: left; color: #fcfcfc"> GitHub</a>
+      
+      
+        <span><a href="../local/" style="color: #fcfcfc;">&laquo; Previous</a></span>
+      
+      
+        <span style="margin-left: 15px"><a href="../convention/" style="color: #fcfcfc">Next &raquo;</a></span>
+      
+    </span>
+</div>
+    <script src="../js/theme.js"></script>
+
+</body>
+</html>

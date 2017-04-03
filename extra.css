@@ -4,6 +4,7 @@ body {
 code{
   padding: 0 5px;
   font-size: 80%;
+  white-space: pre-wrap !important;
 }
 .btn{
   background: #262626;
@@ -173,9 +174,27 @@ p{
   width: 500px;
   max-width: 100%;
 }
-.rst-content p img.large{
+.rst-content p .large{
   width: 800px;
   max-width: 100%;
+}
+.video-container {
+  position: relative;
+  padding-bottom: 56.25%;
+  padding-top: 35px;
+  height: 0;
+  overflow: hidden;
+  margin: 0 auto;
+}
+.video-container iframe {
+  position: absolute;
+  top:0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+}
+img.dark{
+  background: #262626;
 }
 ol{
   line-height: 20px !important;

@@ -223,6 +223,10 @@
                     
     <a class="" href="../local/">★ Local JSON</a>
                 </li>
+                <li class="">
+                    
+    <a class="" href="../web/">★ Web Container</a>
+                </li>
     </ul>
 	    </li>
           
@@ -1300,10 +1304,11 @@ Let's go into more details:</p>
 </ul>
 <h2 id="background">■ background</h2>
 <p>Set the background for the entire view</p>
+<p><br></p>
 <h3 id="available-values">available values</h3>
 <ul>
 <li>
-<p>COLOR CODE : Here are some examples:</p>
+<p><strong>COLOR CODE</strong> : Here are some examples:</p>
 <ul>
 <li><code>"rgb(144,233,233)"</code></li>
 <li><code>"rgba(255,255,255,0.3)"</code></li>
@@ -1311,15 +1316,13 @@ Let's go into more details:</p>
 </ul>
 </li>
 <li>
-<p>Image URL : If you wish to use an image as background, simply specify the image url</p>
+<p><strong>Image URL</strong> : If you wish to use an image as background, simply specify the image url</p>
 </li>
 <li>
-<p>"camera": Use camera as background</p>
-</li>
-<li>
-<p>{"type": "camera"}: More advanced camera-as-background option</p>
+<p><strong>JSON Web Container</strong>: Lets you embed an entire self-contained web view as a background. Refer to <a href="../web/">JSON web container</a> to learn more.</p>
 </li>
 </ul>
+<p><br></p>
 <h3 id="example-1-red-background">example 1. red background</h3>
 <pre><code>{
   "$jason": {
@@ -1350,7 +1353,7 @@ Let's go into more details:</p>
   }
 }
 </code></pre>
-<h3 id="example-3-basic-camera-background">example 3. basic camera background</h3>
+<h3 id="example-3-web-container-background">example 3. web container background</h3>
 <pre><code>{
   "$jason": {
     "head": {
@@ -1358,54 +1361,16 @@ Let's go into more details:</p>
     },
     "body": {
       "style": {
-        "background": "camera"
-      },
-      ...
-    }
-  }
-}
-</code></pre>
-<h3 id="example-4-advanced-camera-background">example 4. advanced camera background</h3>
-<p>Using back camera</p>
-<pre><code>{
-  "$jason": {
-    "head": {
-      ...
-    },
-    "body": {
-      "style": {
-        "background": {
-          "type": "camera",
-          "options": {
-            "device": "back"
-          }
+        "type": "html",
+        "text": "&lt;html&gt;&lt;head&gt;&lt;style&gt;...&lt;/style&gt;&lt;script&gt;....&lt;/script&gt;&lt;/head&gt;&lt;body&gt;...&lt;/body&gt;&lt;/html&gt;",
+        "action": {
+          "type": "$default"
         }
-      },
-      ...
+      }
     }
   }
 }
 </code></pre>
-<h3 id="functional-example">Functional example</h3>
-<p><strong><a href="http://www.jasonbase.com/things/XgL/edit">Check out the full example</a></strong></p>
-<p>Here's the preview:</p>
-<p><br></p>
-<table>
-<thead>
-<tr>
-<th>color</th>
-<th>image</th>
-<th>camera</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td><img alt="color background" src="../images/background_color.jpeg" /></td>
-<td><img alt="image background" src="../images/background_image.jpeg" /></td>
-<td><img alt="camera background" src="../images/layers.gif" /></td>
-</tr>
-</tbody>
-</table>
 <h2 id="border">■ border</h2>
 <ul>
 <li>border color for <code>section</code> items.</li>

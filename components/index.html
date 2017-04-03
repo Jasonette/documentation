@@ -142,6 +142,10 @@
                     
     <a class="" href="../local/">★ Local JSON</a>
                 </li>
+                <li class="">
+                    
+    <a class="" href="../web/">★ Web Container</a>
+                </li>
     </ul>
 	    </li>
           
@@ -529,76 +533,20 @@
 }</span></pre>
 
 <hr />
+<p><br>
+<br></p>
 <h2 id="html">■  html</h2>
-<p>Simple HTML content display. Normally it's more flexible to parse html content using <a href="../templates/#html">HTML template</a></p>
-<h3 id="syntax_5">syntax</h3>
-<ul>
-<li><code>text</code>: the HTML string</li>
-<li><code>css</code>: CSS string to apply to the HTML. See below example.</li>
-</ul>
-<p>You can also display html content, and even style them using CSS. However this is recommended only when you can get the content in HTML format. Normally it's recommended to receive content in JSON format and render them using rest of the components.</p>
-<h3 id="example_5">example</h3>
-<p><pre><span style='color:silver;'>{
-  "$jason": {
-    "head": {
-      "title": "RSS Reader",
-      "description": "RSS Parsing example",
-      "actions": {
-        "$load": {
-          "trigger": "reload"
-        },
-        "reload": {
-          "type": "$network.request",
-          "options": {
-            "url": "http://feeds.gawker.com/lifehacker/full",
-            "dataType": "rss"
-          },
-          "success": {
-            "type": "$convert.rss",
-            "options": {
-              "data": "{{$jason}}"
-            },
-            "success": {
-              "type": "$render"
-            }
-          }
-        }
-      },
-      "templates": {
-        "body": {
-          "nav": {
-            "style": {
-              "background": "rgb(246, 246, 239)",
-              "theme": "light",
-              "color": "#000000"
-            }
-          },
-          "style": {
-            "background": "rgb(246, 246, 239)",
-            "color": "#000000",
-            "border": "0"
-          },
-          "sections": {
-            "{{#each $jason}}": {
-              "items": [
-                <span style='color:black;'>{
-                  "type": "html",
-                  "css": "body{font-family: Courier; font-size: 18px;} img{max-width: 100%; border-bottom: 30px solid white !important;}",
-                  "text": "<body>{{summary.replace(/width[ ]<em>=[ ]</em>\"[^\"]<em>\"/gi, '').replace(/height[ ]</em>=[ ]<em>\"[^\"]</em>\"/gi, '')}}</body>"
-                }</span>
-              ]
-            }
-          }
-        }
-      }
-    }
-  }
-}</span></pre></p>
+<p>A self-contained web environment that you can plug in, style, and manipulate just like the rest of the components.</p>
+<p>To learn more, refer to <a href="../web/">Web containers</a>.</p>
+<p><br></p>
+<p><a href='/web'><img src='../images/header.png' class='large'></a></p>
+<p><br>
+<br></p>
 <hr />
 <h2 id="space">■  space</h2>
 <p>An empty space component mostly used for layout purposes.</p>
 <p><img alt="space component" src="../images/components_space.jpeg" /></p>
-<h3 id="syntax_6">syntax</h3>
+<h3 id="syntax_5">syntax</h3>
 <ul>
 <li><code>style</code><ul>
 <li><code>background</code>: background color (transparent if not specified)</li>
@@ -663,7 +611,7 @@
 <h2 id="map">■  map</h2>
 <p>Map component</p>
 <p><img alt="map component" src="../images/components_map.png" /></p>
-<h3 id="syntax_7">syntax</h3>
+<h3 id="syntax_6">syntax</h3>
 <h4 id="type-map">• <code>type</code>: <code>"map"</code></h4>
 <h4 id="region-describes-the-region-this-map-component-will-draw">• <code>region</code>: Describes the region this map component will draw.</h4>
 <ul>
@@ -688,7 +636,7 @@
 <li><code>height</code>: height of the component to display</li>
 <li><code>corner_radius</code>: corner radius of the component</li>
 </ul>
-<h3 id="example_6">Example</h3>
+<h3 id="example_5">Example</h3>
 <pre><code>{
   "type": "map",
   "region": {
