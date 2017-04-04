@@ -355,7 +355,7 @@
 <h2 id="syntax">Syntax</h2>
 <p>Actions can take the following 5 attributes</p>
 <ul>
-<li><code>type</code>: Specify <a href="#api">action type</a>.</li>
+<li><code>type</code>: Specify <a href="#api">action type</a>. (note: THIS CANNOT BE A <a href="../templates/">TEMPLATE EXPRESSION</a> that needs to be evaluated. Use a static string.)</li>
 <li><code>options</code>: Arguments to be passed into the action (optional)</li>
 <li><code>success</code>: Another action to be called when the current action finishes. You can chain multiple actions to execute in sequence this way. (optional)</li>
 <li><code>error</code>: You can handle exceptions by attaching <code>error</code> to an action. (optional)</li>
@@ -366,7 +366,7 @@
 <li>You can define an action under <strong>actions registry</strong> and trigger it by name. In this case you not only can attach actions to UI elements but also can trigger them based on system events or call them from anywhere.</li>
 </ol>
 <p>First read through the explanation below to learn how to define actions inline.</p>
-<p>And after that, <a href="#triggering-an-action-by-name">learn how to use <code>"trigger"</code> to trigger an action by name</a>.</p>
+<p>And after that, <a href="#triggering-actions">learn how to use <code>"trigger"</code> to trigger an action by name</a>.</p>
 <p><br></p>
 <h2 id="examples-define-inline">Examples - Define Inline</h2>
 <h3 id="network-request-and-then-render">Network request and then render</h3>
@@ -619,7 +619,7 @@ In the example below, an <code>action</code> is attached to a <code>slider</code
 <h2 id="syntax_1">Syntax</h2>
 <p>To trigger an action, you can use the following syntax:</p>
 <ul>
-<li><code>"trigger"</code>: Trigger an action by name, registered under the actions registry.</li>
+<li><code>"trigger"</code>: Trigger an action by name, registered under the actions registry. (note: THIS CANNOT BE A <a href="../templates/">TEMPLATE EXPRESSION</a> that needs to be evaluated. You must use a static string)</li>
 <li><code>"options"</code> (optional): <a href="#examples-define-inline">same as inline actions</a></li>
 <li><code>"success"</code> (optional): executed when the triggered action returnes via <code>$return.success</code> action</li>
 <li><code>"error"</code> (optional): executed when the triggered action returns via <code>$return.error</code> action</li>
