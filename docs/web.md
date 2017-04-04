@@ -2,7 +2,7 @@
 
 What if you could take any number of web elements, plug them straight into a native app layout, resize, scroll, interact with, and pretty much treat them just like any other [native components](components.md)?
 
-<img src='../images/compare.jpg' class='large'>
+<img src='../images/c.jpg' class='large'>
 
 <br>
 
@@ -27,7 +27,6 @@ First, use HTML/CSS/Javascript to describe the internals of the container view.
 Then, [plug it into your native app using JSON](#usage) as just another [component](components.md).
 
 <br>
-<!--
 <div class = 'vid'>
   <div class='content'>
     <div class='video-container'>
@@ -36,7 +35,6 @@ Then, [plug it into your native app using JSON](#usage) as just another [compone
   </div>
 </div>
 <br>
--->
 
 ---
 
