@@ -1,3 +1,7 @@
+<div class="banner">
+<i class="icon fa-exclamation-circle"></i> New to Jasonette? Check out <a href='/'>Getting Started with Jasonette</a> first.
+</div>
+
 # JSON Web Container
 
 What if you could take any number of web elements, plug them straight into a native app layout, resize, scroll, interact with, and pretty much treat them just like any other [native components](components.md)?
