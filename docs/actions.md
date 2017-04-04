@@ -11,7 +11,7 @@ This could be anything from accessing the device features such as camera or addr
 ##Syntax
 Actions can take the following 5 attributes
 
-  - `type`: Specify [action type](#api).
+  - `type`: Specify [action type](#api). (note: THIS CANNOT BE A [TEMPLATE EXPRESSION](templates.md) that needs to be evaluated. Use a static string.)
   - `options`: Arguments to be passed into the action (optional)
   - `success`: Another action to be called when the current action finishes. You can chain multiple actions to execute in sequence this way. (optional)
   - `error`: You can handle exceptions by attaching `error` to an action. (optional)
@@ -23,7 +23,7 @@ There are two ways of calling actions:
 
 First read through the explanation below to learn how to define actions inline.
 
-And after that, [learn how to use `"trigger"` to trigger an action by name](#triggering-an-action-by-name).
+And after that, [learn how to use `"trigger"` to trigger an action by name](#triggering-actions).
 
 <br>
 
@@ -331,7 +331,7 @@ To be able to reuse actions, you need to register them under actions registry, a
 
 To trigger an action, you can use the following syntax:
 
-- `"trigger"`: Trigger an action by name, registered under the actions registry.
+- `"trigger"`: Trigger an action by name, registered under the actions registry. (note: THIS CANNOT BE A [TEMPLATE EXPRESSION](templates.md) that needs to be evaluated. You must use a static string)
 - `"options"` (optional): [same as inline actions](#examples-define-inline)
 - `"success"` (optional): executed when the triggered action returnes via `$return.success` action
 - `"error"` (optional): executed when the triggered action returns via `$return.error` action
