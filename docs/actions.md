@@ -171,7 +171,7 @@ Notice how the action is tied to the `vetical` layout, which is at `item` level.
 
 ---
 
-**So what if you really want to attach an action to a component, but the componet is NOT at item level?**
+**So what if you really want to attach an action to a component, but the component is NOT at item level?**
 
 => Use [buttons](/components#button), like this:
 
