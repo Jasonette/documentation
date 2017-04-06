@@ -34,7 +34,7 @@ Then, [plug it into your native app using JSON](#usage) as just another [compone
 <div class = 'vid'>
   <div class='content'>
     <div class='video-container'>
-			<iframe width='1280' height='720' src="https://www.youtube.com/embed/Ww7siLEbJ0M" frameborder="0" allowfullscreen></iframe>
+			<iframe width='1280' height='720' src="https://www.youtube.com/embed/D6Jm_MLnnTE" frameborder="0" allowfullscreen></iframe>
     </div>
   </div>
 </div>
