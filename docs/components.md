@@ -116,7 +116,8 @@ Can be either a text button or an image button, depending on what attributes are
     - `background`: background color
     - `color`: To set the tint color (only for icons)
     - `corner_radius`: corner radius for the button
-    - `padding`: padding outside of the text (in case of label button) or outside of the image (in case of image button). Note that the height and width will stay the same regardless of what padding value you set.
+    - `padding`: padding outside of the text (in case of text button) or outside of the image (in case of image button). Note that the height and width will stay the same regardless of what padding value you set.
+    - `align`: Only for text buttons. You can set it as `left`, `right`, or `center`. The default is `center`. (Irrelevant on image buttons since image buttons will always be centered)
   - [action](/actions) : Attach an action attribute to be triggered when user taps the button.
 
 <br>
