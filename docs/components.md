@@ -110,12 +110,13 @@ Can be either a text button or an image button, depending on what attributes are
   - `url`: button image url (pick either `text` or `url`, can't have both)
   - `header`: (optional) in case the we're using the image button and the image needs authentication and we need to attach a header object to the request
   - `style`
-    - `width`
-    - `height`
+    - `width`: Width of the clickable region (In case of image buttons, the image will auto-resize proportionally to fit into this region)
+    - `height`: Height of the clickable region (In case of image buttons, the image will auto-resize proportionally to fit into this region)
     - `color`: text color
     - `background`: background color
     - `color`: To set the tint color (only for icons)
     - `corner_radius`: corner radius for the button
+    - `padding`: padding outside of the text (in case of label button) or outside of the image (in case of image button). Note that the height and width will stay the same regardless of what padding value you set.
   - [action](/actions) : Attach an action attribute to be triggered when user taps the button.
 
 <br>
