@@ -304,12 +304,13 @@
 <li><code>url</code>: button image url (pick either <code>text</code> or <code>url</code>, can't have both)</li>
 <li><code>header</code>: (optional) in case the we're using the image button and the image needs authentication and we need to attach a header object to the request</li>
 <li><code>style</code><ul>
-<li><code>width</code></li>
-<li><code>height</code></li>
+<li><code>width</code>: Width of the clickable region (In case of image buttons, the image will auto-resize proportionally to fit into this region)</li>
+<li><code>height</code>: Height of the clickable region (In case of image buttons, the image will auto-resize proportionally to fit into this region)</li>
 <li><code>color</code>: text color</li>
 <li><code>background</code>: background color</li>
 <li><code>color</code>: To set the tint color (only for icons)</li>
 <li><code>corner_radius</code>: corner radius for the button</li>
+<li><code>padding</code>: padding outside of the text (in case of label button) or outside of the image (in case of image button). Note that the height and width will stay the same regardless of what padding value you set.</li>
 </ul>
 </li>
 <li><a href="../actions">action</a> : Attach an action attribute to be triggered when user taps the button.</li>
