@@ -1847,6 +1847,7 @@ Check out the full code on Github:</p>
 <ul>
 <li><code>$session.set</code> takes care of <strong>token authentication</strong> to authenticate into any mobile API.</li>
 <li>You need to call <code>$session.set</code> <strong>after</strong> a <code>$network.request</code> action to an authentication endpoint, which returns an authentication token.</li>
+<li>Sessions are tied to domain, which means as long as you authenticate with a domain, all other URLs under the same domain will use the same token therefore you won't need to re-authenticate for every URL under the same domain.</li>
 <li>For cookie based HTML authentication, see <a href="#example-4-html-post-request-with-cookies">Example 4 from <code>$network.request</code> above</a>.</li>
 </ul>
 <h3 id="options_11">■ options</h3>
