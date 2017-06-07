@@ -576,7 +576,7 @@ The main region, used to display scrollable content.
   - `type`: optional. set to `horizontal` to make it scroll horizontally. Otherwise it's just a regular, vertically scrolling section.
   - `header`: a single item. optional. (doesn't respond to user interaction. display purpose)
   - `items`: array of items (responds to user interaction)
-    - Each item can be either a [layout](layout.md) or a [component](component.md)
+    - Each item can be either a [layout](layout.md) or a [component](components.md)
 
 In most cases one section is enough, if you're displaying just a single collection of similar items.
 
