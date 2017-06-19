@@ -2911,7 +2911,8 @@ Record audio
 - `theme`: `light` to use light theme. Otherwise omit.
 
 ### ■  return value
-- `url`: the local url in which the audio was stored
+- `file_url`: the local url in which the audio was stored
+- `data_uri`: base64 encoded data-uri
 - `content_type`: `"audio/m4a"` (it's always this format)
 
 Normally you will want to pass the result immediately to a `$network.upload` call in order to upload it to a cloud storage.
