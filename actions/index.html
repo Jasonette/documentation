@@ -2973,7 +2973,8 @@ If you set <code>client_id</code>, you can access it with <code>$keys.client_id<
 </ul>
 <h3 id="return-value_31">■  return value</h3>
 <ul>
-<li><code>url</code>: the local url in which the audio was stored</li>
+<li><code>file_url</code>: the local url in which the audio was stored</li>
+<li><code>data_uri</code>: base64 encoded data-uri</li>
 <li><code>content_type</code>: <code>"audio/m4a"</code> (it's always this format)</li>
 </ul>
 <p>Normally you will want to pass the result immediately to a <code>$network.upload</code> call in order to upload it to a cloud storage.</p>
