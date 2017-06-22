@@ -1,4 +1,4 @@
-#■ What is a template?
+# ■ What is a template?
 
 Sometimes we may want to dynamically generate the JSON from the client side instead of directly using a JSON returned from the server.
 
@@ -244,6 +244,52 @@ Then we will declare a `body` template that will iterate through this `members` 
 
 The `#each` keyword will iterate through the expression that comes after it (`members`) and generate a JSON array from the result, ending up with the final JSON markup we saw at the beginning.
 
+#### How to access variables from inside nested #each
+
+When there's only a single `#each` expression it's simple. But when we have multiple `#each` expressions, dealing with context becomes a bit tricky.
+
+Here's an example:
+
+    {
+      "{{#each families}}": {
+        "{{#each members}}": {
+          "type": "label",
+          "text": "{{name}}"
+        }
+      }
+    }
+    
+What if we want to access `families` object from inside the nested `{{#each members}}` loop? 
+
+We can't just do:
+
+    {
+      "{{#each families}}": {
+        "{{#each members}}": {
+          "type": "label",
+          "text": "{{families.length}}"
+        }
+      }
+    }
+
+because inside the `{{#each members}}` loop, the context is each family member. Above expression will result in the parser trying to access for example `members[0].families.length` instead of `families.length`. It will throw an error because a `member` object doesn't contain a `families` attribute.
+
+We need a way to access the root context. This is where `$root` comes in.
+
+Whenever you're inside a loop, you can refer to the root context using `$root`. So above example will be:
+
+    {
+      "{{#each families}}": {
+        "{{#each members}}": {
+          "type": "label",
+          "text": "{{$root.families.length}}"
+        }
+      }
+    }
+
+You can use the `$root` object to access everything at the root level, such as `$get` (through `$root.$get`), `$cache` (through `$root.$cache`), `$global` (through `$root.$global`), etc.
+
+
 ---
 
 ###2. Conditional (#if/#elseif/#else)
@@ -256,7 +302,7 @@ Conditionals take the form of an `array`.
   2. Executes each conditional expression
   3. And Renders the child JSON of the first conditional expression that evaluates to `true`
 
-####syntax
+#### syntax
 Conditionals take the following format.
 
     [
@@ -273,13 +319,13 @@ Conditionals take the following format.
 
 The template will walk through the items in the array sequentially until it encounters an conditional expression that's true. Then it will only render its child JSON.
 
-####Note
+#### Note
 
 - `#elseif` and `#else` are optional.
 - if no conditional expression evaluates to `true`, nothing gets rendered.
 
 
-####Example
+#### Example
 
 Let's say we are are trying to render the following return value (`$jason`):
 
@@ -310,7 +356,7 @@ It will render the following result:
       "text": "Donuts..."
     }
 
-###3. "this"
+### 3. "this"
 `this` is a javascript keyword used to refer to the current context. Let's look at what that means:
 
 For example we want to generate this JSON using `#each`:
