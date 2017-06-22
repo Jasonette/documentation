@@ -455,6 +455,42 @@
 }
 </code></pre>
 <p>The <code>#each</code> keyword will iterate through the expression that comes after it (<code>members</code>) and generate a JSON array from the result, ending up with the final JSON markup we saw at the beginning.</p>
+<h4 id="how-to-access-variables-from-inside-nested-each">How to access variables from inside nested #each</h4>
+<p>When there's only a single <code>#each</code> expression it's simple. But when we have multiple <code>#each</code> expressions, dealing with context becomes a bit tricky.</p>
+<p>Here's an example:</p>
+<pre><code>{
+  "{{#each families}}": {
+    "{{#each members}}": {
+      "type": "label",
+      "text": "{{name}}"
+    }
+  }
+}
+</code></pre>
+<p>What if we want to access <code>families</code> object from inside the nested <code>{{#each members}}</code> loop? </p>
+<p>We can't just do:</p>
+<pre><code>{
+  "{{#each families}}": {
+    "{{#each members}}": {
+      "type": "label",
+      "text": "{{families.length}}"
+    }
+  }
+}
+</code></pre>
+<p>because inside the <code>{{#each members}}</code> loop, the context is each family member. Above expression will result in the parser trying to access for example <code>members[0].families.length</code> instead of <code>families.length</code>. It will throw an error because a <code>member</code> object doesn't contain a <code>families</code> attribute.</p>
+<p>We need a way to access the root context. This is where <code>$root</code> comes in.</p>
+<p>Whenever you're inside a loop, you can refer to the root context using <code>$root</code>. So above example will be:</p>
+<pre><code>{
+  "{{#each families}}": {
+    "{{#each members}}": {
+      "type": "label",
+      "text": "{{$root.families.length}}"
+    }
+  }
+}
+</code></pre>
+<p>You can use the <code>$root</code> object to access everything at the root level, such as <code>$get</code> (through <code>$root.$get</code>), <code>$cache</code> (through <code>$root.$cache</code>), <code>$global</code> (through <code>$root.$global</code>), etc.</p>
 <hr />
 <h3 id="2-conditional-ifelseifelse">2. Conditional (#if/#elseif/#else)</h3>
 <p>Conditionals are used to conditionally render their children only when the expression evaluates to <code>true</code>.</p>
