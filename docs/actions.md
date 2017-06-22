@@ -1425,7 +1425,7 @@ It's the same set of attributes as [href](href.md) since it simply invokes the h
 
 - none
 
-### ■ example
+### ■ example 1
 
     {
        "type": "label",
@@ -1453,6 +1453,37 @@ is same as:
     }
 
  The only difference is: in case of [items](document.md#items) the second option displays a disclosure indicator since we're directly using [href](href.md)
+
+### ■ example 2
+
+This example opens Instagram app using its URL scheme
+
+    {
+      "$jason": {
+        "head": {
+          "title": "Take a photo on instagram"
+        },
+        "body": {
+          "sections": [
+            {
+              "items": [
+                {
+                  "type": "label",
+                  "text": "Take a photo on Instagram",
+                  "action": {
+                    "type": "$href",
+                    "options": {
+                      "url": "instagram://camera",
+                      "view": "app"
+                    }
+                  }
+                }
+              ]
+            }
+          ]
+        }
+      }
+    }
 
 ---
 
