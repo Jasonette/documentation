@@ -17,6 +17,7 @@ pages:
   - ★ Mix-in: mixin.md
   - ★ Local Storage: local.md
   - ★ Web Container: web.md
+  - ★ Device Information: device.md
 - ■ Tips: convention.md
 - ■ Extending Jasonette (advanced): advanced.md
 - ■ Troubleshoot: faq.md
