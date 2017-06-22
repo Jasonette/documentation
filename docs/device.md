@@ -11,6 +11,7 @@ You can access them using templates, just like other variables (global variable,
 - **$env.device.width** : device width
 - **$env.device.height** : device height
 - **$env.device.os.name** : os name
+- **$env.device.os.version** : os version
 
 ## Example
 
@@ -43,7 +44,7 @@ You can access them using templates, just like other variables (global variable,
                 },
                 {
                   "type": "label",
-                  "text": "version: {{$env.device.os.sdk}}"
+                  "text": "version: {{$env.device.os.version}}"
                 }
               ]
             }
