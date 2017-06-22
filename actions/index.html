@@ -1616,7 +1616,7 @@ In the example below, an <code>action</code> is attached to a <code>slider</code
 <ul>
 <li>none</li>
 </ul>
-<h3 id="example_3">■ example</h3>
+<h3 id="example-1">■ example 1</h3>
 <pre><code>{
    "type": "label",
    "text": "trigger href",
@@ -1642,6 +1642,35 @@ In the example below, an <code>action</code> is attached to a <code>slider</code
 }
 </code></pre>
 <p>The only difference is: in case of <a href="../document/#items">items</a> the second option displays a disclosure indicator since we're directly using <a href="../href/">href</a></p>
+<h3 id="example-2">■ example 2</h3>
+<p>This example opens Instagram app using its URL scheme</p>
+<pre><code>{
+  "$jason": {
+    "head": {
+      "title": "Take a photo on instagram"
+    },
+    "body": {
+      "sections": [
+        {
+          "items": [
+            {
+              "type": "label",
+              "text": "Take a photo on Instagram",
+              "action": {
+                "type": "$href",
+                "options": {
+                  "url": "instagram://camera",
+                  "view": "app"
+                }
+              }
+            }
+          ]
+        }
+      ]
+    }
+  }
+}
+</code></pre>
 <hr />
 <h2 id="close">$close</h2>
 <p>Close a modal (works when the currently view is a modal)</p>
@@ -1796,7 +1825,7 @@ Here's an example of signing into a website by making an HTML data_type <code>$n
 </ul>
 </li>
 </ul>
-<h3 id="example_4">■ example</h3>
+<h3 id="example_3">■ example</h3>
 <p>This example takes a photo and uploads to S3.</p>
 <pre><code>{
   "type": "$media.camera",
@@ -1868,7 +1897,7 @@ Check out the full code on Github:</p>
 <ul>
 <li>none</li>
 </ul>
-<h3 id="example_5">■ example</h3>
+<h3 id="example_4">■ example</h3>
 <p>Here's an example:</p>
 <pre><code>"action": {
   "type": "$network.request",
@@ -1994,7 +2023,7 @@ Check out the full code on Github:</p>
 <ul>
 <li>none</li>
 </ul>
-<h3 id="example_6">■ example</h3>
+<h3 id="example_5">■ example</h3>
 <p>In the following example, the <code>$set</code> action sets the value of the two local variables <code>firstname</code> and <code>lastname</code> as <code>ethan</code> and <code>gliechtenstein</code>, respectively.</p>
 <pre><code>{
   "type": "$set",
@@ -2032,7 +2061,7 @@ Check out the full code on Github:</p>
 </ol>
 </li>
 </ul>
-<h3 id="example_7">■ example</h3>
+<h3 id="example_6">■ example</h3>
 <p>Once you set <code>firstname</code> and <code>lastname</code> like we did above, we can use them like this:</p>
 <pre><code>[
   {
@@ -2151,7 +2180,7 @@ Check out the full code on Github:</p>
 <hr />
 <h2 id="read">Read</h2>
 <p>Directly access <code>$cache</code> variable from a template expression, for example <code>{{$cache.items}}</code>.</p>
-<h3 id="example_8">■ example</h3>
+<h3 id="example_7">■ example</h3>
 <p>For example, you could store a <code>tracking_keyword</code> value locally and automatically perform a search whenever the document loads.</p>
 <pre><code>{
   "type": "$oauth.request",
@@ -2174,7 +2203,7 @@ Check out the full code on Github:</p>
 <ul>
 <li>none</li>
 </ul>
-<h3 id="example_9">■ example</h3>
+<h3 id="example_8">■ example</h3>
 <p>The following will wipe out all the cache values associated with the current view url.</p>
 <pre><code>{
   "type": "$cache.reset"
@@ -2248,7 +2277,7 @@ Check out the full code on Github:</p>
 </code></pre>
 <h2 id="read_1">Read</h2>
 <p>Just like <a href="#read">$cache</a>, you can read global variables using template expressions:</p>
-<h3 id="example_10">■ example</h3>
+<h3 id="example_9">■ example</h3>
 <p>For example, you could store <code>$get.message</code> (local variable) into a global variable named <code>url</code>, and then display a <code>$util.alert</code> with the global variable we just set, like this:</p>
 <pre><code>{
   "$jason": {
@@ -2402,7 +2431,7 @@ Check out the full code on Github:</p>
 <ul>
 <li>The resulting <code>$global</code> object after removing the variables</li>
 </ul>
-<h3 id="example_11">■ example</h3>
+<h3 id="example_10">■ example</h3>
 <p>The following will wipe out all the global variables named <code>key1</code> and <code>key2</code>.</p>
 <pre><code>{
   "type": "$cache.reset",
@@ -2426,7 +2455,7 @@ Check out the full code on Github:</p>
 <ul>
 <li>none</li>
 </ul>
-<h3 id="example_12">■  example</h3>
+<h3 id="example_11">■  example</h3>
 <pre><code>{
     "type": "$util.banner",
     "options": {
@@ -2449,7 +2478,7 @@ Check out the full code on Github:</p>
 <ul>
 <li>none</li>
 </ul>
-<h3 id="example_13">■ example</h3>
+<h3 id="example_12">■ example</h3>
 <pre><code>{
     "type": "$util.toast",
     "options": {
@@ -2673,7 +2702,7 @@ Check out the full code on Github:</p>
 <ul>
 <li>none</li>
 </ul>
-<h3 id="example_14">■ example</h3>
+<h3 id="example_13">■ example</h3>
 <pre><code>{
   "$jason": {
     "head": {
@@ -2734,7 +2763,7 @@ Check out the full code on Github:</p>
   "value": "1471310358216"
 }
 </code></pre>
-<h3 id="example_15">■ example</h3>
+<h3 id="example_14">■ example</h3>
 <pre><code>{
   "$jason": {
     "head": {
@@ -2792,7 +2821,7 @@ Check out the full code on Github:</p>
   }
 ]
 </code></pre>
-<h3 id="example_16">■ example</h3>
+<h3 id="example_15">■ example</h3>
 <p>In this example, we access the addressbook when the view <code>$load</code>s, then <code>$render</code> the content using the given template.</p>
 <pre><code>{
   "$jason": {
@@ -2877,7 +2906,7 @@ Check out the full code on Github:</p>
 }
 </code></pre>
 <p>Normally you will want to pass the <code>data</code> to another action such as <a href="#networkupload">$network.upload</a>.</p>
-<h3 id="example_17">■ example</h3>
+<h3 id="example_16">■ example</h3>
 <p>In the following example, we take a photo using <code>$media.camera</code>, and then utilize the <code>data_url</code> from the return value to set the <code>background</code> image url. </p>
 <pre><code>{
   "$jason": {
@@ -2920,7 +2949,7 @@ Check out the full code on Github:</p>
 </ul>
 <h3 id="return-value_25">■  return value</h3>
 <p>Same as <a href="#mediacamera">$media.camera</a></p>
-<h3 id="example_18">■  example</h3>
+<h3 id="example_17">■  example</h3>
 <pre><code>{
     "$jason": {
         "head": {
@@ -2966,7 +2995,7 @@ Check out the full code on Github:</p>
 <ul>
 <li>none</li>
 </ul>
-<h3 id="example_19">■  example</h3>
+<h3 id="example_18">■  example</h3>
 <pre><code>{
     "$jason": {
         "head": {
@@ -3012,7 +3041,7 @@ Check out the full code on Github:</p>
 <ul>
 <li>none</li>
 </ul>
-<h3 id="example_20">■  example</h3>
+<h3 id="example_19">■  example</h3>
 <pre><code>{
   "$jason": {
     "head": {
@@ -3075,7 +3104,7 @@ Check out the full code on Github:</p>
 <ul>
 <li>none</li>
 </ul>
-<h3 id="example_21">■  example</h3>
+<h3 id="example_20">■  example</h3>
 <p>Here's an example of seeking an audio clip to 30% position</p>
 <pre><code>{
     "$jason": {
@@ -3124,7 +3153,7 @@ Check out the full code on Github:</p>
   "value": "0.3"
 }
 </code></pre>
-<h3 id="example_22">■  example</h3>
+<h3 id="example_21">■  example</h3>
 <p>The following example displays a toast with the current position when the user taps the label.</p>
 <pre><code>{
   "$jason": {
@@ -3164,7 +3193,7 @@ Check out the full code on Github:</p>
   "value": "300"
 }
 </code></pre>
-<h3 id="example_23">■  example</h3>
+<h3 id="example_22">■  example</h3>
 <p>The following example displays a toast with the total duration of the track when the user taps the label.</p>
 <pre><code>{
   "$jason": {
@@ -3207,7 +3236,7 @@ Check out the full code on Github:</p>
 <li><code>content_type</code>: <code>"audio/m4a"</code> (it's always this format)</li>
 </ul>
 <p>Normally you will want to pass the result immediately to a <code>$network.upload</code> call in order to upload it to a cloud storage.</p>
-<h3 id="example_24">■ example</h3>
+<h3 id="example_23">■ example</h3>
 <pre><code>{
   "$jason": {
     "head": {
@@ -3271,7 +3300,7 @@ Check out the full code on Github:</p>
   "coord": "12.342,22.343"
 }
 </code></pre>
-<h3 id="example_25">■  example</h3>
+<h3 id="example_24">■  example</h3>
 <p>Below example demonstrates various ways of utilizing <code>$geo.get</code> return values</p>
 <pre><code>{
   "$jason": {
@@ -3371,7 +3400,7 @@ Check out the full code on Github:</p>
 <ul>
 <li>none</li>
 </ul>
-<h3 id="example_26">■  example</h3>
+<h3 id="example_25">■  example</h3>
 <pre><code>{
   "$jason": {
     "head": {
@@ -3406,7 +3435,7 @@ Check out the full code on Github:</p>
 <ul>
 <li>none</li>
 </ul>
-<h3 id="example_27">■ example</h3>
+<h3 id="example_26">■ example</h3>
 <pre><code>{
   "$jason": {
     ...
@@ -3442,7 +3471,7 @@ Check out the full code on Github:</p>
 <li>returns the parsed JSON result.</li>
 <li><strong>Expected format:</strong> must have the first row populated with attribute names. (See below for an example)</li>
 </ul>
-<h3 id="example_28">■ example</h3>
+<h3 id="example_27">■ example</h3>
 <p>Here's an example CSV string returned from a network request.</p>
 <pre><code>name, descrption, url, icon
 github, social coding, https://www.github.com, https://assets-cdn.github.com/images/modules/logos_page/GitHub-Mark.png
@@ -3507,7 +3536,7 @@ product hunt, Discover your next favorite thing, https://www.producthunt.com, ht
 </ul>
 <h3 id="return-value_38">■ return value</h3>
 <p>returns the parsed JSON result in the following format (<a href="https://github.com/danmactough/node-feedparser#what-is-the-parsed-output-produced-by-feedparser">You can learn more about the spec here</a>):</p>
-<h3 id="example_29">■ example</h3>
+<h3 id="example_28">■ example</h3>
 <p>Here's an example where it makes a network request to <a href="http://feeds.gawker.com/lifehacker/full">http://feeds.gawker.com/lifehacker/full</a> with <code>data_type</code> of <code>rss</code>, converts it to JSON using <code>$convert.rss</code>, and then renders it.</p>
 <pre><code>{
   "actions": {
