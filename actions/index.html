@@ -202,9 +202,9 @@
         
             <li><a class="toctree-l4" href="#write_1">Write</a></li>
         
-            <li><a class="toctree-l4" href="#reset_1">Reset</a></li>
+            <li><a class="toctree-l4" href="#read_1">Read</a></li>
         
-            <li><a class="toctree-l4" href="#keys-ios-only">── KEYS (iOS Only) ──</a></li>
+            <li><a class="toctree-l4" href="#reset_1">Reset</a></li>
         
             <li><a class="toctree-l4" href="#util">── UTIL ──</a></li>
         
@@ -2246,8 +2246,36 @@ Check out the full code on Github:</p>
   }
 }
 </code></pre>
-<h4 id="exampl-3-use-a-modal-to-set-global-and-render-the-result">Exampl 3. Use a modal to set global and render the result</h4>
-<h5 id="view-1">View 1</h5>
+<h2 id="read_1">Read</h2>
+<p>Just like <a href="#read">$cache</a>, you can read global variables using template expressions:</p>
+<h3 id="example_10">■ example</h3>
+<p>For example, you could store <code>$get.message</code> (local variable) into a global variable named <code>url</code>, and then display a <code>$util.alert</code> with the global variable we just set, like this:</p>
+<pre><code>{
+  "$jason": {
+    "head": {
+      "actions": {
+        ...
+        "store": {
+          "type": "$global.set",
+          "options": {
+            "url": "{{$get.message}}"
+          },
+          "success": {
+            "type": "$util.alert",
+            "options": {
+              "title": "Current global 'url' variable",
+              "description": "{{$global.url}}"
+            }
+          }
+        },
+        ...
+      },
+      ...
+    }
+  }
+}
+</code></pre>
+<h4 id="example-use-a-modal-to-set-global-and-render-the-result">Example: Use a modal to set global and render the result</h4>
 <p>The following JSON opens <code>file://2.json</code>.</p>
 <pre><code>{
   "$jason": {
@@ -2374,21 +2402,13 @@ Check out the full code on Github:</p>
 <ul>
 <li>The resulting <code>$global</code> object after removing the variables</li>
 </ul>
-<h3 id="example_10">■ example</h3>
+<h3 id="example_11">■ example</h3>
 <p>The following will wipe out all the global variables named <code>key1</code> and <code>key2</code>.</p>
 <pre><code>{
   "type": "$cache.reset",
   "items": ["key1", "key2"]
 }
 </code></pre>
-<hr />
-<h2 id="keys-ios-only">── KEYS (iOS Only) ──</h2>
-<p>Keys are used to store sensitive data (like auth tokens) that you don't want to store in the JSON file.</p>
-<hr />
-<p>Keys is especially useful for open-source projects, where you might not want contributors to have access to certain data.
-This is currently only supported on iOS, but there is an open issue for Android support <a href="https://github.com/Jasonette/JASONETTE-Android/issues/17">here</a></p>
-<p>To define keys, go to <code>settings.plist</code>. You'll see <code>client_id</code>, <code>client_secret</code>, <code>url</code>, and <code>loading</code>. You can create as many attributes as you want, and they are accessed with <code>$keys.____</code>.
-If you set <code>client_id</code>, you can access it with <code>$keys.client_id</code>, or you can create your own keys.</p>
 <hr />
 <h2 id="util">── UTIL ──</h2>
 <p>Utility and widget methods</p>
@@ -2406,7 +2426,7 @@ If you set <code>client_id</code>, you can access it with <code>$keys.client_id<
 <ul>
 <li>none</li>
 </ul>
-<h3 id="example_11">■  example</h3>
+<h3 id="example_12">■  example</h3>
 <pre><code>{
     "type": "$util.banner",
     "options": {
@@ -2429,7 +2449,7 @@ If you set <code>client_id</code>, you can access it with <code>$keys.client_id<
 <ul>
 <li>none</li>
 </ul>
-<h3 id="example_12">■ example</h3>
+<h3 id="example_13">■ example</h3>
 <pre><code>{
     "type": "$util.toast",
     "options": {
@@ -2653,7 +2673,7 @@ If you set <code>client_id</code>, you can access it with <code>$keys.client_id<
 <ul>
 <li>none</li>
 </ul>
-<h3 id="example_13">■ example</h3>
+<h3 id="example_14">■ example</h3>
 <pre><code>{
   "$jason": {
     "head": {
@@ -2714,7 +2734,7 @@ If you set <code>client_id</code>, you can access it with <code>$keys.client_id<
   "value": "1471310358216"
 }
 </code></pre>
-<h3 id="example_14">■ example</h3>
+<h3 id="example_15">■ example</h3>
 <pre><code>{
   "$jason": {
     "head": {
@@ -2772,7 +2792,7 @@ If you set <code>client_id</code>, you can access it with <code>$keys.client_id<
   }
 ]
 </code></pre>
-<h3 id="example_15">■ example</h3>
+<h3 id="example_16">■ example</h3>
 <p>In this example, we access the addressbook when the view <code>$load</code>s, then <code>$render</code> the content using the given template.</p>
 <pre><code>{
   "$jason": {
@@ -2857,7 +2877,7 @@ If you set <code>client_id</code>, you can access it with <code>$keys.client_id<
 }
 </code></pre>
 <p>Normally you will want to pass the <code>data</code> to another action such as <a href="#networkupload">$network.upload</a>.</p>
-<h3 id="example_16">■ example</h3>
+<h3 id="example_17">■ example</h3>
 <p>In the following example, we take a photo using <code>$media.camera</code>, and then utilize the <code>data_url</code> from the return value to set the <code>background</code> image url. </p>
 <pre><code>{
   "$jason": {
@@ -2900,7 +2920,7 @@ If you set <code>client_id</code>, you can access it with <code>$keys.client_id<
 </ul>
 <h3 id="return-value_25">■  return value</h3>
 <p>Same as <a href="#mediacamera">$media.camera</a></p>
-<h3 id="example_17">■  example</h3>
+<h3 id="example_18">■  example</h3>
 <pre><code>{
     "$jason": {
         "head": {
@@ -2946,7 +2966,7 @@ If you set <code>client_id</code>, you can access it with <code>$keys.client_id<
 <ul>
 <li>none</li>
 </ul>
-<h3 id="example_18">■  example</h3>
+<h3 id="example_19">■  example</h3>
 <pre><code>{
     "$jason": {
         "head": {
@@ -2992,7 +3012,7 @@ If you set <code>client_id</code>, you can access it with <code>$keys.client_id<
 <ul>
 <li>none</li>
 </ul>
-<h3 id="example_19">■  example</h3>
+<h3 id="example_20">■  example</h3>
 <pre><code>{
   "$jason": {
     "head": {
@@ -3055,7 +3075,7 @@ If you set <code>client_id</code>, you can access it with <code>$keys.client_id<
 <ul>
 <li>none</li>
 </ul>
-<h3 id="example_20">■  example</h3>
+<h3 id="example_21">■  example</h3>
 <p>Here's an example of seeking an audio clip to 30% position</p>
 <pre><code>{
     "$jason": {
@@ -3104,7 +3124,7 @@ If you set <code>client_id</code>, you can access it with <code>$keys.client_id<
   "value": "0.3"
 }
 </code></pre>
-<h3 id="example_21">■  example</h3>
+<h3 id="example_22">■  example</h3>
 <p>The following example displays a toast with the current position when the user taps the label.</p>
 <pre><code>{
   "$jason": {
@@ -3144,7 +3164,7 @@ If you set <code>client_id</code>, you can access it with <code>$keys.client_id<
   "value": "300"
 }
 </code></pre>
-<h3 id="example_22">■  example</h3>
+<h3 id="example_23">■  example</h3>
 <p>The following example displays a toast with the total duration of the track when the user taps the label.</p>
 <pre><code>{
   "$jason": {
@@ -3187,7 +3207,7 @@ If you set <code>client_id</code>, you can access it with <code>$keys.client_id<
 <li><code>content_type</code>: <code>"audio/m4a"</code> (it's always this format)</li>
 </ul>
 <p>Normally you will want to pass the result immediately to a <code>$network.upload</code> call in order to upload it to a cloud storage.</p>
-<h3 id="example_23">■ example</h3>
+<h3 id="example_24">■ example</h3>
 <pre><code>{
   "$jason": {
     "head": {
@@ -3251,7 +3271,7 @@ If you set <code>client_id</code>, you can access it with <code>$keys.client_id<
   "coord": "12.342,22.343"
 }
 </code></pre>
-<h3 id="example_24">■  example</h3>
+<h3 id="example_25">■  example</h3>
 <p>Below example demonstrates various ways of utilizing <code>$geo.get</code> return values</p>
 <pre><code>{
   "$jason": {
@@ -3351,7 +3371,7 @@ If you set <code>client_id</code>, you can access it with <code>$keys.client_id<
 <ul>
 <li>none</li>
 </ul>
-<h3 id="example_25">■  example</h3>
+<h3 id="example_26">■  example</h3>
 <pre><code>{
   "$jason": {
     "head": {
@@ -3386,7 +3406,7 @@ If you set <code>client_id</code>, you can access it with <code>$keys.client_id<
 <ul>
 <li>none</li>
 </ul>
-<h3 id="example_26">■ example</h3>
+<h3 id="example_27">■ example</h3>
 <pre><code>{
   "$jason": {
     ...
@@ -3422,7 +3442,7 @@ If you set <code>client_id</code>, you can access it with <code>$keys.client_id<
 <li>returns the parsed JSON result.</li>
 <li><strong>Expected format:</strong> must have the first row populated with attribute names. (See below for an example)</li>
 </ul>
-<h3 id="example_27">■ example</h3>
+<h3 id="example_28">■ example</h3>
 <p>Here's an example CSV string returned from a network request.</p>
 <pre><code>name, descrption, url, icon
 github, social coding, https://www.github.com, https://assets-cdn.github.com/images/modules/logos_page/GitHub-Mark.png
@@ -3487,7 +3507,7 @@ product hunt, Discover your next favorite thing, https://www.producthunt.com, ht
 </ul>
 <h3 id="return-value_38">■ return value</h3>
 <p>returns the parsed JSON result in the following format (<a href="https://github.com/danmactough/node-feedparser#what-is-the-parsed-output-produced-by-feedparser">You can learn more about the spec here</a>):</p>
-<h3 id="example_28">■ example</h3>
+<h3 id="example_29">■ example</h3>
 <p>Here's an example where it makes a network request to <a href="http://feeds.gawker.com/lifehacker/full">http://feeds.gawker.com/lifehacker/full</a> with <code>data_type</code> of <code>rss</code>, converts it to JSON using <code>$convert.rss</code>, and then renders it.</p>
 <pre><code>{
   "actions": {
