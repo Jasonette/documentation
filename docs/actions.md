@@ -2038,7 +2038,7 @@ For example, you could store a `tracking_keyword` value locally and automaticall
 
 ---
 
-##Reset
+## Reset
 Use `$cache.reset` action to reset the cache associated with the current url.
 
 ### ■ options
@@ -2052,6 +2052,224 @@ The following will wipe out all the cache values associated with the current vie
 
     {
       "type": "$cache.reset"
+    }
+
+---
+
+## ── GLOBAL ──
+In most cases it is recommended to use `$cache` to persist data, because they are sandboxed per URL and it's secure. 
+
+But sometimes you may want to store variables globally so they're accessible from all the views.
+
+This is what global variable does. Just like `$cache`, it will stay even when you close the app and come back later.
+
+---
+
+## Global vs. Cache vs. Local Variables
+- Cache is sandboxed per URL, but Global variables are global to the entire app.
+- Both Global and Cache persist data so they will stick around unless you delete the app or explicitly delete them using `$cache.reset` or `$global.reset`.
+
+---
+
+## Write
+
+`$global.set` action is used to write to global variables.
+
+### ■  options
+
+- key:value pairs. The key is the global variable name, and the value is the variable's value.
+
+### ■ return value
+returns the updated `$global` object, which looks like this:
+
+    {
+      "key1": [...],
+      "key2": ...
+    }
+
+### ■ examples
+#### Example 1. Set global
+In the following example, it first makes a `$network.request`, and then takes its return value `{{$jason}}` and stores it to global using the `$global.set` action.
+
+    {
+      "type": "$network.request",
+      "options": {
+        "url": "http://jasonclient.org/api/items.json"
+      },
+      "success": {
+        "type": "$global.set",
+        "options": {
+          "items": "{{$jason}}"
+        }
+      }
+    }
+
+
+#### Example 2. Set global and use the updated value
+Simply setting the global doesn't update the view. Let's try to render the updated result.
+
+    {
+      "type": "$network.request",
+      "options": {
+        "url": "http://jasonclient.org/api/items.json"
+      },
+      "success": {
+        "type": "$global.set",
+        "options": {
+          "items": "{{$jason}}"
+        },
+        "success": {
+          "type": "$render",
+          "success": {
+            "type": "$util.alert",
+            "options": {
+              "title": "Items fetched",
+              "description": "{{$global.items.length}}"
+            }
+          }
+        }
+      }
+    }
+
+#### Exampl 3. Use a modal to set global and render the result
+
+##### View 1
+
+The following JSON opens `file://2.json`.
+
+    {
+      "$jason": {
+        "head": {
+          "title": "Global Test 1",
+          "actions": {
+            "$show": {
+              "type": "$render"
+            },
+            "$pull": {
+              "type": "$reload"
+            }
+          },
+          "templates": {
+            "body": {
+              "sections": [
+                {
+                  "type": "vertical",
+                  "items": [
+                    {
+                      "type": "button",
+                      "text": "{{$global.something || 'Set Global'}}",
+                      "action": {
+                        "type": "$href",
+                        "options": {
+                          "url": "file://2.json",
+                          "transition": "modal"
+                        }
+                      }
+                    }
+                  ]
+                }
+              ]
+            }
+          }
+        }
+      }
+    }
+
+Here's the contents of `2.json`.
+
+    {
+      "$jason": {
+        "head": {
+          "title": "Global Test 2",
+          "actions": {
+            "$show": {
+              "type": "$render"
+            },
+            "$pull": {
+              "type": "$reload"
+            },
+            "save": {
+              "type": "$global.set",
+              "options": {
+                "something": "{{$get.something}}"
+              },
+              "success": {
+                "type": "$close"
+              }
+            }
+          },
+          "templates": {
+            "body": {
+              "header": {
+                "menu": {
+                  "text": "Reset",
+                  "style": {
+                    "size": "15",
+                    "font": "Helvetica",
+                    "color": "#4f8ff7"
+                  },
+                  "action": {
+                    "type": "$global.reset",
+                    "options": {
+                      "items": ["something"]
+                    },
+                    "success": {
+                      "type": "$close"
+                    }
+                  }
+                }
+              },
+              "sections": [{
+                "type": "vertical",
+                "items": [{
+                    "type": "label",
+                    "text": "Global value is: {{$global.something || ''}}"
+                  },
+                  {
+                    "type": "vertical",
+                    "style": {
+                      "padding": "10"
+                    },
+                    "components": [{
+                      "type": "textfield",
+                      "name": "something",
+                      "value": "{{$global.something || ''}}",
+                      "placeholder": "Add something here"
+                    }]
+                  },
+                  {
+                    "type": "button",
+                    "text": "Save Global Variable",
+                    "action": {
+                      "trigger": "save"
+                    }
+                  }
+                ]
+              }]
+            }
+          }
+        }
+      }
+    }
+
+---
+
+## Reset
+
+Use `$global.reset` action to remove global variables by name
+
+### ■ options
+- `items` : An array of global variable names to remove
+
+### ■ return value
+- The resulting `$global` object after removing the variables
+
+### ■ example
+The following will wipe out all the global variables named `key1` and `key2`.
+
+    {
+      "type": "$cache.reset",
+      "items": ["key1", "key2"]
     }
 
 ---
