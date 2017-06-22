@@ -152,14 +152,14 @@ Notice how we now have the `$jason.body` filled out.
 
 ---
 
-#■ Syntax
+# ■ Syntax
 
 ## JSON
 Let's take a look at how JSON templating works:
 
 ---
 
-###1. Loop (#each)
+### 1. Loop (#each)
 
 To demonstrate looping, let's look at an example. We have a static JSON that looks like this:
 
@@ -244,7 +244,7 @@ Then we will declare a `body` template that will iterate through this `members` 
 
 The `#each` keyword will iterate through the expression that comes after it (`members`) and generate a JSON array from the result, ending up with the final JSON markup we saw at the beginning.
 
-#### How to access variables from inside nested #each
+### How to access variables from inside nested #each
 
 When there's only a single `#each` expression it's simple. But when we have multiple `#each` expressions, dealing with context becomes a bit tricky.
 
@@ -292,7 +292,7 @@ You can use the `$root` object to access everything at the root level, such as `
 
 ---
 
-###2. Conditional (#if/#elseif/#else)
+### 2. Conditional (#if/#elseif/#else)
 
 Conditionals are used to conditionally render their children only when the expression evaluates to `true`.
 
@@ -419,11 +419,11 @@ This is where `this` comes in. To handle this situation we can write the followi
 Keep in mind that the change in context makes global objects such as `$get`, and `$cache` inaccessible. You can use the `$root` object to get at them, e.g. `$root.$get`.
 
 
-##Non-JSON
+## Non-JSON
 
 Let's take a look at how non-JSON (CSV, RSS, HTML) templating works:
 
-###CSV
+### CSV
 When you have a raw CSV content, you can parse it into JSON format before feeding it into a template.
 
 To do this, use [$convert.csv](actions.md#convertcsv)
@@ -432,7 +432,7 @@ To do this, use [$convert.csv](actions.md#convertcsv)
 
 ---
 
-###RSS
+### RSS
 When you have an RSS content, you can parse it into JSON format before feeding it into a template.
 
 To do this, use [$convert.rss](actions.md#convertrss)
@@ -441,13 +441,13 @@ To do this, use [$convert.rss](actions.md#convertrss)
 
 ---
 
-###HTML
+### HTML
 Unlike other formats like CSV and RSS, Jasonette implements a separate HTML template engine, so we don't need to parse HTML into JSON.
 
 Instead, we convert HTML DOM elements into JSON, using the built-in **HTML to JSON parser**, which is built on top of [Cheerio library](https://github.com/cheeriojs/cheerio), which has similar syntax to [jQuery](#http://www.jquery.com)
 
-####How to use
-#####Step 1. Make a `$network.request`
+#### How to use
+##### Step 1. Make a `$network.request`
 It starts with an HTML content. You can fetch HTML content by making `$network.request` calls with `data_type` of `html`, like this:
 
     {
@@ -464,7 +464,7 @@ It starts with an HTML content. You can fetch HTML content by making `$network.r
       }
     }
 
-#####Step 2. `$render` as html
+##### Step 2. `$render` as html
 In order to render it using the html parser, you need to call `$render` with `data_type` of `html`:
 
     {
@@ -487,7 +487,7 @@ In order to render it using the html parser, you need to call `$render` with `da
       }
     }
 
-#####Step 3. Use jQuery syntax to parse and render
+##### Step 3. Use jQuery syntax to parse and render
 
 The HTML template engine automatically sets the `<body>` element as `$jason`.
 
@@ -548,7 +548,7 @@ From there we can use the [jQuery](http://www.jquery.com) syntax to parse and re
 
 ---
 
-#■ When to use templates
+# ■ When to use templates
 Normally you can just return a static JSON document from the server and Jason would do its job to render it. However sometimes you may want to dynamically render the view.
 
 Here are some cases where using a template makes sense:
@@ -562,7 +562,7 @@ Let's take a look at each:
 
 ---
 
-###1. Separate data from view
+### 1. Separate data from view
 Make a separate network request for data, then render the response
 For example here's a JSON markup that renders a list of labels:
 
@@ -688,7 +688,7 @@ So putting all these together, here's what's going on:
 - **Instant plug and play:** Most web development frameworks nowadays come with JSON API right out of the box. This means you can simply write a template and render your own existing API.
 
 
-###2. Local user input
+### 2. Local user input
 
 Dynamically render local data:
 
@@ -734,7 +734,7 @@ You can render templates using any type of data, which includes **local variable
       }
     }
 
-###3. Device API generated data
+### 3. Device API generated data
 
 Dynamically render data generated from device APIs
 
@@ -775,16 +775,16 @@ Dynamically render data generated from device APIs
       }
     }
 
-###4. Reduce redundancy
+### 4. Reduce redundancy
 Separate data from template for less redundancy
 
 Sometimes you simply want to separate view from model to avoid lots of code redundancy. See the below [data](#1-inline-data) section for details.
 
 ---
 
-#■ What can be rendered
+# ■ What can be rendered
 
-##1. Inline data
+## 1. Inline data
 
 The `head.data` attribute is used to automatically fill in the `body` template if one exists.
 
@@ -876,7 +876,7 @@ Using template/data, we can reduce it down to:
       }
     }
 
-##2. Return value of an action
+## 2. Return value of an action
 
 But templates really shine when you use it to render dynamic data, produced by running some action on the device.
 
@@ -884,7 +884,7 @@ This is essential, since your server has no knowledge of what it should render i
 
 [See here](actions.md#rendering-return-value-from-the-previous-action) for details.
 
-##3. Manually specify data
+## 3. Manually specify data
 
 This is rarely needed, but sometimes we need a way to manually specify data for the `$render` action.
 
