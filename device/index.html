@@ -207,6 +207,7 @@
 <li><strong>$env.device.width</strong> : device width</li>
 <li><strong>$env.device.height</strong> : device height</li>
 <li><strong>$env.device.os.name</strong> : os name</li>
+<li><strong>$env.device.os.version</strong> : os version</li>
 </ul>
 <h2 id="example">Example</h2>
 <pre><code>{
@@ -237,7 +238,7 @@
                 },
                 {
                   &quot;type&quot;: &quot;label&quot;,
-                  &quot;text&quot;: &quot;version: {{$env.device.os.sdk}}&quot;
+                  &quot;text&quot;: &quot;version: {{$env.device.os.version}}&quot;
                 }
               ]
             }
