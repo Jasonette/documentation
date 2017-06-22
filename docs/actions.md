@@ -2131,9 +2131,40 @@ Simply setting the global doesn't update the view. Let's try to render the updat
       }
     }
 
-#### Exampl 3. Use a modal to set global and render the result
+## Read
 
-##### View 1
+Just like [$cache](#read), you can read global variables using template expressions:
+
+
+### ■ example
+For example, you could store `$get.message` (local variable) into a global variable named `url`, and then display a `$util.alert` with the global variable we just set, like this:
+
+    {
+      "$jason": {
+        "head": {
+          "actions": {
+            ...
+            "store": {
+              "type": "$global.set",
+              "options": {
+                "url": "{{$get.message}}"
+              },
+              "success": {
+                "type": "$util.alert",
+                "options": {
+                  "title": "Current global 'url' variable",
+                  "description": "{{$global.url}}"
+                }
+              }
+            },
+            ...
+          },
+          ...
+        }
+      }
+    }
+
+#### Example: Use a modal to set global and render the result
 
 The following JSON opens `file://2.json`.
 
@@ -2271,18 +2302,6 @@ The following will wipe out all the global variables named `key1` and `key2`.
       "type": "$cache.reset",
       "items": ["key1", "key2"]
     }
-
----
-
-##── KEYS (iOS Only) ──
-Keys are used to store sensitive data (like auth tokens) that you don't want to store in the JSON file.
-
----
-Keys is especially useful for open-source projects, where you might not want contributors to have access to certain data.
-This is currently only supported on iOS, but there is an open issue for Android support [here](https://github.com/Jasonette/JASONETTE-Android/issues/17)
-
-To define keys, go to `settings.plist`. You'll see `client_id`, `client_secret`, `url`, and `loading`. You can create as many attributes as you want, and they are accessed with `$keys.____`.
-If you set `client_id`, you can access it with `$keys.client_id`, or you can create your own keys.
 
 ---
 
