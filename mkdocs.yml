@@ -15,7 +15,7 @@ pages:
   - ★ Layout: layout.md
   - ★ Templates: templates.md
   - ★ Mix-in: mixin.md
-  - ★ Local JSON: local.md
+  - ★ Local Storage: local.md
   - ★ Web Container: web.md
 - ■ Tips: convention.md
 - ■ Extending Jasonette (advanced): advanced.md

@@ -21,6 +21,8 @@ There are currently several ways Jasonette supports local JSON, each of which is
 1. [Data-uri](#1-data-uri)
 2. [Store JSON locally on the app](#2-file-url)
 3. [Offline caching](#3-offline-caching)
+4. [Global local storage](#4-global-local-storage)
+5. [Local Image](#5-local-image)
 
 ---
 
@@ -36,7 +38,7 @@ Try entering a data-url instead of http or https based url. It should work.
 
 Another URL scheme Jasonette supports is local file scheme (`file://`).
 
-Instead of using `http` or `https`, you can refer directly to your local file bundled up with the app. There are currently two ways to use the file URL scheme:
+Instead of using `http` or `https`, you can refer directly to your local file bundled up with the app. There are currently three ways to use the file URL scheme:
 
 <br>
 
@@ -76,6 +78,14 @@ Instead of using `http` or `https`, you can refer directly to your local file bu
       }
     }
 ```
+
+---
+
+> **C. Local Images**
+>
+> You can also use the `file://` scheme to [render local images](#5-local-image).
+
+---
 
 <br>
 
@@ -140,3 +150,30 @@ Offline caching is managed on a per-view basis. All you need to do to enable is 
           "offline": "true",
           ...
     }
+
+---
+
+## 4. Global Local Storage
+
+In many cases you want to persist content across sessions. You can of course store them on a remote server using [$network.request](/actions/#networkrequest) but you can also persist them **locally**.
+
+1. To access an app-wide global storage, you can use the [$global](/actions/#global) API.
+2. To privately persist data under a URL (only accessible from that view), you can use the [$cache](/actions/#cache) API.
+
+---
+
+## 5. Local Image
+
+Jasonette not only lets you render remote images but also lets you bundle them up on the app locally and load them locally. Just like you can use the [file:// scheme](#2-file-url) to render local JSON objects, you can use the same `file://` scheme to access locally stored images.
+
+Supported everywhere:
+
+- [body.background](/document/#background)
+- [header.menu](/document/#menu)
+- [header.title](/document/#title)
+- [footer.tabs](/document/#tabs)
+- [footer.input](/document/#input)
+- [image component](/components/#image)
+- [button component](/components/#button)
+- [image layers](/document/#typeimage)
+
