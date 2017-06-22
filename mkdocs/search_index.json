@@ -2871,6 +2871,26 @@
             "title": "Technical Details"
         }, 
         {
+            "location": "/device/", 
+            "text": "Getting Device Information\n\n\nYou can access the device information via \n$env\n variable.\n\n\nNote that \n$env\n is a \nread-only\n variable, so you can only read and not write to it.\n\n\nYou can access them using templates, just like other variables (global variable, cache, local variables).\n\n\nSupported Attributes\n\n\n\n\n$env.device.width\n : device width\n\n\n$env.device.height\n : device height\n\n\n$env.device.os.name\n : os name\n\n\n\n\nExample\n\n\n{\n  \n$jason\n: {\n    \nhead\n: {\n      \ntitle\n: \n$env.device access\n,\n      \nactions\n: {\n        \n$load\n: {\n          \ntype\n: \n$render\n\n        }\n      },\n      \ntemplates\n: {\n        \nbody\n: {\n          \nsections\n: [\n            {\n              \nitems\n: [\n                {\n                  \ntype\n: \nlabel\n,\n                  \ntext\n: \nDevice width: {{$env.device.width}}\n\n                },\n                {\n                  \ntype\n: \nlabel\n,\n                  \ntext\n: \nDevice height: {{$env.device.height}}\n\n                },\n                {\n                  \ntype\n: \nlabel\n,\n                  \ntext\n: \n{{$env.device.os.name}}\n\n                },\n                {\n                  \ntype\n: \nlabel\n,\n                  \ntext\n: \nversion: {{$env.device.os.sdk}}\n\n                }\n              ]\n            }\n          ]\n        }\n      }\n    }\n  }\n}", 
+            "title": "\u2605 Device Information"
+        }, 
+        {
+            "location": "/device/#getting-device-information", 
+            "text": "You can access the device information via  $env  variable.  Note that  $env  is a  read-only  variable, so you can only read and not write to it.  You can access them using templates, just like other variables (global variable, cache, local variables).", 
+            "title": "Getting Device Information"
+        }, 
+        {
+            "location": "/device/#supported-attributes", 
+            "text": "$env.device.width  : device width  $env.device.height  : device height  $env.device.os.name  : os name", 
+            "title": "Supported Attributes"
+        }, 
+        {
+            "location": "/device/#example", 
+            "text": "{\n   $jason : {\n     head : {\n       title :  $env.device access ,\n       actions : {\n         $load : {\n           type :  $render \n        }\n      },\n       templates : {\n         body : {\n           sections : [\n            {\n               items : [\n                {\n                   type :  label ,\n                   text :  Device width: {{$env.device.width}} \n                },\n                {\n                   type :  label ,\n                   text :  Device height: {{$env.device.height}} \n                },\n                {\n                   type :  label ,\n                   text :  {{$env.device.os.name}} \n                },\n                {\n                   type :  label ,\n                   text :  version: {{$env.device.os.sdk}} \n                }\n              ]\n            }\n          ]\n        }\n      }\n    }\n  }\n}", 
+            "title": "Example"
+        }, 
+        {
             "location": "/convention/", 
             "text": "Jasonette is built around various conventions in order to make things simpler.\n\n\n\n\nRules\n\n\n\u25a0  Everything is a string\n\n\nThe JSON we use in Jasonette is completely string based. All values are string. Sometimes this may look inconvenient, but \nassuming everything is a string\n provides lots of convenience when JSON parsing is concerned.\n\n\n\u25a0  All keywords are lowercased\n\n\nAll reserved keywords on Jasonette (component name, action name, etc.) are lowercased. \n\n\n\n\nValues\n\n\n\u25a0 color\n\n\nrgb\n\n\nWe can use rgb code.\n\n\n{\n  \"body\": {\n    \"style\": {\n      \"background\": \"rgb(244,244,244)\"\n    }\n  }\n}\n\n\n\nrgba\n\n\nWe can use rgba code. r,g,b parts are same as rgb, but the last value is the opacity.\n\n\n{\n  \"body\": {\n    \"style\": {\n      \"background\": \"rgba(255,255,255,0.3)\"\n    }\n  }\n}\n\n\n\nhex code\n\n\nWe can also use hex code\n\n\n{\n  \"body\": {\n    \"style\": {\n      \"background\": \"#ff0000\"\n    }\n  }\n}\n\n\n\n\n\n\u25a0 dimension\n\n\nAll numbers are pixels unless otherwise specified.\n\n\n1. Pixels\n\n\nBelow we create a label with 300pixel width.\n\n\n{\n  \"type\": \"label\",\n  \"text\": \"hi\",\n  \"style\": {\n    \"width\": \"300\"\n  }\n}\n\n\n\n2. Percentage\n\n\nWe can use the \n%\n sign. When we do so, it sets the dimension based on the current orientation.\n\n\n{\n  \"type\": \"label\",\n  \"text\": \"hi\",\n  \"style\": {\n    \"width\": \"100%\"\n  }\n}\n\n\n\n3. Pixels and Percentage\n\n\nWe can also use a combination of percentage and pixels.\n\n\nIn the following example we create a label that's 80 pixels smaller horizontally than the full device width:\n\n\n{\n  \"type\": \"label\",\n  \"text\": \"hi\",\n  \"style\": {\n    \"width\": \"100%-80\"\n  }\n}", 
             "title": "\u25a0 Tips"

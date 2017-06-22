@@ -8,7 +8,7 @@
   
   
   <link rel="shortcut icon" href="../img/favicon.ico">
-  <title>■ Troubleshoot - Jasonette</title>
+  <title>★ Device Information - Jasonette</title>
   <link href='https://fonts.googleapis.com/css?family=Lato:400,700|Roboto+Slab:400,700|Inconsolata:400,700' rel='stylesheet' type='text/css'>
 
   <link rel="stylesheet" href="../css/theme.css" type="text/css" />
@@ -18,9 +18,9 @@
   
   <script>
     // Current page data
-    var mkdocs_page_name = "\u25a0 Troubleshoot";
-    var mkdocs_page_input_path = "faq.md";
-    var mkdocs_page_url = "/faq/";
+    var mkdocs_page_name = "\u2605 Device Information";
+    var mkdocs_page_input_path = "device.md";
+    var mkdocs_page_url = "/device/";
   </script>
   
   <script src="../js/jquery-2.1.1.min.js"></script>
@@ -118,9 +118,23 @@
                     
     <a class="" href="../web/">★ Web Container</a>
                 </li>
-                <li class="">
+                <li class=" current">
                     
-    <a class="" href="../device/">★ Device Information</a>
+    <a class="current" href="./">★ Device Information</a>
+    <ul class="subnav">
+            
+    <li class="toctree-l3"><a href="#getting-device-information">Getting Device Information</a></li>
+    
+        <ul>
+        
+            <li><a class="toctree-l4" href="#supported-attributes">Supported Attributes</a></li>
+        
+            <li><a class="toctree-l4" href="#example">Example</a></li>
+        
+        </ul>
+    
+
+    </ul>
                 </li>
     </ul>
 	    </li>
@@ -135,30 +149,9 @@
     <a class="" href="../advanced/">■ Extending Jasonette (advanced)</a>
 	    </li>
           
-            <li class="toctree-l1 current">
+            <li class="toctree-l1">
 		
-    <a class="current" href="./">■ Troubleshoot</a>
-    <ul class="subnav">
-            
-    <li class="toctree-l2"><a href="#no-provisioning-error">"No provisioning..." error</a></li>
-    
-
-    <li class="toctree-l2"><a href="#signing-for-jasonette-requires-a-development-team-select-a-development-team-in-the-project-editor">"Signing for "Jasonette" requires a development team. Select a development team in the project editor."</a></li>
-    
-
-    <li class="toctree-l2"><a href="#code-signing-is-required-for-product-type-application-in-sdk">"Code signing is required for product type 'Application' in SDK"</a></li>
-    
-
-    <li class="toctree-l2"><a href="#untrusted-enterprise-developer">"Untrusted Enterprise Developer"</a></li>
-    
-
-    <li class="toctree-l2"><a href="#cant-be-opened-because-it-is-from-an-unidentified-developer">"Can't be opened because it is from an unidentified developer."</a></li>
-    
-
-    <li class="toctree-l2"><a href="#is-busy-processing-symbol-files">"... is busy: Processing symbol files"</a></li>
-    
-
-    </ul>
+    <a class="" href="../faq/">■ Troubleshoot</a>
 	    </li>
           
             <li class="toctree-l1">
@@ -187,11 +180,15 @@
     <li><a href="..">Docs</a> &raquo;</li>
     
       
+        
+          <li>■ Reference &raquo;</li>
+        
+      
     
-    <li>■ Troubleshoot</li>
+    <li>★ Device Information</li>
     <li class="wy-breadcrumbs-aside">
       
-        <a href="https://github.com/Jasonette/documentation/edit/master/docs/faq.md"
+        <a href="https://github.com/Jasonette/documentation/edit/master/docs/device.md"
           class="icon icon-github"> Edit on GitHub</a>
       
     </li>
@@ -201,59 +198,56 @@
           <div role="main">
             <div class="section">
               
-                <h1 id="no-provisioning-error">"No provisioning..." error</h1>
-<p><br></p>
-<p><img alt="No provisioning error" src="../images/no_provisioning_profiles.png" /></p>
-<p><br></p>
-<p><strong>Just press "Fix Issue" and sign in with your Apple account</strong></p>
-<p><strong><a href="http://apple.stackexchange.com/a/206130">If that doesn't work, read this post</a></strong></p>
-<hr />
-<h1 id="signing-for-jasonette-requires-a-development-team-select-a-development-team-in-the-project-editor">"Signing for "Jasonette" requires a development team. Select a development team in the project editor."</h1>
-<p><br></p>
-<p><img alt="Requires development team" src="../images/requires_development_team.png" /></p>
-<p><br></p>
-<ol>
-<li>Select the project from XCode.</li>
-<li>Go to "General" section.</li>
-<li>Click "Team" under Signing section. Switch it from "None" to your existing team. If you don't have one, select "Add an account" to add your own Apple account.</li>
-</ol>
-<p><img alt="add team" src="../images/add_team.png" /></p>
-<hr />
-<h1 id="code-signing-is-required-for-product-type-application-in-sdk">"Code signing is required for product type 'Application' in SDK"</h1>
-<p><br></p>
-<p><img alt="Requires development team" src="../images/requires_development_team.png" /></p>
-<p><br></p>
-<ol>
-<li>Select the project from XCode.</li>
-<li>Go to "General" section.</li>
-<li>Click "Team" under Signing section. Switch it from "None" to your existing team. If you don't have one, select "Add an account" to add your own Apple account.</li>
-</ol>
-<p><img alt="add team" src="../images/add_team.png" /></p>
-<hr />
-<h1 id="untrusted-enterprise-developer">"Untrusted Enterprise Developer"</h1>
-<p>Keep getting "Untrusted Enterprise Developer" alert when you try to open the installed app?</p>
-<p><br></p>
-<div class='video-container'>
-<iframe width="640" height="360" src="https://www.youtube.com/embed/EG9spHluLKg?rel=0" frameborder="0" allowfullscreen></iframe>
-</div>
-
-<p><br></p>
-<p>Or read the Apple Guideline below:</p>
-<p><strong><a href="https://support.apple.com/en-us/HT204460">Guidelines for installing custom enterprise apps on iOS</a></strong></p>
-<hr />
-<h1 id="cant-be-opened-because-it-is-from-an-unidentified-developer">"Can't be opened because it is from an unidentified developer."</h1>
-<p>Do you get the following error when you try to execute the <code>Setup</code> command?</p>
-<p><br></p>
-<p><img alt="unidentified developer" src="../images/unidentified_developer.png" /></p>
-<p><br></p>
-<p><strong><a href="http://www.iclarified.com/28180/how-to-open-applications-from-unidentified-developers-in-mac-os-x-mountain-lion">This article will help you</a></strong></p>
-<hr />
-<h1 id="is-busy-processing-symbol-files">"... is busy: Processing symbol files"</h1>
-<p>Do you get this alert when you press the <code>play</code> button?</p>
-<p><br></p>
-<p><img alt="processing symbol files" src="../images/processing_symbol.png" /></p>
-<p><br></p>
-<p><strong>Just wait for a bit until the progress bar gets to the end, and then retry.</strong></p>
+                <h1 id="getting-device-information">Getting Device Information</h1>
+<p>You can access the device information via <code>$env</code> variable.</p>
+<p>Note that <code>$env</code> is a <strong>read-only</strong> variable, so you can only read and not write to it.</p>
+<p>You can access them using templates, just like other variables (global variable, cache, local variables).</p>
+<h2 id="supported-attributes">Supported Attributes</h2>
+<ul>
+<li><strong>$env.device.width</strong> : device width</li>
+<li><strong>$env.device.height</strong> : device height</li>
+<li><strong>$env.device.os.name</strong> : os name</li>
+</ul>
+<h2 id="example">Example</h2>
+<pre><code>{
+  &quot;$jason&quot;: {
+    &quot;head&quot;: {
+      &quot;title&quot;: &quot;$env.device access&quot;,
+      &quot;actions&quot;: {
+        &quot;$load&quot;: {
+          &quot;type&quot;: &quot;$render&quot;
+        }
+      },
+      &quot;templates&quot;: {
+        &quot;body&quot;: {
+          &quot;sections&quot;: [
+            {
+              &quot;items&quot;: [
+                {
+                  &quot;type&quot;: &quot;label&quot;,
+                  &quot;text&quot;: &quot;Device width: {{$env.device.width}}&quot;
+                },
+                {
+                  &quot;type&quot;: &quot;label&quot;,
+                  &quot;text&quot;: &quot;Device height: {{$env.device.height}}&quot;
+                },
+                {
+                  &quot;type&quot;: &quot;label&quot;,
+                  &quot;text&quot;: &quot;{{$env.device.os.name}}&quot;
+                },
+                {
+                  &quot;type&quot;: &quot;label&quot;,
+                  &quot;text&quot;: &quot;version: {{$env.device.os.sdk}}&quot;
+                }
+              ]
+            }
+          ]
+        }
+      }
+    }
+  }
+}
+</code></pre>
               
             </div>
           </div>
@@ -261,10 +255,10 @@
   
     <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
       
-        <a href="../jason/" class="btn btn-neutral float-right" title="■ Jason">Next <span class="icon icon-circle-arrow-right"></span></a>
+        <a href="../convention/" class="btn btn-neutral float-right" title="■ Tips">Next <span class="icon icon-circle-arrow-right"></span></a>
       
       
-        <a href="../advanced/" class="btn btn-neutral" title="■ Extending Jasonette (advanced)"><span class="icon icon-circle-arrow-left"></span> Previous</a>
+        <a href="../web/" class="btn btn-neutral" title="★ Web Container"><span class="icon icon-circle-arrow-left"></span> Previous</a>
       
     </div>
   
@@ -292,10 +286,10 @@
           <a href="https://github.com/Jasonette/documentation" class="fa fa-github" style="float: left; color: #fcfcfc"> GitHub</a>
       
       
-        <span><a href="../advanced/" style="color: #fcfcfc;">&laquo; Previous</a></span>
+        <span><a href="../web/" style="color: #fcfcfc;">&laquo; Previous</a></span>
       
       
-        <span style="margin-left: 15px"><a href="../jason/" style="color: #fcfcfc">Next &raquo;</a></span>
+        <span style="margin-left: 15px"><a href="../convention/" style="color: #fcfcfc">Next &raquo;</a></span>
       
     </span>
 </div>

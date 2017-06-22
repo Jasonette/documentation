@@ -89,6 +89,12 @@
      <changefreq>daily</changefreq>
     </url>
         
+    <url>
+     <loc>/device/</loc>
+     <lastmod>2017-06-22</lastmod>
+     <changefreq>daily</changefreq>
+    </url>
+        
     
 
     
