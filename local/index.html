@@ -8,7 +8,7 @@
   
   
   <link rel="shortcut icon" href="../img/favicon.ico">
-  <title>★ Local JSON - Jasonette</title>
+  <title>★ Local Storage - Jasonette</title>
   <link href='https://fonts.googleapis.com/css?family=Lato:400,700|Roboto+Slab:400,700|Inconsolata:400,700' rel='stylesheet' type='text/css'>
 
   <link rel="stylesheet" href="../css/theme.css" type="text/css" />
@@ -18,7 +18,7 @@
   
   <script>
     // Current page data
-    var mkdocs_page_name = "\u2605 Local JSON";
+    var mkdocs_page_name = "\u2605 Local Storage";
     var mkdocs_page_input_path = "local.md";
     var mkdocs_page_url = "/local/";
   </script>
@@ -112,7 +112,7 @@
                 </li>
                 <li class=" current">
                     
-    <a class="current" href="./">★ Local JSON</a>
+    <a class="current" href="./">★ Local Storage</a>
     <ul class="subnav">
             
     <li class="toctree-l3"><a href="#app-portability">App Portability</a></li>
@@ -127,6 +127,10 @@
             <li><a class="toctree-l4" href="#2-file-url">2. File URL</a></li>
         
             <li><a class="toctree-l4" href="#3-offline-caching">3. Offline Caching</a></li>
+        
+            <li><a class="toctree-l4" href="#4-global-local-storage">4. Global Local Storage</a></li>
+        
+            <li><a class="toctree-l4" href="#5-local-image">5. Local Image</a></li>
         
         </ul>
     
@@ -186,7 +190,7 @@
         
       
     
-    <li>★ Local JSON</li>
+    <li>★ Local Storage</li>
     <li class="wy-breadcrumbs-aside">
       
         <a href="https://github.com/Jasonette/documentation/edit/master/docs/local.md"
@@ -213,6 +217,8 @@
 <li><a href="#1-data-uri">Data-uri</a></li>
 <li><a href="#2-file-url">Store JSON locally on the app</a></li>
 <li><a href="#3-offline-caching">Offline caching</a></li>
+<li><a href="#4-global-local-storage">Global local storage</a></li>
+<li><a href="#5-local-image">Local Image</a></li>
 </ol>
 <hr />
 <h2 id="1-data-uri">1. Data-uri</h2>
@@ -221,7 +227,7 @@
 <hr />
 <h2 id="2-file-url">2. File URL</h2>
 <p>Another URL scheme Jasonette supports is local file scheme (<code>file://</code>).</p>
-<p>Instead of using <code>http</code> or <code>https</code>, you can refer directly to your local file bundled up with the app. There are currently two ways to use the file URL scheme:</p>
+<p>Instead of using <code>http</code> or <code>https</code>, you can refer directly to your local file bundled up with the app. There are currently three ways to use the file URL scheme:</p>
 <p><br></p>
 <h3 id="using-file-url-scheme">Using File URL Scheme</h3>
 <p><br></p>
@@ -254,6 +260,12 @@
     }
 </code></pre>
 
+<hr />
+<blockquote>
+<p><strong>C. Local Images</strong></p>
+<p>You can also use the <code>file://</code> scheme to <a href="#5-local-image">render local images</a>.</p>
+</blockquote>
+<hr />
 <p><br></p>
 <h3 id="storing-files-locally">Storing files locally</h3>
 <p>To utilize this feature, you first need to store files under the right folders. Let me show you how:</p>
@@ -305,6 +317,27 @@
       ...
 }
 </code></pre>
+<hr />
+<h2 id="4-global-local-storage">4. Global Local Storage</h2>
+<p>In many cases you want to persist content across sessions. You can of course store them on a remote server using <a href="../actions/#networkrequest">$network.request</a> but you can also persist them <strong>locally</strong>.</p>
+<ol>
+<li>To access an app-wide global storage, you can use the <a href="../actions/#global">$global</a> API.</li>
+<li>To privately persist data under a URL (only accessible from that view), you can use the <a href="../actions/#cache">$cache</a> API.</li>
+</ol>
+<hr />
+<h2 id="5-local-image">5. Local Image</h2>
+<p>Jasonette not only lets you render remote images but also lets you bundle them up on the app locally and load them locally. Just like you can use the <a href="#2-file-url">file:// scheme</a> to render local JSON objects, you can use the same <code>file://</code> scheme to access locally stored images.</p>
+<p>Supported everywhere:</p>
+<ul>
+<li><a href="../document/#background">body.background</a></li>
+<li><a href="../document/#menu">header.menu</a></li>
+<li><a href="../document/#title">header.title</a></li>
+<li><a href="../document/#tabs">footer.tabs</a></li>
+<li><a href="../document/#input">footer.input</a></li>
+<li><a href="../components/#image">image component</a></li>
+<li><a href="../components/#button">button component</a></li>
+<li><a href="../document/#typeimage">image layers</a></li>
+</ul>
               
             </div>
           </div>
