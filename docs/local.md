@@ -91,7 +91,7 @@ Instead of using `http` or `https`, you can refer directly to your local file bu
 >
 > You can use `file://` with [$require](/actions/#require) actions.
 > 
-> ** Note that [$network.request](/actions/#network) won't work, because accessing `file://` is not a network request.
+> ** Note that [$network.request](/actions/#network) won't work, because accessing `file://` is not a network request.**
 
 ---
 
