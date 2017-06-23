@@ -270,6 +270,17 @@
 <p>You can also use the <code>file://</code> scheme to <a href="#5-local-image">render local images</a>.</p>
 </blockquote>
 <hr />
+<blockquote>
+<p><strong>D. Via $require action</strong></p>
+<p>You can use <code>file://</code> with <a href="../actions/#require">$require</a> actions.</p>
+<p>** Note that <a href="../actions/#network">$network.request</a> won't work, because accessing <code>file://</code> is not a network request.</p>
+</blockquote>
+<hr />
+<blockquote>
+<p><strong>E. Via Mixins</strong></p>
+<p>You can use <code>file://</code> with <a href="../mixin">mixins</a></p>
+</blockquote>
+<hr />
 <p><br></p>
 <h3 id="storing-files-locally">Storing files locally</h3>
 <p>To utilize this feature, you first need to store files under the right folders. Let me show you how:</p>
