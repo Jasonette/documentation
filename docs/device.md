@@ -12,6 +12,7 @@ You can access them using templates, just like other variables (global variable,
 - **$env.device.height** : device height
 - **$env.device.os.name** : os name
 - **$env.device.os.version** : os version
+- **$env.device.language**: device language (`"en-US"`, etc.)
 
 ## Example
 
@@ -45,6 +46,10 @@ You can access them using templates, just like other variables (global variable,
                 {
                   "type": "label",
                   "text": "version: {{$env.device.os.version}}"
+                },
+                {
+                  "type": "label",
+                  "text": "version: {{$env.device.language}}"
                 }
               ]
             }
