@@ -1,6 +1,5 @@
-# Getting Device Information
 
-You can access the device information via `$env` variable.
+You can get useful information about the device or the app's current state via the `$env` variable.
 
 Note that `$env` is a **read-only** variable, so you can only read and not write to it.
 
@@ -13,6 +12,7 @@ You can access them using templates, just like other variables (global variable,
 - **$env.device.os.name** : os name
 - **$env.device.os.version** : os version
 - **$env.device.language**: device language (`"en-US"`, etc.)
+- **$env.view.url**: current view url
 
 ## Example
 
