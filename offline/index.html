@@ -8,7 +8,7 @@
   
   
   <link rel="shortcut icon" href="../img/favicon.ico">
-  <title>★ Local Storage - Jasonette</title>
+  <title>★ Offline - Jasonette</title>
   <link href='https://fonts.googleapis.com/css?family=Lato:400,700|Roboto+Slab:400,700|Inconsolata:400,700' rel='stylesheet' type='text/css'>
 
   <link rel="stylesheet" href="../css/theme.css" type="text/css" />
@@ -18,9 +18,9 @@
   
   <script>
     // Current page data
-    var mkdocs_page_name = "\u2605 Local Storage";
-    var mkdocs_page_input_path = "local.md";
-    var mkdocs_page_url = "/local/";
+    var mkdocs_page_name = "\u2605 Offline";
+    var mkdocs_page_input_path = "offline.md";
+    var mkdocs_page_url = "/offline/";
   </script>
   
   <script src="../js/jquery-2.1.1.min.js"></script>
@@ -112,25 +112,27 @@
                 </li>
                 <li class=" current">
                     
-    <a class="current" href="./">★ Local Storage</a>
+    <a class="current" href="./">★ Offline</a>
     <ul class="subnav">
             
-    <li class="toctree-l3"><a href="#app-portability">App Portability</a></li>
+    <li class="toctree-l3"><a href="#what-does-offline-mean">What does "Offline" mean?</a></li>
     
 
-    <li class="toctree-l3"><a href="#local">Local</a></li>
+    <li class="toctree-l3"><a href="#features">Features</a></li>
     
         <ul>
         
-            <li><a class="toctree-l4" href="#1-data-uri">1. Data-uri</a></li>
+            <li><a class="toctree-l4" href="#1-loading-from-local-file">1. Loading from Local File</a></li>
         
-            <li><a class="toctree-l4" href="#2-file-url">2. File URL</a></li>
+            <li><a class="toctree-l4" href="#2-global-key-value-persistent-store">2. Global Key-Value Persistent Store</a></li>
         
-            <li><a class="toctree-l4" href="#3-offline-caching">3. Offline Caching</a></li>
+            <li><a class="toctree-l4" href="#3-automatic-json-caching">3. Automatic JSON caching</a></li>
         
-            <li><a class="toctree-l4" href="#4-global-local-storage">4. Global Local Storage</a></li>
+            <li><a class="toctree-l4" href="#4-data-uri">4. Data-uri</a></li>
         
-            <li><a class="toctree-l4" href="#5-local-image">5. Local Image</a></li>
+            <li><a class="toctree-l4" href="#5-loading-screen">5. Loading Screen</a></li>
+        
+            <li><a class="toctree-l4" href="#6-error-screen">6. Error Screen</a></li>
         
         </ul>
     
@@ -143,7 +145,7 @@
                 </li>
                 <li class="">
                     
-    <a class="" href="../device/">★ Device Information</a>
+    <a class="" href="../env/">★ Environment Variables</a>
                 </li>
     </ul>
 	    </li>
@@ -194,10 +196,10 @@
         
       
     
-    <li>★ Local Storage</li>
+    <li>★ Offline</li>
     <li class="wy-breadcrumbs-aside">
       
-        <a href="https://github.com/Jasonette/documentation/edit/master/docs/local.md"
+        <a href="https://github.com/Jasonette/documentation/edit/master/docs/offline.md"
           class="icon icon-github"> Edit on GitHub</a>
       
     </li>
@@ -207,31 +209,30 @@
           <div role="main">
             <div class="section">
               
-                <h1 id="app-portability">App Portability</h1>
-<p>With Jasonette, the apps become completely portable because the entire logic can be expressed as JSON, which can be sent to, stored, and received from anywhere.</p>
-<p><br></p>
-<p>Since portability is one of Jasonette's main benefits, we are developing many different ways of storing, transmitting, and receiving JSON, and planning on supporting many useful protocols.</p>
-<p><br></p>
-<p>One of those efforts is local JSON.</p>
-<p><br></p>
-<h1 id="local">Local</h1>
-<p>There are currently several ways Jasonette supports local JSON, each of which is unique in its own way.</p>
-<hr />
+                <h1 id="what-does-offline-mean">What does "Offline" mean?</h1>
+<p>Jasonette supports various offline features.</p>
+<p>Note that "offline" doesn't mean your entire app needs to be offline. Parts of your app can be online and parts of it can be offline.</p>
+<p>This is because <strong>everything</strong> on Jasonette is described in JSON. You can selectively load your JSON from multiple sources and combine them together. You can do things like:</p>
 <ol>
-<li><a href="#1-data-uri">Data-uri</a></li>
-<li><a href="#2-file-url">Store JSON locally on the app</a></li>
-<li><a href="#3-offline-caching">Offline caching</a></li>
-<li><a href="#4-global-local-storage">Global local storage</a></li>
-<li><a href="#5-local-image">Local Image</a></li>
+<li>Store the model locally, and load view and controller from remote.</li>
+<li>Store the view and controller locally, and load model from remote.</li>
+<li>Store all model, view, controller locally.</li>
+<li>Etc.</li>
+</ol>
+<p>But this is just the basics. Imagine what's possible when you use <a href="../mixin">mixins</a>. You can mix and match different modules from different sources, some online, some offline, to finally construct the final app.</p>
+<hr />
+<h1 id="features">Features</h1>
+<ol>
+<li><a href="#1-loading-from-local-file">Loading from Local File</a></li>
+<li><a href="#2-global-key-value-persistent-store">Global Key-value Persistent Store</a></li>
+<li><a href="#3-automatic-json-caching">Automatic JSON Caching</a></li>
+<li><a href="#4-data-uri">Data-uri</a></li>
+<li><a href="#5-loading-screen">Loading Screen</a></li>
+<li><a href="#6-error-screen">Error Screen</a></li>
 </ol>
 <hr />
-<h2 id="1-data-uri">1. Data-uri</h2>
-<p>Jasonette supports <a href="https://en.wikipedia.org/wiki/Data_URI_scheme">data-uri</a>. This means you can store the entire content within the URL itself. It's not always practical but there are several cases where you can get neat effects using this approach.</p>
-<p>Try entering a data-url instead of http or https based url. It should work.</p>
-<hr />
-<h2 id="2-file-url">2. File URL</h2>
-<p>Another URL scheme Jasonette supports is local file scheme (<code>file://</code>).</p>
-<p>Instead of using <code>http</code> or <code>https</code>, you can refer directly to your local file bundled up with the app. There are currently three ways to use the file URL scheme:</p>
+<h2 id="1-loading-from-local-file">1. Loading from Local File</h2>
+<p>Just like you can fetch remote files over <code>http</code> to construct a Jasonette app, you can also use local files packaged with the app, using a file url scheme (<code>file://</code>)</p>
 <p><br></p>
 <h3 id="using-file-url-scheme">Using File URL Scheme</h3>
 <p><br></p>
@@ -252,7 +253,7 @@
 </blockquote>
 <hr />
 <blockquote>
-<p><strong>B. HREF</strong></p>
+<p><strong>B. Offline HREF</strong></p>
 <p>You can also <code>href</code> into local JSON URLs:</p>
 </blockquote>
 <pre><code>    {
@@ -266,19 +267,52 @@
 
 <hr />
 <blockquote>
-<p><strong>C. Local Images</strong></p>
-<p>You can also use the <code>file://</code> scheme to <a href="#5-local-image">render local images</a>.</p>
+<p><strong>C. Offline Require</strong></p>
+<p>You can <a href="../actions/#require">$require</a> offline JSON URLs:</p>
 </blockquote>
+<pre><code>    {
+      &quot;type&quot;: &quot;$require&quot;,
+      &quot;options&quot;: {
+        &quot;items&quot;: [&quot;file://item1.json&quot;, &quot;file://item2.json&quot;]
+      }
+    }
+</code></pre>
+
 <hr />
 <blockquote>
-<p><strong>D. Via $require action</strong></p>
-<p>You can use <code>file://</code> with <a href="../actions/#require">$require</a> actions.</p>
-<p><strong> Note that <a href="../actions/#network">$network.request</a> won't work, because accessing <code>file://</code> is not a network request.</strong></p>
+<p><strong>D. Offline Mixin</strong></p>
+<p>You can use file urls with <a href="../mixin">mixins</a>:</p>
 </blockquote>
+<pre><code>    {
+      &quot;@&quot;: &quot;file://mixin.json&quot;,
+      &quot;items&quot;: [],
+      ...
+    }
+</code></pre>
+
 <hr />
 <blockquote>
-<p><strong>E. Via Mixins</strong></p>
-<p>You can use <code>file://</code> with <a href="../mixin">mixins</a></p>
+<p><strong>E. Offline Images</strong></p>
+<p>Jasonette not only lets you render remote images but also lets you bundle them up on the app locally and load them locally. Just like you can use the <a href="#2-file-url">file:// scheme</a> to render local JSON objects, you can use the same <code>file://</code> scheme to access locally stored images.</p>
+</blockquote>
+<pre><code>{
+  &quot;type&quot;: &quot;image&quot;,
+  &quot;url&quot;: &quot;file://avatar.png&quot;
+}
+</code></pre>
+
+<blockquote>
+<p>Supported everywhere:</p>
+<ul>
+<li><a href="../document/#background">body.background</a></li>
+<li><a href="../document/#menu">header.menu</a></li>
+<li><a href="../document/#title">header.title</a></li>
+<li><a href="../document/#tabs">footer.tabs</a></li>
+<li><a href="../document/#input">footer.input</a></li>
+<li><a href="../components/#image">image component</a></li>
+<li><a href="../components/#button">button component</a></li>
+<li><a href="../document/#typeimage">image layers</a></li>
+</ul>
 </blockquote>
 <hr />
 <p><br></p>
@@ -301,12 +335,19 @@
 <p><br></p>
 <p><img src='../images/android_local_file.png' class='large'></p>
 <p><br></p>
-<p><strong>(Disclaimer: The file url scheme is currently limited to the home URL and <code>href</code>s. It doesn't include mixins, requires, network.request. If you would like to add these features to Jasonette, feel free to send a pull request and contribute!)</strong></p>
 <hr />
-<h2 id="3-offline-caching">3. Offline Caching</h2>
+<h2 id="2-global-key-value-persistent-store">2. Global Key-Value Persistent Store</h2>
+<p>Normally, variables on Jasonette are sandboxed per URL (local variables and cache).</p>
+<p>However, a lot of times you may want to have a global variable that's accessible from all your views.
+Also, you probably want them to be persisted so you can use it like a Database.</p>
+<p>This is what global key-value store does.</p>
+<p>The global key-value store is supported as an <strong>action</strong>. See <a href="../actions/#global">$global API section</a> to learn more.</p>
+<p><img src='../images/global.png' class='large'></p>
+<hr />
+<h2 id="3-automatic-json-caching">3. Automatic JSON caching</h2>
 <p>You can have best of both worlds (Stream the app on demand to keep it up-to-date all the time, as well as have the app logic cached locally so it loads instantly) by using the offline caching feature.</p>
 <p><br></p>
-<h3 id="how-offline-caching-works">How offline caching works</h3>
+<h3 id="how-json-caching-works">How JSON caching works</h3>
 <ol>
 <li>
 <p>The first time the app loads, Jasonette fetches the JSON from your server.</p>
@@ -333,26 +374,31 @@
 }
 </code></pre>
 <hr />
-<h2 id="4-global-local-storage">4. Global Local Storage</h2>
-<p>In many cases you want to persist content across sessions. You can of course store them on a remote server using <a href="../actions/#networkrequest">$network.request</a> but you can also persist them <strong>locally</strong>.</p>
+<h2 id="4-data-uri">4. Data-uri</h2>
+<p>Jasonette supports <a href="https://en.wikipedia.org/wiki/Data_URI_scheme">data-uri</a> for urls. This means you can store the entire content within the URL itself. It's not always practical but there are several cases where you can get neat effects using this approach.</p>
+<p>Try entering a data-url instead of http or https based url. It should work.</p>
+<hr />
+<h2 id="5-loading-screen">5. Loading Screen</h2>
+<p>The loading screen is displayed while a view is being loaded. </p>
+<p>It is loaded from <code>file://loading.json</code>, which comes with the project, but you can customize it as you like.</p>
+<p><br></p>
+<p><img src='../images/loadinganimation.gif'></p>
+<p><br></p>
+<p>Remember, this is a full fledged JASON view, which means you can do anything you can do in a regular view.</p>
 <ol>
-<li>To access an app-wide global storage, you can use the <a href="../actions/#global">$global</a> API.</li>
-<li>To privately persist data under a URL (only accessible from that view), you can use the <a href="../actions/#cache">$cache</a> API.</li>
+<li>If you don't want a loading view, replace it with an empty view.</li>
+<li>If you want a simple background colour instead of loading animation, you can do so by setting the background color</li>
+<li>You can get creative and use the <a href="../actions/#global">$global</a> and <a href="../env">$env</a> variables to construct custom loading screens for each view.</li>
 </ol>
 <hr />
-<h2 id="5-local-image">5. Local Image</h2>
-<p>Jasonette not only lets you render remote images but also lets you bundle them up on the app locally and load them locally. Just like you can use the <a href="#2-file-url">file:// scheme</a> to render local JSON objects, you can use the same <code>file://</code> scheme to access locally stored images.</p>
-<p>Supported everywhere:</p>
-<ul>
-<li><a href="../document/#background">body.background</a></li>
-<li><a href="../document/#menu">header.menu</a></li>
-<li><a href="../document/#title">header.title</a></li>
-<li><a href="../document/#tabs">footer.tabs</a></li>
-<li><a href="../document/#input">footer.input</a></li>
-<li><a href="../components/#image">image component</a></li>
-<li><a href="../components/#button">button component</a></li>
-<li><a href="../document/#typeimage">image layers</a></li>
-</ul>
+<h2 id="6-error-screen">6. Error Screen</h2>
+<p>The error screen is displayed when the view fails to load because of network connection.</p>
+<p><br></p>
+<p><img src='../images/error.png' style='border:1px solid gray;'></p>
+<p><br></p>
+<p>It is loaded from <code>file://error.json</code>, but you can customize it as you like.</p>
+<p>Again, it's a full fledged JASON view, so anything you can do on a regular view is possible in the error view, such as rendering templates, running actions on certain events, etc.</p>
+<hr />
               
             </div>
           </div>
