@@ -123,15 +123,10 @@
     <a class="current" href="./">★ Environment Variables</a>
     <ul class="subnav">
             
-    <li class="toctree-l3"><a href="#getting-device-information">Getting Device Information</a></li>
+    <li class="toctree-l3"><a href="#supported-attributes">Supported Attributes</a></li>
     
-        <ul>
-        
-            <li><a class="toctree-l4" href="#supported-attributes">Supported Attributes</a></li>
-        
-            <li><a class="toctree-l4" href="#example">Example</a></li>
-        
-        </ul>
+
+    <li class="toctree-l3"><a href="#example">Example</a></li>
     
 
     </ul>
@@ -198,8 +193,7 @@
           <div role="main">
             <div class="section">
               
-                <h1 id="getting-device-information">Getting Device Information</h1>
-<p>You can access the device information via <code>$env</code> variable.</p>
+                <p>You can get useful information about the device or the app's current state via the <code>$env</code> variable.</p>
 <p>Note that <code>$env</code> is a <strong>read-only</strong> variable, so you can only read and not write to it.</p>
 <p>You can access them using templates, just like other variables (global variable, cache, local variables).</p>
 <h2 id="supported-attributes">Supported Attributes</h2>
@@ -209,6 +203,7 @@
 <li><strong>$env.device.os.name</strong> : os name</li>
 <li><strong>$env.device.os.version</strong> : os version</li>
 <li><strong>$env.device.language</strong>: device language (<code>"en-US"</code>, etc.)</li>
+<li><strong>$env.view.url</strong>: current view url</li>
 </ul>
 <h2 id="example">Example</h2>
 <pre><code>{
