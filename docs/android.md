@@ -78,7 +78,7 @@ By default the app is named "Jasonette". You probably want to change this. From 
 
 **Step 1. Create new Image Asset**
 
-Select `app` > `res` and right-click to display a context menu. Then select `New` > `Image Asset`. 
+Select `app` > `res` and right-click to display a context menu. Then select `New` > `Image Asset`.
 
 <img src='../images/icon_step1.png' class='large'>
 
@@ -142,6 +142,34 @@ To learn more, [read this documentation](https://developer.android.com/studio/bu
 
 ---
 
+# Debugging
+
+## Stetho
+
+Stetho is a library from Facebook that has been integrated into Debug build types of the Jason app to allow debugging via Chrome Dev Tools.
+
+To use Stetho for debugging:
+
+1. Run the Jason app from Android Studio on either a emulator or connected Andriod device (you can also directly use the debug APK that AS creates in `app/build/outputs/apk/app-debug.apk`)
+
+2. In a Chrome web browser running on a machine on the same network as the Android device or emulator, open the url `chrome://inspect` and you should see under 'Remote Target' an entry labelled `Jasonette (powered by Stetho)`:
+![chrome devices inspector window](images/chrome-inspect.png)
+
+3. Click on the `inspect link` and that will open a new Chrome Dev Tools window, connected to your app ready for debugging.
+
+![chrome devices inspector window](images/chrome-devtools-elements.png)
+
+Using the Dev Tools interface you can now inspect the hiearchy of your UI layout, inspect network requests, browse the key-values stored by the Jasonette $global.set and see output from any uses of console.log in your template expressions.
+
+A handy feature in the **Elements** tab of Dev Tools is the UI element running on the Android device will be highlighted when its element is hovered over by the mouse in the Elements tab, just as it would if you were using Dev Tools with a web page.
+
+> *Note:* Dev Tools will disconnect from your app each time it is killed (eg. if you  install an updated APK). When that happens, to close your existing DevTools window and return  'chrome://inspect' to open it again.
+
+> *Note:* Stetho is only included in the **debug**  build type and will **NOT** be included by the gradle config in *release* builds of the APK.
+
+For more details about Stetho please see [its website](http://facebook.github.io/stetho/).
+---
+
 # Troubleshoot
 
 ## Need more help?
@@ -151,4 +179,3 @@ To learn more, [read this documentation](https://developer.android.com/studio/bu
 	<script async defer src="https://jasonette.now.sh/slackin.js?large"></script>
 
   - **Forum - **  Chat messages on Slack tend to flow away, so you may want to ask questions on the forum. Also it's good for future users who may have the same problem. All messages on the forum will be read. Visit here: [https://forum.jasonette.com](https://forum.jasonette.com)
-
