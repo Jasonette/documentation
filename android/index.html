@@ -117,6 +117,17 @@
     <li class="toctree-l2"><a href="#submitting-to-the-play-store">Submitting to the play store</a></li>
     
 
+    <li class="toctree-l2"><a href="#debugging">Debugging</a></li>
+    
+        <ul>
+        
+            <li><a class="toctree-l3" href="#stetho">Stetho</a></li>
+        
+            <li><a class="toctree-l3" href="#for-more-details-about-stetho-please-see-its-website">For more details about Stetho please see its website.</a></li>
+        
+        </ul>
+    
+
     <li class="toctree-l2"><a href="#troubleshoot">Troubleshoot</a></li>
     
         <ul>
@@ -281,7 +292,7 @@ Jasonette itself is a pre-built app.<br>All you need to do is download Jasonette
 <p><br></p>
 <h3 id="c-update-app-icon">C. Update App icon</h3>
 <p><strong>Step 1. Create new Image Asset</strong></p>
-<p>Select <code>app</code> &gt; <code>res</code> and right-click to display a context menu. Then select <code>New</code> &gt; <code>Image Asset</code>. </p>
+<p>Select <code>app</code> &gt; <code>res</code> and right-click to display a context menu. Then select <code>New</code> &gt; <code>Image Asset</code>.</p>
 <p><img src='../images/icon_step1.png' class='large'></p>
 <p><br></p>
 <p><strong>Step 2. Select your image</strong></p>
@@ -328,6 +339,30 @@ Jasonette itself is a pre-built app.<br>All you need to do is download Jasonette
 <h1 id="submitting-to-the-play-store">Submitting to the play store</h1>
 <p><a href="https://support.google.com/googleplay/android-developer/answer/113469?hl=en">Check out this documentation</a> to learn how to submit to the play store.</p>
 <hr />
+<h1 id="debugging">Debugging</h1>
+<h2 id="stetho">Stetho</h2>
+<p>Stetho is a library from Facebook that has been integrated into Debug build types of the Jason app to allow debugging via Chrome Dev Tools.</p>
+<p>To use Stetho for debugging:</p>
+<ol>
+<li>
+<p>Run the Jason app from Android Studio on either a emulator or connected Andriod device (you can also directly use the debug APK that AS creates in <code>app/build/outputs/apk/app-debug.apk</code>)</p>
+</li>
+<li>
+<p>In a Chrome web browser running on a machine on the same network as the Android device or emulator, open the url <code>chrome://inspect</code> and you should see under 'Remote Target' an entry labelled <code>Jasonette (powered by Stetho)</code>:
+<img alt="chrome devices inspector window" src="../images/chrome-inspect.png" /></p>
+</li>
+<li>
+<p>Click on the <code>inspect link</code> and that will open a new Chrome Dev Tools window, connected to your app ready for debugging.</p>
+</li>
+</ol>
+<p><img alt="chrome devices inspector window" src="../images/chrome-devtools-elements.png" /></p>
+<p>Using the Dev Tools interface you can now inspect the hiearchy of your UI layout, inspect network requests, browse the key-values stored by the Jasonette $global.set and see output from any uses of console.log in your template expressions.</p>
+<p>A handy feature in the <strong>Elements</strong> tab of Dev Tools is the UI element running on the Android device will be highlighted when its element is hovered over by the mouse in the Elements tab, just as it would if you were using Dev Tools with a web page.</p>
+<blockquote>
+<p><em>Note:</em> Dev Tools will disconnect from your app each time it is killed (eg. if you  install an updated APK). When that happens, to close your existing DevTools window and return  'chrome://inspect' to open it again.</p>
+<p><em>Note:</em> Stetho is only included in the <strong>debug</strong>  build type and will <strong>NOT</strong> be included by the gradle config in <em>release</em> builds of the APK.</p>
+</blockquote>
+<h2 id="for-more-details-about-stetho-please-see-its-website">For more details about Stetho please see <a href="http://facebook.github.io/stetho/">its website</a>.</h2>
 <h1 id="troubleshoot">Troubleshoot</h1>
 <h2 id="need-more-help">Need more help?</h2>
 <ul>
