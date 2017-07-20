@@ -2583,10 +2583,11 @@ Opens a multiple choice picker menu, with each item linking to an [action](actio
 
 <br>
 
-![$util.picker](images/util_picker.jpeg)
+![$util.picker](images/utilpicker.png)
 
 ### ■ options
 
+  - `title` (string): The top title caption for the picker
   - `items` (array): An array of items from which the user can choose. Each item can contain the following attributes:
     - `text`: Text to display
     - `href`: [href](href.md) to trigger when selected.
