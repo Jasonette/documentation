@@ -1135,6 +1135,10 @@ Set the background for the entire view
 
   - **Image URL** : If you wish to use an image as background, simply specify the image url
 
+  - **"camera"** : Use basic camera as background
+
+  - **"{"type": "camera"}** : Use advanced camera as background
+
   - **JSON Web Container**: Lets you embed an entire self-contained web view as a background. Refer to [JSON web container](web.md) to learn more.
 
 <br>
@@ -1190,6 +1194,63 @@ Set the background for the entire view
       }
     }
 
+### example 4. basic camera
+
+    {
+      "$jason": {
+        "head": {
+          ...
+        },
+        "body": {
+          "style": {
+            "background": "camera"
+          },
+          ...
+        }
+      }
+    }
+
+### example 5. advanced camera
+
+Back facing camera
+
+    {
+      "$jason": {
+        "head": {
+          ...
+        },
+        "body": {
+          "style": {
+            "background": {
+              "type": "camera",
+              "options": {
+                "device": "back"
+              }
+            }
+          },
+          ...
+        }
+      }
+    }
+
+
+### What they look like
+
+Here's the preview:
+
+<br>
+
+| color                                    | image                                    | camera                                  | web container | 
+| ---------------------------------------- | ---------------------------------------- | --------------------------------------- |---------------|
+| ![color background](images/background_color.jpeg) | ![image background](images/background_image.jpeg) | ![camera background](images/layers.gif) | ![web container](http://jasonette.com/images/phaserjs.gif) |
+
+
+### Functional Example
+
+[A demo with all of the above options implemented](https://raw.githubusercontent.com/Jasonette/Jasonpedia/gh-pages/view/background/index.json)
+
+
+---
 
 ##■ border
 
