@@ -1323,6 +1323,12 @@ Let's go into more details:</p>
 <p><strong>Image URL</strong> : If you wish to use an image as background, simply specify the image url</p>
 </li>
 <li>
+<p><strong>"camera"</strong> : Use basic camera as background</p>
+</li>
+<li>
+<p><strong>"{"type": "camera"}</strong> : Use advanced camera as background</p>
+</li>
+<li>
 <p><strong>JSON Web Container</strong>: Lets you embed an entire self-contained web view as a background. Refer to <a href="../web/">JSON web container</a> to learn more.</p>
 </li>
 </ul>
@@ -1375,6 +1381,66 @@ Let's go into more details:</p>
   }
 }
 </code></pre>
+<h3 id="example-4-basic-camera">example 4. basic camera</h3>
+<pre><code>{
+  "$jason": {
+    "head": {
+      ...
+    },
+    "body": {
+      "style": {
+        "background": "camera"
+      },
+      ...
+    }
+  }
+}
+</code></pre>
+<h3 id="example-5-advanced-camera">example 5. advanced camera</h3>
+<p>Back facing camera</p>
+<pre><code>{
+  "$jason": {
+    "head": {
+      ...
+    },
+    "body": {
+      "style": {
+        "background": {
+          "type": "camera",
+          "options": {
+            "device": "back"
+          }
+        }
+      },
+      ...
+    }
+  }
+}
+</code></pre>
+<h3 id="what-they-look-like">What they look like</h3>
+<p>Here's the preview:</p>
+<p><br></p>
+<table>
+<thead>
+<tr>
+<th>color</th>
+<th>image</th>
+<th>camera</th>
+<th>web container</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><img alt="color background" src="../images/background_color.jpeg" /></td>
+<td><img alt="image background" src="../images/background_image.jpeg" /></td>
+<td><img alt="camera background" src="../images/layers.gif" /></td>
+<td><img alt="web container" src="http://jasonette.com/images/phaserjs.gif" /></td>
+</tr>
+</tbody>
+</table>
+<h3 id="functional-example">Functional Example</h3>
+<p><a href="https://raw.githubusercontent.com/Jasonette/Jasonpedia/gh-pages/view/background/index.json">A demo with all of the above options implemented</a></p>
+<hr />
 <h2 id="border">■ border</h2>
 <ul>
 <li>border color for <code>section</code> items.</li>
