@@ -2330,7 +2330,7 @@ Use `$global.reset` action to remove global variables by name
 The following will wipe out all the global variables named `key1` and `key2`.
 
     {
-      "type": "$cache.reset",
+      "type": "$global.reset",
       "items": ["key1", "key2"]
     }
 
