@@ -1114,6 +1114,12 @@ For example in the below example, the visible view's URL should match the URL of
 
 ---
 
+**  ⚠️  Troubleshoot 5:**
+
+`tabs` must have at least 2 items (2 tabs min).
+
+---
+
 
 #body.style
 Styling the body
