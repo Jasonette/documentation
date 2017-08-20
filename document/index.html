@@ -107,6 +107,12 @@
 
     <li class="toctree-l3"><a href="#headstyles">head.styles</a></li>
     
+        <ul>
+        
+            <li><a class="toctree-l4" href="#note">note</a></li>
+        
+        </ul>
+    
 
     <li class="toctree-l3"><a href="#headactions">head.actions</a></li>
     
@@ -479,6 +485,10 @@ It doesn't matter what you set the value to; due to a quirk of Jasonette, just i
 
 <p>First look at each label item. Now the style attributes are gone, but instead we have a <code>class</code> value of <code>styled_row</code> for each.</p>
 <p>Now let's look under <code>$jason.head.styles</code>. You'll see we now have the <code>styled_row</code> defined here. The styles registered here will be applied to each UI component whenever its class name is referenced.</p>
+<h3 id="note">note</h3>
+<p>Multiple styles can be used in a single <code>class</code>. Example: 
+<code>"class": "styled_row color_white background_green"</code>. 
+This can be used for creating complex styles with ease!.</p>
 <hr />
 <h1 id="headactions">head.actions</h1>
 <p><strong><a href="../actions/#action-registry">Using action registry to define actions</a></strong></p>
@@ -779,7 +789,7 @@ Currently iOS only, open Android Issue here: <a href="https://github.com/Jasonet
 }
 </code></pre>
 <p><a href="http://www.jasonbase.com/things/qp5/edit">View the full code here</a></p>
-<h3 id="note">note</h3>
+<h3 id="note_1">note</h3>
 <ul>
 <li>Choose either <code>text</code> or <code>image</code> for the menu button, but not both.</li>
 <li>Choose either <code>href</code> or <code>action</code> for handling tap events, but not both.</li>
