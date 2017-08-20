@@ -207,6 +207,11 @@ First look at each label item. Now the style attributes are gone, but instead we
 
 Now let's look under `$jason.head.styles`. You'll see we now have the `styled_row` defined here. The styles registered here will be applied to each UI component whenever its class name is referenced.
 
+### note
+Multiple styles can be used in a single `class`. Example: 
+`"class": "styled_row color_white background_green"`. 
+This can be used for creating complex styles with ease!.
+
 ---
 
 #head.actions
