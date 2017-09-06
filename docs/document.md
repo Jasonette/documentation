@@ -399,8 +399,13 @@ You can describe the title in more detail using a `title` object instead of just
   - `text`: In case it's a `label` type, set the text. Same as using the basic title described above.
   - `url`: In case it's an image, set the image url.
   - `style`: In case it's an image we can set the `width` and the `height`
+    - `align`: `"left"` or `"center"` (If not specified, it's `center` by default)
     - `width`: set the width of the image
     - `height`: set the height of the image
+    - `top`: Top offset.
+    - `left`: Left offset. **ONLY APPLICABLE WHEN `"align": "left"`**
+    - `font`: Font name in case `"type": "label"`
+    - `size`: Font size in case `"type": "label"`
 
 Here's an example
 
