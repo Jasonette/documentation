@@ -207,6 +207,11 @@ First look at each label item. Now the style attributes are gone, but instead we
 
 Now let's look under `$jason.head.styles`. You'll see we now have the `styled_row` defined here. The styles registered here will be applied to each UI component whenever its class name is referenced.
 
+### note
+Multiple styles can be used in a single `class`. Example: 
+`"class": "styled_row color_white background_green"`. 
+This can be used for creating complex styles with ease!.
+
 ---
 
 #head.actions
@@ -1116,6 +1121,12 @@ For example in the below example, the visible view's URL should match the URL of
 **  ⚠️  Troubleshoot 4:**
 
 `tabs` can have up to 5 items (5 tabs max).
+
+---
+
+**  ⚠️  Troubleshoot 5:**
+
+`tabs` must have at least 2 items (2 tabs min).
 
 ---
 

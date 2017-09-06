@@ -163,6 +163,18 @@ Using the Dev Tools interface you can now inspect the hiearchy of your UI layout
 
 A handy feature in the **Elements** tab of Dev Tools is the UI element running on the Android device will be highlighted when its element is hovered over by the mouse in the Elements tab, just as it would if you were using Dev Tools with a web page.
 
+### Console output
+
+As noted above, a useful feature with Stetho is being able to send debugging output to the Dev Tools console.
+When Dev Tools is connected, all logging output, both from Jasonette that would go to logcat will also be displayed int eh DevTools console tab.
+
+You can send log output to the console from using Javascript within template expressions like so:
+```
+{
+  "someaction" : "{{ console.debug('hello debug') }}"
+}
+```
+
 > *Note:* Dev Tools will disconnect from your app each time it is killed (eg. if you  install an updated APK). When that happens, to close your existing DevTools window and return  'chrome://inspect' to open it again.
 
 > *Note:* Stetho is only included in the **debug**  build type and will **NOT** be included by the gradle config in *release* builds of the APK.
