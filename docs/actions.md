@@ -2336,6 +2336,97 @@ The following will wipe out all the global variables named `key1` and `key2`.
 
 ---
 
+## ── SCRIPT ──
+
+Jasonette lets you use simple inline JavaScript code inside template expressions. Here's an example where we use `JSON.stringify`:
+
+```
+{
+  "items": [
+    {
+      "type": "label",
+      "url": "Full JSON string"
+    },
+    {
+      "type": "label",
+      "text": "{{JSON.stringify($jason)}}"
+    }
+  ]
+}
+```
+
+However sometimes you may want to import an entire JavaScript library, just like you do with HTML using the `<script>` tag.
+
+---
+
+## $script.include
+
+Include remote/local JavaScript file into the template context.
+
+### ■ options
+- `items`: An array of include objects, each of which has the following attributes:
+  - `url`: load from a url. You can use both remote (http:// or https://) or local (file://) urls
+  - `text`: inline JavaScript code to import
+
+### ■  return value
+- none
+
+### ■  example
+
+In the following example, we:
+
+1. import [underscore.js](http://underscorejs.org/),  [crypto.js](https://github.com/brix/crypto-js), [he.js](https://github.com/mathiasbynens/he), as well as inject an inline JavaScript code into the context via `text` attribute.
+2. Use it by accessing the `$root` context. The JavaScript libraries get injected into the global context (`$root`) after running `$script.include`.
+
+Note that these JavaScript libraries referenced by `url` are downloaded in parallel just like how [$require action](#require) works.
+
+```
+{
+  "type": "$script.include",
+  "options": {
+    "items": [
+      { "url": "https://cdnjs.cloudflare.com/ajax/libs/underscore.js/1.8.3/underscore-min.js" },
+      { "text": "var randomcolor = function() { return '#'+Math.floor(Math.random()*16777215).toString(16); }" },
+      { "url": "https://cdnjs.cloudflare.com/ajax/libs/crypto-js/3.1.9-1/crypto-js.min.js" },
+      { "url": "https://rawgit.com/mathiasbynens/he/master/he.js" }
+    ]
+  },
+  "success": {
+    "type": "$render",
+    "options": {
+      "data": {
+        "raw": "no man&#38;s land",
+        "decoded": "{{$root.he.decode('no man&#39;s land')}}",
+        "unique": "{{$root._.uniq([1,2,3,3,3,4,4,4,4,5])}}"
+      }
+    }
+  }
+}
+```
+
+---
+
+## $script.clear
+
+Clears out the global context of the JavaScript template engine.
+
+### ■ options
+- none
+
+### ■  return value
+- none
+
+### ■  example
+
+```
+{
+  "type": "$script.clear"
+}
+```
+
+---
+
+
 ##── UTIL ──
 Utility and widget methods
 
