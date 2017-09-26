@@ -206,6 +206,12 @@
         
             <li><a class="toctree-l4" href="#reset_1">Reset</a></li>
         
+            <li><a class="toctree-l4" href="#script">── SCRIPT ──</a></li>
+        
+            <li><a class="toctree-l4" href="#scriptinclude">$script.include</a></li>
+        
+            <li><a class="toctree-l4" href="#scriptclear">$script.clear</a></li>
+        
             <li><a class="toctree-l4" href="#util">── UTIL ──</a></li>
         
             <li><a class="toctree-l4" href="#utilbanner">$util.banner</a></li>
@@ -2443,23 +2449,101 @@ Check out the full code on Github:</p>
 }
 </code></pre>
 <hr />
-<h2 id="util">── UTIL ──</h2>
-<p>Utility and widget methods</p>
+<h2 id="script">── SCRIPT ──</h2>
+<p>Jasonette lets you use simple inline JavaScript code inside template expressions. Here's an example where we use <code>JSON.stringify</code>:</p>
+<pre><code>{
+  &quot;items&quot;: [
+    {
+      &quot;type&quot;: &quot;label&quot;,
+      &quot;url&quot;: &quot;Full JSON string&quot;
+    },
+    {
+      &quot;type&quot;: &quot;label&quot;,
+      &quot;text&quot;: &quot;{{JSON.stringify($jason)}}&quot;
+    }
+  ]
+}
+</code></pre>
+
+<p>However sometimes you may want to import an entire JavaScript library, just like you do with HTML using the <code>&lt;script&gt;</code> tag.</p>
 <hr />
-<h2 id="utilbanner">$util.banner</h2>
-<p>Displays a banner notification with title and description.</p>
-<p><img alt="$util.banner" src="../images/util_banner.jpeg" /></p>
+<h2 id="scriptinclude">$script.include</h2>
+<p>Include remote/local JavaScript file into the template context.</p>
 <h3 id="options_18">■ options</h3>
 <ul>
-<li><code>title</code></li>
-<li><code>description</code></li>
-<li><code>type</code>: <code>"error"</code> | <code>"success"</code> | <code>"info"</code> (default)</li>
+<li><code>items</code>: An array of include objects, each of which has the following attributes:</li>
+<li><code>url</code>: load from a url. You can use both remote (http:// or https://) or local (file://) urls</li>
+<li><code>text</code>: inline JavaScript code to import</li>
 </ul>
 <h3 id="return-value_17">■  return value</h3>
 <ul>
 <li>none</li>
 </ul>
 <h3 id="example_11">■  example</h3>
+<p>In the following example, we:</p>
+<ol>
+<li>import <a href="http://underscorejs.org/">underscore.js</a>,  <a href="https://github.com/brix/crypto-js">crypto.js</a>, <a href="https://github.com/mathiasbynens/he">he.js</a>, as well as inject an inline JavaScript code into the context via <code>text</code> attribute.</li>
+<li>Use it by accessing the <code>$root</code> context. The JavaScript libraries get injected into the global context (<code>$root</code>) after running <code>$script.include</code>.</li>
+</ol>
+<p>Note that these JavaScript libraries referenced by <code>url</code> are downloaded in parallel just like how <a href="#require">$require action</a> works.</p>
+<pre><code>{
+  &quot;type&quot;: &quot;$script.include&quot;,
+  &quot;options&quot;: {
+    &quot;items&quot;: [
+      { &quot;url&quot;: &quot;https://cdnjs.cloudflare.com/ajax/libs/underscore.js/1.8.3/underscore-min.js&quot; },
+      { &quot;text&quot;: &quot;var randomcolor = function() { return '#'+Math.floor(Math.random()*16777215).toString(16); }&quot; },
+      { &quot;url&quot;: &quot;https://cdnjs.cloudflare.com/ajax/libs/crypto-js/3.1.9-1/crypto-js.min.js&quot; },
+      { &quot;url&quot;: &quot;https://rawgit.com/mathiasbynens/he/master/he.js&quot; }
+    ]
+  },
+  &quot;success&quot;: {
+    &quot;type&quot;: &quot;$render&quot;,
+    &quot;options&quot;: {
+      &quot;data&quot;: {
+        &quot;raw&quot;: &quot;no man&amp;#38;s land&quot;,
+        &quot;decoded&quot;: &quot;{{$root.he.decode('no man&amp;#39;s land')}}&quot;,
+        &quot;unique&quot;: &quot;{{$root._.uniq([1,2,3,3,3,4,4,4,4,5])}}&quot;
+      }
+    }
+  }
+}
+</code></pre>
+
+<hr />
+<h2 id="scriptclear">$script.clear</h2>
+<p>Clears out the global context of the JavaScript template engine.</p>
+<h3 id="options_19">■ options</h3>
+<ul>
+<li>none</li>
+</ul>
+<h3 id="return-value_18">■  return value</h3>
+<ul>
+<li>none</li>
+</ul>
+<h3 id="example_12">■  example</h3>
+<pre><code>{
+  &quot;type&quot;: &quot;$script.clear&quot;
+}
+</code></pre>
+
+<hr />
+<h2 id="util">── UTIL ──</h2>
+<p>Utility and widget methods</p>
+<hr />
+<h2 id="utilbanner">$util.banner</h2>
+<p>Displays a banner notification with title and description.</p>
+<p><img alt="$util.banner" src="../images/util_banner.jpeg" /></p>
+<h3 id="options_20">■ options</h3>
+<ul>
+<li><code>title</code></li>
+<li><code>description</code></li>
+<li><code>type</code>: <code>"error"</code> | <code>"success"</code> | <code>"info"</code> (default)</li>
+</ul>
+<h3 id="return-value_19">■  return value</h3>
+<ul>
+<li>none</li>
+</ul>
+<h3 id="example_13">■  example</h3>
 <pre><code>{
     "type": "$util.banner",
     "options": {
@@ -2473,16 +2557,16 @@ Check out the full code on Github:</p>
 <h2 id="utiltoast">$util.toast</h2>
 <p>Displays a toast notification with a simple text</p>
 <p><img alt="$util.toast" src="../images/util_toast.jpeg" /></p>
-<h3 id="options_19">■ options</h3>
+<h3 id="options_21">■ options</h3>
 <ul>
 <li><code>text</code>: The text to display</li>
 <li><code>type</code>: <code>"error"</code> | <code>"info"</code> | <code>"warning"</code> | <code>"dark"</code> | <code>"default"</code> | <code>"success"</code> (default)</li>
 </ul>
-<h3 id="return-value_18">■ return value</h3>
+<h3 id="return-value_20">■ return value</h3>
 <ul>
 <li>none</li>
 </ul>
-<h3 id="example_12">■ example</h3>
+<h3 id="example_14">■ example</h3>
 <pre><code>{
     "type": "$util.toast",
     "options": {
@@ -2518,7 +2602,7 @@ Check out the full code on Github:</p>
 </tr>
 </tbody>
 </table>
-<h3 id="options_20">■ options</h3>
+<h3 id="options_22">■ options</h3>
 <ul>
 <li><code>title</code>: title of the alert</li>
 <li><code>description</code>: description caption</li>
@@ -2530,7 +2614,7 @@ Check out the full code on Github:</p>
 </ul>
 </li>
 </ul>
-<h3 id="return-value_19">■  return value</h3>
+<h3 id="return-value_21">■  return value</h3>
 <ul>
 <li>if the <code>form</code> attribute is used, returns the filled out <code>$jason</code> object</li>
 <li>if the <code>form</code> attribute is NOT used, no return value</li>
@@ -2619,7 +2703,7 @@ Check out the full code on Github:</p>
 </tr>
 </tbody>
 </table>
-<h3 id="options_21">■ options</h3>
+<h3 id="options_23">■ options</h3>
 <ul>
 <li><code>items</code> (array): Array of items to be shared. Each item can have the following attributes<ul>
 <li><code>type</code>: <code>"text"</code> | <code>"image"</code> | <code>"video"</code></li>
@@ -2630,7 +2714,7 @@ Check out the full code on Github:</p>
 </ul>
 </li>
 </ul>
-<h3 id="return-value_20">■ return value</h3>
+<h3 id="return-value_22">■ return value</h3>
 <ul>
 <li>none</li>
 </ul>
@@ -2693,7 +2777,7 @@ Check out the full code on Github:</p>
 <p>Opens a multiple choice picker menu, with each item linking to an <a href="./">action</a> or an <a href="../href/">href</a>.</p>
 <p><br></p>
 <p><img alt="$util.picker" src="../images/utilpicker.png" /></p>
-<h3 id="options_22">■ options</h3>
+<h3 id="options_24">■ options</h3>
 <ul>
 <li><code>title</code> (string): The top title caption for the picker</li>
 <li><code>items</code> (array): An array of items from which the user can choose. Each item can contain the following attributes:<ul>
@@ -2703,11 +2787,11 @@ Check out the full code on Github:</p>
 </ul>
 </li>
 </ul>
-<h3 id="return-value_21">■ Return value</h3>
+<h3 id="return-value_23">■ Return value</h3>
 <ul>
 <li>none</li>
 </ul>
-<h3 id="example_13">■ example</h3>
+<h3 id="example_15">■ example</h3>
 <pre><code>{
   "$jason": {
     "head": {
@@ -2758,17 +2842,17 @@ Check out the full code on Github:</p>
 <p>Opens a date picker</p>
 <p><br></p>
 <p><img alt="$util.datepicker" src="../images/util_datepicker.jpeg" /></p>
-<h3 id="options_23">■  options</h3>
+<h3 id="options_25">■  options</h3>
 <ul>
 <li>none</li>
 </ul>
-<h3 id="return-value_22">■  return value</h3>
+<h3 id="return-value_24">■  return value</h3>
 <p>When a user selects one of the dates it returns the selected date in in <a href="https://en.wikipedia.org/wiki/Unix_time">unix timestamp format</a> (in string) like this:</p>
 <pre><code>{
   "value": "1471310358216"
 }
 </code></pre>
-<h3 id="example_14">■ example</h3>
+<h3 id="example_16">■ example</h3>
 <pre><code>{
   "$jason": {
     "head": {
@@ -2802,11 +2886,11 @@ Check out the full code on Github:</p>
 <hr />
 <h2 id="utiladdressbook">$util.addressbook</h2>
 <p>Fetches the addressbook to populate them into $jason.</p>
-<h3 id="options_24">■  options</h3>
+<h3 id="options_26">■  options</h3>
 <ul>
 <li>none</li>
 </ul>
-<h3 id="return-value_23">■  return value</h3>
+<h3 id="return-value_25">■  return value</h3>
 <p>Returns an array of contacts from the addressbook, like this:</p>
 <pre><code>[
   {
@@ -2826,7 +2910,7 @@ Check out the full code on Github:</p>
   }
 ]
 </code></pre>
-<h3 id="example_15">■ example</h3>
+<h3 id="example_17">■ example</h3>
 <p>In this example, we access the addressbook when the view <code>$load</code>s, then <code>$render</code> the content using the given template.</p>
 <pre><code>{
   "$jason": {
@@ -2888,13 +2972,13 @@ Check out the full code on Github:</p>
 <p>Capture a video or a photo using the device camera</p>
 <p><br></p>
 <p><img alt="$media.camera" src="../images/media_camera.jpeg" /></p>
-<h3 id="options_25">■  options</h3>
+<h3 id="options_27">■  options</h3>
 <ul>
 <li><code>type</code>: <code>"photo"</code> | <code>"video"</code></li>
 <li><code>edit</code>: <code>"true"</code> (Don't include to remove the editing step)</li>
 <li><code>quality</code>: <code>"high"</code> | <code>"medium"</code> | <code>"low"</code> (Default is <code>"medium"</code>)</li>
 </ul>
-<h3 id="return-value_24">■ return value</h3>
+<h3 id="return-value_26">■ return value</h3>
 <p>Returns an object with multiple attributes which represent the video/photo</p>
 <ul>
 <li><code>file_url</code>: local file url (Used for videos)</li>
@@ -2911,7 +2995,7 @@ Check out the full code on Github:</p>
 }
 </code></pre>
 <p>Normally you will want to pass the <code>data</code> to another action such as <a href="#networkupload">$network.upload</a>.</p>
-<h3 id="example_16">■ example</h3>
+<h3 id="example_18">■ example</h3>
 <p>In the following example, we take a photo using <code>$media.camera</code>, and then utilize the <code>data_url</code> from the return value to set the <code>background</code> image url. </p>
 <pre><code>{
   "$jason": {
@@ -2946,15 +3030,15 @@ Check out the full code on Github:</p>
 <p>Opens the device camera roll.</p>
 <p><br></p>
 <p><img alt="media picker" src="../images/media_picker.png" /></p>
-<h3 id="options_26">■  options</h3>
+<h3 id="options_28">■  options</h3>
 <ul>
 <li><code>type</code>: <code>"photo"</code> | <code>"video"</code></li>
 <li><code>edit</code>: <code>"true"</code> (Don't include to remove the editing step)</li>
 <li><code>quality</code>: <code>"high"</code> | <code>"medium"</code> | <code>"low"</code> (Default is <code>"medium"</code>)</li>
 </ul>
-<h3 id="return-value_25">■  return value</h3>
+<h3 id="return-value_27">■  return value</h3>
 <p>Same as <a href="#mediacamera">$media.camera</a></p>
-<h3 id="example_17">■  example</h3>
+<h3 id="example_19">■  example</h3>
 <pre><code>{
     "$jason": {
         "head": {
@@ -2991,16 +3075,16 @@ Check out the full code on Github:</p>
 <p>plays a video from remote url.</p>
 <p><br></p>
 <p><img alt="$media.play" src="../images/media_play.jpeg" /></p>
-<h3 id="options_27">■  options</h3>
+<h3 id="options_29">■  options</h3>
 <ul>
 <li><code>url</code>: the video url to play</li>
 <li><code>muted</code>: <code>"true"</code> to mute the sound</li>
 </ul>
-<h3 id="return-value_26">■  return value</h3>
+<h3 id="return-value_28">■  return value</h3>
 <ul>
 <li>none</li>
 </ul>
-<h3 id="example_18">■  example</h3>
+<h3 id="example_20">■  example</h3>
 <pre><code>{
     "$jason": {
         "head": {
@@ -3034,7 +3118,7 @@ Check out the full code on Github:</p>
 <li>Toggles between play and pause state if called multiple times.</li>
 </ul>
 <p><br></p>
-<h3 id="options_28">■  options</h3>
+<h3 id="options_30">■  options</h3>
 <ul>
 <li><code>url</code>:  A remote url to stream audio from.</li>
 <li><code>title</code>: Title to display on the lock screen while playing in background mode.</li>
@@ -3042,11 +3126,11 @@ Check out the full code on Github:</p>
 <li><code>album</code>: Album name to display on the lock screen while playing in background mode.</li>
 <li><code>image</code>: Image url to display on the lock screen while playing in background mode.</li>
 </ul>
-<h3 id="return-value_27">■  return value</h3>
+<h3 id="return-value_29">■  return value</h3>
 <ul>
 <li>none</li>
 </ul>
-<h3 id="example_19">■  example</h3>
+<h3 id="example_21">■  example</h3>
 <pre><code>{
   "$jason": {
     "head": {
@@ -3075,22 +3159,22 @@ Check out the full code on Github:</p>
 <hr />
 <h2 id="audiopause">$audio.pause</h2>
 <p>Pauses an audio clip that's already playing from a remote url.</p>
-<h3 id="options_29">■  options</h3>
+<h3 id="options_31">■  options</h3>
 <ul>
 <li>url: if specified, pauses ONLY this url. Otherwise, pauses all audios currently playing.</li>
 </ul>
-<h3 id="return-value_28">■  return value</h3>
+<h3 id="return-value_30">■  return value</h3>
 <ul>
 <li>none</li>
 </ul>
 <hr />
 <h2 id="audiostop">$audio.stop</h2>
 <p>Stops an audio clip that's already playing from a remote url.</p>
-<h3 id="options_30">■  options</h3>
+<h3 id="options_32">■  options</h3>
 <ul>
 <li>url: if specified, stops ONLY this url. Otherwise, stops all audios currently playing.</li>
 </ul>
-<h3 id="return-value_29">■  return value</h3>
+<h3 id="return-value_31">■  return value</h3>
 <ul>
 <li>none</li>
 </ul>
@@ -3100,16 +3184,16 @@ Check out the full code on Github:</p>
 <li>Seeks audio already playing from a remote url.</li>
 <li>The position value must be a value between <code>0</code> and <code>1</code> (in string)</li>
 </ul>
-<h3 id="options_31">■  options</h3>
+<h3 id="options_33">■  options</h3>
 <ul>
 <li><code>url</code>: The audio url.</li>
 <li><code>position</code>: value between 0 and 1 (Must be in string format)</li>
 </ul>
-<h3 id="return-value_30">■  return value</h3>
+<h3 id="return-value_32">■  return value</h3>
 <ul>
 <li>none</li>
 </ul>
-<h3 id="example_20">■  example</h3>
+<h3 id="example_22">■  example</h3>
 <p>Here's an example of seeking an audio clip to 30% position</p>
 <pre><code>{
     "$jason": {
@@ -3148,17 +3232,17 @@ Check out the full code on Github:</p>
 <hr />
 <h2 id="audioposition">$audio.position</h2>
 <p>Get the position of the specified audio clip</p>
-<h3 id="options_32">■  options</h3>
+<h3 id="options_34">■  options</h3>
 <ul>
 <li><code>url</code>: The audio url</li>
 </ul>
-<h3 id="return-value_31">■  return value</h3>
+<h3 id="return-value_33">■  return value</h3>
 <p>Returns the position between 0 and 1 in the following format:</p>
 <pre><code>{
   "value": "0.3"
 }
 </code></pre>
-<h3 id="example_21">■  example</h3>
+<h3 id="example_23">■  example</h3>
 <p>The following example displays a toast with the current position when the user taps the label.</p>
 <pre><code>{
   "$jason": {
@@ -3188,17 +3272,17 @@ Check out the full code on Github:</p>
 <hr />
 <h2 id="audioduration">$audio.duration</h2>
 <p>Returns total duration of the specified audio clip</p>
-<h3 id="options_33">■  options</h3>
+<h3 id="options_35">■  options</h3>
 <ul>
 <li><code>url</code>: The audio url</li>
 </ul>
-<h3 id="return-value_32">■  return value</h3>
+<h3 id="return-value_34">■  return value</h3>
 <p>Duration in seconds, in the following format:</p>
 <pre><code>{
   "value": "300"
 }
 </code></pre>
-<h3 id="example_22">■  example</h3>
+<h3 id="example_24">■  example</h3>
 <p>The following example displays a toast with the total duration of the track when the user taps the label.</p>
 <pre><code>{
   "$jason": {
@@ -3228,20 +3312,20 @@ Check out the full code on Github:</p>
 <hr />
 <h2 id="audiorecord">$audio.record</h2>
 <p>Record audio</p>
-<h3 id="options_34">■  options</h3>
+<h3 id="options_36">■  options</h3>
 <ul>
 <li><code>color</code>: tint color when active</li>
 <li><code>color:disabled</code>: tint color when paused</li>
 <li><code>theme</code>: <code>light</code> to use light theme. Otherwise omit.</li>
 </ul>
-<h3 id="return-value_33">■  return value</h3>
+<h3 id="return-value_35">■  return value</h3>
 <ul>
 <li><code>file_url</code>: the local url in which the audio was stored</li>
 <li><code>data_uri</code>: base64 encoded data-uri</li>
 <li><code>content_type</code>: <code>"audio/m4a"</code> (it's always this format)</li>
 </ul>
 <p>Normally you will want to pass the result immediately to a <code>$network.upload</code> call in order to upload it to a cloud storage.</p>
-<h3 id="example_23">■ example</h3>
+<h3 id="example_25">■ example</h3>
 <pre><code>{
   "$jason": {
     "head": {
@@ -3295,17 +3379,17 @@ Check out the full code on Github:</p>
 <h2 id="geo">── GEO ──</h2>
 <h2 id="geoget">$geo.get</h2>
 <p>Get user's geolocation</p>
-<h3 id="options_35">■  options</h3>
+<h3 id="options_37">■  options</h3>
 <ul>
 <li><code>distance</code>: accuracy distance in meters. By default it's 5000meters. The lower you go the more accurate it will be, but the longer it will take to retrieve the location.</li>
 </ul>
-<h3 id="return-value_34">■  return value</h3>
+<h3 id="return-value_36">■  return value</h3>
 <p>a <code>coord</code> object that contains <code>(latitude),(longitude)</code> format string</p>
 <pre><code>{
   "coord": "12.342,22.343"
 }
 </code></pre>
-<h3 id="example_24">■  example</h3>
+<h3 id="example_26">■  example</h3>
 <p>Below example demonstrates various ways of utilizing <code>$geo.get</code> return values</p>
 <pre><code>{
   "$jason": {
@@ -3394,18 +3478,18 @@ Check out the full code on Github:</p>
 <h2 id="timer">── TIMER ──</h2>
 <h2 id="timerstart">$timer.start</h2>
 <p>Start a timer</p>
-<h3 id="options_36">■ options</h3>
+<h3 id="options_38">■ options</h3>
 <ul>
 <li><code>interval</code>: timer interval in seconds</li>
 <li><code>name</code>: name of the timer (used later to stop it)</li>
 <li><code>repeats</code>: if set to <code>"true"</code>, it's a perpetually repeating timer. Otherwise the timer gets called only once.</li>
 <li><code>action</code>: the action to execute on every timer interval.</li>
 </ul>
-<h3 id="return-value_35">■  return value</h3>
+<h3 id="return-value_37">■  return value</h3>
 <ul>
 <li>none</li>
 </ul>
-<h3 id="example_25">■  example</h3>
+<h3 id="example_27">■  example</h3>
 <pre><code>{
   "$jason": {
     "head": {
@@ -3432,15 +3516,15 @@ Check out the full code on Github:</p>
 <hr />
 <h2 id="timerstop">$timer.stop</h2>
 <p>Stops a timer</p>
-<h3 id="options_37">■ options</h3>
+<h3 id="options_39">■ options</h3>
 <ul>
 <li><code>name</code>: the name of the timer to stop. You need to have <a href="#timerstart">started a timer with a name</a> first. It will stop all running timers if the name is not specified.</li>
 </ul>
-<h3 id="return-value_36">■ return value</h3>
+<h3 id="return-value_38">■ return value</h3>
 <ul>
 <li>none</li>
 </ul>
-<h3 id="example_26">■ example</h3>
+<h3 id="example_28">■ example</h3>
 <pre><code>{
   "$jason": {
     ...
@@ -3467,16 +3551,16 @@ Check out the full code on Github:</p>
 <hr />
 <h2 id="convertcsv">$convert.csv</h2>
 <p>Convert CSV to JSON</p>
-<h3 id="options_38">■ options</h3>
+<h3 id="options_40">■ options</h3>
 <ul>
 <li><code>data</code>: CSV string</li>
 </ul>
-<h3 id="return-value_37">■ return value</h3>
+<h3 id="return-value_39">■ return value</h3>
 <ul>
 <li>returns the parsed JSON result.</li>
 <li><strong>Expected format:</strong> must have the first row populated with attribute names. (See below for an example)</li>
 </ul>
-<h3 id="example_27">■ example</h3>
+<h3 id="example_29">■ example</h3>
 <p>Here's an example CSV string returned from a network request.</p>
 <pre><code>name, descrption, url, icon
 github, social coding, https://www.github.com, https://assets-cdn.github.com/images/modules/logos_page/GitHub-Mark.png
@@ -3535,13 +3619,13 @@ product hunt, Discover your next favorite thing, https://www.producthunt.com, ht
 <hr />
 <h2 id="convertrss">$convert.rss</h2>
 <p>Convert RSS to JSON. Built on top of <a href="https://github.com/danmactough/node-feedparser">node-feedparser library</a></p>
-<h3 id="options_39">■ options</h3>
+<h3 id="options_41">■ options</h3>
 <ul>
 <li><code>data</code>: RSS string</li>
 </ul>
-<h3 id="return-value_38">■ return value</h3>
+<h3 id="return-value_40">■ return value</h3>
 <p>returns the parsed JSON result in the following format (<a href="https://github.com/danmactough/node-feedparser#what-is-the-parsed-output-produced-by-feedparser">You can learn more about the spec here</a>):</p>
-<h3 id="example_28">■ example</h3>
+<h3 id="example_30">■ example</h3>
 <p>Here's an example where it makes a network request to <a href="http://feeds.gawker.com/lifehacker/full">http://feeds.gawker.com/lifehacker/full</a> with <code>data_type</code> of <code>rss</code>, converts it to JSON using <code>$convert.rss</code>, and then renders it.</p>
 <pre><code>{
   "actions": {
