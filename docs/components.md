@@ -31,6 +31,8 @@ Static uneditable text element.
     - `padding`: padding in pixels
     - `background`: background color of the label in color code
     - `corner_radius`: corner radius for the label
+    - `border_width`: border width for the label
+    - `border_color`: border color for the label
 
 ###example
 
@@ -70,6 +72,8 @@ Image loaded from either remote url or data-url
   - `header`: (optional) in case the image needs authentication and we need to attach a header object to the request
   - `style` (optional)
     - `corner_radius`: corner radius. use this to make the image rounded
+    - `border_width`: border width for the image
+    - `border_color`: border color for the image
     - `width`
     - `height`
     - `color`: To set the tint color (only for icons)
@@ -116,6 +120,8 @@ Can be either a text button or an image button, depending on what attributes are
     - `background`: background color
     - `color`: To set the tint color (only for icons)
     - `corner_radius`: corner radius for the button
+    - `border_width`: border width for the button
+    - `border_color`: border color for the button
     - `padding`: padding outside of the text (in case of text button) or outside of the image (in case of image button). Note that the height and width will stay the same regardless of what padding value you set.
     - `align`: Only for text buttons. You can set it as `left`, `right`, or `center`. The default is `center`. (Irrelevant on image buttons since image buttons will always be centered)
   - [action](/actions) : Attach an action attribute to be triggered when user taps the button.
@@ -197,6 +203,8 @@ textfields are seamlessly integrated with [local variables](actions.md#local-var
     - `size`: text size
     - `font`: text font
     - `color`: text color
+    - `border_width`: border width for the textfield
+    - `border_color`: border color for the textfield
     - `placeholder_color`: placeholder text color
     - `secure:` hide character input if set to `"true"`
 
@@ -259,6 +267,8 @@ Multiline input field
     - `size`: text size
     - `font`: text font
     - `color`: text color
+    - `border_width`: border width for the textarea
+    - `border_color`: border color for the textarea
     - `placeholder_color`: placeholder text color
 
 ### example

@@ -841,6 +841,8 @@ Floating labels.
     - `right`: position from the right of the screen
     - `bottom`: position from the bottom of the screen
     - `corner_radius`
+    - `border_width` (default is 0)
+    - `border_color`
     - `font`
     - `size`
     - `background`
@@ -884,6 +886,8 @@ Floating images
     - `right`
     - `bottom`
     - `corner_radius`
+    - `border_width` (default is 0)
+    - `border_color`
     - `color`: set the tint color (only for icons)
     - `resize`: resizable when set to `"true"` (default is false)
     - `move`: can be dragged around when set to `"true"` (default is false)
@@ -1294,5 +1298,19 @@ Here's the preview:
           "border": "#ff0000"
         },
         ....
+      }
+    }
+
+### border for components
+
+Components like labels, textfields, textareas, images and buttons could have a border.
+Use the attributes `border_width` and `border_color` for creating a border.
+
+    {
+      "type": "button",
+      ...
+      "style": {
+          "border_width": "2",
+          "border_color": "#333333"
       }
     }
