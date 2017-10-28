@@ -114,6 +114,8 @@ Can be either a text button or an image button, depending on what attributes are
     - `height`: Height of the clickable region (In case of image buttons, the image will auto-resize proportionally to fit into this region)
     - `color`: text color
     - `background`: background color
+    - `border_width`: border width for the button
+    - `border_color`: border color for the button
     - `color`: To set the tint color (only for icons)
     - `corner_radius`: corner radius for the button
     - `padding`: padding outside of the text (in case of text button) or outside of the image (in case of image button). Note that the height and width will stay the same regardless of what padding value you set.
