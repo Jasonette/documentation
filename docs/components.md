@@ -7,6 +7,7 @@ Components are user interface elements that can be used in different places, suc
 - [textfield](#textfield)
 - [textarea](#textarea)
 - [slider](#slider)
+- [switch](#switch)
 - [html](#html)
 - [space](#space)
 - [map](#map)
@@ -311,6 +312,64 @@ Below, we've named the textarea `status`, and then refer to its value from `subm
 }</span></pre>
 
 ---
+
+##■ switch
+
+Simple true/false input
+
+![switch component](images/components_switch.png)
+
+### syntax
+
+  - `name`: name of the local variable to set.
+  - `value`: boolean. `true` (switch to the right). `false` (switch to the left).
+  - `action`: [action](actions.md) to execute after user completes the sliding gesture.
+  - `style`
+    - `color`: "active (right) state color" (default os active state color if not specified).
+    - `color:disabled`: "inactive (left) state color" (default os inactive state color if not specified).
+
+###example
+Below, we set the switch's name `light` and triggers the `banner` action, which accesses its value whenever the user changes the switch position.
+
+<pre><span style='color:silver;'>{
+  "$jason": {
+    "head": {
+      ...
+      <span style='color:black;'>"banner": {
+        "type": "$util.banner",
+          "options": {
+            "title": "{{$get[$jason.item].toString()}}",
+            "description": "{{$jason.item}}"
+          },
+          "success": {
+            "type": "$render"
+          }
+        }
+      }</span>
+      ...
+    },
+    "body": {
+      ...
+      <span style='color:black;'>{
+        "type": "switch",
+        <span style='color:#ff0000;'>"name": "light",</span>
+        "value": "true",
+        "action": {
+          "trigger": "banner",
+          "options": {
+            "item": "Light is On?"
+          }
+        }
+      }</span>
+      ...
+    }
+  }
+</span></pre>
+
+---
+
+<br>
+<br>
 
 ##■ slider
 
