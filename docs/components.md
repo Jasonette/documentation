@@ -313,6 +313,57 @@ Below, we've named the textarea `status`, and then refer to its value from `subm
 
 ---
 
+##■ slider
+
+Horizontal slider input
+
+![slider component](images/components_slider.jpeg)
+
+### syntax
+
+  - `name`: name of the local variable to set.
+  - `value`: value between 0 and 1 (in string) to preset the slider with. For example `"0.3"`
+  - `action`: [action](actions.md) to execute after user completes the sliding gesture.
+  - `style`
+    - `width`
+    - `height`
+    - `color`
+
+###example
+Below, we set the slider's name `gauge` and triggers the `notice` action, which accesses its value whenever the user ends the sliding action.
+
+<pre><span style='color:silver;'>{
+  "$jason": {
+    "head": {
+      ...
+      <span style='color:black;'>"notice": {
+        "type": "$util.alert",
+        "options": {
+          "title": "Volume changed",
+          <span style='color:#ff0000;'>"description": "{{parseFloat($get.gauge)*100}}%"</span>
+        }
+      }</span>
+      ...
+    },
+    "body": {
+      ...
+      <span style='color:black;'>{
+        "type": "slider",
+        <span style='color:#ff0000;'>"name": "gauge",</span>
+        "action": {
+          "trigger": "notice"
+        }
+      }</span>
+      ...
+    }
+  }
+}</span></pre>
+
+---
+
+<br>
+<br>
+
 ##■ switch
 
 Simple true/false input
@@ -366,61 +417,10 @@ Below, we set the switch's name `light` and triggers the `banner` action, which 
   }
 </span></pre>
 
----
-
 <br>
 <br>
-
-##■ slider
-
-Horizontal slider input
-
-![slider component](images/components_slider.jpeg)
-
-### syntax
-
-  - `name`: name of the local variable to set.
-  - `value`: value between 0 and 1 (in string) to preset the slider with. For example `"0.3"`
-  - `action`: [action](actions.md) to execute after user completes the sliding gesture.
-  - `style`
-    - `width`
-    - `height`
-    - `color`
-
-###example
-Below, we set the slider's name `gauge` and triggers the `notice` action, which accesses its value whenever the user ends the sliding action.
-
-<pre><span style='color:silver;'>{
-  "$jason": {
-    "head": {
-      ...
-      <span style='color:black;'>"notice": {
-        "type": "$util.alert",
-        "options": {
-          "title": "Volume changed",
-          <span style='color:#ff0000;'>"description": "{{parseFloat($get.gauge)*100}}%"</span>
-        }
-      }</span>
-      ...
-    },
-    "body": {
-      ...
-      <span style='color:black;'>{
-        "type": "slider",
-        <span style='color:#ff0000;'>"name": "gauge",</span>
-        "action": {
-          "trigger": "notice"
-        }
-      }</span>
-      ...
-    }
-  }
-}</span></pre>
 
 ---
-
-<br>
-<br>
 
 ##■  html
 
