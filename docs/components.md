@@ -190,7 +190,7 @@ textfields are seamlessly integrated with [local variables](actions.md#local-var
   - `name`: name of the local variable to set.
   - `value`: in case you wish to prefill the field.
   - `placeholder`: Placeholder text for when there's no content filled in.
-  - `keyboard`: The keyboard type. One of the following: `"text"` | `"number"` | `"phone"` | `"url"` | `"email"` (if unspecified, the default is `"text"`)
+  - `keyboard`: The keyboard type. One of the following: `"text"` | `"number"` | `"phone"` | `"decimal"` | `"url"` | `"email"` (if unspecified, the default is `"text"`)
   - `style`: style the textfield
     - `background`
     - `align`
@@ -252,7 +252,7 @@ Multiline input field
   - `name`: name of the local variable to set.
   - `value`: in case you wish to prefill the field.
   - `placeholder`: Placeholder text for when there's no content filled in.
-  - `keyboard`: The keyboard type. One of the following: `"text"` | `"number"` | `"phone"` | `"url"` | `"email"` (if unspecified, the default is `"text"`)
+  - `keyboard`: The keyboard type. One of the following: `"text"` | `"number"` | `"phone"` | `"decimal"` | `"url"` | `"email"` (if unspecified, the default is `"text"`)
   - `style`: style the textfield
     - `background`
     - `align`: `"left"` | `"center"` | `"right"` (default is `"left"`)
