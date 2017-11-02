@@ -114,6 +114,8 @@
         
             <li><a class="toctree-l4" href="#slider">■ slider</a></li>
         
+            <li><a class="toctree-l4" href="#switch">■ switch</a></li>
+        
             <li><a class="toctree-l4" href="#html">■  html</a></li>
         
             <li><a class="toctree-l4" href="#space">■  space</a></li>
@@ -220,6 +222,7 @@
 <li><a href="#textfield">textfield</a></li>
 <li><a href="#textarea">textarea</a></li>
 <li><a href="#slider">slider</a></li>
+<li><a href="#switch">switch</a></li>
 <li><a href="#html">html</a></li>
 <li><a href="#space">space</a></li>
 <li><a href="#map">map</a></li>
@@ -544,6 +547,60 @@
 <hr />
 <p><br>
 <br></p>
+<h2 id="switch">■ switch</h2>
+<p>Simple true/false input</p>
+<p><img alt="switch component" src="../images/components_switch.png" /></p>
+<h3 id="syntax_5">syntax</h3>
+<ul>
+<li><code>name</code>: name of the local variable to set.</li>
+<li><code>value</code>: boolean. <code>true</code> (switch to the right). <code>false</code> (switch to the left).</li>
+<li><code>action</code>: <a href="../actions/">action</a> to execute after user completes the sliding gesture.</li>
+<li><code>style</code><ul>
+<li><code>color</code>: "active (right) state color" (default os active state color if not specified).</li>
+<li><code>color:disabled</code>: "inactive (left) state color" (default os inactive state color if not specified).</li>
+</ul>
+</li>
+</ul>
+<h3 id="example_5">example</h3>
+<p>Below, we set the switch's name <code>light</code> and triggers the <code>banner</code> action, which accesses its value whenever the user changes the switch position.</p>
+<pre><span style='color:silver;'>{
+  "$jason": {
+    "head": {
+      ...
+      <span style='color:black;'>"banner": {
+        "type": "$util.banner",
+          "options": {
+            "title": "{{$get[$jason.item].toString()}}",
+            "description": "{{$jason.item}}"
+          },
+          "success": {
+            "type": "$render"
+          }
+        }
+      }</span>
+      ...
+    },
+    "body": {
+      ...
+      <span style='color:black;'>{
+        "type": "switch",
+        <span style='color:#ff0000;'>"name": "light",</span>
+        "value": "true",
+        "action": {
+          "trigger": "banner",
+          "options": {
+            "item": "Light is On?"
+          }
+        }
+      }</span>
+      ...
+    }
+  }
+</span></pre>
+
+<p><br>
+<br></p>
+<hr />
 <h2 id="html">■  html</h2>
 <p>A self-contained web environment that you can plug in, style, and manipulate just like the rest of the components.</p>
 <p>To learn more, refer to <a href="../web/">Web containers</a>.</p>
@@ -555,7 +612,7 @@
 <h2 id="space">■  space</h2>
 <p>An empty space component mostly used for layout purposes.</p>
 <p><img alt="space component" src="../images/components_space.jpeg" /></p>
-<h3 id="syntax_5">syntax</h3>
+<h3 id="syntax_6">syntax</h3>
 <ul>
 <li><code>style</code><ul>
 <li><code>background</code>: background color (transparent if not specified)</li>
@@ -620,7 +677,7 @@
 <h2 id="map">■  map</h2>
 <p>Map component</p>
 <p><img alt="map component" src="../images/components_map.png" /></p>
-<h3 id="syntax_6">syntax</h3>
+<h3 id="syntax_7">syntax</h3>
 <h4 id="type-map">• <code>type</code>: <code>"map"</code></h4>
 <h4 id="region-describes-the-region-this-map-component-will-draw">• <code>region</code>: Describes the region this map component will draw.</h4>
 <ul>
@@ -645,7 +702,7 @@
 <li><code>height</code>: height of the component to display</li>
 <li><code>corner_radius</code>: corner radius of the component</li>
 </ul>
-<h3 id="example_5">Example</h3>
+<h3 id="example_6">Example</h3>
 <pre><code>{
   "type": "map",
   "region": {
