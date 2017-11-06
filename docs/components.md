@@ -575,3 +575,24 @@ However on Android you need to set it up using Google Maps API.
 
 <img src='../images/map_permission.png' class='large'>
 
+### Troubleshooting Map
+
+---
+
+** ⚠️   Troubleshoot 1: **
+
+Android should use a Google Maps API Key **issued for Android use**. Using a key issued for Web will not work properly.
+
+---
+
+**  ⚠️  Troubleshoot 2: **
+
+If you want to *zoom in* or *zoom out* the map. You should modify the *width* and *height* properties of the *region*. Bigger *width* and *height* means a wider *region* causing a *zoom out*. The *zoom* is calculated by *Jasonette* based on these values.
+
+---
+
+**  ⚠️  Troubleshoot 3: **
+
+If you want to obtain the current user latitude and longitude you should use [$geo.get](actions.md#geoget) action.
+
+---
