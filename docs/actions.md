@@ -167,7 +167,7 @@ Which means, internally above code is the same as:
 }
 ```
 
-Notice how the action is tied to the `vetical` layout, which is at `item` level. So this will respond to touch.
+Notice how the action is tied to the `vertical` layout, which is at `item` level. So this will respond to touch.
 
 ---
 
