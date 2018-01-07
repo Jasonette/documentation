@@ -122,6 +122,9 @@
     <li class="toctree-l3"><a href="#headdata">head.data</a></li>
     
 
+    <li class="toctree-l3"><a href="#headagents">head.agents</a></li>
+    
+
     <li class="toctree-l3"><a href="#body">── body ──</a></li>
     
 
@@ -317,6 +320,7 @@
 <li>actions</li>
 <li>templates</li>
 <li>data</li>
+<li>agents</li>
 </ol>
 <p>In JSON they look like this:</p>
 <pre><span style='color:silver;'>{
@@ -504,6 +508,17 @@ This can be used for creating complex styles with ease!.</p>
 <h1 id="headdata">head.data</h1>
 <p><strong><a href="../templates/#1-inline-data">Using inline data for rendering</a></strong></p>
 <p><code>head.data</code> is like an inline database that gets rendered automatically by <code>body</code> template if included.</p>
+<hr />
+<h1 id="headagents">head.agents</h1>
+<p>Jasonette Agent is a new architecture for building native mobile apps that utilizes JavaScript technologies without sacrificing native peformance and user experience.</p>
+<p>The idea is simple:</p>
+<ul>
+<li>User interacts with the native core.</li>
+<li>The core spawns background JavaScript containers for multiple tasks.</li>
+<li>Core and Agents communicate through JSON-RPC.</li>
+</ul>
+<p>In short, it's like microservices, but on the frontend.</p>
+<p><strong><a href="../agents/">Learn More about Agents</a></strong></p>
 <hr />
 <h1 id="body">── body ──</h1>
 <p>Body contains everything that gets displayed on the screen. A body is made up of the following view elements.</p>
