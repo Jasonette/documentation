@@ -1,0 +1,901 @@
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  
+  <link rel="shortcut icon" href="../img/favicon.ico">
+  <title>★ Agents - Jasonette</title>
+  <link href='https://fonts.googleapis.com/css?family=Lato:400,700|Roboto+Slab:400,700|Inconsolata:400,700' rel='stylesheet' type='text/css'>
+
+  <link rel="stylesheet" href="../css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="../css/theme_extra.css" type="text/css" />
+  <link rel="stylesheet" href="../css/highlight.css">
+  
+  <script>
+    // Current page data
+    var mkdocs_page_name = "\u2605 Agents";
+    var mkdocs_page_input_path = "agents.md";
+    var mkdocs_page_url = "/agents/";
+  </script>
+  
+  <script src="../js/jquery-2.1.1.min.js"></script>
+  <script src="../js/modernizr-2.8.3.min.js"></script>
+  <script type="text/javascript" src="../js/highlight.pack.js"></script> 
+  
+  <script>
+      (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+      (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+      m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+      })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+      ga('create', 'UA-54282166-8', 'auto');
+      ga('send', 'pageview');
+  </script>
+  
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+  <div class="wy-grid-for-nav">
+
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side stickynav">
+      <div class="wy-side-nav-search">
+        <a href=".." class="icon icon-home"> Jasonette</a>
+        <div role="search">
+  <form id ="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+  </form>
+</div>
+      </div>
+
+      <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+	<ul class="current">
+	  
+          
+            <li class="toctree-l1">
+		
+    <a class="" href="..">■ Getting started</a>
+	    </li>
+          
+            <li class="toctree-l1">
+		
+    <a class="" href="../ios/">■ iOS</a>
+	    </li>
+          
+            <li class="toctree-l1">
+		
+    <a class="" href="../android/">■ Android</a>
+	    </li>
+          
+            <li class="toctree-l1">
+		
+    <a class="" href="../examples/">■ Examples</a>
+	    </li>
+          
+            <li class="toctree-l1">
+		
+    <span class="caption-text">■ Reference</span>
+    <ul class="subnav">
+                <li class="">
+                    
+    <a class="" href="../document/">★ View</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../href/">★ Link</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../actions/">★ Actions</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../components/">★ Components</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../layout/">★ Layout</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../templates/">★ Templates</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../mixin/">★ Mix-in</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../offline/">★ Offline</a>
+                </li>
+                <li class=" current">
+                    
+    <a class="current" href="./">★ Agents</a>
+    <ul class="subnav">
+            
+    <li class="toctree-l3"><a href="#agents">Agents</a></li>
+    
+
+    <li class="toctree-l3"><a href="#problem">Problem</a></li>
+    
+
+    <li class="toctree-l3"><a href="#solution">Solution</a></li>
+    
+
+    <li class="toctree-l3"><a href="#benefits">Benefits</a></li>
+    
+
+    <li class="toctree-l3"><a href="#usage">Usage</a></li>
+    
+
+    <li class="toctree-l3"><a href="#1-declare">1. Declare</a></li>
+    
+        <ul>
+        
+            <li><a class="toctree-l4" href="#syntax">Syntax</a></li>
+        
+            <li><a class="toctree-l4" href="#example">Example</a></li>
+        
+        </ul>
+    
+
+    <li class="toctree-l3"><a href="#2-initialize">2. Initialize</a></li>
+    
+        <ul>
+        
+            <li><a class="toctree-l4" href="#listening-to-initialize-event">Listening to initialize event</a></li>
+        
+            <li><a class="toctree-l4" href="#parsing-the-ready-event-object">Parsing the ready event object</a></li>
+        
+        </ul>
+    
+
+    <li class="toctree-l3"><a href="#3-communicate">3. Communicate</a></li>
+    
+
+    <li class="toctree-l3"><a href="#overview">Overview</a></li>
+    
+        <ul>
+        
+            <li><a class="toctree-l4" href="#1-outside-agent">1. Outside =&gt; Agent</a></li>
+        
+            <li><a class="toctree-l4" href="#2-agent-outside">2. Agent =&gt; Outside</a></li>
+        
+        </ul>
+    
+
+    <li class="toctree-l3"><a href="#api">API</a></li>
+    
+        <ul>
+        
+            <li><a class="toctree-l4" href="#1-agentrequest">1. $agent.request</a></li>
+        
+            <li><a class="toctree-l4" href="#2-agentresponse">2. $agent.response</a></li>
+        
+            <li><a class="toctree-l4" href="#3-agenttrigger">3. $agent.trigger</a></li>
+        
+            <li><a class="toctree-l4" href="#4-agenthref">4. $agent.href</a></li>
+        
+            <li><a class="toctree-l4" href="#5-agentrefresh">5. $agent.refresh</a></li>
+        
+            <li><a class="toctree-l4" href="#6-agentclear">6. $agent.clear</a></li>
+        
+            <li><a class="toctree-l4" href="#7-agentinject">7. $agent.inject</a></li>
+        
+        </ul>
+    
+
+    <li class="toctree-l3"><a href="#demos">Demos</a></li>
+    
+
+    </ul>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../web/">★ Web Container</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../env/">★ Environment Variables</a>
+                </li>
+    </ul>
+	    </li>
+          
+            <li class="toctree-l1">
+		
+    <a class="" href="../convention/">■ Tips</a>
+	    </li>
+          
+            <li class="toctree-l1">
+		
+    <a class="" href="../advanced/">■ Extending Jasonette (advanced)</a>
+	    </li>
+          
+            <li class="toctree-l1">
+		
+    <a class="" href="../faq/">■ Troubleshoot</a>
+	    </li>
+          
+            <li class="toctree-l1">
+		
+    <a class="" href="../jason/">■ Jason</a>
+	    </li>
+          
+        </ul>
+      </div>
+      &nbsp;
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" role="navigation" aria-label="top navigation">
+        <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+        <a href="..">Jasonette</a>
+      </nav>
+
+      
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="breadcrumbs navigation">
+  <ul class="wy-breadcrumbs">
+    <li><a href="..">Docs</a> &raquo;</li>
+    
+      
+        
+          <li>■ Reference &raquo;</li>
+        
+      
+    
+    <li>★ Agents</li>
+    <li class="wy-breadcrumbs-aside">
+      
+        <a href="https://github.com/Jasonette/documentation/edit/master/docs/agents.md"
+          class="icon icon-github"> Edit on GitHub</a>
+      
+    </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main">
+            <div class="section">
+              
+                <h1 id="agents">Agents</h1>
+<blockquote>
+<p>"Microservices on the frontend"</p>
+</blockquote>
+<p>An agent is a <strong>sandboxed</strong> and <strong>autonomous</strong> <strong>JavaScript</strong> execution environment that <strong>runs in the background</strong> and interacts seamlessly with Jasonette.</p>
+<p>Think of them as <strong>"Microservices on the Frontend".</strong></p>
+<p>The traditional concept of "microservices" has been something that sits on a server somewhere, takes an input, runs some task, and sometimes returns an output. </p>
+<p>Agents work like microservices, except they live on the frontend mobile app itself.</p>
+<p><img src='../images/architecture.png' class='large'></p>
+<h1 id="problem">Problem</h1>
+<p>The main goal of Jasonette is NOT to build just another app making framework. <strong>The goal is to build an open standard language for describing native mobile apps, decoupling the application logic from devices, making apps truly portable.</strong></p>
+<p>This is why Jasonette Core doesn't implement every possible feature that could have been implemented.</p>
+<ul>
+<li>First of all, it's not easy to come up with a future-proof markup. A lot of interesting potential features are fad at best and not worth introducing a markup for (in the long term).</li>
+<li>Secondly, building native components for every imaginable feature is not sustainable because the entire app bundle will become bloated eventually.</li>
+<li>Most importantly, a lot of useful native libraries are extremely large and not designed for <strong>"light clients"</strong>. This may be fine if Jasonette was just another app building framework, but since Jasonette's approach is to build <strong>a single binary functioning as a light client</strong> (meaning, your app logic is not built into the app as code but is completely decoupled as a JSON markup, which makes it portable and "light"), adding modules for every purpose is a bad solution.</li>
+</ul>
+<h1 id="solution">Solution</h1>
+<p><strong>So here's the idea:</strong> Imagine you can build all kinds of modules simply by</p>
+<ol>
+<li>Writing JavaScript modules</li>
+<li>Load them as "agents"</li>
+<li>and let them autonomously communicate with Jasonette and with one another to carry out tasks</li>
+</ol>
+<p><img src='../images/bigpicture.png' class='large'></p>
+<p>This lets you effortlessly implement:</p>
+<p><strong>3rd party APIs like:</strong></p>
+<ul>
+<li>Realtime Messaging/Database (Can communicate with Jasonette as a daemon)</li>
+<li>Firebase</li>
+<li>Pusher</li>
+<li>PubNub</li>
+<li>Analytics (Delegate the task of asynchronously sending analytics to the agent)</li>
+<li>Google Analytics</li>
+<li>Heap</li>
+<li>Segment</li>
+<li>etc.</li>
+</ul>
+<p><strong>And native browser APIs like:</strong></p>
+<ul>
+<li>WebSockets</li>
+<li>WebCrypto</li>
+<li>SpeechSynthesis</li>
+<li>Web Audio</li>
+</ul>
+<p><strong>And finally, many JavaScript libraries like:</strong></p>
+<ul>
+<li>GraphQL</li>
+<li>IPFS</li>
+<li>TensorFlow</li>
+<li>Underscore</li>
+</ul>
+<p>All while keeping the user facing app completely native, and while not adding any additional code to the binary. Think of these agents as little "servers" that autonomously and asynchronously take care of tasks that don't need to be done by the Jasonette core main thread.</p>
+<h1 id="benefits">Benefits</h1>
+<ol>
+<li><strong>Same Native User Experience</strong>: The user experience is exactly the same (It's all native), since users ONLY interact with Jasonette Core. Jasonette core simply spawns off invisible agents to delegate tasks.</li>
+<li><strong>Effortless Module Implementation</strong>: If you can run it on JS, you can run it as agent. In fact, if you already have an existing web app, you can bring the same code and incorporate <code>$agent</code> APIs here and there to make it work with Jasonette, instantly.</li>
+<li><strong>Hello, Asynchronous Tasks</strong>: Jasonette Core is intentionally single threaded in order to ensure deterministic behavior. Because of this, one of the biggest pain points have been <strong>a lack of asynchronous workers</strong> and <strong>a lack of daemon operations that sit in the background and keep running</strong>.  Well, that's exactly what agents do. Agents are autonomous creatures. Once initialized, they run on their own and communicate with Jasonette. They can even communicate with one another.</li>
+</ol>
+<h1 id="usage">Usage</h1>
+<p>This documentation discusses:</p>
+<ol>
+<li><strong>Declare</strong>: How to declare agents</li>
+<li><strong>Initialize</strong>: How to listen to events emitted by agents</li>
+<li><strong>Communicate</strong>: How to communicate with agents</li>
+</ol>
+<h1 id="1-declare">1. Declare</h1>
+<p>Each view can have <strong>multiple</strong> agents. Every agent is sandboxed to their parent view.</p>
+<p>Agents are <strong>set up declaratively</strong> (instead of manually initializing through actions, for example) to ensure they are automatically initialized as soon as their parent view loads.</p>
+<h2 id="syntax">Syntax</h2>
+<ol>
+<li>
+<p>You can define agents under <code>$jason.head.agents</code></p>
+<ul>
+<li>Each <strong>key/value</strong> pair represents a sandboxed agent.<ul>
+<li>The key is the <strong>name of the agent</strong> we'll use to make requests later</li>
+<li>The value is the <strong>JSON markup</strong> that represents the agent.</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>
+<p>Each Agent can take one of the following attributes:</p>
+<ul>
+<li><strong>url</strong>: the URL to load content from<ul>
+<li><strong>http[s]?://</strong> : Any http/https remote url</li>
+<li><strong>file://</strong> : Any locally embedded file url (under <code>file://</code> directory)</li>
+</ul>
+</li>
+<li><strong>text</strong>: Or you can fill it in inline with a piece of HTML text</li>
+</ul>
+</li>
+</ol>
+<h2 id="example">Example</h2>
+<p>The following code sets up 3 separate sandboxed HTML/JavaScript environments.</p>
+<ul>
+<li><code>js_sandbox</code> loads from an HTML text.</li>
+<li><code>web3</code> loads from a file url.</li>
+<li><code>firebase</code> loads from a remote https url.</li>
+</ul>
+<pre><code>{
+  &quot;$jason&quot;: {
+    &quot;head&quot;: {
+      &quot;title&quot;: &quot;Agent Demo&quot;,
+      &quot;agents&quot;: {
+        &quot;js_sandbox&quot;: {
+          &quot;text&quot;: &quot;&lt;html&gt;&lt;script&gt;var injected = function(a) { return a; }&lt;/script&gt;&lt;/html&gt;&quot;
+        },
+        &quot;web3&quot;: {
+          &quot;url&quot;: &quot;file://web.html&quot;
+        },
+        &quot;firebase&quot;: {
+          &quot;url&quot;: &quot;https://jasonette-agent.github.io&quot;
+        }
+      }
+    }
+  }
+}
+</code></pre>
+
+<p>Once set up, each agent runs on its own, communicating with</p>
+<ul>
+<li>Jasonette and</li>
+<li>Other agents sometimes</li>
+</ul>
+<p><br></p>
+<h1 id="2-initialize">2. Initialize</h1>
+<p>When an agent has finished loading it emits an <code>$agent.ready</code> event.</p>
+<h2 id="listening-to-initialize-event">Listening to initialize event</h2>
+<p>You can listen to <code>$agent.ready</code> events just like any other Jasonette native events, under <code>$jason.head.actions</code>.</p>
+<p>Think of this as jQuery's <a href="https://learn.jquery.com/using-jquery-core/document-ready/">$(document).ready()</a>.</p>
+<pre><code>{
+  &quot;$jason&quot;: {
+    &quot;head&quot;: {
+      &quot;actions&quot;: {
+        &quot;$load&quot;: {
+          &quot;type&quot;: &quot;$render&quot;
+        },
+        &quot;$agent.ready&quot;: {
+          [DO SOMETHING WITH THE EVENT OBJECT HERE!!]
+        }
+      }
+    }
+  }
+}
+</code></pre>
+
+<h2 id="parsing-the-ready-event-object">Parsing the ready event object</h2>
+<p>When the <code>$agent.ready</code> event triggers, it comes with a payload that looks like this:</p>
+<pre><code>{
+  &quot;$jason&quot;: {
+    &quot;id&quot;: [AGENT ID],
+    &quot;url&quot;: [AGENT URL]
+  }
+}
+</code></pre>
+
+<p>So you can detect which agent just became initialized by looking at <code>$jason.id</code> and run appropriate actions, like this:</p>
+<pre><code>{
+  &quot;$jason&quot;: {
+    &quot;head&quot;: {
+      &quot;actions&quot;: {
+        &quot;$load&quot;: {
+          &quot;type&quot;: &quot;$render&quot;
+        },
+        &quot;$agent.ready&quot;: [{
+          &quot;{{#if $jason.id === 'firebase'}}&quot;: {
+            [[DO something with firebase agent]]
+          }
+        }, {
+          &quot;{{#elseif $jason.id === 'web3'}}&quot;: {
+            [[Do something with web3 agent]]
+          }
+        }]
+      }
+    }
+  }
+}
+</code></pre>
+
+<p><br></p>
+<h1 id="3-communicate">3. Communicate</h1>
+<p>Now that everything's set up, we can finally communicate with agents. Below is an overview of how:</p>
+<ul>
+<li><strong>Jasonette</strong> can interact with <strong>agents</strong></li>
+<li><strong>Agents</strong> can interact with <strong>other agents</strong>.</li>
+</ul>
+<h1 id="overview">Overview</h1>
+<h2 id="1-outside-agent">1. Outside =&gt; Agent</h2>
+<p>The outside world can make function call requests to agents.</p>
+<ul>
+<li>
+<p><strong>Jasonette =&gt; Agent</strong>: You can make requests from Jasonette to agents using a <strong>Jasonette action</strong>.</p>
+<ul>
+<li><strong>"type": "$agent.request"</strong>: Call any JavaScript function in the agent.</li>
+</ul>
+</li>
+<li>
+<p><strong>Agent =&gt; Agent</strong>: Agents can make requests to another agent using a <strong>JavaScript function</strong>.</p>
+<ul>
+<li><strong>$agent.request(request)</strong>: Make a remote function call into another agent, using a JSON-RPC call.</li>
+</ul>
+</li>
+</ul>
+<h2 id="2-agent-outside">2. Agent =&gt; Outside</h2>
+<p>Agents can send messages to the outside world with 3 designated JavaScript functions.</p>
+<ol>
+<li><strong>$agent.response(response)</strong><ul>
+<li>Used to <strong>return</strong> results in response to an <code>$agent.request</code> call.</li>
+<li>Can respond to both <strong>agent functions (from another agent)</strong> and <strong>Jasonette actions</strong>.</li>
+<li><strong>Note:</strong> All <code>$agent.response</code> must have been triggered by an <code>$agent.request</code> somewhere else in order for it to work.</li>
+</ul>
+</li>
+<li><strong>$agent.trigger(event, options)</strong><ul>
+<li>Unlike <code>$agent.response</code> which can only return results to an <code>$agent.request</code>, <code>$agent.trigger</code> can be used any time and anywhere at will.</li>
+<li>Can trigger a Jasonette event (under <code>$jason.head.actions</code>). It's powered by Jasonette's native <a href="http://docs.jasonette.com/actions/#triggering-actions">trigger</a>.</li>
+<li><strong>Note:</strong> <code>trigger</code> can only trigger existing events, which means if the event doesn't already exist on the Jasonette side under <code>$jason.head.actions</code>, it won't work. This is to ensure security, so that malicious HTML agent can't trigger any action that Jasonette wasn't aware of.</li>
+</ul>
+</li>
+<li><strong>$agent.href(href)</strong><ul>
+<li>trigger a Jasonette href from Agent</li>
+</ul>
+</li>
+</ol>
+<p><br></p>
+<h1 id="api">API</h1>
+<p>Here are API actions/functions that lets you communicate with agents.</p>
+<ol>
+<li><strong>$agent.request</strong>: Make requests to agents</li>
+<li><strong>$agent.response</strong>: Let agents return a response to a request call</li>
+<li><strong>$agent.trigger</strong>: Trigger Jasonette events from agents</li>
+<li><strong>$agent.href</strong>: Call Jasonette href from agents</li>
+<li><strong>$agent.refresh</strong>: Refresh the agent context.</li>
+<li><strong>$agent.clear</strong>: Clear the agent context.</li>
+<li><strong>$agent.inject</strong>: Dispatch a 3rd party JavaScript function call into an existing agent.</li>
+</ol>
+<h2 id="1-agentrequest">1. $agent.request</h2>
+<p><code>$agent.request</code> loosely follows the <a href="http://www.jsonrpc.org/specification">JSON-RPC 2.0 spec</a>.</p>
+<p>More specifically, each request object contains three attributes:</p>
+<ul>
+<li>id</li>
+<li>method</li>
+<li>params</li>
+</ul>
+<h3 id="11-jasonette-agent">1.1. Jasonette =&gt; Agent</h3>
+<p>You can use the <code>"type": "$agent.request"</code> action to call an agent's JavaScript function from Jasonette.</p>
+<h4 id="syntax_1">Syntax</h4>
+<p>Just like any other Jasonette action, the <code>$agent.request</code> takes 4 parameters:</p>
+<ol>
+<li><strong>type</strong>: <code>"$agent.request"</code></li>
+<li><strong>options</strong>: The JSON-RPC request object<ul>
+<li><strong>id</strong>: The agent id you're targeting. You should have set up the agent with this id before calling this action.</li>
+<li><strong>method</strong>: The function name to call</li>
+<li><strong>params</strong>: An array of parameters to pass to the function</li>
+</ul>
+</li>
+<li><strong>success</strong><ul>
+<li>The next Jasonette action to run when the agent responds.</li>
+<li>Triggered the agent responds with an <code>$agent.response()</code> call.</li>
+</ul>
+</li>
+<li><strong>error</strong><ul>
+<li>Only called when there was a problem <strong>connecting to the agent</strong>.</li>
+<li>Any error from INSIDE the agent is sandboxed inside the agent, so if you want to handle those, you should use <code>$agent.response()</code> and handle it inside the <code>success</code> callback above.</li>
+</ul>
+</li>
+</ol>
+<h4 id="example_1">Example</h4>
+<p>The following JSON markup calls </p>
+<ul>
+<li>a <code>whatsyourname</code> function</li>
+<li>inside <code>"007"</code> agent</li>
+<li>with two parameters: <code>"James"</code> and <code>"Bond"</code>.</li>
+</ul>
+<pre><code>{
+  &quot;type&quot;: &quot;$agent.request&quot;,
+  &quot;options&quot;: {
+    &quot;id&quot;: &quot;007&quot;,
+    &quot;method&quot;: &quot;whatsyourname&quot;,
+    &quot;params&quot;: [&quot;James&quot;, &quot;Bond&quot;]
+  },
+  &quot;success&quot;: {
+    &quot;type&quot;: &quot;$util.alert&quot;,
+    &quot;options&quot;: {
+      &quot;title&quot;: &quot;Name is&quot;,
+      &quot;description&quot;: &quot;{{$jason}}&quot;
+    }
+  }
+}
+</code></pre>
+
+<p>When the <code>whatsyourname</code> function returns some result via <code>$agent.response()</code> JS function, the <code>$agent.request</code> can pick up where it left off and go ahead with its <code>success</code> callback.</p>
+<pre><code>// Inside agent &quot;007&quot;. 
+// The function has an immediate return value.
+var whatsyourname = function(firstname, lastname) {
+  // synchronously return with a return value
+  $agent.response(&quot;The name is &quot; + lastname + &quot;. &quot; + firstname + &quot; &quot; + lastname);
+}
+</code></pre>
+
+<h3 id="12-agent-agent">1.2. Agent =&gt; Agent</h3>
+<p>Agents can also talk to one another.</p>
+<h4 id="syntax_2">Syntax</h4>
+<pre><code>$agent.request(request[, callback])
+</code></pre>
+
+<h4 id="parameters">Parameters</h4>
+<ul>
+<li>
+<p><strong><code>request</code></strong>: JSON-RPC request Object. </p>
+<p>Same as the <code>$agent.request</code> Jasonette action, the request object can have 3 attributes:</p>
+<ul>
+<li><strong>id</strong>: The agent id you're targeting. <strong>Required</strong></li>
+<li><strong>method</strong>: The function name to call</li>
+<li><strong>params</strong>: The parameters to pass to the function</li>
+</ul>
+</li>
+<li>
+<p><strong><code>callback</code></strong>: A callback function that will be triggered by an <code>$agent.response()</code> from the callee agent.</p>
+</li>
+</ul>
+<h4 id="example_2">Example</h4>
+<p><strong>Example 1. One way function call (without callback)</strong></p>
+<p>Making a <code>whatsyourname("James", "Bond")</code> function call into a remote agent named <code>"007"</code>.</p>
+<pre><code>$agent.request({
+  &quot;id&quot;: &quot;007&quot;,
+  &quot;method&quot;: &quot;whatsyourname&quot;,
+  &quot;params&quot;: [&quot;James&quot;, &quot;Bond&quot;]
+})
+</code></pre>
+
+<p>In this particular example, there's no return value so it may not look useful at first sight.</p>
+<p>But the <code>007</code> agent can for example directly communicate with Jasonette via <code>"trigger"</code> or <code>"href"</code> instead of returning its control back to the caller agent.</p>
+<p><br></p>
+<p><strong>Example 2. Function call with a callback</strong></p>
+<p>This time we would like to process the return value.</p>
+<pre><code>// Inside agent &quot;007&quot;. 
+// The function has an immediate return value.
+var whatsyourname = function(firstname, lastname) {
+  // synchronously return with a return value
+  $agent.response(&quot;The name is &quot; + lastname + &quot;. &quot; + firstname + &quot; &quot; + lastname);
+}
+
+// Inside agent &quot;M&quot;
+$agent.request({
+  &quot;id&quot;: &quot;007&quot;,
+  &quot;method&quot;: &quot;whatsyourname&quot;,
+  &quot;params&quot;: [&quot;James&quot;, &quot;Bond&quot;]
+}, function(response) {
+  console.log(&quot;Returned value = &quot;, response);
+})
+</code></pre>
+
+<p>Two things to notice:</p>
+<ol>
+<li>The <code>whatsyourname</code> function calls the <code>$agent.response()</code> function to return its result back to the caller.</li>
+<li>The <code>$agent.request()</code> function now has a second argument, which is a callback function that will handle the data returned with the <code>$agent.response()</code>.</li>
+</ol>
+<h2 id="2-agentresponse">2. $agent.response</h2>
+<p>Agents are designed to interact with the outside world both <strong>synchronously</strong> and <strong>asynchronously</strong>.</p>
+<p>In some cases agent functions can return immediately (<strong>synchronous</strong>), but in many other cases we need to run a long-running function before returning a result (<strong>asynchronous</strong>). It could be an ajax call, or it could be any other time consuming task. </p>
+<p>Agents can utilize a single function named <code>$agent.response</code></p>
+<h3 id="syntax_3">Syntax</h3>
+<pre><code>$agent.response(response)
+</code></pre>
+
+<h3 id="paramerters">Paramerters</h3>
+<ul>
+<li><strong><code>response</code></strong>: Any JavaScript object that can be represented as <strong>a flat JSON</strong>. Just remember that it can transport anything that can be represented as a JSON string.<ul>
+<li><strong>non-circular</strong>: all circular references within the object will be stripped out.</li>
+<li><strong>only data</strong>: functions will be stripped out.</li>
+</ul>
+</li>
+</ul>
+<h3 id="example_3">Example</h3>
+<p>We've already seen how agent functions can return results in a synchronous manner.</p>
+<p>Let' take a look at how you can call agent functions that run asynchronous tasks (It works pretty much the same).</p>
+<pre><code>// Inside agent &quot;007&quot;
+// The function doesn't have a return value
+// Instead it waits for 3 seconds before calling $agent.response() asynchronously.
+var whatsyourname = function(firstname, lastname) {
+  // Asynchronously return after 3 seconds
+  setTimeout(function() {
+    $agent.response(&quot;The name is &quot; + lastname + &quot;. &quot; + firstname + &quot; &quot; + lastname)
+  }, 3000);
+}
+
+// Inside agent &quot;M&quot;
+$agent.request({
+  id: &quot;007&quot;,
+  &quot;method&quot;: &quot;whatsyourname&quot;,
+  &quot;params&quot;: [&quot;James&quot;, &quot;Bond&quot;]
+}, function(response) {
+  console.log(&quot;Returned value = &quot;, response);
+})
+
+</code></pre>
+
+<h2 id="3-agenttrigger">3. $agent.trigger</h2>
+<p>An agent can also call Jasonette. But we can't just let any agent execute arbitrary Jasonette actions for security reasons.</p>
+<p>Instead, agents can <strong>trigger</strong> events that are already defined on the Jasonette side under <code>$jason.head.actions</code>.</p>
+<h3 id="syntax_4">Syntax</h3>
+<p><code>$agent.trigger</code> is a JavaScript function which can trigger a Jasonette event, along with a payload which will be set to the variable <code>$jason</code>.</p>
+<pre><code>$agent.trigger(event[, options])
+</code></pre>
+
+<h3 id="parameters_1">Parameters</h3>
+<ul>
+<li><strong><code>event</code></strong>: A Jasonette event name string.</li>
+<li><strong><code>options</code></strong>: An additional payload to send along with the event. It will be accessible as <code>$jason</code> inside the triggered action.</li>
+</ul>
+<p><strong>Note:</strong> Notice there's no callback parameter. <code>$agent.trigger</code> is a fire-and-forget scheme. There is no way to get a response back from Jasonette for security reasons.</p>
+<h3 id="example_4">Example</h3>
+<h5 id="example-1-simple-event-trigger">Example 1. Simple Event Trigger</h5>
+<p>Let's look at this code:</p>
+<pre><code>{
+  &quot;$jason&quot;: {
+    &quot;head&quot;: {
+      &quot;agents&quot;: {
+        &quot;simple&quot;: {
+          &quot;url&quot;: &quot;file://app.html&quot;
+        }
+      },
+      &quot;actions&quot;: {
+        &quot;refresh&quot;: {
+          &quot;type&quot;: &quot;$render&quot;
+        }
+      }
+    }
+  }
+}
+</code></pre>
+
+<p>Since the <code>refresh</code> event is declared under <code>$jason.head.actions</code>, we can trigger it from agents, like this:</p>
+<pre><code>$agent.trigger(&quot;refresh&quot;)
+</code></pre>
+
+<h5 id="2-event-trigger-with-payload">2. Event trigger with payload</h5>
+<p>You can trigger an event with an additional payload too.</p>
+<p>Take a look at this code:</p>
+<pre><code>{
+  &quot;$jason&quot;: {
+    &quot;head&quot;: {
+      &quot;agents&quot;: {
+        &quot;simple&quot;: {
+          &quot;url&quot;: &quot;file://app.html&quot;
+        }
+      },
+      &quot;actions&quot;: {
+        &quot;banner&quot;: {
+          &quot;type&quot;: &quot;$util.alert&quot;,
+          &quot;options&quot;: {
+            &quot;title&quot;: &quot;{{$jason.title}}&quot;,
+            &quot;description&quot;: &quot;{{$jason.description}}&quot;
+          }
+        }
+      }
+    }
+  }
+}
+</code></pre>
+
+<p>Notice now we have a <code>$util.alert</code> action which expects a <code>$jason</code> variable to be passed in.</p>
+<p>We can trigger this from the <code>simple</code> agent with:</p>
+<pre><code>$agent.trigger(&quot;banner&quot;, {
+  &quot;title&quot;: &quot;Hello&quot;,
+  &quot;description&quot;: &quot;World&quot;
+});
+</code></pre>
+
+<h2 id="4-agenthref">4. $agent.href</h2>
+<p>You can trigger a Jasonette <code>href</code> transition from an agent.</p>
+<h3 id="syntax_5">Syntax</h3>
+<pre><code>$agent.href(href)
+</code></pre>
+
+<h3 id="parameters_2">Parameters</h3>
+<p>Basically you're just passing a Jasonette href object as an argument.</p>
+<ul>
+<li><strong><code>href</code></strong>: a Jasonette href object. See <a href="http://docs.jasonette.com/href/">href</a> for more.</li>
+</ul>
+<h3 id="example_5">Example</h3>
+<pre><code>$agent.href({
+  &quot;url&quot;: &quot;https://www.jasonbase.com/things/3nf.json&quot;,
+  &quot;optons&quot;: {
+    &quot;data&quot;: &quot;hi&quot;
+  },
+  &quot;transition&quot;: &quot;modal&quot;
+})
+</code></pre>
+
+<h2 id="5-agentrefresh">5. $agent.refresh</h2>
+<p>A <strong>Jasonette action</strong> that lets you refresh an agent context with <code>id</code>. Reloads the web container that contains the agent.</p>
+<h3 id="parameters_3">Parameters</h3>
+<ul>
+<li><strong><code>id</code></strong>: The id of an existing agent in the current view to refresh</li>
+</ul>
+<h3 id="example_6">Example</h3>
+<pre><code>{
+  &quot;type&quot;: &quot;$agent.refresh&quot;,
+  &quot;options&quot;: {
+    &quot;id&quot;: &quot;crypto&quot;
+  }
+}
+</code></pre>
+
+<h2 id="6-agentclear">6. $agent.clear</h2>
+<p>A <strong>Jasonette action</strong> that lets you clear an agent's entire context with <code>id</code>.</p>
+<p>The HTML/JavaScript app will be completely cleared out of the agent.</p>
+<h3 id="parameters_4">Parameters</h3>
+<ul>
+<li><strong><code>id</code></strong>: The id of an existing agent in the current view to refresh</li>
+</ul>
+<h3 id="example_7">Example</h3>
+<pre><code>{
+  &quot;type&quot;: &quot;$agent.clear&quot;,
+  &quot;options&quot;: {
+    &quot;id&quot;: &quot;crypto&quot;
+  }
+}
+</code></pre>
+
+<h2 id="7-agentinject">7. $agent.inject</h2>
+<p>Sometimes an agent may want to dynamically run some task that's not included in the agent's original HTML code. This may be the case if you don't have control over the agent's HTML.</p>
+<p><code>$agent.inject</code> is an action that lets you dynamically <strong>inject</strong> a 3rd party JavaScript code into an existing agent context.</p>
+<h3 id="parameters_5">Parameters</h3>
+<ul>
+<li><code>id</code>: The recepieint agent ID.</li>
+<li><code>items</code>: An array of injection objects, each of which has the following attribute:<ul>
+<li><code>url</code>: supports <code>file://</code> or <code>http://</code> or <code>https://</code> urls to load JavaScript code from</li>
+<li><code>text</code>: inline JS code</li>
+</ul>
+</li>
+</ul>
+<h3 id="example_8">Example</h3>
+<p>Let's say an agent needs to access a <code>username/password</code> pair stored under <code>$key</code> and instantly sign in a user to a website. (For example, sites like news.ycombinator.com which you don't own)</p>
+<h4 id="1-we-could-implement-a-function-that-looks-like-the-following">1. We could implement a function that looks like the following:</h4>
+<pre><code>var auth = function(username, password) {
+  document.querySelector(&quot;.username&quot;).value = usenrame;
+  document.querySelector(&quot;.password&quot;).value = password;
+  document.querySelector(&quot;form.signin&quot;).submit();
+  $agent.trigger(&quot;signed_in&quot;);
+}
+</code></pre>
+
+<h4 id="2-since-this-function-is-not-included-in-the-original-agent-code-because-you-dont-own-newsycombinatorcom-we-will-need-to-inject-and-execute">2. Since this function is NOT included in the original agent code (because you don't own news.ycombinator.com) we will need to <strong>inject</strong> AND <strong>execute</strong>.</h4>
+<h4 id="3-heres-how-we-would-do-it">3. Here's how we would do it:</h4>
+<pre><code>{
+  &quot;type&quot;: &quot;$agent.inject&quot;,
+  &quot;options&quot;: {
+    &quot;id&quot;: &quot;HN&quot;,
+    &quot;items&quot;: [{
+      &quot;url&quot;: &quot;file://authentication.js&quot;
+    }]
+  },
+  &quot;success&quot;: {
+    &quot;type&quot;: &quot;$agent.request&quot;,
+    &quot;options&quot;: {
+      &quot;id&quot;: &quot;HN&quot;,
+      &quot;method&quot;: &quot;auth&quot;,
+      &quot;params&quot;: [&quot;gliechtenstein&quot;, &quot;12341234&quot;]
+    }
+  }
+}       
+</code></pre>
+
+<p>Here's what's going on:</p>
+<ol>
+<li>We first look up the agent using <code>id</code>. This will be the recipient of the task.</li>
+<li>Then we inject the JavaScript file at <code>file://authentication.js</code>.</li>
+<li>Next step, we call <code>$agent.request</code>, which makes a function call into the agent context. This time, the <code>$agent.request</code> call will work since the <code>auth</code> function has been injected.</li>
+</ol>
+<hr />
+<h1 id="demos">Demos</h1>
+<p>Here are some demos you can try out right now:</p>
+<ul>
+<li><a href="https://github.com/Jasonette/AgentJason">Basic API Demo</a></li>
+<li><a href="https://github.com/Jasonette/agent.websockets">WebSockets</a></li>
+<li><a href="https://github.com/Jasonette/agent.audio">Web Audio</a></li>
+<li><a href="https://github.com/Jasonette/agent.firebase">Firebase</a></li>
+<li><a href="https://github.com/Jasonette/agent.jsframeworks">Turn your existing Angular.js, Vue.js, Cell.js app into an Agent</a></li>
+</ul>
+              
+            </div>
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="../web/" class="btn btn-neutral float-right" title="★ Web Container">Next <span class="icon icon-circle-arrow-right"></span></a>
+      
+      
+        <a href="../offline/" class="btn btn-neutral" title="★ Offline"><span class="icon icon-circle-arrow-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <!-- Copyright etc -->
+    
+  </div>
+
+  Built with <a href="http://www.mkdocs.org">MkDocs</a> using a <a href="https://github.com/snide/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>.
+</footer>
+      
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+
+  <div class="rst-versions" role="note" style="cursor: pointer">
+    <span class="rst-current-version" data-toggle="rst-current-version">
+      
+          <a href="https://github.com/Jasonette/documentation/" class="fa fa-github" style="float: left; color: #fcfcfc"> GitHub</a>
+      
+      
+        <span><a href="../offline/" style="color: #fcfcfc;">&laquo; Previous</a></span>
+      
+      
+        <span style="margin-left: 15px"><a href="../web/" style="color: #fcfcfc">Next &raquo;</a></span>
+      
+    </span>
+</div>
+    <script>var base_url = '..';</script>
+    <script src="../js/theme.js"></script>
+      <script src="../search/require.js"></script>
+      <script src="../search/search.js"></script>
+
+</body>
+</html>
