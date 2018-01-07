@@ -123,6 +123,9 @@
 
     <li class="toctree-l3"><a href="#how-does-it-work">How does it work?</a></li>
     
+
+    <li class="toctree-l3"><a href="#what-can-it-do">What can it do?</a></li>
+    
         <ul>
         
             <li><a class="toctree-l4" href="#1-plug-in-anything-in-javascript">1. Plug in anything in JavaScript</a></li>
@@ -298,10 +301,11 @@
 <p><img src='../images/architecture.png' class='large'></p>
 <hr />
 <h1 id="how-does-it-work">How does it work?</h1>
-<p>Jasonette has a different philosophy and approach from other app building frameworks. It takes an "interpreter" approach vs. "compiler" approach. Therefore <a href="http://jasonette.com/">all Jasonette apps have exactly the same binary code</a>.</p>
-<p>Because of this, Jasonette's core needs to stay very lean. It's not a good idea to keep adding native modules to the global codebase, otherwise the app size will become bloated very quickly.</p>
-<p>This is where agent comes in.</p>
-<p><br></p>
+<p>Jasonette Agents are invisible background JavaScript execution environments, internally implemented in <code>WKWebView</code> on iOS and <code>WebView</code> on Android.</p>
+<p>Agents are optimized to run in the background (Users never interact directly with agents) and interact with the core native app engine with JSON-RPC.</p>
+<p>Since <a href="https://www.jasonette.com">Jasonette</a> is already 100% operated with JSON, the JSON-RPC approach blends into the app seamlessly.</p>
+<hr />
+<h1 id="what-can-it-do">What can it do?</h1>
 <h2 id="1-plug-in-anything-in-javascript">1. Plug in anything in JavaScript</h2>
 <p>Agents let you build on top of all kinds of web technologies right out of the box. Anything you can do in JavaScript, now you can do with Jasonette. Just plug it in as an agent.</p>
 <p><img src='../images/bigpicture.png' class='large'></p>
