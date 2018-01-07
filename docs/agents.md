@@ -16,13 +16,15 @@ In short, it's like **microservices, but on the frontend**.
 
 # How does it work?
 
-Jasonette has a different philosophy and approach from other app building frameworks. It takes an "interpreter" approach vs. "compiler" approach. Therefore [all Jasonette apps have exactly the same binary code](http://jasonette.com/).
+Jasonette Agents are invisible background JavaScript execution environments, internally implemented in `WKWebView` on iOS and `WebView` on Android.
 
-Because of this, Jasonette's core needs to stay very lean. It's not a good idea to keep adding native modules to the global codebase, otherwise the app size will become bloated very quickly.
+Agents are optimized to run in the background (Users never interact directly with agents) and interact with the core native app engine with JSON-RPC.
 
-This is where agent comes in.
+Since [Jasonette](https://www.jasonette.com) is already 100% operated with JSON, the JSON-RPC approach blends into the app seamlessly.
 
-<br>
+---
+
+# What can it do?
 
 ## 1. Plug in anything in JavaScript
 
