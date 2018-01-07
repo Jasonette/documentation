@@ -16,6 +16,7 @@ pages:
   - ★ Templates: templates.md
   - ★ Mix-in: mixin.md
   - ★ Offline: offline.md
+  - ★ Agents: agents.md
   - ★ Web Container: web.md
   - ★ Environment Variables: env.md
 - ■ Tips: convention.md

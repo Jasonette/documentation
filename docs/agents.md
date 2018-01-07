@@ -1,0 +1,683 @@
+# Agents
+
+> "Microservices on the frontend"
+
+An agent is a **sandboxed** and **autonomous** **JavaScript** execution environment that **runs in the background** and interacts seamlessly with Jasonette.
+
+Think of them as **"Microservices on the Frontend".**
+
+The traditional concept of "microservices" has been something that sits on a server somewhere, takes an input, runs some task, and sometimes returns an output. 
+
+Agents work like microservices, except they live on the frontend mobile app itself.
+
+<img src='../images/architecture.png' class='large'>
+
+
+# Problem
+
+The main goal of Jasonette is NOT to build just another app making framework. **The goal is to build an open standard language for describing native mobile apps, decoupling the application logic from devices, making apps truly portable.**
+
+This is why Jasonette Core doesn't implement every possible feature that could have been implemented.
+
+- First of all, it's not easy to come up with a future-proof markup. A lot of interesting potential features are fad at best and not worth introducing a markup for (in the long term).
+- Secondly, building native components for every imaginable feature is not sustainable because the entire app bundle will become bloated eventually.
+- Most importantly, a lot of useful native libraries are extremely large and not designed for **"light clients"**. This may be fine if Jasonette was just another app building framework, but since Jasonette's approach is to build **a single binary functioning as a light client** (meaning, your app logic is not built into the app as code but is completely decoupled as a JSON markup, which makes it portable and "light"), adding modules for every purpose is a bad solution.
+
+# Solution
+
+**So here's the idea:** Imagine you can build all kinds of modules simply by
+
+1. Writing JavaScript modules
+2. Load them as "agents"
+3. and let them autonomously communicate with Jasonette and with one another to carry out tasks
+
+<img src='../images/bigpicture.png' class='large'>
+
+This lets you effortlessly implement:
+
+**3rd party APIs like:**
+
+- Realtime Messaging/Database (Can communicate with Jasonette as a daemon)
+  - Firebase
+  - Pusher
+  - PubNub
+- Analytics (Delegate the task of asynchronously sending analytics to the agent)
+  - Google Analytics
+  - Heap
+  - Segment
+  - etc.
+
+**And native browser APIs like:**
+
+- WebSockets
+- WebCrypto
+- SpeechSynthesis
+- Web Audio
+
+**And finally, many JavaScript libraries like:**
+
+- GraphQL
+- IPFS
+- TensorFlow
+- Underscore
+
+All while keeping the user facing app completely native, and while not adding any additional code to the binary. Think of these agents as little "servers" that autonomously and asynchronously take care of tasks that don't need to be done by the Jasonette core main thread.
+
+# Benefits
+
+1. **Same Native User Experience**: The user experience is exactly the same (It's all native), since users ONLY interact with Jasonette Core. Jasonette core simply spawns off invisible agents to delegate tasks.
+2. **Effortless Module Implementation**: If you can run it on JS, you can run it as agent. In fact, if you already have an existing web app, you can bring the same code and incorporate `$agent` APIs here and there to make it work with Jasonette, instantly.
+3. **Hello, Asynchronous Tasks**: Jasonette Core is intentionally single threaded in order to ensure deterministic behavior. Because of this, one of the biggest pain points have been **a lack of asynchronous workers** and **a lack of daemon operations that sit in the background and keep running**.  Well, that's exactly what agents do. Agents are autonomous creatures. Once initialized, they run on their own and communicate with Jasonette. They can even communicate with one another.
+
+
+# Usage
+
+This documentation discusses:
+
+1. **Declare**: How to declare agents
+2. **Initialize**: How to listen to events emitted by agents
+2. **Communicate**: How to communicate with agents
+
+# 1. Declare
+
+Each view can have **multiple** agents. Every agent is sandboxed to their parent view.
+
+Agents are **set up declaratively** (instead of manually initializing through actions, for example) to ensure they are automatically initialized as soon as their parent view loads.
+
+## Syntax
+
+1. You can define agents under `$jason.head.agents`
+	- Each **key/value** pair represents a sandboxed agent.
+		- The key is the **name of the agent** we'll use to make requests later
+		- The value is the **JSON markup** that represents the agent.
+
+2. Each Agent can take one of the following attributes:
+	- **url**: the URL to load content from
+		- **http[s]?://** : Any http/https remote url
+		- **file://** : Any locally embedded file url (under `file://` directory)
+	- **text**: Or you can fill it in inline with a piece of HTML text
+
+	
+## Example
+
+The following code sets up 3 separate sandboxed HTML/JavaScript environments.
+
+- `js_sandbox` loads from an HTML text.
+- `web3` loads from a file url.
+- `firebase` loads from a remote https url.
+
+```
+{
+  "$jason": {
+    "head": {
+      "title": "Agent Demo",
+      "agents": {
+        "js_sandbox": {
+          "text": "<html><script>var injected = function(a) { return a; }</script></html>"
+        },
+        "web3": {
+          "url": "file://web.html"
+        },
+        "firebase": {
+          "url": "https://jasonette-agent.github.io"
+        }
+      }
+    }
+  }
+}
+```
+
+Once set up, each agent runs on its own, communicating with
+
+- Jasonette and
+- Other agents sometimes
+
+<br>
+
+
+# 2. Initialize
+
+When an agent has finished loading it emits an `$agent.ready` event.
+
+## Listening to initialize event
+
+You can listen to `$agent.ready` events just like any other Jasonette native events, under `$jason.head.actions`.
+
+Think of this as jQuery's [$(document).ready()](https://learn.jquery.com/using-jquery-core/document-ready/).
+
+```
+{
+  "$jason": {
+    "head": {
+      "actions": {
+        "$load": {
+          "type": "$render"
+        },
+        "$agent.ready": {
+          [DO SOMETHING WITH THE EVENT OBJECT HERE!!]
+        }
+      }
+    }
+  }
+}
+```
+
+## Parsing the ready event object
+
+When the `$agent.ready` event triggers, it comes with a payload that looks like this:
+
+```
+{
+  "$jason": {
+    "id": [AGENT ID],
+    "url": [AGENT URL]
+  }
+}
+```
+
+So you can detect which agent just became initialized by looking at `$jason.id` and run appropriate actions, like this:
+
+```
+{
+  "$jason": {
+    "head": {
+      "actions": {
+        "$load": {
+          "type": "$render"
+        },
+        "$agent.ready": [{
+          "{{#if $jason.id === 'firebase'}}": {
+            [[DO something with firebase agent]]
+          }
+        }, {
+          "{{#elseif $jason.id === 'web3'}}": {
+            [[Do something with web3 agent]]
+          }
+        }]
+      }
+    }
+  }
+}
+```
+
+
+<br>
+
+# 3. Communicate
+
+Now that everything's set up, we can finally communicate with agents. Below is an overview of how:
+
+- **Jasonette** can interact with **agents**
+- **Agents** can interact with **other agents**.
+
+# Overview
+
+## 1. Outside => Agent
+
+The outside world can make function call requests to agents.
+
+- **Jasonette => Agent**: You can make requests from Jasonette to agents using a **Jasonette action**.
+	- **"type": "$agent.request"**: Call any JavaScript function in the agent.
+
+- **Agent => Agent**: Agents can make requests to another agent using a **JavaScript function**.
+	- **$agent.request(request)**: Make a remote function call into another agent, using a JSON-RPC call.
+
+## 2. Agent => Outside
+
+Agents can send messages to the outside world with 3 designated JavaScript functions.
+
+1. **$agent.response(response)**
+	- Used to **return** results in response to an `$agent.request` call.
+	- Can respond to both **agent functions (from another agent)** and **Jasonette actions**.
+	- **Note:** All `$agent.response` must have been triggered by an `$agent.request` somewhere else in order for it to work.
+2. **$agent.trigger(event, options)**
+	- Unlike `$agent.response` which can only return results to an `$agent.request`, `$agent.trigger` can be used any time and anywhere at will.
+	- Can trigger a Jasonette event (under `$jason.head.actions`). It's powered by Jasonette's native [trigger](http://docs.jasonette.com/actions/#triggering-actions).
+	- **Note:** `trigger` can only trigger existing events, which means if the event doesn't already exist on the Jasonette side under `$jason.head.actions`, it won't work. This is to ensure security, so that malicious HTML agent can't trigger any action that Jasonette wasn't aware of.
+3. **$agent.href(href)**
+	- trigger a Jasonette href from Agent
+
+<br>
+
+# API
+
+Here are API actions/functions that lets you communicate with agents.
+
+1. **$agent.request**: Make requests to agents
+2. **$agent.response**: Let agents return a response to a request call
+3. **$agent.trigger**: Trigger Jasonette events from agents
+4. **$agent.href**: Call Jasonette href from agents
+5. **$agent.refresh**: Refresh the agent context.
+6. **$agent.clear**: Clear the agent context.
+7. **$agent.inject**: Dispatch a 3rd party JavaScript function call into an existing agent.
+
+## 1. $agent.request
+
+`$agent.request` loosely follows the [JSON-RPC 2.0 spec](http://www.jsonrpc.org/specification).
+
+More specifically, each request object contains three attributes:
+
+- id
+- method
+- params
+
+
+### 1.1. Jasonette => Agent
+
+You can use the `"type": "$agent.request"` action to call an agent's JavaScript function from Jasonette.
+
+#### Syntax
+
+Just like any other Jasonette action, the `$agent.request` takes 4 parameters:
+
+1. **type**: `"$agent.request"`
+2. **options**: The JSON-RPC request object
+	- **id**: The agent id you're targeting. You should have set up the agent with this id before calling this action.
+	- **method**: The function name to call
+	- **params**: An array of parameters to pass to the function
+3. **success**
+	- The next Jasonette action to run when the agent responds.
+	- Triggered the agent responds with an `$agent.response()` call.
+4. **error**
+	- Only called when there was a problem **connecting to the agent**.
+	- Any error from INSIDE the agent is sandboxed inside the agent, so if you want to handle those, you should use `$agent.response()` and handle it inside the `success` callback above.
+
+
+#### Example
+
+The following JSON markup calls 
+
+- a `whatsyourname` function
+- inside `"007"` agent
+- with two parameters: `"James"` and `"Bond"`.
+
+
+```
+{
+  "type": "$agent.request",
+  "options": {
+    "id": "007",
+    "method": "whatsyourname",
+    "params": ["James", "Bond"]
+  },
+  "success": {
+    "type": "$util.alert",
+    "options": {
+      "title": "Name is",
+      "description": "{{$jason}}"
+    }
+  }
+}
+```
+
+When the `whatsyourname` function returns some result via `$agent.response()` JS function, the `$agent.request` can pick up where it left off and go ahead with its `success` callback.
+
+```
+// Inside agent "007". 
+// The function has an immediate return value.
+var whatsyourname = function(firstname, lastname) {
+  // synchronously return with a return value
+  $agent.response("The name is " + lastname + ". " + firstname + " " + lastname);
+}
+```
+
+### 1.2. Agent => Agent
+
+Agents can also talk to one another.
+
+#### Syntax
+
+```
+$agent.request(request[, callback])
+```
+
+#### Parameters
+
+- **`request`**: JSON-RPC request Object. 
+		
+	Same as the `$agent.request` Jasonette action, the request object can have 3 attributes:
+
+	- **id**: The agent id you're targeting. **Required**
+	- **method**: The function name to call
+	- **params**: The parameters to pass to the function
+
+- **`callback`**: A callback function that will be triggered by an `$agent.response()` from the callee agent.
+
+	
+#### Example
+
+
+**Example 1. One way function call (without callback)**
+
+Making a `whatsyourname("James", "Bond")` function call into a remote agent named `"007"`.
+
+```
+$agent.request({
+  "id": "007",
+  "method": "whatsyourname",
+  "params": ["James", "Bond"]
+})
+```
+
+In this particular example, there's no return value so it may not look useful at first sight.
+
+But the `007` agent can for example directly communicate with Jasonette via `"trigger"` or `"href"` instead of returning its control back to the caller agent.
+
+<br>
+
+**Example 2. Function call with a callback**
+
+This time we would like to process the return value.
+
+```
+// Inside agent "007". 
+// The function has an immediate return value.
+var whatsyourname = function(firstname, lastname) {
+  // synchronously return with a return value
+  $agent.response("The name is " + lastname + ". " + firstname + " " + lastname);
+}
+
+// Inside agent "M"
+$agent.request({
+  "id": "007",
+  "method": "whatsyourname",
+  "params": ["James", "Bond"]
+}, function(response) {
+  console.log("Returned value = ", response);
+})
+```
+
+Two things to notice:
+
+1. The `whatsyourname` function calls the `$agent.response()` function to return its result back to the caller.
+2. The `$agent.request()` function now has a second argument, which is a callback function that will handle the data returned with the `$agent.response()`.
+
+## 2. $agent.response
+
+Agents are designed to interact with the outside world both **synchronously** and **asynchronously**.
+
+In some cases agent functions can return immediately (**synchronous**), but in many other cases we need to run a long-running function before returning a result (**asynchronous**). It could be an ajax call, or it could be any other time consuming task. 
+
+Agents can utilize a single function named `$agent.response`
+
+
+### Syntax
+
+
+```
+$agent.response(response)
+```
+
+### Paramerters
+
+- **`response`**: Any JavaScript object that can be represented as **a flat JSON**. Just remember that it can transport anything that can be represented as a JSON string.
+	- **non-circular**: all circular references within the object will be stripped out.
+	- **only data**: functions will be stripped out.
+
+
+### Example
+
+We've already seen how agent functions can return results in a synchronous manner.
+
+Let' take a look at how you can call agent functions that run asynchronous tasks (It works pretty much the same).
+
+```
+// Inside agent "007"
+// The function doesn't have a return value
+// Instead it waits for 3 seconds before calling $agent.response() asynchronously.
+var whatsyourname = function(firstname, lastname) {
+  // Asynchronously return after 3 seconds
+  setTimeout(function() {
+    $agent.response("The name is " + lastname + ". " + firstname + " " + lastname)
+  }, 3000);
+}
+
+// Inside agent "M"
+$agent.request({
+  id: "007",
+  "method": "whatsyourname",
+  "params": ["James", "Bond"]
+}, function(response) {
+  console.log("Returned value = ", response);
+})
+
+```
+
+
+
+## 3. $agent.trigger
+
+An agent can also call Jasonette. But we can't just let any agent execute arbitrary Jasonette actions for security reasons.
+
+Instead, agents can **trigger** events that are already defined on the Jasonette side under `$jason.head.actions`.
+
+
+### Syntax
+
+`$agent.trigger` is a JavaScript function which can trigger a Jasonette event, along with a payload which will be set to the variable `$jason`.
+
+
+```
+$agent.trigger(event[, options])
+```
+
+### Parameters
+
+- **`event`**: A Jasonette event name string.
+- **`options`**: An additional payload to send along with the event. It will be accessible as `$jason` inside the triggered action.
+
+**Note:** Notice there's no callback parameter. `$agent.trigger` is a fire-and-forget scheme. There is no way to get a response back from Jasonette for security reasons.
+
+### Example
+
+##### Example 1. Simple Event Trigger
+
+Let's look at this code:
+
+```
+{
+  "$jason": {
+    "head": {
+      "agents": {
+        "simple": {
+          "url": "file://app.html"
+        }
+      },
+      "actions": {
+        "refresh": {
+          "type": "$render"
+        }
+      }
+    }
+  }
+}
+```
+
+Since the `refresh` event is declared under `$jason.head.actions`, we can trigger it from agents, like this:
+
+```
+$agent.trigger("refresh")
+```
+
+##### 2. Event trigger with payload
+
+You can trigger an event with an additional payload too.
+
+Take a look at this code:
+
+```
+{
+  "$jason": {
+    "head": {
+      "agents": {
+        "simple": {
+          "url": "file://app.html"
+        }
+      },
+      "actions": {
+        "banner": {
+          "type": "$util.alert",
+          "options": {
+            "title": "{{$jason.title}}",
+            "description": "{{$jason.description}}"
+          }
+        }
+      }
+    }
+  }
+}
+```
+
+Notice now we have a `$util.alert` action which expects a `$jason` variable to be passed in.
+
+We can trigger this from the `simple` agent with:
+
+```
+$agent.trigger("banner", {
+  "title": "Hello",
+  "description": "World"
+});
+```	
+
+
+## 4. $agent.href
+
+You can trigger a Jasonette `href` transition from an agent.
+
+### Syntax
+
+```
+$agent.href(href)
+```
+
+### Parameters
+
+Basically you're just passing a Jasonette href object as an argument.
+
+- **`href`**: a Jasonette href object. See [href](http://docs.jasonette.com/href/) for more.
+
+
+### Example
+
+```
+$agent.href({
+  "url": "https://www.jasonbase.com/things/3nf.json",
+  "optons": {
+    "data": "hi"
+  },
+  "transition": "modal"
+})
+```
+
+## 5. $agent.refresh
+
+A **Jasonette action** that lets you refresh an agent context with `id`. Reloads the web container that contains the agent.
+
+### Parameters
+
+- **`id`**: The id of an existing agent in the current view to refresh
+
+### Example
+
+```
+{
+  "type": "$agent.refresh",
+  "options": {
+    "id": "crypto"
+  }
+}
+```
+
+
+## 6. $agent.clear
+
+A **Jasonette action** that lets you clear an agent's entire context with `id`.
+
+The HTML/JavaScript app will be completely cleared out of the agent.
+
+### Parameters
+
+- **`id`**: The id of an existing agent in the current view to refresh
+
+### Example
+
+```
+{
+  "type": "$agent.clear",
+  "options": {
+    "id": "crypto"
+  }
+}
+```
+
+## 7. $agent.inject
+
+Sometimes an agent may want to dynamically run some task that's not included in the agent's original HTML code. This may be the case if you don't have control over the agent's HTML.
+
+`$agent.inject` is an action that lets you dynamically **inject** a 3rd party JavaScript code into an existing agent context.
+
+
+### Parameters
+
+- `id`: The recepieint agent ID.
+- `items`: An array of injection objects, each of which has the following attribute:
+	- `url`: supports `file://` or `http://` or `https://` urls to load JavaScript code from
+	- `text`: inline JS code
+
+### Example
+
+
+Let's say an agent needs to access a `username/password` pair stored under `$key` and instantly sign in a user to a website. (For example, sites like news.ycombinator.com which you don't own)
+
+#### 1. We could implement a function that looks like the following:
+
+```
+var auth = function(username, password) {
+  document.querySelector(".username").value = usenrame;
+  document.querySelector(".password").value = password;
+  document.querySelector("form.signin").submit();
+  $agent.trigger("signed_in");
+}
+```
+
+#### 2. Since this function is NOT included in the original agent code (because you don't own news.ycombinator.com) we will need to **inject** AND **execute**.
+
+#### 3. Here's how we would do it:
+
+```
+{
+  "type": "$agent.inject",
+  "options": {
+    "id": "HN",
+    "items": [{
+      "url": "file://authentication.js"
+    }]
+  },
+  "success": {
+    "type": "$agent.request",
+    "options": {
+      "id": "HN",
+      "method": "auth",
+      "params": ["gliechtenstein", "12341234"]
+    }
+  }
+}		
+```
+
+Here's what's going on:
+
+1. We first look up the agent using `id`. This will be the recipient of the task.
+2. Then we inject the JavaScript file at `file://authentication.js`.
+3. Next step, we call `$agent.request`, which makes a function call into the agent context. This time, the `$agent.request` call will work since the `auth` function has been injected.
+ 
+---
+
+# Demos
+
+Here are some demos you can try out right now:
+
+- [Basic API Demo](https://github.com/Jasonette/AgentJason)
+- [WebSockets](https://github.com/Jasonette/agent.websockets)
+- [Web Audio](https://github.com/Jasonette/agent.audio)
+- [Firebase](https://github.com/Jasonette/agent.firebase)
+- [Turn your existing Angular.js, Vue.js, Cell.js app into an Agent](https://github.com/Jasonette/agent.jsframeworks)
