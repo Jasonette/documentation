@@ -1,76 +1,175 @@
-# Agents
+# What is an Agent?
 
 > "Microservices on the frontend"
 
-An agent is a **sandboxed** and **autonomous** **JavaScript** execution environment that **runs in the background** and interacts seamlessly with Jasonette.
+**Jasonette Agent** is a new architecture for building native mobile apps that utilizes JavaScript technologies without sacrificing native peformance and user experience. The idea is simple:
 
-Think of them as **"Microservices on the Frontend".**
+1. User interacts with the native core.
+2. The core spawns background JavaScript containers for multiple tasks.
+3. Core and Agents communicate through **JSON-RPC**.
 
-The traditional concept of "microservices" has been something that sits on a server somewhere, takes an input, runs some task, and sometimes returns an output. 
-
-Agents work like microservices, except they live on the frontend mobile app itself.
+In short, it's like **microservices, but on the frontend**.
 
 <img src='../images/architecture.png' class='large'>
 
+---
 
-# Problem
+# How does it work?
 
-The main goal of Jasonette is NOT to build just another app making framework. **The goal is to build an open standard language for describing native mobile apps, decoupling the application logic from devices, making apps truly portable.**
+Jasonette has a different philosophy and approach from other app building frameworks. It takes an "interpreter" approach vs. "compiler" approach. Therefore [all Jasonette apps have exactly the same binary code](http://jasonette.com/).
 
-This is why Jasonette Core doesn't implement every possible feature that could have been implemented.
+Because of this, Jasonette's core needs to stay very lean. It's not a good idea to keep adding native modules to the global codebase, otherwise the app size will become bloated very quickly.
 
-- First of all, it's not easy to come up with a future-proof markup. A lot of interesting potential features are fad at best and not worth introducing a markup for (in the long term).
-- Secondly, building native components for every imaginable feature is not sustainable because the entire app bundle will become bloated eventually.
-- Most importantly, a lot of useful native libraries are extremely large and not designed for **"light clients"**. This may be fine if Jasonette was just another app building framework, but since Jasonette's approach is to build **a single binary functioning as a light client** (meaning, your app logic is not built into the app as code but is completely decoupled as a JSON markup, which makes it portable and "light"), adding modules for every purpose is a bad solution.
+This is where agent comes in.
 
-# Solution
+<br>
 
-**So here's the idea:** Imagine you can build all kinds of modules simply by
+## 1. Plug in anything in JavaScript
 
-1. Writing JavaScript modules
-2. Load them as "agents"
-3. and let them autonomously communicate with Jasonette and with one another to carry out tasks
+Agents let you build on top of all kinds of web technologies right out of the box. Anything you can do in JavaScript, now you can do with Jasonette. Just plug it in as an agent.
 
 <img src='../images/bigpicture.png' class='large'>
 
-This lets you effortlessly implement:
+## 2. Turn your frontend into agent instantly
 
-**3rd party APIs like:**
+In fact, **if you already have a web app running,** you can even plug it into Jasonette as an agent and make it work as a "backend" to Jasonette's native frontend.
 
-- Realtime Messaging/Database (Can communicate with Jasonette as a daemon)
-  - Firebase
-  - Pusher
-  - PubNub
-- Analytics (Delegate the task of asynchronously sending analytics to the agent)
-  - Google Analytics
-  - Heap
-  - Segment
-  - etc.
+<img src='../images/websocket.gif' class='large'>
 
-**And native browser APIs like:**
+In the example above, we have a website that's already running on websockets on the laptop. [Here's the site](https://wsjason.herokuapp.com)
 
-- WebSockets
-- WebCrypto
-- SpeechSynthesis
-- Web Audio
+Now, we can reuse the same website as an agent by plugging it into Jasonette like below (You can see the full markup for the entire app at [https://wsjason.herokuapp.com/app.json](https://wsjason.herokuapp.com/app.json)):
 
-**And finally, many JavaScript libraries like:**
+```
+{
+  "$jason": {
+    "head": {
+      "title": "Websocket Chat",
+      "agents": {
+        "ws": {
+          "url": "https://wsjason.herokuapp.com/"
+        }
+      },
+      ...
+    }
+  }
+}
+```
 
-- GraphQL
-- IPFS
-- TensorFlow
-- Underscore
+Above code basically lets you import the site as a Jasonette agent and communicate with it through JSON-RPC going forward.
 
-All while keeping the user facing app completely native, and while not adding any additional code to the binary. Think of these agents as little "servers" that autonomously and asynchronously take care of tasks that don't need to be done by the Jasonette core main thread.
+In the demo you can only see the native app UI on the phone, but in the background the same web app is running to communicate with Jasonette.
 
-# Benefits
+You can check out some more examples here: [Turn your existing Angular.js, Vue.js, Cell.js app into an Agent](https://github.com/Jasonette/agent.jsframeworks)
 
-1. **Same Native User Experience**: The user experience is exactly the same (It's all native), since users ONLY interact with Jasonette Core. Jasonette core simply spawns off invisible agents to delegate tasks.
-2. **Effortless Module Implementation**: If you can run it on JS, you can run it as agent. In fact, if you already have an existing web app, you can bring the same code and incorporate `$agent` APIs here and there to make it work with Jasonette, instantly.
-3. **Hello, Asynchronous Tasks**: Jasonette Core is intentionally single threaded in order to ensure deterministic behavior. Because of this, one of the biggest pain points have been **a lack of asynchronous workers** and **a lack of daemon operations that sit in the background and keep running**.  Well, that's exactly what agents do. Agents are autonomous creatures. Once initialized, they run on their own and communicate with Jasonette. They can even communicate with one another.
+## 3. Native User Experience meets Multithreading
+
+But let's not forget, Jasonette is ultimately **a native app platform**. All the user interactions happen on the native core side. Agents run in the background and run tasks for core.
+
+And here's the cool part: There can be multiple agents. This means **agents bring multithreading to Jasonette.**
+
+Jasonette core is single threaded in order to ensure deterministic UI behaviors. This made it impossible to run multiple concurrent tasks on Jasonette. With agents, all you need to do is offload all the tasks to agents and let them report back through events.
+
+<img src='../images/architecture.png' class='large'>
+
+---
+
+# Quickstart 
+
+## 1. Write an agent
+
+An agent is nothing more than a web page.
+
+```
+<html>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/crypto-js/3.1.9-1/crypto-js.min.js"></script>
+<script>
+var md5 = function(data, sync) {
+  var result = CryptoJS.MD5(data).toString();
+  $agent.response(result);
+}
+</script>
+</html>
+```
+
+We have declared a function called `md5` which takes two parameters `data` and `sync`.
+
+The `md5` function runs some task (CryptoJS task) and then makes an `$agent.response()` call.
+
+This is where the agent will return the result back to Jasonette. We'll see this below.
 
 
-# Usage
+## 2. Plug it into Jasonette
+
+Now that we have an agent. How do we plug it into Jasonette?
+
+All you need to do is declare the URL under `$jason.head.agents`.
+
+```
+{
+  "$jason": {
+    "head": {
+      "title": "$agent.request Demo",
+      "description": "Jasonette to Agent request demo",
+      "agents": {
+        "crypto": {
+          "url": "file://crypto.html"
+        }
+      },
+      ...
+```
+
+We have named this agent `"crypto"`, and enter the url. We will use this as the `id` when making JSON-RPC requests.
+
+In this case we used a `file://` url scheme, but you can also load a remote agent with an `http[s]://` scheme.
+
+## 3. Make JSON-RPC calls
+
+Now let's actually make a function call into the `md5` function from the agent.
+
+Below is the JSON action that wil make a JSON-RPC call to the agent.
+
+The `$agent.request` is the Jasonette action that makes agent JSON-RPC calls, and the `options` object is the actual JSON-RPC request object.
+
+```
+{
+  "type": "$agent.request",
+  "options": {
+    "id": "crypto",
+    "method": "md5",
+    "params": ["{{$get.raw}}", "{{$jason.sync}}"]
+  },
+  "success": {
+    "trigger": "add",
+    "options": {
+      "result": "{{$jason}}"
+    }
+  }
+}
+```
+
+Remember the how the [`md5` function from above](#1-write-an-agent)?
+
+The JSON-RPC object is basically saying "find an agent with an id of `'crypto'`, ask the agent to run a function called `'md5'` with the two parameters."
+
+```
+var md5 = function(data, sync) {
+  var result = CryptoJS.MD5(data).toString();
+  $agent.response(result);
+}
+```
+
+When the function finishes running, this `$agent.response` will trigger the `success` callback on the Jasonette core side, and now Jasonette will continue executing rest of the action call chain.
+
+
+## 4. Learn More
+
+This was just one API method usage. You can learn more features by reading on to the next section, or you can also take a look at [some demos](http://localhost:8000/agents/#demos)
+
+---
+
+
+# API
 
 This documentation discusses:
 

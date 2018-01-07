@@ -18,6 +18,7 @@ Head can contain the following attributes:
 6. actions
 7. templates
 8. data
+9. agents
 
 In JSON they look like this:
 
@@ -235,6 +236,22 @@ You can dynamically render any data using templates. Templates are registered un
 **[Using inline data for rendering](templates.md#1-inline-data)**
 
 `head.data` is like an inline database that gets rendered automatically by `body` template if included.
+
+---
+
+#head.agents
+
+Jasonette Agent is a new architecture for building native mobile apps that utilizes JavaScript technologies without sacrificing native peformance and user experience.
+
+The idea is simple:
+
+- User interacts with the native core.
+- The core spawns background JavaScript containers for multiple tasks.
+- Core and Agents communicate through JSON-RPC.
+
+In short, it's like microservices, but on the frontend.
+
+**[Learn More about Agents](agents.md)**
 
 ---
 
