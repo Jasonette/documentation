@@ -166,18 +166,7 @@
         </ul>
     
 
-    <li class="toctree-l3"><a href="#2-initialize">2. Initialize</a></li>
-    
-        <ul>
-        
-            <li><a class="toctree-l4" href="#listening-to-initialize-event">Listening to initialize event</a></li>
-        
-            <li><a class="toctree-l4" href="#parsing-the-ready-event-object">Parsing the ready event object</a></li>
-        
-        </ul>
-    
-
-    <li class="toctree-l3"><a href="#3-communicate">3. Communicate</a></li>
+    <li class="toctree-l3"><a href="#2-communicate">2. Communicate</a></li>
     
 
     <li class="toctree-l3"><a href="#overview">Overview</a></li>
@@ -409,7 +398,6 @@ var md5 = function(data, sync) {
 <p>This documentation discusses:</p>
 <ol>
 <li><strong>Declare</strong>: How to declare agents</li>
-<li><strong>Initialize</strong>: How to listen to events emitted by agents</li>
 <li><strong>Communicate</strong>: How to communicate with agents</li>
 </ol>
 <h1 id="1-declare">1. Declare</h1>
@@ -472,62 +460,7 @@ var md5 = function(data, sync) {
 <li>Other agents sometimes</li>
 </ul>
 <p><br></p>
-<h1 id="2-initialize">2. Initialize</h1>
-<p>When an agent has finished loading it emits an <code>$agent.ready</code> event.</p>
-<h2 id="listening-to-initialize-event">Listening to initialize event</h2>
-<p>You can listen to <code>$agent.ready</code> events just like any other Jasonette native events, under <code>$jason.head.actions</code>.</p>
-<p>Think of this as jQuery's <a href="https://learn.jquery.com/using-jquery-core/document-ready/">$(document).ready()</a>.</p>
-<pre><code>{
-  &quot;$jason&quot;: {
-    &quot;head&quot;: {
-      &quot;actions&quot;: {
-        &quot;$load&quot;: {
-          &quot;type&quot;: &quot;$render&quot;
-        },
-        &quot;$agent.ready&quot;: {
-          [DO SOMETHING WITH THE EVENT OBJECT HERE!!]
-        }
-      }
-    }
-  }
-}
-</code></pre>
-
-<h2 id="parsing-the-ready-event-object">Parsing the ready event object</h2>
-<p>When the <code>$agent.ready</code> event triggers, it comes with a payload that looks like this:</p>
-<pre><code>{
-  &quot;$jason&quot;: {
-    &quot;id&quot;: [AGENT ID],
-    &quot;url&quot;: [AGENT URL]
-  }
-}
-</code></pre>
-
-<p>So you can detect which agent just became initialized by looking at <code>$jason.id</code> and run appropriate actions, like this:</p>
-<pre><code>{
-  &quot;$jason&quot;: {
-    &quot;head&quot;: {
-      &quot;actions&quot;: {
-        &quot;$load&quot;: {
-          &quot;type&quot;: &quot;$render&quot;
-        },
-        &quot;$agent.ready&quot;: [{
-          &quot;{{#if $jason.id === 'firebase'}}&quot;: {
-            [[DO something with firebase agent]]
-          }
-        }, {
-          &quot;{{#elseif $jason.id === 'web3'}}&quot;: {
-            [[Do something with web3 agent]]
-          }
-        }]
-      }
-    }
-  }
-}
-</code></pre>
-
-<p><br></p>
-<h1 id="3-communicate">3. Communicate</h1>
+<h1 id="2-communicate">2. Communicate</h1>
 <p>Now that everything's set up, we can finally communicate with agents. Below is an overview of how:</p>
 <ul>
 <li><strong>Jasonette</strong> can interact with <strong>agents</strong></li>
