@@ -176,7 +176,6 @@ This was just one API method usage. You can learn more features by reading on to
 This documentation discusses:
 
 1. **Declare**: How to declare agents
-2. **Initialize**: How to listen to events emitted by agents
 2. **Communicate**: How to communicate with agents
 
 # 1. Declare
@@ -235,76 +234,7 @@ Once set up, each agent runs on its own, communicating with
 
 <br>
 
-
-# 2. Initialize
-
-When an agent has finished loading it emits an `$agent.ready` event.
-
-## Listening to initialize event
-
-You can listen to `$agent.ready` events just like any other Jasonette native events, under `$jason.head.actions`.
-
-Think of this as jQuery's [$(document).ready()](https://learn.jquery.com/using-jquery-core/document-ready/).
-
-```
-{
-  "$jason": {
-    "head": {
-      "actions": {
-        "$load": {
-          "type": "$render"
-        },
-        "$agent.ready": {
-          [DO SOMETHING WITH THE EVENT OBJECT HERE!!]
-        }
-      }
-    }
-  }
-}
-```
-
-## Parsing the ready event object
-
-When the `$agent.ready` event triggers, it comes with a payload that looks like this:
-
-```
-{
-  "$jason": {
-    "id": [AGENT ID],
-    "url": [AGENT URL]
-  }
-}
-```
-
-So you can detect which agent just became initialized by looking at `$jason.id` and run appropriate actions, like this:
-
-```
-{
-  "$jason": {
-    "head": {
-      "actions": {
-        "$load": {
-          "type": "$render"
-        },
-        "$agent.ready": [{
-          "{{#if $jason.id === 'firebase'}}": {
-            [[DO something with firebase agent]]
-          }
-        }, {
-          "{{#elseif $jason.id === 'web3'}}": {
-            [[Do something with web3 agent]]
-          }
-        }]
-      }
-    }
-  }
-}
-```
-
-
-<br>
-
-# 3. Communicate
+# 2. Communicate
 
 Now that everything's set up, we can finally communicate with agents. Below is an overview of how:
 
