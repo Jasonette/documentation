@@ -237,6 +237,10 @@
         
             <li><a class="toctree-l4" href="#mediaplay">$media.play</a></li>
         
+            <li><a class="toctree-l4" href="#vision">── Vision ──</a></li>
+        
+            <li><a class="toctree-l4" href="#visionscan">$vision.scan</a></li>
+        
             <li><a class="toctree-l4" href="#audio">── AUDIO ──</a></li>
         
             <li><a class="toctree-l4" href="#audioplay">$audio.play</a></li>
@@ -3153,6 +3157,97 @@ Check out the full code on Github:</p>
 }
 </code></pre>
 <hr />
+<h2 id="vision">── Vision ──</h2>
+<p>Barcode / QR Code detection</p>
+<ul>
+<li>To use <code>$vision</code> API, the body.background must be a camera type.</li>
+<li><code>$vision.ready</code> event gets triggered when the camera is ready.</li>
+<li>You can trigger $vision.scan to start scanning for <strong>barcodes/qrcodes</strong></li>
+<li>The <code>$vision.scan</code> is asynchronous so it immediately goes on to its success callback after it kicks off the scanning service</li>
+<li>The scanning service triggers a $vision.onscan event with the extracted metadata. We can use it to do whatever.</li>
+</ul>
+<h2 id="visionscan">$vision.scan</h2>
+<p>Starts scanning for barcode. When it scans a code, it will trigger a <code>$vision.onscan</code> event.</p>
+<p><br></p>
+<p><img alt="$vision.scan" src="../images/barcode.gif" /></p>
+<h3 id="options_30">■  options</h3>
+<p>No options required</p>
+<h3 id="return-value_29">■  return value</h3>
+<ul>
+<li>none. This action is asynchronous and the scanned result will return through the <code>$vision.onscan</code> event.</li>
+</ul>
+<h3 id="example_21">■  example</h3>
+<p>Quick example:</p>
+<pre><code>{
+  &quot;$jason&quot;: {
+    &quot;head&quot;: {
+      &quot;templates&quot;: {
+        &quot;body&quot;: {
+          &quot;style&quot;: {
+            &quot;background&quot;: {
+              &quot;type&quot;: &quot;camera&quot;
+            }
+          }
+        }
+      },
+      &quot;actions&quot;: {
+        &quot;$load&quot;: {
+          &quot;type&quot;: &quot;$render&quot;
+        },
+        &quot;$vision.ready&quot;: {
+          &quot;type&quot;: &quot;$vision.scan&quot;
+        },
+        &quot;$vision.onscan&quot;: {
+          &quot;type&quot;: &quot;$util.alert&quot;,
+          &quot;options&quot;: {
+            &quot;title&quot;: &quot;Scanned content&quot;,
+            &quot;description&quot;: &quot;{{$jason.type}} {{$jason.content}}&quot;
+           }
+        }
+      }
+    }
+  }
+}
+</code></pre>
+
+<p>A couple of important things to notice:</p>
+<ol>
+<li>we have the body's background set as <code>"type": "camera"</code>. This is <strong>mandatory</strong> to get <code>$vision</code> action to work.</li>
+<li>Then we wait for <code>$vision.ready</code> event. And call <code>$vision.scan</code> when the event fires.</li>
+<li>The <code>$vision.onscan</code> event returns with a payload that looks like:</li>
+</ol>
+<pre><code>[iOS]
+
+{
+  &quot;$jason&quot;: {
+    &quot;type&quot;: &quot;org.iso.QRCode&quot;,
+    &quot;content&quot;: &quot;Hello World&quot;
+  }
+}
+</code></pre>
+
+<pre><code>[Android]
+
+{
+  &quot;$jason&quot;: {
+    &quot;type&quot;: 256,
+    &quot;content&quot;: &quot;Hello World&quot;
+  }
+}
+</code></pre>
+
+<ul>
+<li>The <code>"content"</code> attribute is the content of the barcode</li>
+<li>The <code>"type"</code> represents the barcode type.</li>
+</ul>
+<p><br></p>
+<h3 id="more-examples">More examples</h3>
+<p>Here are two examples using this API:</p>
+<ul>
+<li>Inline Detection and Rendering: <a href="https://jasonbase.com/things/PMj7">https://jasonbase.com/things/PMj7</a>  (any content can be encoded)</li>
+<li>detect link and $href: <a href="https://jasonbase.com/things/rZ0b">https://jasonbase.com/things/rZ0b</a> (Be sure to scan a qrcode that encodes a link)</li>
+</ul>
+<hr />
 <h2 id="audio">── AUDIO ──</h2>
 <p>Anything related to audio</p>
 <p><br></p>
@@ -3162,7 +3257,7 @@ Check out the full code on Github:</p>
 <li>Toggles between play and pause state if called multiple times.</li>
 </ul>
 <p><br></p>
-<h3 id="options_30">■  options</h3>
+<h3 id="options_31">■  options</h3>
 <ul>
 <li><code>url</code>:  A remote url to stream audio from.</li>
 <li><code>title</code>: Title to display on the lock screen while playing in background mode.</li>
@@ -3170,11 +3265,11 @@ Check out the full code on Github:</p>
 <li><code>album</code>: Album name to display on the lock screen while playing in background mode.</li>
 <li><code>image</code>: Image url to display on the lock screen while playing in background mode.</li>
 </ul>
-<h3 id="return-value_29">■  return value</h3>
+<h3 id="return-value_30">■  return value</h3>
 <ul>
 <li>none</li>
 </ul>
-<h3 id="example_21">■  example</h3>
+<h3 id="example_22">■  example</h3>
 <pre><code>{
   "$jason": {
     "head": {
@@ -3203,22 +3298,22 @@ Check out the full code on Github:</p>
 <hr />
 <h2 id="audiopause">$audio.pause</h2>
 <p>Pauses an audio clip that's already playing from a remote url.</p>
-<h3 id="options_31">■  options</h3>
+<h3 id="options_32">■  options</h3>
 <ul>
 <li>url: if specified, pauses ONLY this url. Otherwise, pauses all audios currently playing.</li>
 </ul>
-<h3 id="return-value_30">■  return value</h3>
+<h3 id="return-value_31">■  return value</h3>
 <ul>
 <li>none</li>
 </ul>
 <hr />
 <h2 id="audiostop">$audio.stop</h2>
 <p>Stops an audio clip that's already playing from a remote url.</p>
-<h3 id="options_32">■  options</h3>
+<h3 id="options_33">■  options</h3>
 <ul>
 <li>url: if specified, stops ONLY this url. Otherwise, stops all audios currently playing.</li>
 </ul>
-<h3 id="return-value_31">■  return value</h3>
+<h3 id="return-value_32">■  return value</h3>
 <ul>
 <li>none</li>
 </ul>
@@ -3228,16 +3323,16 @@ Check out the full code on Github:</p>
 <li>Seeks audio already playing from a remote url.</li>
 <li>The position value must be a value between <code>0</code> and <code>1</code> (in string)</li>
 </ul>
-<h3 id="options_33">■  options</h3>
+<h3 id="options_34">■  options</h3>
 <ul>
 <li><code>url</code>: The audio url.</li>
 <li><code>position</code>: value between 0 and 1 (Must be in string format)</li>
 </ul>
-<h3 id="return-value_32">■  return value</h3>
+<h3 id="return-value_33">■  return value</h3>
 <ul>
 <li>none</li>
 </ul>
-<h3 id="example_22">■  example</h3>
+<h3 id="example_23">■  example</h3>
 <p>Here's an example of seeking an audio clip to 30% position</p>
 <pre><code>{
     "$jason": {
@@ -3276,17 +3371,17 @@ Check out the full code on Github:</p>
 <hr />
 <h2 id="audioposition">$audio.position</h2>
 <p>Get the position of the specified audio clip</p>
-<h3 id="options_34">■  options</h3>
+<h3 id="options_35">■  options</h3>
 <ul>
 <li><code>url</code>: The audio url</li>
 </ul>
-<h3 id="return-value_33">■  return value</h3>
+<h3 id="return-value_34">■  return value</h3>
 <p>Returns the position between 0 and 1 in the following format:</p>
 <pre><code>{
   "value": "0.3"
 }
 </code></pre>
-<h3 id="example_23">■  example</h3>
+<h3 id="example_24">■  example</h3>
 <p>The following example displays a toast with the current position when the user taps the label.</p>
 <pre><code>{
   "$jason": {
@@ -3316,17 +3411,17 @@ Check out the full code on Github:</p>
 <hr />
 <h2 id="audioduration">$audio.duration</h2>
 <p>Returns total duration of the specified audio clip</p>
-<h3 id="options_35">■  options</h3>
+<h3 id="options_36">■  options</h3>
 <ul>
 <li><code>url</code>: The audio url</li>
 </ul>
-<h3 id="return-value_34">■  return value</h3>
+<h3 id="return-value_35">■  return value</h3>
 <p>Duration in seconds, in the following format:</p>
 <pre><code>{
   "value": "300"
 }
 </code></pre>
-<h3 id="example_24">■  example</h3>
+<h3 id="example_25">■  example</h3>
 <p>The following example displays a toast with the total duration of the track when the user taps the label.</p>
 <pre><code>{
   "$jason": {
@@ -3356,20 +3451,20 @@ Check out the full code on Github:</p>
 <hr />
 <h2 id="audiorecord">$audio.record</h2>
 <p>Record audio</p>
-<h3 id="options_36">■  options</h3>
+<h3 id="options_37">■  options</h3>
 <ul>
 <li><code>color</code>: tint color when active</li>
 <li><code>color:disabled</code>: tint color when paused</li>
 <li><code>theme</code>: <code>light</code> to use light theme. Otherwise omit.</li>
 </ul>
-<h3 id="return-value_35">■  return value</h3>
+<h3 id="return-value_36">■  return value</h3>
 <ul>
 <li><code>file_url</code>: the local url in which the audio was stored</li>
 <li><code>data_uri</code>: base64 encoded data-uri</li>
 <li><code>content_type</code>: <code>"audio/m4a"</code> (it's always this format)</li>
 </ul>
 <p>Normally you will want to pass the result immediately to a <code>$network.upload</code> call in order to upload it to a cloud storage.</p>
-<h3 id="example_25">■ example</h3>
+<h3 id="example_26">■ example</h3>
 <pre><code>{
   "$jason": {
     "head": {
@@ -3423,17 +3518,17 @@ Check out the full code on Github:</p>
 <h2 id="geo">── GEO ──</h2>
 <h2 id="geoget">$geo.get</h2>
 <p>Get user's geolocation</p>
-<h3 id="options_37">■  options</h3>
+<h3 id="options_38">■  options</h3>
 <ul>
 <li><code>distance</code>: accuracy distance in meters. By default it's 5000meters. The lower you go the more accurate it will be, but the longer it will take to retrieve the location.</li>
 </ul>
-<h3 id="return-value_36">■  return value</h3>
+<h3 id="return-value_37">■  return value</h3>
 <p>a <code>coord</code> object that contains <code>(latitude),(longitude)</code> format string</p>
 <pre><code>{
   "coord": "12.342,22.343"
 }
 </code></pre>
-<h3 id="example_26">■  example</h3>
+<h3 id="example_27">■  example</h3>
 <p>Below example demonstrates various ways of utilizing <code>$geo.get</code> return values</p>
 <pre><code>{
   "$jason": {
@@ -3522,18 +3617,18 @@ Check out the full code on Github:</p>
 <h2 id="timer">── TIMER ──</h2>
 <h2 id="timerstart">$timer.start</h2>
 <p>Start a timer</p>
-<h3 id="options_38">■ options</h3>
+<h3 id="options_39">■ options</h3>
 <ul>
 <li><code>interval</code>: timer interval in seconds</li>
 <li><code>name</code>: name of the timer (used later to stop it)</li>
 <li><code>repeats</code>: if set to <code>"true"</code>, it's a perpetually repeating timer. Otherwise the timer gets called only once.</li>
 <li><code>action</code>: the action to execute on every timer interval.</li>
 </ul>
-<h3 id="return-value_37">■  return value</h3>
+<h3 id="return-value_38">■  return value</h3>
 <ul>
 <li>none</li>
 </ul>
-<h3 id="example_27">■  example</h3>
+<h3 id="example_28">■  example</h3>
 <pre><code>{
   "$jason": {
     "head": {
@@ -3560,15 +3655,15 @@ Check out the full code on Github:</p>
 <hr />
 <h2 id="timerstop">$timer.stop</h2>
 <p>Stops a timer</p>
-<h3 id="options_39">■ options</h3>
+<h3 id="options_40">■ options</h3>
 <ul>
 <li><code>name</code>: the name of the timer to stop. You need to have <a href="#timerstart">started a timer with a name</a> first. It will stop all running timers if the name is not specified.</li>
 </ul>
-<h3 id="return-value_38">■ return value</h3>
+<h3 id="return-value_39">■ return value</h3>
 <ul>
 <li>none</li>
 </ul>
-<h3 id="example_28">■ example</h3>
+<h3 id="example_29">■ example</h3>
 <pre><code>{
   "$jason": {
     ...
@@ -3595,16 +3690,16 @@ Check out the full code on Github:</p>
 <hr />
 <h2 id="convertcsv">$convert.csv</h2>
 <p>Convert CSV to JSON</p>
-<h3 id="options_40">■ options</h3>
+<h3 id="options_41">■ options</h3>
 <ul>
 <li><code>data</code>: CSV string</li>
 </ul>
-<h3 id="return-value_39">■ return value</h3>
+<h3 id="return-value_40">■ return value</h3>
 <ul>
 <li>returns the parsed JSON result.</li>
 <li><strong>Expected format:</strong> must have the first row populated with attribute names. (See below for an example)</li>
 </ul>
-<h3 id="example_29">■ example</h3>
+<h3 id="example_30">■ example</h3>
 <p>Here's an example CSV string returned from a network request.</p>
 <pre><code>name, descrption, url, icon
 github, social coding, https://www.github.com, https://assets-cdn.github.com/images/modules/logos_page/GitHub-Mark.png
@@ -3663,13 +3758,13 @@ product hunt, Discover your next favorite thing, https://www.producthunt.com, ht
 <hr />
 <h2 id="convertrss">$convert.rss</h2>
 <p>Convert RSS to JSON. Built on top of <a href="https://github.com/danmactough/node-feedparser">node-feedparser library</a></p>
-<h3 id="options_41">■ options</h3>
+<h3 id="options_42">■ options</h3>
 <ul>
 <li><code>data</code>: RSS string</li>
 </ul>
-<h3 id="return-value_40">■ return value</h3>
+<h3 id="return-value_41">■ return value</h3>
 <p>returns the parsed JSON result in the following format (<a href="https://github.com/danmactough/node-feedparser#what-is-the-parsed-output-produced-by-feedparser">You can learn more about the spec here</a>):</p>
-<h3 id="example_30">■ example</h3>
+<h3 id="example_31">■ example</h3>
 <p>Here's an example where it makes a network request to <a href="http://feeds.gawker.com/lifehacker/full">http://feeds.gawker.com/lifehacker/full</a> with <code>data_type</code> of <code>rss</code>, converts it to JSON using <code>$convert.rss</code>, and then renders it.</p>
 <pre><code>{
   "actions": {
