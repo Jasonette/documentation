@@ -17,6 +17,7 @@ To describe links between views, we use `href`. Here are some of its traits:
 - [options](#options)
 - [transition](#transition)
 - [loading](#loading)
+- [preload](#preload)
 
 <br>
 
@@ -152,6 +153,8 @@ The way the next view gets presented
 
 ## ■ loading
 
+(deprecated) Use [preload](#preload) below
+
 If set to `"true"`, it displays a loading indicator when the new view loads.
 
     {
@@ -167,6 +170,39 @@ For the very first view the app loads with, we can't do this since there is no v
 - On iOS In this case we can make the first view display a loading indicator by setting the `loading` attribute inside `settings.plist`.
 
 <br>
+
+## ■ preload
+
+Preload lets you specify a JSON markup for the next view **before** the next view loads. This helps with smooth transition.
+
+Here's an example:
+
+{
+  "type": "$href",
+  "options": {
+    "url": "https://www.jasonbase.com/dhen3",
+    "preload": {
+      "style": {
+        "background": "#ff0000"
+      },
+      "layers": [{
+        "type": "image",
+        "url": "file://loading.gif",
+        "style": {
+          "top": "50%-25",
+          "left": "50%-25",
+          "width": "50",
+          "height": "50"
+        }
+      }]
+    }
+  }
+}
+
+Notice that 
+
+- the `preload` contains an entire view representation of a view.
+- it **DOES NOT** contain the `head` part. preload is purely for displaying a temp view until the real view loads.
 
 <img src='../images/settingsplist.png' class='large'>
 

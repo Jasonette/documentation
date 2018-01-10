@@ -1417,9 +1417,20 @@ It's the same set of attributes as [href](href.md) since it simply invokes the h
   - `view`
     - can be `"web"` | `"app"` | `"jason"` (default)
   - `options`
-    - Works the same way as the [options object for href](http://docs.jasonette.com/href/#options) 
+    - Works the same way as the [options object for href](https://docs.jasonette.com/href/#options) 
   - `transition`
     - can be `"modal"` | `"fullscreen"` | `"push"` (default)
+  - `preload`
+    - A preload JASON markup to render before the next view renders.
+
+### ■ "success" callback
+
+Normally when using the `$href` action, it just transitions to the next view.
+
+However you can use the `success` callback to the `$href` action **along with [$ok](#ok) action to implement a 2-way communication between views. To learn more, read the [$ok action](#ok).
+
+* Note: Not supported for a regular [href](https://docs.jasonette/href). Only supported for `$href` action.
+
 
 ### ■  return value
 
@@ -1486,6 +1497,39 @@ This example opens Instagram app using its URL scheme
     }
 
 ---
+
+### ■ example 3. Using `preload`
+
+Preload lets you specify a JSON markup for the next view **before** the next view loads. This helps with smooth transition.
+
+Here's an example:
+
+{
+  "type": "$href",
+  "options": {
+    "url": "https://www.jasonbase.com/dhen3",
+    "preload": {
+      "style": {
+        "background": "#ff0000"
+      },
+      "layers": [{
+        "type": "image",
+        "url": "file://loading.gif",
+        "style": {
+          "top": "50%-25",
+          "left": "50%-25",
+          "width": "50",
+          "height": "50"
+        }
+      }]
+    }
+  }
+}
+
+Notice that 
+
+- the `preload` contains an entire view representation of a view.
+- it **DOES NOT** contain the `head` part. preload is purely for displaying a temp view until the real view loads.
 
 ## $close
 
@@ -1561,6 +1605,36 @@ Two points:
 ```
 
 Notice that the `options` payload from the previous `$ok` action is accessible as `$jason` in the success callback.
+
+---
+
+## $scroll
+
+Programmatically scroll to `top` or `bottom` of a view
+
+### ■ options
+
+- `position`: `top` or `bottom`
+
+### ■ return value
+- none
+
+
+### Example
+
+```
+{
+  "type": "$scroll",
+  "options": {
+    "position": "bottom"
+  }
+}
+```
+
+### Functional example
+
+- Github Search with scroll feature: [https://jasonbase.com/things/1KQB](https://jasonbase.com/things/1KQB)
+
 
 ---
 
