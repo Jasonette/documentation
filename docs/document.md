@@ -1148,14 +1148,15 @@ For example in the below example, the visible view's URL should match the URL of
 ---
 
 
-#body.style
-Styling the body
+# body.background
 
-- background: setting the background of the view
-- border: setting the border color for section items
+Set the background for the entire view. 
 
-##■ background
-Set the background for the entire view
+<br>
+
+> **Quick History:** This used to be `body.style.background` because in the beginning, the background only had color options. But since then it has added a lot of features, so has been promoted to the same level as `sections`, `layers`, `header`, and `footer`.
+>
+> You can still use the `body.style.background` option but it's been unofficially deprecated.
 
 <br>
 
@@ -1184,9 +1185,7 @@ Set the background for the entire view
           ...
         },
         "body": {
-          "style": {
-            "background": "#ff0000"
-          },
+          "background": "#ff0000"
           ...
         }
       }
@@ -1200,9 +1199,7 @@ Set the background for the entire view
           ...
         },
         "body": {
-          "style": {
-            "background": "http://i.giphy.com/Is0AJv4CEj9hm.gif"
-          },
+          "background": "http://i.giphy.com/Is0AJv4CEj9hm.gif"
           ...
         }
       }
@@ -1216,7 +1213,7 @@ Set the background for the entire view
           ...
         },
         "body": {
-          "style": {
+          "background": {
             "type": "html",
             "text": "<html><head><style>...</style><script>....</script></head><body>...</body></html>",
             "action": {
@@ -1235,9 +1232,7 @@ Set the background for the entire view
           ...
         },
         "body": {
-          "style": {
-            "background": "camera"
-          },
+          "background": "camera"
           ...
         }
       }
@@ -1253,12 +1248,10 @@ Back facing camera
           ...
         },
         "body": {
-          "style": {
-            "background": {
-              "type": "camera",
-              "options": {
-                "device": "back"
-              }
+          "background": {
+            "type": "camera",
+            "options": {
+              "device": "back"
             }
           },
           ...
@@ -1285,7 +1278,12 @@ Here's the preview:
 
 ---
 
-##■ border
+# body.style
+Styling the body
+
+- border: setting the border color for section items
+
+## ■ border
 
   - border color for `section` items.
   - Format: `[COLOR CODE]` | `"none"`

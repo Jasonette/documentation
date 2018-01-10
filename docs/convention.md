@@ -21,9 +21,7 @@ We can use rgb code.
 
     {
       "body": {
-        "style": {
-          "background": "rgb(244,244,244)"
-        }
+        "background": "rgb(244,244,244)"
       }
     }
 
@@ -32,9 +30,7 @@ We can use rgba code. r,g,b parts are same as rgb, but the last value is the opa
 
     {
       "body": {
-        "style": {
-          "background": "rgba(255,255,255,0.3)"
-        }
+        "background": "rgba(255,255,255,0.3)"
       }
     }
 
@@ -43,9 +39,7 @@ We can also use hex code
 
     {
       "body": {
-        "style": {
-          "background": "#ff0000"
-        }
+        "background": "#ff0000"
       }
     }
 

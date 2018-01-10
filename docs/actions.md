@@ -1509,9 +1509,7 @@ Here's an example:
   "options": {
     "url": "https://www.jasonbase.com/dhen3",
     "preload": {
-      "style": {
-        "background": "#ff0000"
-      },
+      "background": "#ff0000",
       "layers": [{
         "type": "image",
         "url": "file://loading.gif",
@@ -3074,9 +3072,7 @@ In the following example, we take a photo using `$media.camera`, and then utiliz
           },
           "templates": {
             "body": {
-              "style": {
-                "background": "{{$jason.data_url}}"
-              }
+              "background": "{{$jason.data_url}}"
             }
           }
         }
@@ -3213,10 +3209,8 @@ Quick example:
     "head": {
       "templates": {
         "body": {
-          "style": {
-            "background": {
-              "type": "camera"
-            }
+          "background": {
+            "type": "camera"
           }
         }
       },
