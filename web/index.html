@@ -479,6 +479,11 @@
 <li><code>type</code>: <code>"html"</code></li>
 <li><code>url</code>: URL to load (<code>http://</code>, <code>https://</code>, <code>file://</code> supported)</li>
 <li><code>text</code>: A self contained HTML text (<code>&lt;html&gt;...&lt;/html&gt;</code>), which means everything from <code>script</code> tag to <code>style</code> tag.</li>
+<li><code>style</code>: styling the web container<ul>
+<li><strong>background</strong>: Background color</li>
+<li><strong>progress</strong>: The progressbar color. The background web container comes with a progressbar which displays the loading progress whenever a web page loads. Use this property to change its color (Ex: <code>"#ff0000"</code>, <code>rgb(255,0,0)</code>, <code>rgba(255,0,0,0.5)</code>)</li>
+</ul>
+</li>
 <li><code>action</code>: (optional) Connect with <code>"type": "$default"</code> in order to let the web container handle the touch event. Otherwise not needed.<ul>
 <li><strong>[IMPORTANT]</strong> By default, web container content DOES NOT respond to user touch. This means if you click on a link inside the HTML, it won't do anything.</li>
 <li>In order to override this behavior, attach a <code>"type": "$default"</code> action, so the web container knows.</li>
