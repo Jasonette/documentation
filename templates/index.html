@@ -608,6 +608,17 @@
 }
 </code></pre>
 <p>Keep in mind that the change in context makes global objects such as <code>$get</code>, and <code>$cache</code> inaccessible. You can use the <code>$root</code> object to get at them, e.g. <code>$root.$get</code>.</p>
+<h3 id="4-advanced">4. Advanced</h3>
+<p>Since inception, the template engine has added a lot of more useful features, such as</p>
+<ul>
+<li><a href="https://selecttransform.github.io/site/transform.html#9-index">$index</a> for keeping track of the current item's index within a loop</li>
+<li><a href="https://selecttransform.github.io/site/transform.html#10-local-variables">#let</a> API to define local variables</li>
+<li><a href="https://selecttransform.github.io/site/transform.html#5-concat">#concat</a> for merging two arrays</li>
+<li><a href="https://selecttransform.github.io/site/transform.html#6-merge">#merge</a> for merging two objects</li>
+<li><a href="https://selecttransform.github.io/site/transform.html#4-existential-operator">#?</a>: Existential operator for including or excluding a key/value pair altogether based on the parsed result</li>
+</ul>
+<p>The template itself has become too much of a sophisticated beast that it's been spun out to a separate project.</p>
+<p>You can view the full documentation here: https://selecttransform.github.io/site/transform.html</p>
 <h2 id="non-json">Non-JSON</h2>
 <p>Let's take a look at how non-JSON (CSV, RSS, HTML) templating works:</p>
 <h3 id="csv">CSV</h3>
