@@ -229,6 +229,9 @@ Same as component usage, except there's no need for `style`, and you can't attac
 * `type`: `"html"`
 * `url`: URL to load (`http://`, `https://`, `file://` supported)
 * `text`: A self contained HTML text (`<html>...</html>`), which means everything from `script` tag to `style` tag.
+* `style`: styling the web container
+    * **background**: Background color
+    * **progress**: The progressbar color. The background web container comes with a progressbar which displays the loading progress whenever a web page loads. Use this property to change its color (Ex: `"#ff0000"`, `rgb(255,0,0)`, `rgba(255,0,0,0.5)`)
 * `action`: (optional) Connect with `"type": "$default"` in order to let the web container handle the touch event. Otherwise not needed.
     * **[IMPORTANT]** By default, web container content DOES NOT respond to user touch. This means if you click on a link inside the HTML, it won't do anything.
     * In order to override this behavior, attach a `"type": "$default"` action, so the web container knows.
