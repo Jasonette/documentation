@@ -2636,6 +2636,8 @@ Basic Alert   |   Form Alert
 ### ■  return value
  - if the `form` attribute is used, returns the filled out `$jason` object
  - if the `form` attribute is NOT used, no return value
+ - If `ok` button was clicked, it triggers the `success` callback.
+ - If `cancel` button was clicked, it triggers the `error` callback.
 
 ### ■ examples
 ####Example 1. Simple notice alert
