@@ -1828,9 +1828,10 @@ In the example below, an <code>action</code> is attached to a <code>slider</code
 <h3 id="options_10">■ options</h3>
 <ul>
 <li><code>url</code>: The url to access.</li>
-<li><code>method</code>: <code>"get"</code> | <code>"post"</code> | <code>"put"</code> | <code>"delete"</code>.</li>
+<li><code>method</code>: <code>"get"</code> | <code>"post"</code> | <code>"put"</code> | <code>"delete"</code> | <code>"head"</code> | <code>"patch"</code> .</li>
 <li><code>data</code>: Parameters to send along with the url (optional)</li>
 <li><code>header</code>: Headers to attach to every request if any (optional)</li>
+<li><code>timeout</code>: network request time out in seconds (optional).</li>
 <li><code>data_type</code>: Specifies how the fetched response will be processed. Can be <code>json</code>, <code>html</code>, <code>rss</code>, or <code>raw</code>. <code>json</code> assumes that the return value will be in JSON format, whereas <code>raw</code> expects a plain text. You can use <code>raw</code> type when fetching a plain text or CSV. <code>html</code> is for fetching HTML content and especially required when you need to utilize HTML requests associated with cookies/sessions. <code>rss</code> is used to fetch RSS. The default is <code>json</code>.</li>
 <li><code>content_type</code>: Specifies which format the parameters will be sent as. By default it's sent as a form object, but in case you specify <code>{"content_type": "json"}</code> the data will be submitted as a JSON string.</li>
 </ul>
