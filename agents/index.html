@@ -201,6 +201,9 @@
         </ul>
     
 
+    <li class="toctree-l3"><a href="#agent-lifecycle">Agent Lifecycle</a></li>
+    
+
     <li class="toctree-l3"><a href="#demos">Demos</a></li>
     
 
@@ -851,6 +854,19 @@ $agent.request({
 <li>Then we inject the JavaScript file at <code>file://authentication.js</code>.</li>
 <li>Next step, we call <code>$agent.request</code>, which makes a function call into the agent context. This time, the <code>$agent.request</code> call will work since the <code>auth</code> function has been injected.</li>
 </ol>
+<hr />
+<h1 id="agent-lifecycle">Agent Lifecycle</h1>
+<ul>
+<li>Agents are sandboxed per JASON view.</li>
+<li>One JASON view can conain many agents.</li>
+<li>When a user navigates away from a view, all its child agents immediately get garbage collected. So if your agent was running a persistent websockets connection for example, it will automatically be destroyed.</li>
+<li>If a user navigates from view A to view B, and back to view A<ul>
+<li>all the agents under view A gets destroyed when the view A -&gt; view B transition happens</li>
+<li>all of view A's agents automatically get re-initialized when coming back from view B -&gt; view A.</li>
+</ul>
+</li>
+<li>You can call <code>$agent.request</code> at any timing (for example <code>$load</code> or <code>$show</code> or <code>$foreground</code>, etc.). If the agent is not yet ready when the request was made, the request will be automatically queued until the recipient agent is ready to process the request.</li>
+</ul>
 <hr />
 <h1 id="demos">Demos</h1>
 <p>Here are some demos you can try out right now:</p>
