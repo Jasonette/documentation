@@ -418,6 +418,20 @@ This is where `this` comes in. To handle this situation we can write the followi
 
 Keep in mind that the change in context makes global objects such as `$get`, and `$cache` inaccessible. You can use the `$root` object to get at them, e.g. `$root.$get`.
 
+### 4. Advanced
+
+Since inception, the template engine has added a lot of more useful features, such as
+
+- [$index](https://selecttransform.github.io/site/transform.html#9-index) for keeping track of the current item's index within a loop
+- [#let](https://selecttransform.github.io/site/transform.html#10-local-variables) API to define local variables
+- [#concat](https://selecttransform.github.io/site/transform.html#5-concat) for merging two arrays
+- [#merge](https://selecttransform.github.io/site/transform.html#6-merge) for merging two objects
+- [#?](https://selecttransform.github.io/site/transform.html#4-existential-operator): Existential operator for including or excluding a key/value pair altogether based on the parsed result
+
+The template itself has become too much of a sophisticated beast that it's been spun out to a separate project.
+
+You can view the full documentation here: https://selecttransform.github.io/site/transform.html
+
 
 ## Non-JSON
 
