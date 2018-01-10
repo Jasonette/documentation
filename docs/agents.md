@@ -703,6 +703,19 @@ Here's what's going on:
  
 ---
 
+# Agent Lifecycle
+
+- Agents are sandboxed per JASON view.
+- One JASON view can conain many agents.
+- When a user navigates away from a view, all its child agents immediately get garbage collected. So if your agent was running a persistent websockets connection for example, it will automatically be destroyed.
+- If a user navigates from view A to view B, and back to view A
+    - all the agents under view A gets destroyed when the view A -> view B transition happens
+    - all of view A's agents automatically get re-initialized when coming back from view B -> view A.
+- You can call `$agent.request` at any timing (for example `$load` or `$show` or `$foreground`, etc.). If the agent is not yet ready when the request was made, the request will be automatically queued until the recipient agent is ready to process the request.
+
+
+---
+
 # Demos
 
 Here are some demos you can try out right now:
