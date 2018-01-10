@@ -227,27 +227,249 @@ Use any JS library | Interacting with HTML content via touch
 Same as component usage, except there's no need for `style`, and you can't attache an `action` other than `"type": "$default"`.
 
 * `type`: `"html"`
+* `url`: URL to load (`http://`, `https://`, `file://` supported)
 * `text`: A self contained HTML text (`<html>...</html>`), which means everything from `script` tag to `style` tag.
 * `action`: (optional) Connect with `"type": "$default"` in order to let the web container handle the touch event. Otherwise not needed.
     * **[IMPORTANT]** By default, web container content DOES NOT respond to user touch. This means if you click on a link inside the HTML, it won't do anything.
     * In order to override this behavior, attach a `"type": "$default"` action, so the web container knows.
     
+Using a raw html text approach:
 
 ```
 {
   "body": {
-    "style": {
-      "background": {
-        "type": "html",
-        "text": "<html>....</html>",
-        "action": {
-          "type": "$default"
-        }
+    "background": {
+      "type": "html",
+      "text": "<html>....</html>",
+      "action": {
+        "type": "$default"
       }
     }
   }
 }
 ```
+
+```
+{
+  "body": {
+    "background": {
+      "type": "html",
+      "url": "https://www.google.com",
+      "action": {
+        "type": "$default"
+      }
+    }
+  }
+}
+```
+
+---
+
+## In-Depth on Background web container
+
+The background web container is a different beast than the component web containers.
+
+Whereas [component web containers](#1-as-component) are purely meant for display purposes, the background web container can do a lot of things.
+
+## 1. Background Web Container is an Agent
+
+The background web container (`$jason.body.background`) is an agent. It's a special type of agent, but it's still powered by the same [agent](/agents) engine.
+
+This means you can make JSON-RPC calls into the web container and let it have seamless 2-way communications with native Jasonette core.
+
+<br>
+
+But first, if you aren't aware of how agents work, check out the [agent](/agents) documentation and come back.
+
+<br>
+
+Back? A couple of things to note that makes web containers special:
+
+1. Unlike other agents which are invisible, web container is visible (Obviously. That's what web containers are for)
+2. Web container is a special type of agent. There can be only ONE per view (the `$jason.body.background`)
+3. Unlike other "virtual" agents where you declare them under `$jason.head.agents`, you declare them just like any other body background. (`$jason.body.background`)
+4. Other agents require an `id`, which you set under `$jason.head.agents`. Web container doesn't require an ID. It's automatically set to `$webcontainer`.
+5. This means when you're making JSON-RPC calls into the web container, you will use `$webcontainer` as its ID, like this:
+
+```
+{
+	"$jason": {
+		"head": {
+			"title": "Web Container Agent Demo",
+			"actions": {
+				"$load": {
+					"type": "$agent.request",
+					"options": {
+						"id": "$webcontainer",
+						"method": "add",
+						"params": ["a", "b"]
+					}
+				}
+			}
+		},
+		"body": {
+			"background": {
+				"type": "html",
+				"url": "file://app.html"
+			}
+		}
+	}
+}
+```
+
+## 2. User Interaction
+
+Depending on what you specify as the `action` attribute, you can make your web container behave in many different ways.
+
+### A. Block user interaction
+
+By default (if you don't specify any `action` attribute) users can't interact with web containers. In this case, you use it for view only purposes.
+
+This may be necessary if
+
+- you just want to use web container as a "display" and don't want users to interact with it.
+- you don't want any scrolling behavior within the web container. This may conflict with the native view's own scroll view.
+
+### B. Intercept URL visits
+
+To intercept URL visits, you simply need to define an `action` attribute.
+
+When you do so,
+
+1. users can interact with the web container.
+2. any attempt of the user trying to navigate away from the view (by clicking a link for example) will be intercepted.
+3. When intercepted, it will make the action call specified under `body.background.action` instead of actually navigating away.
+4. When the action is called, the web container will pass the following payload:
+
+```
+{
+	"$jason": {
+		"url": [The link the user was trying to navigate to]
+	}
+}
+```
+
+Here's an example:
+
+```
+{
+	"$jason": {
+		"head": {
+			"title": "Web Container Agent",
+			"actions": {
+				"notify": {
+					"type": "$utill.alert",
+					"options": {
+						"title": "Link Clicked",
+						"description": "You just clicked {{$jason.url}}"
+					}
+				}
+			}
+		},
+		"body": {
+			"background": {
+				"type": "html",
+				"url": "file://app.html",
+				"id": "app",
+				"action": {
+					"trigger": "notify"
+				}
+			}
+		}
+	}
+}
+```
+
+In this case, the `body.background` has an `action` attribute, so it means users can interact with the web container.
+
+When the user clicks any link on the page, it will trigger an action called `"notify"`.
+
+The `notify` action (specified under `$jason.head.actions.notify`) will open an alert displaying the URL the user tried to navigate to.
+
+
+
+### C. Or don't intercept.
+
+Or you may want users to interact with the web container, but instead of intercepting, just let it behave like a plain web browser (just letting users visit new links)
+
+You can do this by setting the action to `"type": "$default"`
+
+
+```
+{
+	"type": "$agent.connect",
+	"options": {
+		"url": "file://app.html",
+		"id": "app",
+		"action": {
+			"type": "$default"
+		}
+	}
+}
+```
+
+
+### Intercepting a URL visit and doing a native transition
+
+Using the interception approach you can intercept a user's intent to visit a link, and instead of doing a clumsy web-like page refresh, you can native transition into another Jason view with another web page contained in a web container.
+
+
+```
+
+file://native_transition.json
+
+{
+	"$jason": {
+		"head": {
+			"title": "Web Container Native Transition",
+			"actions": {
+				"$load": {
+					"type": "$set",
+					"options": {
+						"url": [{
+							"{{#if $params && 'url' in $params}}": "{{$params.url}}"
+						}, {
+							"{{#else}}": "https://www.google.com"
+						}]
+					},
+					"success": {
+						"type": "$render"
+					}
+				},
+				"navigate": {
+					"type": "$href",
+					"options": {
+						"url": "file://native_transition.json",
+						"options": {
+							"url": "{{$jason.url}}"
+						}
+					}
+				}
+			},
+			"templates": {
+				"body": {
+					"background": {
+						"type": "html",
+						"url": "{{$params.url}}",
+						"action": {
+							"trigger": "navigate"
+						}
+					}
+				}
+			}
+		}
+	}
+}
+```
+
+With the agent and its URL interception feature, now you can have a seamless interaction between the web container and its parent native app.
+
+Normally when you click a link in an HTML document, it refreshes the page to send you to the linked page. This is in fact one of the primary reasons why HTML5 hybrid app approaches feel so clunky.
+
+But now HTML documents loaded within a web container can:
+
+1. **Trigger a native action**
+2. **Make a native transition to another view**
 
 
 ---
@@ -305,11 +527,9 @@ Same as component usage, except there's no need for `style`, and you can't attac
       "title": "pdf.js"
     },
     "body": {
-      "style": {
-        "background": {
-          "type": "html",
-          "text": "<html><head><style>html{padding:0;margin:0;margin-top: 64px;} body,iframe{width:100%;height:100%;padding:0;margin:0;border:0;}</style><body><iframe src='https://mozilla.github.io/pdf.js/web/viewer.html'/></body></html>"
-        }
+      "background": {
+        "type": "html",
+        "text": "<html><head><style>html{padding:0;margin:0;margin-top: 64px;} body,iframe{width:100%;height:100%;padding:0;margin:0;border:0;}</style><body><iframe src='https://mozilla.github.io/pdf.js/web/viewer.html'/></body></html>"
       }
     }
   }
@@ -327,12 +547,14 @@ Same as component usage, except there's no need for `style`, and you can't attac
 		"title": "pdf.js"
 	},
 	"body": {
+    "background": {
+      "type": "html",
+      "text": "<html> <head> <style> body { margin: 0; padding: 0; background: #111; overflow: hidden; } .dg{visibility: hidden;}</style> </head> <body> <script src='https://cdnjs.cloudflare.com/ajax/libs/dat-gui/0.6.2/dat.gui.min.js'></script><script src='https://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.3/jquery.min.js'></script><script src='https://cdnjs.cloudflare.com/ajax/libs/three.js/r50/three.min.js'></script><script> window.onload = function(){ var $container = $('#container'); var renderer = new THREE.WebGLRenderer({antialias: true}); var camera = new THREE.PerspectiveCamera(80,window.innerWidth/window.innerHeight,0.1,10000); var scene = new THREE.Scene(); var mouseX = 0, mouseY = 0; scene.add(camera); renderer.setSize(window.innerWidth, window.innerHeight); $container.append(renderer.domElement); window.addEventListener( 'resize', onWindowResize, false ); var Controls = function() { this.speed = 2; this.rotation = 0; }; var text = new Controls(), gui = new dat.GUI(); gui.add(text, 'speed', 0, 10); gui.add(text, 'rotation',0,15); var normalMaterial = new THREE.MeshNormalMaterial({}); function Torus(f){ this.b = new THREE.Mesh(new THREE.TorusGeometry( 160, 75, 2, 13),normalMaterial); this.b.position.x = 57*Math.cos(f); this.b.position.y = 57*Math.sin(f); this.b.position.z = f*1.25; this.b.rotation.z = f*0.03; } var numTorus = 80; var tabTorus = []; for(var i=0; i<numTorus; i++){ tabTorus.push(new Torus(-i*13)); scene.add(tabTorus[i].b); }  function update(){ for(var i=0; i<numTorus; i++){ tabTorus[i].b.position.z+=text.speed; tabTorus[i].b.rotation.z+=i*text.rotation/10000; if(tabTorus[i].b.position.z>0) { tabTorus[i].b.position.z=-1000; } } } function onWindowResize() { windowHalfX = window.innerWidth / 2; windowHalfY = window.innerHeight / 2; camera.aspect = window.innerWidth / window.innerHeight; camera.updateProjectionMatrix(); renderer.setSize( window.innerWidth, window.innerHeight ); } function onDocumentMouseMove(event) { mouseX = ( event.clientX - windowHalfX ); mouseY = ( event.clientY - windowHalfY ); } function render() { requestAnimationFrame( render); camera.position.x += ( mouseX - camera.position.x ) * .05; camera.position.y += ( - mouseY - camera.position.y ) * .05; renderer.render(scene, camera); update(); } render(); }; </script> <div id='container'></div> </body> </html>"
+    },
 		"style": {
 			"border": "none",
-			"color": "rgba(0,0,0,0)",
-			"background": {
-				"type": "html",
-				"text": "<html> <head> <style> body { margin: 0; padding: 0; background: #111; overflow: hidden; } .dg{visibility: hidden;}</style> </head> <body> <script src='https://cdnjs.cloudflare.com/ajax/libs/dat-gui/0.6.2/dat.gui.min.js'></script><script src='https://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.3/jquery.min.js'></script><script src='https://cdnjs.cloudflare.com/ajax/libs/three.js/r50/three.min.js'></script><script> window.onload = function(){ var $container = $('#container'); var renderer = new THREE.WebGLRenderer({antialias: true}); var camera = new THREE.PerspectiveCamera(80,window.innerWidth/window.innerHeight,0.1,10000); var scene = new THREE.Scene(); var mouseX = 0, mouseY = 0; scene.add(camera); renderer.setSize(window.innerWidth, window.innerHeight); $container.append(renderer.domElement); window.addEventListener( 'resize', onWindowResize, false ); var Controls = function() { this.speed = 2; this.rotation = 0; }; var text = new Controls(), gui = new dat.GUI(); gui.add(text, 'speed', 0, 10); gui.add(text, 'rotation',0,15); var normalMaterial = new THREE.MeshNormalMaterial({}); function Torus(f){ this.b = new THREE.Mesh(new THREE.TorusGeometry( 160, 75, 2, 13),normalMaterial); this.b.position.x = 57*Math.cos(f); this.b.position.y = 57*Math.sin(f); this.b.position.z = f*1.25; this.b.rotation.z = f*0.03; } var numTorus = 80; var tabTorus = []; for(var i=0; i<numTorus; i++){ tabTorus.push(new Torus(-i*13)); scene.add(tabTorus[i].b); }  function update(){ for(var i=0; i<numTorus; i++){ tabTorus[i].b.position.z+=text.speed; tabTorus[i].b.rotation.z+=i*text.rotation/10000; if(tabTorus[i].b.position.z>0) { tabTorus[i].b.position.z=-1000; } } } function onWindowResize() { windowHalfX = window.innerWidth / 2; windowHalfY = window.innerHeight / 2; camera.aspect = window.innerWidth / window.innerHeight; camera.updateProjectionMatrix(); renderer.setSize( window.innerWidth, window.innerHeight ); } function onDocumentMouseMove(event) { mouseX = ( event.clientX - windowHalfX ); mouseY = ( event.clientY - windowHalfY ); } function render() { requestAnimationFrame( render); camera.position.x += ( mouseX - camera.position.x ) * .05; camera.position.y += ( - mouseY - camera.position.y ) * .05; renderer.render(scene, camera); update(); } render(); }; </script> <div id='container'></div> </body> </html>"
+			"color": "rgba(0,0,0,0)"
+    }
   }
 }
 ```
@@ -358,8 +580,9 @@ Which brings us to:
 
 <br>
 
-### 2. Must specify height when in scroll view
-Every web container must have a fixed height when inside a scroll view (sections).
+### 2. For component web containers: Must specify height when in scroll view
+
+This applies only to component web containers. Every web container must have a fixed height when inside a scroll view (sections).
 
 This is so that there exists no scrolling view within a scroll view, which is a bad user experience.
 
@@ -434,25 +657,16 @@ That said, there are some cases where it does make sense to let the HTML handle 
 
 <br>
 
-### 6. Use the `"type": "$default"` action to force Jasonette to let HTML handle events.
-
-If you know what you're doing, you can override the block and let the HTML handle user events.
-
-```
-{
-	"type": "html",
-	"text": "<html><body><script src='https://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.3/jquery.min.js'><script>$(function(){$(document).on('click', function(){ $('body').css('background', '#ff0000'); }); });</script></body></html>",
-	"action": {
-		"type": "$default"
-	}
-}
-```
-
-<br>
 
 ## Technical Details
 
-Under the hood, each web container is a containerized instance of web view ([UIWebView for iOS](https://developer.apple.com/reference/uikit/uiwebview) and [WebView for Android](https://developer.android.com/reference/android/webkit/WebView.html)).
+Under the hood, each web container is a containerized instance of web view. Here are some details:
 
-It gets recycled when you scroll just like rest of the native components so it's pretty efficient.
+- iOS
+    - Component type web containers use [UIWebView](https://developer.apple.com/reference/uikit/uiwebview) because it's better for usage in a scrollview.
+    - Background web containers use [WKWebView](https://developer.apple.com/documentation/webkit/wkwebview). It uses the same engine as [agents](/agents)
+- Android
+    - Both component type and background type web containers use [WebView](https://developer.android.com/reference/android/webkit/WebView.html)
 
+
+Component type web containers get recycled when you scroll just like rest of the native components so it's pretty efficient.
