@@ -190,11 +190,32 @@
         </ul>
     
 
-    <li class="toctree-l3"><a href="#bodystyle">body.style</a></li>
+    <li class="toctree-l3"><a href="#bodybackground">body.background</a></li>
     
         <ul>
         
-            <li><a class="toctree-l4" href="#background">■ background</a></li>
+            <li><a class="toctree-l4" href="#available-values">available values</a></li>
+        
+            <li><a class="toctree-l4" href="#example-1-red-background">example 1. red background</a></li>
+        
+            <li><a class="toctree-l4" href="#example-2-image-background">example 2. image background</a></li>
+        
+            <li><a class="toctree-l4" href="#example-3-web-container-background">example 3. web container background</a></li>
+        
+            <li><a class="toctree-l4" href="#example-4-basic-camera">example 4. basic camera</a></li>
+        
+            <li><a class="toctree-l4" href="#example-5-advanced-camera">example 5. advanced camera</a></li>
+        
+            <li><a class="toctree-l4" href="#what-they-look-like">What they look like</a></li>
+        
+            <li><a class="toctree-l4" href="#functional-example">Functional Example</a></li>
+        
+        </ul>
+    
+
+    <li class="toctree-l3"><a href="#bodystyle">body.style</a></li>
+    
+        <ul>
         
             <li><a class="toctree-l4" href="#border">■ border</a></li>
         
@@ -1336,14 +1357,13 @@ Let's go into more details:</p>
 <p><strong>  ⚠️  Troubleshoot 5:</strong></p>
 <p><code>tabs</code> must have at least 2 items (2 tabs min).</p>
 <hr />
-<h1 id="bodystyle">body.style</h1>
-<p>Styling the body</p>
-<ul>
-<li>background: setting the background of the view</li>
-<li>border: setting the border color for section items</li>
-</ul>
-<h2 id="background">■ background</h2>
-<p>Set the background for the entire view</p>
+<h1 id="bodybackground">body.background</h1>
+<p>Set the background for the entire view. </p>
+<p><br></p>
+<blockquote>
+<p><strong>Quick History:</strong> This used to be <code>body.style.background</code> because in the beginning, the background only had color options. But since then it has added a lot of features, so has been promoted to the same level as <code>sections</code>, <code>layers</code>, <code>header</code>, and <code>footer</code>.</p>
+<p>You can still use the <code>body.style.background</code> option but it's been unofficially deprecated.</p>
+</blockquote>
 <p><br></p>
 <h3 id="available-values">available values</h3>
 <ul>
@@ -1376,9 +1396,7 @@ Let's go into more details:</p>
       ...
     },
     "body": {
-      "style": {
-        "background": "#ff0000"
-      },
+      "background": "#ff0000"
       ...
     }
   }
@@ -1391,9 +1409,7 @@ Let's go into more details:</p>
       ...
     },
     "body": {
-      "style": {
-        "background": "http://i.giphy.com/Is0AJv4CEj9hm.gif"
-      },
+      "background": "http://i.giphy.com/Is0AJv4CEj9hm.gif"
       ...
     }
   }
@@ -1406,7 +1422,7 @@ Let's go into more details:</p>
       ...
     },
     "body": {
-      "style": {
+      "background": {
         "type": "html",
         "text": "&lt;html&gt;&lt;head&gt;&lt;style&gt;...&lt;/style&gt;&lt;script&gt;....&lt;/script&gt;&lt;/head&gt;&lt;body&gt;...&lt;/body&gt;&lt;/html&gt;",
         "action": {
@@ -1424,9 +1440,7 @@ Let's go into more details:</p>
       ...
     },
     "body": {
-      "style": {
-        "background": "camera"
-      },
+      "background": "camera"
       ...
     }
   }
@@ -1440,12 +1454,10 @@ Let's go into more details:</p>
       ...
     },
     "body": {
-      "style": {
-        "background": {
-          "type": "camera",
-          "options": {
-            "device": "back"
-          }
+      "background": {
+        "type": "camera",
+        "options": {
+          "device": "back"
         }
       },
       ...
@@ -1477,6 +1489,11 @@ Let's go into more details:</p>
 <h3 id="functional-example">Functional Example</h3>
 <p><a href="https://raw.githubusercontent.com/Jasonette/Jasonpedia/gh-pages/view/background/index.json">A demo with all of the above options implemented</a></p>
 <hr />
+<h1 id="bodystyle">body.style</h1>
+<p>Styling the body</p>
+<ul>
+<li>border: setting the border color for section items</li>
+</ul>
 <h2 id="border">■ border</h2>
 <ul>
 <li>border color for <code>section</code> items.</li>
