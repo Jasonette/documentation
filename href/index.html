@@ -107,6 +107,8 @@
         
             <li><a class="toctree-l4" href="#loading">■ loading</a></li>
         
+            <li><a class="toctree-l4" href="#preload">■ preload</a></li>
+        
         </ul>
     
 
@@ -233,6 +235,7 @@
 <li><a href="#options">options</a></li>
 <li><a href="#transition">transition</a></li>
 <li><a href="#loading">loading</a></li>
+<li><a href="#preload">preload</a></li>
 </ul>
 <p><br></p>
 <h2 id="url">■ url</h2>
@@ -351,6 +354,7 @@
 </table>
 <p><br></p>
 <h2 id="loading">■ loading</h2>
+<p>(deprecated) Use <a href="#preload">preload</a> below</p>
 <p>If set to <code>"true"</code>, it displays a loading indicator when the new view loads.</p>
 <pre><code>{
   "href": {
@@ -365,6 +369,35 @@
 <li>On iOS In this case we can make the first view display a loading indicator by setting the <code>loading</code> attribute inside <code>settings.plist</code>.</li>
 </ul>
 <p><br></p>
+<h2 id="preload">■ preload</h2>
+<p>Preload lets you specify a JSON markup for the next view <strong>before</strong> the next view loads. This helps with smooth transition.</p>
+<p>Here's an example:</p>
+<p>{
+  "type": "$href",
+  "options": {
+    "url": "https://www.jasonbase.com/dhen3",
+    "preload": {
+      "style": {
+        "background": "#ff0000"
+      },
+      "layers": [{
+        "type": "image",
+        "url": "file://loading.gif",
+        "style": {
+          "top": "50%-25",
+          "left": "50%-25",
+          "width": "50",
+          "height": "50"
+        }
+      }]
+    }
+  }
+}</p>
+<p>Notice that </p>
+<ul>
+<li>the <code>preload</code> contains an entire view representation of a view.</li>
+<li>it <strong>DOES NOT</strong> contain the <code>head</code> part. preload is purely for displaying a temp view until the real view loads.</li>
+</ul>
 <p><img src='../images/settingsplist.png' class='large'></p>
               
             </div>
