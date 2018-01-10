@@ -3100,6 +3100,111 @@ plays a video from remote url.
 
 ---
 
+##── Vision ──
+
+Barcode / QR Code detection
+
+- To use `$vision` API, the body.background must be a camera type.
+- `$vision.ready` event gets triggered when the camera is ready.
+- You can trigger $vision.scan to start scanning for **barcodes/qrcodes**
+- The `$vision.scan` is asynchronous so it immediately goes on to its success callback after it kicks off the scanning service
+- The scanning service triggers a $vision.onscan event with the extracted metadata. We can use it to do whatever.
+
+## $vision.scan
+
+Starts scanning for barcode. When it scans a code, it will trigger a `$vision.onscan` event.
+
+<br>
+
+![$vision.scan](images/barcode.gif)
+
+### ■  options
+
+No options required
+
+### ■  return value
+
+- none. This action is asynchronous and the scanned result will return through the `$vision.onscan` event.
+
+### ■  example
+
+Quick example:
+
+```
+{
+  "$jason": {
+    "head": {
+      "templates": {
+        "body": {
+          "style": {
+            "background": {
+              "type": "camera"
+            }
+          }
+        }
+      },
+      "actions": {
+        "$load": {
+          "type": "$render"
+        },
+        "$vision.ready": {
+          "type": "$vision.scan"
+        },
+        "$vision.onscan": {
+          "type": "$util.alert",
+          "options": {
+            "title": "Scanned content",
+            "description": "{{$jason.type}} {{$jason.content}}"
+           }
+        }
+      }
+    }
+  }
+}
+```
+
+A couple of important things to notice:
+
+1. we have the body's background set as `"type": "camera"`. This is **mandatory** to get `$vision` action to work.
+2. Then we wait for `$vision.ready` event. And call `$vision.scan` when the event fires.
+3. The `$vision.onscan` event returns with a payload that looks like:
+
+```
+[iOS]
+
+{
+  "$jason": {
+    "type": "org.iso.QRCode",
+    "content": "Hello World"
+  }
+}
+```
+
+```
+[Android]
+
+{
+  "$jason": {
+    "type": 256,
+    "content": "Hello World"
+  }
+}
+```
+
+- The `"content"` attribute is the content of the barcode
+- The `"type"` represents the barcode type.
+
+<br>
+
+### More examples
+
+Here are two examples using this API:
+
+- Inline Detection and Rendering: [https://jasonbase.com/things/PMj7](https://jasonbase.com/things/PMj7)  (any content can be encoded)
+- detect link and $href: [https://jasonbase.com/things/rZ0b](https://jasonbase.com/things/rZ0b) (Be sure to scan a qrcode that encodes a link)
+
+---
+
 ##── AUDIO ──
 
 Anything related to audio
