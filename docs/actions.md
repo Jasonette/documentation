@@ -1648,9 +1648,10 @@ Make GET/POST/PUT/DELETE network requests
 
 ### ■ options
 - `url`: The url to access.
-- `method`: `"get"` | `"post"` | `"put"` | `"delete"`.
+- `method`: `"get"` | `"post"` | `"put"` | `"delete"` | `"head"` | `"patch"` .
 - `data`: Parameters to send along with the url (optional)
 - `header`: Headers to attach to every request if any (optional)
+- `timeout`: network request time out in seconds (optional).
 - `data_type`: Specifies how the fetched response will be processed. Can be `json`, `html`, `rss`, or `raw`. `json` assumes that the return value will be in JSON format, whereas `raw` expects a plain text. You can use `raw` type when fetching a plain text or CSV. `html` is for fetching HTML content and especially required when you need to utilize HTML requests associated with cookies/sessions. `rss` is used to fetch RSS. The default is `json`.
 - `content_type`: Specifies which format the parameters will be sent as. By default it's sent as a form object, but in case you specify `{"content_type": "json"}` the data will be submitted as a JSON string.
 
