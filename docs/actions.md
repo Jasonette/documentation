@@ -1487,7 +1487,7 @@ This example opens Instagram app using its URL scheme
 
 ---
 
-##$close
+## $close
 
 Close a modal (works when the currently view is a modal)
 
@@ -1499,7 +1499,7 @@ Close a modal (works when the currently view is a modal)
 
 ---
 
-##$back
+## $back
 Transition one step back from the current view
 
 - If the current view is a modal, it closes the current view
@@ -1512,6 +1512,58 @@ Transition one step back from the current view
 - none
 
 ---
+
+## $ok
+
+Similar to [$back](#back), however allows for a return value. This means you can send back a return value to the previous view using `$ok`.
+
+Here's how to get it to work:
+
+<br>
+<br>
+
+### 1. Close the current view using `$ok`
+
+Remember to attach the return value payload under `options`. Otherwise it's the same as `$back`.
+
+```
+{
+  "type": "$ok",
+  "options": {
+    "selection": "Americano"
+  }
+}
+```
+
+### 2. The previous view processes the return value using the `success` callback
+
+<br>
+
+Two points:
+
+1. The caller view must have opened the closing view with an `$href` action.
+2. The `$href` action must have a `success` callback (Otherwise how would you process it?)
+
+```
+{
+  "type": "$href",
+  "options": {
+    "url": "file://selection.json"
+  },
+  "success": {
+    "type": "$util.alert",
+    "options": {
+      "title": "Selected",
+      "description": "You have selected {{$jason.selection}}"
+    }
+  }
+}
+```
+
+Notice that the `options` payload from the previous `$ok` action is accessible as `$jason` in the success callback.
+
+---
+
 
 ##── NETWORK ──
 
