@@ -167,6 +167,8 @@
         
             <li><a class="toctree-l4" href="#back">$back</a></li>
         
+            <li><a class="toctree-l4" href="#ok">$ok</a></li>
+        
             <li><a class="toctree-l4" href="#network">── NETWORK ──</a></li>
         
             <li><a class="toctree-l4" href="#networkrequest">$network.request</a></li>
@@ -1710,6 +1712,45 @@ In the example below, an <code>action</code> is attached to a <code>slider</code
 <ul>
 <li>none</li>
 </ul>
+<hr />
+<h2 id="ok">$ok</h2>
+<p>Similar to <a href="#back">$back</a>, however allows for a return value. This means you can send back a return value to the previous view using <code>$ok</code>.</p>
+<p>Here's how to get it to work:</p>
+<p><br>
+<br></p>
+<h3 id="1-close-the-current-view-using-ok">1. Close the current view using <code>$ok</code></h3>
+<p>Remember to attach the return value payload under <code>options</code>. Otherwise it's the same as <code>$back</code>.</p>
+<pre><code>{
+  &quot;type&quot;: &quot;$ok&quot;,
+  &quot;options&quot;: {
+    &quot;selection&quot;: &quot;Americano&quot;
+  }
+}
+</code></pre>
+
+<h3 id="2-the-previous-view-processes-the-return-value-using-the-success-callback">2. The previous view processes the return value using the <code>success</code> callback</h3>
+<p><br></p>
+<p>Two points:</p>
+<ol>
+<li>The caller view must have opened the closing view with an <code>$href</code> action.</li>
+<li>The <code>$href</code> action must have a <code>success</code> callback (Otherwise how would you process it?)</li>
+</ol>
+<pre><code>{
+  &quot;type&quot;: &quot;$href&quot;,
+  &quot;options&quot;: {
+    &quot;url&quot;: &quot;file://selection.json&quot;
+  },
+  &quot;success&quot;: {
+    &quot;type&quot;: &quot;$util.alert&quot;,
+    &quot;options&quot;: {
+      &quot;title&quot;: &quot;Selected&quot;,
+      &quot;description&quot;: &quot;You have selected {{$jason.selection}}&quot;
+    }
+  }
+}
+</code></pre>
+
+<p>Notice that the <code>options</code> payload from the previous <code>$ok</code> action is accessible as <code>$jason</code> in the success callback.</p>
 <hr />
 <h2 id="network">── NETWORK ──</h2>
 <hr />
