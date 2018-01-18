@@ -3224,7 +3224,7 @@ Check out the full code on Github:</p>
 <h2 id="vision">── Vision ──</h2>
 <p>Barcode / QR Code detection</p>
 <ul>
-<li>To use <code>$vision</code> API, the body.background must be a camera type.</li>
+<li>To use <code>$vision</code> API, the body.background must be a <code>camera</code> type, with <code>"device": "back"</code> (front-facing camera can only scan your face, not scan barcodes).</li>
 <li><code>$vision.ready</code> event gets triggered when the camera is ready.</li>
 <li>You can trigger $vision.scan to start scanning for <strong>barcodes/qrcodes</strong></li>
 <li>The <code>$vision.scan</code> is asynchronous so it immediately goes on to its success callback after it kicks off the scanning service</li>
@@ -3248,7 +3248,10 @@ Check out the full code on Github:</p>
       &quot;templates&quot;: {
         &quot;body&quot;: {
           &quot;background&quot;: {
-            &quot;type&quot;: &quot;camera&quot;
+            &quot;type&quot;: &quot;camera&quot;,
+            &quot;options&quot;: {
+              &quot;device&quot;: &quot;back&quot;
+            }
           }
         }
       },
