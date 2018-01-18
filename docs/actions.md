@@ -3177,7 +3177,7 @@ plays a video from remote url.
 
 Barcode / QR Code detection
 
-- To use `$vision` API, the body.background must be a camera type.
+- To use `$vision` API, the body.background must be a `camera` type, with `"device": "back"` (front-facing camera can only scan your face, not scan barcodes).
 - `$vision.ready` event gets triggered when the camera is ready.
 - You can trigger $vision.scan to start scanning for **barcodes/qrcodes**
 - The `$vision.scan` is asynchronous so it immediately goes on to its success callback after it kicks off the scanning service
@@ -3210,7 +3210,10 @@ Quick example:
       "templates": {
         "body": {
           "background": {
-            "type": "camera"
+            "type": "camera",
+            "options": {
+              "device": "back"
+            }
           }
         }
       },
