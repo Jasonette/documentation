@@ -68,7 +68,7 @@
         
             <li><a class="toctree-l3" href="#follow-the-project">■ Follow the project</a></li>
         
-            <li><a class="toctree-l3" href="#join-the-community">■ Join the community</a></li>
+            <li><a class="toctree-l3" href="#ask-the-community">■ Ask the community</a></li>
         
         </ul>
     
@@ -84,6 +84,9 @@
             <li><a class="toctree-l3" href="#step-3-learn-more-reference">Step 3. Learn more (Reference)</a></li>
         
         </ul>
+    
+
+    <li class="toctree-l2"><a href="#in-depth-tutorials">In-depth Tutorials</a></li>
     
 
     <li class="toctree-l2"><a href="#examples">Examples</a></li>
@@ -222,19 +225,30 @@
 <h2 id="follow-the-project">■ Follow the project</h2>
 <table class='equalwidth follow'>
     <tr>
-        <th class='span6'>Twitter</th>
-        <th class='span6'>Blog</th>
+        <th class='span4'>Twitter</th>
+        <th class='span4'>Blog</th>
     </tr>
     <tr>
-        <td class='span6'><a href='https://www.twitter.com/jasonclient'><h1><i class='icon fa-twitter fa-1x'></i></h1>@jasonclient</a></td>
-        <td class='span6'><a href='https://blog.jasonette.com'><h1><i class='icon fa-rss fa-1x'></i></h1>Blog</a></td>
+        <td class='span4'><a href='https://www.twitter.com/jasonclient'><h1><i class='icon fa-twitter fa-1x'></i></h1>@jasonclient</a></td>
+        <td class='span4'><a href='https://medium.com/@gliechtenstein'><h1><i class='icon fa-rss fa-1x'></i></h1>Follow on Medium</a></td>
     </tr>
+</table>
+
+<table class='equalwidth follow'>
   <tr>
-        <th class='span6'>Github iOS</th>
-        <th class='span6'>Github Android</th>
+        <th class='span4'>Github iOS</th>
+        <th class='span4'>Github Android</th>
+        <th class='span4'>Github Web</th>
+  </tr>
+  <tr>
+    <td class='span4'>Native Objective-C<br>Implementation</td>
+    <td class='span4'>Native Java<br>Implementation</td>
+    <td class='span4'>A Web implementation,<br>written in JavaScript</td>
+  </tr>
     <tr>
-        <td class='span6'><a href='https://www.github.com/Jasonette/JASONETTE-iOS'><h1><i class='icon fa-github fa-1x'></i></h1>JASONETTE-iOS</a></td>
-        <td class='span6'><a href='https://www.github.com/Jasonette/JASONETTE-Android'><h1><i class='icon fa-github fa-1x'></i></h1>JASONETTE-Android</a></td>
+        <td class='span4'><a href='https://www.github.com/Jasonette/JASONETTE-iOS'><h1><i class='icon fa-github fa-1x'></i></h1>JASONETTE-iOS</a></td>
+        <td class='span4'><a href='https://www.github.com/Jasonette/JASONETTE-Android'><h1><i class='icon fa-github fa-1x'></i></h1>JASONETTE-Android</a></td>
+        <td class='span4'><a href='https://www.github.com/Jasonette/JASONETTE-Web'><h1><i class='icon fa-github fa-1x'></i></h1>JASONETTE-Web</a></td>
     </tr>
 </table>
 
@@ -256,7 +270,10 @@
 </div>
 
 <p><br></p>
-<h2 id="join-the-community">■ Join the community</h2>
+<h2 id="ask-the-community">■ Ask the community</h2>
+<p>For code related questions, ask on the forum to get more comprehensive answers.</p>
+<p>For quick chats, use the Slack channel.</p>
+<p><br></p>
 <table class='equalwidth follow'>
     <tr>
         <th class='span6'>Slack</th>
@@ -325,8 +342,10 @@
 <h3 id="b-get-a-json-server">B. Get a JSON server</h3>
 <p>You'll be serving your entire app from a server, so you will need somewhere to host JSON, just like you need somewhere to host websites. There are many ways to do this:</p>
 <div class='well'>
-<h3><a href='https://www.jasonbase.com'>1. Jasonbase.com (https://www.jasonbase.com)</a></h3>
-<b>[Recommended]</b> A JSON hosting service created by <a href='https://www.twitter.com/gliechtenstein'>@gliechtenstein</a> while building Jasonette because there was no easy way to host, edit, and serve JSON online instantly. This is the site used in the tutorial videos. Feel free to use this for your Jasonette apps. <b>It's FREE.</b>
+<h3><a href='http://web.jasonette.com'>1. Jasonette Web (web.jasonette.com)</a></h3>
+<b>[Recommended]</b> A hosted & social implementation of <a href='https://github.com/Jasonette/Jasonette-Web'>Jasonette-Web</a>.<br><br>Has all the useful features such as folders, markdown-based readme, bookmarking, version control, realtime editing, etc. Write and share as much JSON as you want. <b>It's FREE.</b>
+<br><br>
+(Note: You DON'T need to use Jasonette Web to use Jasonette. This service is provided for free to help you get started quickly without having to set up your own JSON server. After all, all you need is JSON and the whole point of the framework is the portability of JSON)
 
 <br><br>
 <h3>2. Code hosting or pastebin sites</h3>
@@ -334,8 +353,14 @@ You can also use <a href='https://www.github.com'>Github</a> or <a href='http://
 
 <br><br>
 
-<h3>3. Plug into your existing server</h3>
+<h3>3. Quick Local Prototyping</h3>
+You can also use <a href='https://github.com/Jasonette/Jasonette-Web'>Jasonette-Web</a> along with simple instant open source HTTP servers like the <a href='https://github.com/indexzero/http-server'>http-server project</a> to roll your own Jasonette Web.
+<br><br>
+
+<h3>4. Plug into your existing server</h3>
 You can skip all this and set up your own web app with a JSON endpoint, or just plug into your existing web app.
+<br><br>
+
 
 </div>
 
@@ -381,6 +406,23 @@ Actions define a task or a sequence of tasks you wish to run, such as network re
 <h3 id="templates">Templates</h3>
 <p><strong><a href="templates/">Learn templates</a></strong><br>
 You can use templates to dynamically render data, such as remote network content, local data, and user input.</p>
+<hr />
+<h1 id="in-depth-tutorials">In-depth Tutorials</h1>
+<p>Here are some in-depth articles</p>
+<ul>
+<li><a href="https://medium.freecodecamp.org/how-to-build-cross-platform-mobile-apps-using-nothing-more-than-a-json-markup-f493abec1873">(Intro) How to build cross-platform mobile apps using nothing more than a JSON markup</a></li>
+<li><a href="https://medium.com/@gliechtenstein/jasonette-offline-7d6ed8d58edb">Jasonette Offline: Using offline features with Jasonette</a></li>
+<li><a href="http://blog.jasonette.com/2017/01/17/build-a-slackbot-with-jasonette/">Building a SlackBot remote control app with Jasonette</a></li>
+<li><a href="http://blog.jasonette.com/2017/02/07/supercharged-tabbar/">TabBar: How the bottom tab bar works</a></li>
+<li><a href="http://blog.jasonette.com/2017/02/15/functional-programming-in-json/">Functional Programming in JSON: How Jasonette implements function call stacks purely in JSON, and how to use it</a></li>
+<li><a href="http://blog.jasonette.com/2017/02/17/require/">Require: How $require action works</a></li>
+<li>Mixins: 2-part series.<ul>
+<li><a href="http://blog.jasonette.com/2017/02/27/mixins/">Remote Mixin</a>: How to dynamically mix in multiple remote JSON objects into a single root JSON</li>
+<li><a href="http://blog.jasonette.com/2017/03/02/self-mixin/">Self Mixin</a>: How to mix in a subtree of a JSON object onto itself.</li>
+</ul>
+</li>
+<li><a href="http://blog.jasonette.com/2017/04/07/JSON-web-container/">Web Container: Introduction to Web Container</a></li>
+</ul>
 <hr />
 <h1 id="examples">Examples</h1>
 <p>Actual JSON examples you can try out with Jasonette:</p>
@@ -436,5 +478,5 @@ You can use templates to dynamically render data, such as remote network content
 
 <!--
 MkDocs version : 0.17.2
-Build Date UTC : 2018-01-18 02:13:19
+Build Date UTC : 2018-02-01 01:19:40
 -->
