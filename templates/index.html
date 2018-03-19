@@ -906,7 +906,7 @@ For example here's a JSON markup that renders a list of labels:</p>
             },
             {
               "type": "label"
-              "text": {{$get.message}}"
+              "text": "{{$get.message}}"
             }
           ]
           ...
@@ -1029,7 +1029,7 @@ For example here's a JSON markup that renders a list of labels:</p>
           "items": {
             "{{#each names}}": {
               "type": "label",
-              "text": "Ethan",
+              "text": "{{this}}",
               "style": {
                 "color": "#000000",
                 "size": "14",
