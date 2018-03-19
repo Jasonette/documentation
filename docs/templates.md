@@ -738,7 +738,7 @@ You can render templates using any type of data, which includes **local variable
                 },
                 {
                   "type": "label"
-                  "text": {{$get.message}}"
+                  "text": "{{$get.message}}"
                 }
               ]
               ...
@@ -872,7 +872,7 @@ Using template/data, we can reduce it down to:
               "items": {
                 "{{#each names}}": {
                   "type": "label",
-                  "text": "Ethan",
+                  "text": "{{this}}",
                   "style": {
                     "color": "#000000",
                     "size": "14",
