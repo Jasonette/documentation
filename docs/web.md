@@ -453,7 +453,7 @@ file://native_transition.json
 				"body": {
 					"background": {
 						"type": "html",
-						"url": "{{$params.url}}",
+						"url": "{{$get.url}}",
 						"action": {
 							"trigger": "navigate"
 						}
