@@ -223,7 +223,7 @@ textfields are seamlessly integrated with [local variables](actions.md#local-var
       }
     }
 
-####Example 2: autocorrect/autocaptiazlie/spellcheck input
+####Example 2: autocorrect/autocapitalize/spellcheck input
 
     {
       "type": "textfield",
