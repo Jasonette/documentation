@@ -11,7 +11,7 @@ This is because **everything** on Jasonette is described in JSON. You can select
 3. Store all model, view, controller locally.
 4. Etc.
 
-But this is just the basics. Imagine what's possible when you use [mixins](/mixin). You can mix and match different modules from different sources, some online, some offline, to finally construct the final app.
+But this is just the basics. Imagine what's possible when you use [mixins](mixin.md). You can mix and match different modules from different sources, some online, some offline, to finally construct the final app.
 
 ---
 
@@ -74,7 +74,7 @@ Just like you can fetch remote files over `http` to construct a Jasonette app, y
 
 > **C. Offline Require**
 
->You can [$require](/actions/#require) offline JSON URLs:
+>You can [$require](actions.md#require) offline JSON URLs:
 
 ```
     {
@@ -89,7 +89,7 @@ Just like you can fetch remote files over `http` to construct a Jasonette app, y
 
 > **D. Offline Mixin**
 
->You can use file urls with [mixins](/mixin):
+>You can use file urls with [mixins](mixin.md):
 
 ```
     {
@@ -114,14 +114,14 @@ Just like you can fetch remote files over `http` to construct a Jasonette app, y
 
 > Supported everywhere:
 
->- [body.background](/document/#background)
->- [header.menu](/document/#menu)
->- [header.title](/document/#title)
->- [footer.tabs](/document/#tabs)
->- [footer.input](/document/#input)
->- [image component](/components/#image)
->- [button component](/components/#button)
->- [image layers](/document/#typeimage)
+>- [body.background](document.md#background)
+>- [header.menu](document.md#menu)
+>- [header.title](document.md#title)
+>- [footer.tabs](document.md#tabs)
+>- [footer.input](document.md#input)
+>- [image component](components.md#image)
+>- [button component](components.md#button)
+>- [image layers](document.md#typeimage)
 
 
 ---
@@ -168,7 +168,7 @@ Also, you probably want them to be persisted so you can use it like a Database.
 
 This is what global key-value store does.
 
-The global key-value store is supported as an **action**. See [$global API section](/actions/#global) to learn more.
+The global key-value store is supported as an **action**. See [$global API section](actions.md#global) to learn more.
 
 <img src='../images/global.png' class='large'>
 
@@ -233,7 +233,7 @@ Remember, this is a full fledged JASON view, which means you can do anything you
 
 1. If you don't want a loading view, replace it with an empty view.
 2. If you want a simple background colour instead of loading animation, you can do so by setting the background color
-3. You can get creative and use the [$global](/actions/#global) and [$env](/env) variables to construct custom loading screens for each view.
+3. You can get creative and use the [$global](actions.md#global) and [$env](env.md) variables to construct custom loading screens for each view.
 
 ---
 
